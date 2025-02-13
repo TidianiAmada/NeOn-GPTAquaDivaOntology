@@ -1,0 +1,53 @@
+Competency Questions for the Role AquaDiva Ontology
+
+    1. What are the different biological roles present within the groundwater ecosystem?
+    2. Which organisms play a decomposer role in groundwater environments?
+    3. Which microbial species have a role in nitrogen fixation in the aquifer system?
+    4. What biological roles are associated with primary consumers in groundwater ecosystems?
+    5. How do macroinvertebrates contribute to the biological roles within the aquifer?
+    6. Which organisms in the aquifer ecosystem have a symbiotic biological role?
+    7. What are the key trophic roles (e.g., primary producer, consumer, predator) in the groundwater ecosystem?
+    8. What chemical roles do substances play in subsurface ecosystems?
+    9. Which chemical substances act as electron acceptors in groundwater environments?
+    10. What are the common poisons affecting microbial life in groundwater ecosystems?
+    11. Which inhibitors are known to affect microbial metabolism in aquifers?
+    12. How do heavy metals function as poisons in groundwater environments?
+    13. What are the different types of metabolic inhibitors present in the aquifer system?
+    14. What is the role of acids in influencing the biogeochemistry of groundwater ecosystems?
+    15. How do chemical inhibitors influence biological roles within the groundwater ecosystem?
+    16. Which biological entities are most affected by poisons such as heavy metals in groundwater?
+    17. How do electron acceptors like oxygen and nitrate support biological processes in groundwater?
+    18. Which organisms use specific chemical acceptors (e.g., nitrate) in their metabolic processes?
+    19. How do acids impact microbial roles, such as nutrient cycling, in the aquifer?
+    20. What are the environmental containment factors that influence biological and chemical roles in the groundwater system?
+    21. How does pH (acidity) regulate microbial activity in aquifers?
+    22. Which environmental containment conditions promote or inhibit biological functions in subsurface ecosystems?
+    23. How does the karst system influence the containment and spread of chemicals in groundwater?
+    24. In what ways do temperature gradients affect the biological and chemical roles within the aquifer?
+    25. What roles do microorganisms play in the nitrogen cycle in groundwater ecosystems?
+    26. How are sulfur-reducing bacteria involved in the sulfur cycle within aquifers?
+    27. What chemical agents are critical to the phosphorus cycle in the aquifer?
+    28. How do methanotrophic organisms contribute to the carbon cycle in subsurface environments?
+    29. Which biological and chemical roles are key in denitrification processes in groundwater?
+    30. What are the different aquifer system structures represented in the ontology?
+    31. How does the physical structure of karst systems affect the roles of biological and chemical entities in groundwater?
+    32. Which organisms are specifically adapted to the porous rock formations in aquifers?
+    33. What is the relationship between confined aquifers and environmental containment?
+    34. Which contaminants in groundwater ecosystems act as poisons to biological entities?
+    35. What are the common microbial contaminants in groundwater ecosystems?
+    36. How do organic contaminants such as pesticides act as inhibitors in the aquifer?
+    37. How do different types of contaminants (organic, inorganic, microbial) affect the chemical roles in groundwater?
+    38. Which organisms are most susceptible to contamination by heavy metals in subsurface environments?
+    39. How are biological roles classified in the ontology, from general to specific?
+    40. What hierarchical relationships exist between different chemical roles in the aquifer system?
+    41. How are biological and chemical entities related to their roles through the subclass hierarchy?
+    42. What is the role of annotation properties in defining the relationships between classes in the ontology?
+    43. How are the biological and chemical roles of entities interconnected within the ontology?
+    44. How can environmental containment factors be linked to specific biological or chemical roles in a query?
+    45. What are the object properties that define relationships between biological roles and environmental conditions?
+    46. How does the ontology reuse principles from ENVO to represent hierarchical class structures?
+    47. How does the ontology ensure interoperability with other environmental ontologies?
+    48. How does the ontology support research in understanding the biogeochemical roles in subsurface ecosystems?
+    49. How can the ontology be used to simulate the impact of chemical inhibitors on microbial roles?
+    50. What are the annotation properties that provide context for environmental containment in the aquifer?
+    51. How can the ontology be updated to include new findings related to biological or chemical roles in groundwater ecosystems?
