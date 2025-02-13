@@ -1,0 +1,66 @@
+Competency Questions for the Habitat AquaDiva Ontology
+
+1. What types of microbial functional guilds are found in specific aquifers?
+2. Which chemical parameters are associated with the presence of specific aquifer fungi?
+3. What species of aquatic microbes are found in environments with specific chemical characteristics?
+4. How do the characteristics of aquifer habitats influence the distribution and diversity of fungi?
+5. Are there rare species of fungi or microbes associated with particular aquifer conditions?
+6. Can specific microbial functional guilds be associated with certain ecological roles in aquatic ecosystems?
+7. What are the interrelationships between aquatic fungi and aquifer microbes within the same habitat?
+8. Which microbial functional guilds are involved in autolithoautotrophy within specific habitats?
+9. What environmental conditions are conducive to the proliferation of heterotrophic microbes?
+10. How do changes in aquifer chemical data influence the microbial and fungal community structure over time?
+11. What subclasses exist within the major classes of aquatic microbes and fungi?
+12. Which habitats are equivalent in terms of their microbial and fungal communities' composition?
+13. Are there any disjoint classes among the identified habitats based on their distinct chemical or biological characteristics?
+14. What are the different aquifer fungi species found in a given aquifer?
+15. How do aquifer fungi interact with aquifer microbes in subsurface ecosystems?
+16. What role do aquifer fungi play in the biogeochemical cycling within aquifers?
+17. What are the most common aquifer microbes present in a specific aquifer environment?
+18. Which aquifer microbes are adapted to high salinity or extreme pH conditions?
+19. How do aquifer microbes contribute to nutrient cycling in groundwater ecosystems?
+20. Which microbial functional guilds are present in a specific aquifer ecosystem?
+21. How do different microbial functional guilds (e.g., autotrophs, heterotrophs) interact in nutrient-poor aquifers?
+22. How does the presence of heterotrophs impact the activity of other microbial guilds within an aquifer?
+23. What role do rare microbial species play within the identified microbial functional guilds?
+24. Which heterotrophs are predominant in a given aquifer, and what is their role in the ecosystem?
+25. How do heterotrophs metabolize organic matter in low-nutrient aquifers?
+26. What are the metabolic interactions between heterotrophs and aquatic fungi in aquifers?
+27. How does the chemical composition (e.g., pH, salinity, oxygen levels) of an aquifer influence aquifer microbes?
+28. What changes in aquifer chemical data are associated with increased microbial activity?
+29. Which chemical factors most significantly affect the diversity of aquifer fungi?
+30. How do variations in aquifer chemical data (e.g., nutrient levels, mineral composition) affect microbial functional guilds?
+31. What specific aquifer chemical data is correlated with the presence of rare microbial species?
+32. Which chemical elements or compounds are metabolized by aquifer microbes?
+33. How do aquatic fungi contribute to the degradation of organic matter in groundwater ecosystems?
+34. What are the specific interactions between aquatic fungi and chemical properties of an aquifer?
+35. Which aquatic fungi are capable of autotrophic processes in aquifers with limited organic substrates?
+36. What are the characteristics of rare species found in a specific aquifer?
+37. How do rare microbial species adapt to extreme conditions within subsurface aquifers?
+38. What ecological functions do rare species perform in microbial communities?
+39. Which fungal species exhibit autolithoantatrophy in subsurface aquifers?
+40. How does autolithoantatrophy contribute to the survival of fungi in nutrient-limited environments?
+41. What specific environmental conditions trigger autolithoantatrophy in aquatic fungi?
+42. How do aquifer fungi interact with other species within the microbial community?
+43. What are the trophic relationships between different species of aquifer microbes?
+44. How do aquatic fungi influence the abundance and activity of heterotrophs in aquifers?
+45. What factors influence the distribution of different species of aquifer fungi across various aquifer environments?
+46. Which species of aquifer microbes are considered endemic or rare species in specific regions or aquifers?
+47. What are the environmental drivers of species richness and diversity in aquifer ecosystems?
+48. How do aquatic fungi and aquifer microbes adapt to low-nutrient or anaerobic conditions?
+49. What are the physiological mechanisms by which aquifer fungi and heterotrophs survive in extreme environments?
+50. How do microbial functional guilds adapt to changes in aquifer chemical data?
+51. What are the primary ecological functions performed by aquifer fungi in groundwater ecosystems?
+52. How do aquifer microbes contribute to carbon cycling in aquifers?
+53. What is the role of rare species in maintaining the ecological balance of aquifer microbial communities?
+54. What is the composition of aquifer microbes in a specific aquifer (e.g., a carbonate aquifer)?
+55. How does aquifer chemical data vary across different types of aquifers, and how does this affect microbial diversity?
+56. Which aquifer fungi are most abundant in aquifers with high concentrations of dissolved organic carbon?
+57. How do microbial communities, including aquifer fungi and aquatic fungi, indicate the health of an aquifer ecosystem?
+58. What are the effects of aquifer contamination on aquifer microbes and rare species?
+59. Which microbial indicators are used to assess biodiversity and ecological resilience in aquifers?
+60. Does every class have at least one subclass?
+61. How many object properties define relationships between aquifer fungi and aquifer microbes?
+62. What are the equivalent classes for aquatic fungi in relation to aquifer fungi?
+63. How are the hidden GCIs used to represent complex interactions within microbial communities?
+64. What are the specific annotation properties used to document rare species within the ontology?
