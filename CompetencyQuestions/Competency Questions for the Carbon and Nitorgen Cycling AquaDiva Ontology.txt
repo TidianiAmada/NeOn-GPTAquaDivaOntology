@@ -1,0 +1,48 @@
+Competency Questions for the Carbon and Nitorgen Cycling AquaDiva Ontology
+1. What are the primary CO2 fixation pathways in forest ecosystems, specifically in beech forests?
+2. Which environmental conditions (e.g., soil moisture, pH) influence CO2 fixation in groundwater ecosystems?
+3. What role does rubisco play in the CO2 fixation process?
+4. How does energy metabolism contribute to CO2 fixation pathways in aquatic ecosystems?
+5. What are the key microbial communities involved in CO2 fixation in groundwater ecosystems?
+6. What are the different forms of carbon fixation in forest soils?
+7. How does carbon sequestration in beech forests contribute to overall carbon cycling?
+8. What is the relationship between dissolved carbon in water and carbon cycling in karst systems?
+9. How is dissolved carbon transported between different environmental compartments, such as soil and groundwater?
+10. What are the major processes involved in the nitrogen cycle in beech forest ecosystems?
+11. How do ammonia-oxidizers contribute to the nitrogen cycle in groundwater?
+12. What are the conditions that promote nitrogen leaching in forest ecosystems?
+13. How does ammonia oxidation influence nitrogen-cycling in karst systems?
+14. What is the role of denitrifying bacteria in the denitrification process?
+15. Which environmental conditions (e.g., pH, temperature) affect denitrification and the production of N2O?
+16. How does denitrification vary between soil and groundwater environments?
+17. What is the relationship between nitrogen-fixation and energy metabolism in soil and groundwater systems?
+18. Which microbial communities are responsible for symbiotic nitrogen fixation in beech forests?
+19. Which processes are responsible for the production of CO2 in groundwater ecosystems?
+20. How is CO2 consumed during carbon cycling in beech forest ecosystems?
+21. What are the key processes leading to the production of methane (CH4) in aquatic ecosystems?
+22. How do denitrification processes contribute to the production of N2O in groundwater?
+23. What role do microbial communities play in the consumption of trace gases like methane (CH4)?
+24. How does the production of trace gases differ between aerobic and anaerobic environments?
+25. How are carbon isotopes (e.g., 13C, 14C) used to study carbon cycling in forest ecosystems?
+26. What is the role of nitrogen isotopes (e.g., 15N) in tracing nitrogen cycling processes in groundwater?
+27. How do isotopic ratios of carbon and nitrogen provide insights into CO2 fixation and nitrogen leaching?
+28. What are the typical isotope signatures associated with denitrification in groundwater systems?
+29. How do isotopic shifts reflect changes in carbon sequestration in beech forests over time?
+30. What factors influence nitrogen leaching from beech forests into groundwater?
+31. How does nitrogen leaching impact overall nitrogen-cycling in forest ecosystems?
+32. What are the primary environmental consequences of N leaching in aquatic systems?
+33. How does nitrogen leaching vary across different soil types in forest ecosystems?
+34. What are the key interactions between carbon cycling and nitrogen cycling in groundwater systems?
+35. How do CO2 fixation pathways influence nitrogen fixation in soil and groundwater ecosystems?
+36. What is the relationship between denitrification and carbon sequestration in forest ecosystems?
+37. How does the carbon-nitrogen ratio impact energy metabolism in microbial communities involved in carbon and nitrogen cycling?
+38. What are the ecological roles of ammonia-oxidizers and denitrifying bacteria in beech forest ecosystems?
+39. How do forest ecosystems, specifically beech forests, affect carbon and nitrogen cycling in nearby groundwater systems?
+40. How does the hydrogeology of karst systems influence carbon and nitrogen cycling?
+41. What role does forest soil composition play in the CO2 fixation process?
+42. Which microbial processes are involved in the production and consumption of trace gases in groundwater?
+43. What biochemical pathways are responsible for ammonia oxidation in aquatic ecosystems?
+44. How does rubisco activity vary among different photosynthetic organisms in forest and aquatic ecosystems?
+45. How is energy metabolism linked to CO2 fixation in microbial communities within groundwater systems?
+46. What is the relationship between energy metabolism and denitrification in forest ecosystems?
+47. How does energy metabolism drive ammonia oxidation in the nitrogen cycle?
