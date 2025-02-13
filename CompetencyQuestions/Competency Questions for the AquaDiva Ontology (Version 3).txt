@@ -1,0 +1,125 @@
+Competency Questions for the AquaDiva Ontology (Version 3)
+1. What are the dominant microbial functional guilds in specific aquifers?
+2. Which aquatic fungi and microbes are present in karst and fractured rock aquifers?
+3. How do aquifer fungi and microbes contribute to the geochemical processes within aquifers?
+4. What is the habitat distribution of microbial species in aquifers with different chemical compositions?
+5. How do microbial communities in aquifers compare to those in aboveground environments?
+6. How does hydrochemistry vary between aquifers in Triassic limestone and fractured rock formations?
+7. What role does the pedological setting play in groundwater quality across different aquifer types?
+8. How does karstification affect the hydrochemical properties of groundwater?
+9. What are the interactions between aquatic colloids and groundwater microbes in fractured rock aquifers?
+10. How does carbonate dissortation affect the behavior of eukaryotic organisms in aquifers?
+11. What are the primary eukaryotic species found in subsurface habitats, and how do they interact with aquifer microbes?
+12. How does mobile organic matter influence groundwater physiochemical parameters?
+13. What are the key factors affecting groundwater supply in karst systems?
+14. How do physiochemical parameters change with variations in aquifer supply due to precipitation or snowmelt?
+15. How does agricultural activity affect groundwater quality and microbial biodiversity in aquifers?
+16. In what environmental settings do specific microbial functional guilds thrive?
+17. How do agricultural practices influence the continuity of strata and groundwater infiltration areas?
+18. What is the role of subsoil characteristics in the distribution of microbial communities in aquifers?
+19. How do mineral-organic interactions in groundwater affect microbial guilds and biogeochemical cycling?
+20. How does precipitation impact groundwater quality and microbial diversity in karst systems?
+21. How do snowmelt events alter the hydrochemical parameters of groundwater?
+22. How does vegetation heterogeneity affect groundwater recharge and microbial diversity in aquifers?
+23. What peptides are associated with microbial activity in subsurface ecosystems?
+24. What sampling methods are used to study groundwater microbial communities in aquifers?
+25. Which microbial species are active in oxic and anoxic zones of aquifers?
+26. How do surface chemical signals influence subsurface microbial communities?
+27. What are the differences between chemical signals in aboveground and subsurface ecosystems?
+28. How do aquifer microbiomes compare to soil microbiomes in cross-kingdom microbial interactions?
+29. What role do biocolloids play in the distribution of microbial communities across aquifers and soils?
+30. How does karstification influence the distribution of eukaryotic organisms in groundwater?
+31. What is the role of karst aquifers in hosting diverse microbial and fungal communities?
+32. How vulnerable are specific aquifers to groundwater contamination based on their permeability?
+33. What measures are effective for groundwater protection in areas with intensive agricultural practices?
+34. What CO2 fixation pathways are active in aquifers, and how do they vary across microbial guilds?
+35. How does pore structure in aquifers influence microbial diversity and geochemical processes?
+36. How does throughfall affect microbial activity and groundwater recharge in forested areas?
+37. What are the impacts of long-term changes in throughfall on subsurface microbial communities?
+38. What biogeochemical processes dominate in pristine aquifers, and how are they influenced by microbial activity?
+39. How do marine microbial communities compare to those in groundwater systems?
+40. How does dissolved organic carbon (DOC) composition affect microbial metabolism in aquifers?
+41. What interactions occur between heterotrophic and autotrophic microbes in anoxic aquifers?
+42. How do hydraulic properties, such as fractured flow and karstified zones, affect the transport of microorganisms in aquifers?
+43. How does groundwater velocity influence microbial community distribution in different aquifer systems?
+44. How do microbial community structures change temporally in upper and lower aquifers?
+45. What factors drive the temporal dynamics of microbial guilds in fractured rock aquifers?
+46. How do physicochemical conditions, such as PH and oxygen content, shape the habitat for microbes in aquifers?
+47. How does environmental contamination alter physicochemical parameters in aquifers?
+48. What are the primary pathways for contaminant transport in karst and fractured rock aquifers?
+49. How does agricultural runoff contribute to groundwater contamination and affect aquifer vulnerability?
+50. How do different substrates within aquifers contribute to biogeochemical cycling and microbial metabolism?
+51. What are the key factors influencing substrate utilization by microbial communities in groundwater systems?
+52. How do climatic parameters, such as precipitation and temperature, affect groundwater balance and recharge rates?
+53. How do extreme weather events, such as thunderstorms, impact microbial and chemical processes in aquifers?
+54. How does biodiversity in aquifer ecosystems contribute to overall groundwater functioning?
+55. What are the critical environmental factors that influence biodiversity in groundwater habitats?
+56. How do geological factors, such as lithology and mineral composition, influence aquifer chemistry and microbial community structure?
+57. What role do specific geological formations, such as Trochitenkalk and Muschelkalk, play in aquifer microbial ecosystems?
+58. What are the biological and chemical roles of microbes in maintaining groundwater quality?
+59. How do microbial guilds function as environmental indicators of groundwater health?
+60. 
+61. What are the different habitats of aquifer fungi and aquatic fungi within the aquifer system?
+62. What are the dominant aquifer microbes in specific groundwater habitats?
+63. Which microbial functional guilds are present in various groundwater habitats?
+64. What types of aquifer chemical data are associated with specific microbial communities?
+65. How do aquatic colloids affect the habitat of aquatic microbes in karst systems?
+66. What is the hydrochemistry of limestone aquifers, particularly in triassic and fractured rock formations?
+67. How does carbonate dissortation influence groundwater quality in karst and fractured rock aquifers?
+68. What role does karstification play in the pedological processes of aquifers?
+69. How do secondary minerals in aquifers contribute to mineral-organic interactions?
+70. What types of eukaryotic organisms inhabit karst and fractured rock aquifers?
+71. What is the role of eukaryotes in aquifer ecosystems?
+72. What are the interactions between cross-kingdom microbial communities in aquifers and the surrounding soil?
+73. What are the key physiochemical parameters of groundwater that impact mobile organic matter?
+74. How does the precipitation of minerals affect the continuity of strata in groundwater systems?
+75. What are the main physiochemical parameters influencing groundwater supply in agricultural settings?
+76. What are the groundwater physiochemical parameters that affect aquifer quality?
+77. How do agriculture and land-use practices affect the groundwater quality and aquifer setting?
+78. How does agricultural runoff impact the subsoil infiltration of groundwater?
+79. What is the role of fertilizers and pesticides in groundwater contamination and vulnerability?
+80. How do aquifer habitats respond to agricultural disturbances?
+81. How do subsoil properties influence the source / catchment / infiltration areas of groundwater?
+82. How do fractures in aquifers affect the continuity of strata in different geological settings?
+83. How does groundwater precipitation influence secondary mineral formation?
+84. What is the chemical composition of microbial metabolites in aquifer ecosystems?
+85. What microbial guilds are involved in CO2 fixation pathways in anoxic aquifers?
+86. How does microbial diversity in aboveground soil ecosystems compare with those in subsurface aquifers?
+87. What are the geochemical signals that indicate changes in microbial populations in groundwater?
+88. How do community structures of microbial guilds vary across different aquifer depths?
+89. What impact does rainfall and throughfall have on the community composition of groundwater microbes?
+90. What are the major factors contributing to microbial diversity in pristine aquifers?
+91. How do viral communities affect the biological signals in groundwater ecosystems?
+92. How does the virome of aquifers differ from surface water ecosystems?
+93. What are the primary fungal interactions with other microorganisms in aquifer ecosystems?
+94. What is the role of biocolloids in the transport of microorganisms in aquifers?
+95. How does hydrogeochemical data vary between different wells in the same aquifer system?
+96. How does seepage water influence the precipitation of dissolved minerals in karst systems?
+97. How do hydrochemical parameters in fractured rock aquifers affect mobile organic matter transport?
+98. What are the main factors contributing to groundwater contamination and vulnerability in permeable aquifers?
+99. How does groundwater protection mitigate risks in areas with intensive agriculture?
+100. What processes influence the transport of contaminants in karstified systems?
+101. How do microbial populations shift in oxic vs anoxic aquifer zones over time?
+102. What are the dominant microbial species contributing to nitrogen-cycling in groundwater ecosystems?
+103. What is the role of DNA sequencing in identifying microbial species in groundwater?
+104. How does gene expression in microbial functional guilds vary in different aquifer habitats?
+105. How does throughfall and stemflow affect the hydrology of groundwater in forest ecosystems?
+106. What are the hydraulic properties that influence groundwater flow in karst systems?
+107. How does vertical flow influence microbial communities in fractured aquifers?
+108. How do hydrological processes differ between agricultural and natural settings?
+109. How does climate variability affect groundwater ecosystems in karst regions?
+110. What is the impact of snowmelt on the groundwater recharge and quality in glaciated areas?
+111. How do climatic parameters influence the discharge of water in karst systems?
+112. What are the key drivers of organic matter mobilization in groundwater?
+113. How do changes in physicochemical parameters affect the composition of dissolved organic matter (DOM) in aquifers?
+114. How does mineral-organic interaction influence the biogeochemical cycling of nutrients in aquifers?
+115. How do heterogeneity, vegetation, and terrain influence biodiversity in groundwater systems?
+116. What role do functional microbial guilds play in maintaining aquifer biodiversity?
+117. How do biological roles of microbial species differ between surface and subsurface ecosystems?
+118. What are the best practices for sampling groundwater for microbial analysis?
+119. How can management practices mitigate groundwater contamination in agricultural areas?
+120. What functional roles do microbial species play in maintaining aquifer ecosystem health?
+121. How do legacy management practices impact the sustainability of groundwater ecosystems?
+122. What are the main pedrophysical properties of marlstone and muscovite layers in aquifers?
+123. What is the relationship between residence time and groundwater quality in fractured aquifers?
+124. How does the evapotranspiration rate impact groundwater recharge in forested and agricultural settings?
