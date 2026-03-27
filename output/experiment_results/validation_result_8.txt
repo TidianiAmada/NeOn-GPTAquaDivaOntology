@@ -1,0 +1,12 @@
+✔ Turtle syntax is correct.
+✔ Saved Turtle: /app/output/ontology_8.ttl
+✔ Saved RDF/XML: /app/output/ontology_8.rdf
+
+--- SHACL Validation ---
+Validation Report
+Conforms: True
+
+✔ SHACL validation passed.
+
+--- Pitfalls ---
+Total pitfalls: 0

@@ -1,0 +1,2 @@
+Prompt 13
+Populate the ontology with meaningful individuals. Examples: {Few-shot examples of meaningful individuals}. Print only the new triples. The original ontology has {Ontology Metric Counts}. Ensure high subclass count.

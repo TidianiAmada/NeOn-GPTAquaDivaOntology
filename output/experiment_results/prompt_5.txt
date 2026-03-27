@@ -1,0 +1,2 @@
+Prompt 5
+Considering entities and properties, generate a conceptual model expressing the triples of the entities, properties, and their relations (subject-relation-object triples). Do it for all the entities and properties, not just a snippet. The original ontology has {Ontology Metric Counts}. Make sure that the generated ontology reflects the previous metrics and has a high subclass count.

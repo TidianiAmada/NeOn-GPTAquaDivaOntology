@@ -1,0 +1,2 @@
+Prompt 3
+Based on the generated Specifications of Ontology Requirements and all the keywords given, write a list of Competency Questions that the core module of the ontology should be able to answer. Make it as complete as possible. The original ontology has {Ontology Metric Counts}. Make sure that the generated ontology reflects the previous metrics and has a high subclass count; if the class count is n, the subclass count should at least be n-1.

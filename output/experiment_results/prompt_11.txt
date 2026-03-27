@@ -1,0 +1,2 @@
+Prompt 11
+For all object properties, if lacking, generate the transitive property. A transitive property means if entity A is related to entity B, and B is related to C, then A is also related to C, like 'isAncestorOf.' Ensure transitive properties are introduced for relevant object properties. Generate transitive properties for the whole ontology, not just a snippet. Print only the new triples. The original ontology has {Ontology Metric Counts}. Make sure that the generated ontology reflects the previous metrics and has a high subclass count.

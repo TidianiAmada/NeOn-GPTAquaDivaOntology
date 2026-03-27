@@ -1,0 +1,2 @@
+Prompt 18
+Based on the error message below, fix the inconsistency in the affected part of the ontology. {HermiT Reasoner Error Message} {Affected Part of the Ontology}

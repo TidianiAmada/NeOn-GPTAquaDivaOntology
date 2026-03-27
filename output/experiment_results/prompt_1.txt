@@ -1,0 +1,2 @@
+Prompt 1
+You are a {Persona}. The {Domain Name} describes {Domain Description}. Here are some keywords to help you model the domain. Use all the following keywords, not just a snippet, and your own knowledge and domain understanding to generate the ontology based on the NeOn methodology for ontology engineering: {Keywords}. The original ontology has {Ontology Metric Counts}. Make sure that the generated ontology reflects the previous metrics and has a high subclass count; if the class count is n, the subclass count should at least be n-1.

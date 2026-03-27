@@ -1,0 +1,2 @@
+Prompt 7
+For all object properties, if lacking, generate the inverse property. An inverse property expresses a two-way relationship between two concepts. If the ontology contains a property 'hasPart,' its inverse would be 'isPartOf.' Ensure that every object property that has an inverse relationship is accounted for. Generate the inverse property for the whole ontology, not just a snippet. Print only the new triples. The original ontology has {Ontology Metric Counts}. Make sure that the generated ontology reflects the previous metrics and has a high subclass count.

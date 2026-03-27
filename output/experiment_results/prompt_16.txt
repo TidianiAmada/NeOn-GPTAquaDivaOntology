@@ -1,0 +1,2 @@
+Prompt 16
+The current generated ontology lacks the necessary complexity and hierarchical structure to reflect the domain accurately. Use the example below to refine the structure of the ontology: {Existing Resource Name and Description}. Example: {Few-shot examples from existing resource}.
