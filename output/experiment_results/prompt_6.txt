@@ -1,0 +1,2 @@
+Prompt 6
+Considering the conceptual model you generated, generate a full ontology serialized in Turtle syntax. The original ontology has {Ontology Metric Counts}. Make sure the syntax is correct, all entities and properties have correct prefixes, the ontology is consistent, and free from common pitfalls.

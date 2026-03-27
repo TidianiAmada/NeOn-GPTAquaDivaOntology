@@ -1,0 +1,7 @@
+rdflib
+owlready2
+requests
+openai
+jupyter
+ipykernel
+pyshacl

@@ -1,0 +1,2 @@
+Prompt 15
+For all the classes and properties, add a triple that describes its meaning in natural language, using the annotation property rdfs:comment. Do it for the whole ontology, not just a snippet. Print only the new triples.

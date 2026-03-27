@@ -1,0 +1,2 @@
+Prompt 19
+Based on the error message below, fix the pitfall in the affected part of the ontology. {OOPS API Error Message} {Affected Part of the Ontology}

@@ -1,0 +1,10 @@
+
+services:
+  ontology-validation:
+    build: .
+    container_name: ontology-validation
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: python run_pipeline_for_prompts.py

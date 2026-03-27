@@ -1,0 +1,2 @@
+Prompt 4
+For each Competency Question, extract entities and properties that must be introduced in the ontology. A competency question can help in extracting more than one triple. Do it for all the competency questions. Examples: {Few-shot examples for entity and relationship extraction from competency questions}. The original ontology has {Ontology Metric Counts}. Make sure that the generated ontology reflects the previous metrics and has a high subclass count.

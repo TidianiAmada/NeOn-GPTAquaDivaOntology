@@ -1,0 +1,2 @@
+Prompt 9
+For all object properties, if lacking, generate the symmetric property. A symmetric property means if entity A is related to entity B, then entity B is also related to entity A, like 'isMarriedTo.' Ensure symmetric properties are introduced where relevant. Generate symmetric properties for the whole ontology, not just a snippet. Print only the new triples. The original ontology has {Ontology Metric Counts}. Make sure to reflect the previous metrics and ensure high subclass count.

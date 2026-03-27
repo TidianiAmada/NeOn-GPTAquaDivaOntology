@@ -1,0 +1,2 @@
+Prompt 10
+For all object properties, if lacking, generate the functional property. A functional property means an entity can only have one unique value for the property, such as 'hasBirthDate.' Ensure functional properties are introduced for relevant object properties. Generate functional properties for the whole ontology, not just a snippet. Print only the new triples. The original ontology has {Ontology Metric Counts}. Ensure high subclass count.

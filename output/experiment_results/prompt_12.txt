@@ -1,0 +1,2 @@
+Prompt 12
+Considering the classes in the ontology, introduce Data Properties when meaningful, such as: {Few-shot examples to demonstrate introducing data properties}. Modify the domain and range according to the type of value the Data Property requests. Do it for the whole ontology, not just a snippet. Print only the new triples. The original ontology has {Ontology Metric Counts}. Make sure to reflect the previous metrics and ensure high subclass count.

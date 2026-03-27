@@ -1,0 +1,2 @@
+Prompt 14
+If not there, add triples about the ontology IRI, label, version, and description in natural language. Print only the new triples.
