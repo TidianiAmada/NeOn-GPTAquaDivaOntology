@@ -6,9 +6,17 @@ from rdflib import Graph, RDF, RDFS, OWL
 from pyshacl import validate
 
 
+
 # ================= CONFIG =================
+import sys
+
+# Set OUTPUT_DIR to match the ontology output dir from the pipeline
 INPUT_TTL = "/app/VersionOne/AquaDiva2.ttl"
-OUTPUT_DIR = "/app/output"
+OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "GPT5Results"))
+
+# Allow override of INPUT_TTL from command line
+if len(sys.argv) > 1:
+    INPUT_TTL = sys.argv[1]
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -16,10 +24,16 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # ================= UTIL =================
 def get_next_paths():
     existing = glob.glob(os.path.join(OUTPUT_DIR, "ontology_*.ttl"))
-    nums = [
-        int(os.path.basename(f).split("_")[1].split(".")[0])
-        for f in existing if "_" in f
-    ]
+    nums = []
+    for f in existing:
+        base = os.path.basename(f)
+        parts = base.split("_")
+        if len(parts) >= 2:
+            num_part = parts[-1].split(".")[0]
+            try:
+                nums.append(int(num_part))
+            except ValueError:
+                continue
     next_num = max(nums) + 1 if nums else 1
 
     ttl_path = os.path.join(OUTPUT_DIR, f"ontology_{next_num}.ttl")

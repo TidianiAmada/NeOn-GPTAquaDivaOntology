@@ -5,3 +5,4 @@ openai
 jupyter
 ipykernel
 pyshacl
+python-dotenv
