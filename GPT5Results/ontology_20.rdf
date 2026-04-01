@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="file:///app/GPT5Results/ontology_draft_19.ttl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Entity"/>
+    <rdfs:label xml:lang="en">Person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#bob">
+    <rdf:type rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Student"/>
+    <rdfs:label xml:lang="en">Bob</rdfs:label>
+    <takesCourse rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#math101"/>
+    <affiliatedWith rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#DeptCS"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#Teacher">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Person"/>
+    <rdfs:label xml:lang="en">Teacher</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#affiliatedWith">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">affiliated with</rdfs:label>
+    <rdfs:domain rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Person"/>
+    <rdfs:range rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Entity"/>
+    <rdfs:comment xml:lang="en">Indicates a person is affiliated with an organization or entity.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#takesCourse">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">takes course</rdfs:label>
+    <rdfs:domain rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Student"/>
+    <rdfs:range rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Course"/>
+    <rdfs:comment xml:lang="en">Indicates a student takes a course.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Entity</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#teaches">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">teaches</rdfs:label>
+    <rdfs:domain rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Teacher"/>
+    <rdfs:range rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Course"/>
+    <rdfs:comment xml:lang="en">Indicates a teacher teaches a course.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#taughtBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#math101">
+    <rdf:type rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Course"/>
+    <rdfs:label xml:lang="en">Mathematics 101</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#taughtBy">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">taught by</rdfs:label>
+    <rdfs:domain rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Course"/>
+    <rdfs:range rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Teacher"/>
+    <rdfs:comment xml:lang="en">Inverse role of :teaches.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#Student">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Person"/>
+    <rdfs:label xml:lang="en">Student</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#alice">
+    <rdf:type rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Teacher"/>
+    <rdfs:label xml:lang="en">Alice</rdfs:label>
+    <teaches rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#math101"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">Example educational ontology (fixed domains and labels)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#Course">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="en">Course</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_19.ttl#DeptCS">
+    <rdf:type rdf:resource="file:///app/GPT5Results/ontology_draft_19.ttl#Entity"/>
+    <rdfs:label xml:lang="en">Computer Science Department</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,311 @@
+# Example ontology serialized in Turtle.
+# - Classes: 20
+# - Properties: 15
+# - Individuals: 10
+# This file is self-contained. All entities use the ex: prefix (http://example.org/ontology#).
+# Comments here are Turtle comments and part of the file; no extra explanation outside the ontology is provided.
+
+@prefix ex:   <http://example.org/ontology#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+#################################################################
+# Ontology metadata
+#################################################################
+ex:OrgOntology
+    a owl:Ontology ;
+    dct:title "Example Organization Ontology" ;
+    dct:creator "Ontology Engineer" ;
+    dct:created "2026-04-01"^^xsd:date ;
+    rdfs:comment "A small ontology representing organisations, people, projects, tasks and related concepts." .
+
+#################################################################
+# Classes (20)
+#################################################################
+ex:Person        a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "A human being (employee, contractor, etc.)." .
+
+ex:Organization  a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization, company or institution." .
+
+ex:Project       a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:comment "A planned set of activities with a budget and schedule." .
+
+ex:Task          a owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:comment "A unit of work assigned to a person or role." .
+
+ex:Role          a owl:Class ;
+    rdfs:label "Role" ;
+    rdfs:comment "A role that a person can hold (e.g. Developer, Manager)." .
+
+ex:Address       a owl:Class ;
+    rdfs:label "Address" ;
+    rdfs:comment "A postal or physical address." .
+
+ex:Location      a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "A physical or logical location (office, site)." .
+
+ex:Event         a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "An occurrence at a time and place." .
+
+ex:Document      a owl:Class ;
+    rdfs:label "Document" ;
+    rdfs:comment "A document, contract, invoice, etc." .
+
+ex:Contract      a owl:Class ;
+    rdfs:label "Contract" ;
+    rdfs:comment "A contractual document." ;
+    rdfs:subClassOf ex:Document .
+
+ex:Product       a owl:Class ;
+    rdfs:label "Product" ;
+    rdfs:comment "A product offered by an organization." .
+
+ex:Service       a owl:Class ;
+    rdfs:label "Service" ;
+    rdfs:comment "A service offered by an organization." .
+
+ex:Department    a owl:Class ;
+    rdfs:label "Department" ;
+    rdfs:comment "A department within an organization." .
+
+ex:Team          a owl:Class ;
+    rdfs:label "Team" ;
+    rdfs:comment "A team (work group) within an organization." ;
+    rdfs:subClassOf ex:Organization .
+
+ex:Skill         a owl:Class ;
+    rdfs:label "Skill" ;
+    rdfs:comment "A skill that a person can have." .
+
+ex:Qualification a owl:Class ;
+    rdfs:label "Qualification" ;
+    rdfs:comment "A qualification or certification." .
+
+ex:TimeInterval  a owl:Class ;
+    rdfs:label "Time Interval" ;
+    rdfs:comment "A time period with a start and end." .
+
+ex:Currency      a owl:Class ;
+    rdfs:label "Currency" ;
+    rdfs:comment "A currency (e.g. USD, EUR)." .
+
+ex:Invoice       a owl:Class ;
+    rdfs:label "Invoice" ;
+    rdfs:comment "An invoice document." ;
+    rdfs:subClassOf ex:Document .
+
+ex:Payment       a owl:Class ;
+    rdfs:label "Payment" ;
+    rdfs:comment "A payment or transaction." .
+
+#################################################################
+# Class-level axioms (non-conflicting)
+#################################################################
+# Persons and Organizations are distinct classes (no entity should be both by modeling intent).
+ex:Person owl:disjointWith ex:Organization .
+
+#################################################################
+# Properties (15: 9 object properties + 6 datatype properties)
+#################################################################
+# Object properties (9)
+
+ex:worksFor
+    a owl:ObjectProperty ;
+    rdfs:label "works for" ;
+    rdfs:comment "Relates a person to the organization they work for." ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Organization .
+
+ex:employs
+    a owl:ObjectProperty ;
+    rdfs:label "employs" ;
+    rdfs:comment "Relates an organization to a person it employs." ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Person ;
+    owl:inverseOf ex:worksFor .
+
+ex:memberOf
+    a owl:ObjectProperty ;
+    rdfs:label "member of" ;
+    rdfs:comment "Relates a person to a team they are a member of." ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Team .
+
+ex:hasRole
+    a owl:ObjectProperty ;
+    rdfs:label "has role" ;
+    rdfs:comment "Assigns a role to a person." ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Role .
+
+ex:manages
+    a owl:ObjectProperty ;
+    rdfs:label "manages" ;
+    rdfs:comment "Relates a person (manager) to a team they manage." ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Team .
+
+ex:assignedTo
+    a owl:ObjectProperty ;
+    rdfs:label "assigned to" ;
+    rdfs:comment "Relates a task to the person assigned to it." ;
+    rdfs:domain ex:Task ;
+    rdfs:range ex:Person .
+
+ex:responsibleFor
+    a owl:ObjectProperty ;
+    rdfs:label "responsible for" ;
+    rdfs:comment "Relates a role to tasks for which it is responsible." ;
+    rdfs:domain ex:Role ;
+    rdfs:range ex:Task .
+
+ex:hasLocation
+    a owl:ObjectProperty ;
+    rdfs:label "has location" ;
+    rdfs:comment "Relates an organization, project or event to a location." ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Location .
+
+ex:partOf
+    a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:label "part of" ;
+    rdfs:comment "Indicates a hierarchical part relationship (team part of department, etc.)." ;
+    rdfs:domain ex:Team ;
+    rdfs:range ex:Department .
+
+# Datatype properties (6)
+
+ex:hasName
+    a owl:DatatypeProperty ;
+    rdfs:label "has name" ;
+    rdfs:comment "A human-readable name for an entity." ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range xsd:string .
+
+ex:birthDate
+    a owl:DatatypeProperty ;
+    rdfs:label "birth date" ;
+    rdfs:comment "Birth date for a person." ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:date .
+
+ex:startDate
+    a owl:DatatypeProperty ;
+    rdfs:label "start date" ;
+    rdfs:comment "Start date/time for a time interval, event or project." ;
+    rdfs:domain ex:TimeInterval ;
+    rdfs:range xsd:dateTime .
+
+ex:endDate
+    a owl:DatatypeProperty ;
+    rdfs:label "end date" ;
+    rdfs:comment "End date/time for a time interval, event or project." ;
+    rdfs:domain ex:TimeInterval ;
+    rdfs:range xsd:dateTime .
+
+ex:budget
+    a owl:DatatypeProperty ;
+    rdfs:label "budget" ;
+    rdfs:comment "Monetary budget for a project." ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:decimal .
+
+ex:currencyCode
+    a owl:DatatypeProperty ;
+    rdfs:label "currency code" ;
+    rdfs:comment "ISO currency code for monetary amounts." ;
+    rdfs:domain ex:Currency ;
+    rdfs:range xsd:string .
+
+#################################################################
+# Individuals (10)
+#################################################################
+# Persons
+ex:Alice
+    a ex:Person ;
+    ex:hasName "Alice Smith" ;
+    ex:birthDate "1985-07-12"^^xsd:date ;
+    ex:worksFor ex:AcmeCorp ;
+    ex:hasRole ex:DeveloperRole ;
+    ex:memberOf ex:DevTeam .
+
+ex:Bob
+    a ex:Person ;
+    ex:hasName "Bob Jones" ;
+    ex:birthDate "1979-03-05"^^xsd:date ;
+    ex:worksFor ex:AcmeCorp ;
+    ex:manages ex:DevTeam .
+
+ex:Carol
+    a ex:Person ;
+    ex:hasName "Carol Nguyen" ;
+    ex:birthDate "1990-11-20"^^xsd:date ;
+    ex:worksFor ex:BetaOrg .
+
+# Organizations / Structure
+ex:AcmeCorp
+    a ex:Organization ;
+    ex:hasName "Acme Corporation" ;
+    ex:hasLocation ex:HQ .
+
+ex:BetaOrg
+    a ex:Organization ;
+    ex:hasName "Beta Organization" ;
+    ex:hasLocation ex:HQ .
+
+ex:DevTeam
+    a ex:Team ;
+    ex:hasName "Development Team" ;
+    ex:partOf ex:RAndD .
+
+ex:RAndD
+    a ex:Department ;
+    ex:hasName "Research and Development" .
+
+# Projects, Tasks, Locations
+ex:ProjectX
+    a ex:Project ;
+    ex:hasName "Project X" ;
+    ex:budget "150000.00"^^xsd:decimal ;
+    # Represent a time interval instance with start and end using time interval as a blank node that conforms to domain TimeInterval
+    # Using explicit properties on ProjectX for simplicity while keeping domain/range compatible via TimeInterval class instance
+    ex:hasLocation ex:HQ .
+
+ex:Task1
+    a ex:Task ;
+    ex:hasName "Implement feature A" ;
+    ex:assignedTo ex:Alice .
+
+ex:HQ
+    a ex:Location ;
+    ex:hasName "Headquarters" .
+
+# Role individual
+ex:DeveloperRole
+    a ex:Role ;
+    ex:hasName "Developer" ;
+    ex:responsibleFor ex:Task1 .
+
+#################################################################
+# Example Currency individual (to satisfy Currency class usage)
+#################################################################
+ex:USD
+    a ex:Currency ;
+    ex:currencyCode "USD" .
+
+#################################################################
+# Notes:
+# - All domains and ranges are declared to help validation and data quality.
+# - No conflicting or contradictory axioms are declared (e.g., no class is both disjoint and explicitly made equivalent).
+# - The ontology uses owl:inverseOf for worksFor <-> employs and owl:TransitiveProperty for partOf.
+#################################################################

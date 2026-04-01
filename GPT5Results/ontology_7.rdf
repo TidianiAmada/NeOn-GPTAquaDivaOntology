@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:ex="http://example.org/ontology#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/ontology#ProjectX">
+    <rdf:type rdf:resource="http://example.org/ontology#Project"/>
+    <ex:hasName>Project X</ex:hasName>
+    <ex:budget rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150000.00</ex:budget>
+    <ex:hasLocation rdf:resource="http://example.org/ontology#HQ"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Team">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Team</rdfs:label>
+    <rdfs:comment>A team (work group) within an organization.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Payment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Payment</rdfs:label>
+    <rdfs:comment>A payment or transaction.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#employs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>employs</rdfs:label>
+    <rdfs:comment>Relates an organization to a person it employs.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Person"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology#worksFor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#startDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>start date</rdfs:label>
+    <rdfs:comment>Start date/time for a time interval, event or project.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#TimeInterval"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#budget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>budget</rdfs:label>
+    <rdfs:comment>Monetary budget for a project.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Project"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#birthDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>birth date</rdfs:label>
+    <rdfs:comment>Birth date for a person.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#USD">
+    <rdf:type rdf:resource="http://example.org/ontology#Currency"/>
+    <ex:currencyCode>USD</ex:currencyCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has location</rdfs:label>
+    <rdfs:comment>Relates an organization, project or event to a location.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Bob">
+    <rdf:type rdf:resource="http://example.org/ontology#Person"/>
+    <ex:hasName>Bob Jones</ex:hasName>
+    <ex:birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1979-03-05</ex:birthDate>
+    <ex:worksFor rdf:resource="http://example.org/ontology#AcmeCorp"/>
+    <ex:manages rdf:resource="http://example.org/ontology#DevTeam"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Task1">
+    <rdf:type rdf:resource="http://example.org/ontology#Task"/>
+    <ex:hasName>Implement feature A</ex:hasName>
+    <ex:assignedTo rdf:resource="http://example.org/ontology#Alice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Person</rdfs:label>
+    <rdfs:comment>A human being (employee, contractor, etc.).</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#assignedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>assigned to</rdfs:label>
+    <rdfs:comment>Relates a task to the person assigned to it.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Task"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#DevTeam">
+    <rdf:type rdf:resource="http://example.org/ontology#Team"/>
+    <ex:hasName>Development Team</ex:hasName>
+    <ex:partOf rdf:resource="http://example.org/ontology#RAndD"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Contract">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Contract</rdfs:label>
+    <rdfs:comment>A contractual document.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Service">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Service</rdfs:label>
+    <rdfs:comment>A service offered by an organization.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Location">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Location</rdfs:label>
+    <rdfs:comment>A physical or logical location (office, site).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Carol">
+    <rdf:type rdf:resource="http://example.org/ontology#Person"/>
+    <ex:hasName>Carol Nguyen</ex:hasName>
+    <ex:birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1990-11-20</ex:birthDate>
+    <ex:worksFor rdf:resource="http://example.org/ontology#BetaOrg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#currencyCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>currency code</rdfs:label>
+    <rdfs:comment>ISO currency code for monetary amounts.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Currency"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Alice">
+    <rdf:type rdf:resource="http://example.org/ontology#Person"/>
+    <ex:hasName>Alice Smith</ex:hasName>
+    <ex:birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1985-07-12</ex:birthDate>
+    <ex:worksFor rdf:resource="http://example.org/ontology#AcmeCorp"/>
+    <ex:hasRole rdf:resource="http://example.org/ontology#DeveloperRole"/>
+    <ex:memberOf rdf:resource="http://example.org/ontology#DevTeam"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#TimeInterval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Time Interval</rdfs:label>
+    <rdfs:comment>A time period with a start and end.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Document</rdfs:label>
+    <rdfs:comment>A document, contract, invoice, etc.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#responsibleFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>responsible for</rdfs:label>
+    <rdfs:comment>Relates a role to tasks for which it is responsible.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Role"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Task"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Qualification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Qualification</rdfs:label>
+    <rdfs:comment>A qualification or certification.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#OrgOntology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dct:title>Example Organization Ontology</dct:title>
+    <dct:creator>Ontology Engineer</dct:creator>
+    <dct:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-01</dct:created>
+    <rdfs:comment>A small ontology representing organisations, people, projects, tasks and related concepts.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has name</rdfs:label>
+    <rdfs:comment>A human-readable name for an entity.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#partOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label>part of</rdfs:label>
+    <rdfs:comment>Indicates a hierarchical part relationship (team part of department, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Team"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Department"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Task">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Task</rdfs:label>
+    <rdfs:comment>A unit of work assigned to a person or role.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Skill">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Skill</rdfs:label>
+    <rdfs:comment>A skill that a person can have.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#endDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>end date</rdfs:label>
+    <rdfs:comment>End date/time for a time interval, event or project.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#TimeInterval"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has role</rdfs:label>
+    <rdfs:comment>Assigns a role to a person.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Product">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Product</rdfs:label>
+    <rdfs:comment>A product offered by an organization.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#HQ">
+    <rdf:type rdf:resource="http://example.org/ontology#Location"/>
+    <ex:hasName>Headquarters</ex:hasName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#AcmeCorp">
+    <rdf:type rdf:resource="http://example.org/ontology#Organization"/>
+    <ex:hasName>Acme Corporation</ex:hasName>
+    <ex:hasLocation rdf:resource="http://example.org/ontology#HQ"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Address">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Address</rdfs:label>
+    <rdfs:comment>A postal or physical address.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Currency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Currency</rdfs:label>
+    <rdfs:comment>A currency (e.g. USD, EUR).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#memberOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>member of</rdfs:label>
+    <rdfs:comment>Relates a person to a team they are a member of.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Team"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#DeveloperRole">
+    <rdf:type rdf:resource="http://example.org/ontology#Role"/>
+    <ex:hasName>Developer</ex:hasName>
+    <ex:responsibleFor rdf:resource="http://example.org/ontology#Task1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Invoice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Invoice</rdfs:label>
+    <rdfs:comment>An invoice document.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#manages">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>manages</rdfs:label>
+    <rdfs:comment>Relates a person (manager) to a team they manage.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Team"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Department">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Department</rdfs:label>
+    <rdfs:comment>A department within an organization.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#worksFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>works for</rdfs:label>
+    <rdfs:comment>Relates a person to the organization they work for.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#BetaOrg">
+    <rdf:type rdf:resource="http://example.org/ontology#Organization"/>
+    <ex:hasName>Beta Organization</ex:hasName>
+    <ex:hasLocation rdf:resource="http://example.org/ontology#HQ"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Event</rdfs:label>
+    <rdfs:comment>An occurrence at a time and place.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Project">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Project</rdfs:label>
+    <rdfs:comment>A planned set of activities with a budget and schedule.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#RAndD">
+    <rdf:type rdf:resource="http://example.org/ontology#Department"/>
+    <ex:hasName>Research and Development</ex:hasName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Role">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Role</rdfs:label>
+    <rdfs:comment>A role that a person can hold (e.g. Developer, Manager).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Organization</rdfs:label>
+    <rdfs:comment>An organization, company or institution.</rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>

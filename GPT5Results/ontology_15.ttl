@@ -1,0 +1,50 @@
+@prefix : <http://example.org/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/ontology> a owl:Ontology ;
+    rdfs:label "Example Environmental Ontology"@en ;
+    dcterms:description "An ontology describing environmental features, monitoring sites, measurements, sensors, samples, and related authorities for environmental data management."@en ;
+    owl:versionInfo "1.0.0" .
+
+:AquaticFeature rdfs:label "Aquatic Feature"@en .
+
+:Aquifer rdfs:label "Aquifer"@en .
+
+:Authority rdfs:label "Authority"@en .
+
+:Contaminant rdfs:label "Contaminant"@en .
+
+:Dam rdfs:label "Dam"@en .
+
+:EnvironmentalFeature rdfs:label "Environmental Feature"@en .
+
+:Feature rdfs:label "Feature"@en .
+
+:Groundwater rdfs:label "Groundwater"@en .
+
+:Lake rdfs:label "Lake"@en .
+
+:ManagedFeature rdfs:label "Managed Feature"@en .
+
+:Measurement rdfs:label "Measurement"@en .
+
+:MonitoringSite rdfs:label "Monitoring Site"@en .
+
+:River rdfs:label "River"@en .
+
+:Sample rdfs:label "Sample"@en .
+
+:Sensor rdfs:label "Sensor"@en .
+
+:SurfaceWater rdfs:label "Surface Water"@en .
+
+:TerrestrialFeature rdfs:label "Terrestrial Feature"@en .
+
+:Watershed rdfs:label "Watershed"@en .
+
+:Well rdfs:label "Well"@en .
+
+:Wetland rdfs:label "Wetland"@en .
+

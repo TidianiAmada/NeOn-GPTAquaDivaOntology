@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:env="http://example.org/envo-refined#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasArea">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has area</rdfs:label>
+    <rdfs:comment>Horizontal area of an environment or region in square kilometers (xsd:decimal).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Habitat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Habitat</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#Ecosystem"/>
+    <rdfs:comment>The specific environment in which an organism or ecological population lives.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#porosityConcept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>Porosity</skos:prefLabel>
+    <skos:definition>The proportion of void (empty) space in a material, expressed as a fraction or percentage.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#EnvironmentalQuality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Environmental quality</rdfs:label>
+    <rdfs:comment>Qualities or metrics describing environmental condition (e.g., water quality, contamination status).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasVolume">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has volume</rdfs:label>
+    <rdfs:comment>Volume of a geological or hydrogeological feature in cubic meters (xsd:decimal).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#GeologicalUnit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasDepth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>has depth</rdfs:label>
+    <rdfs:comment>Vertical extent (depth) of a hydrogeological feature or geological unit, in meters (use xsd:decimal).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#HydrogeologicalFeature"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#GeologicalUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Geological unit</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#NaturalEnvironment"/>
+    <rdfs:comment>A defined volume of rock, sediment, soil, or other geologic material.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Prairie_Habitat">
+    <rdf:type rdf:resource="http://example.org/envo-refined#Habitat"/>
+    <rdfs:label>Prairie habitat</rdfs:label>
+    <env:hasSubstrate rdf:resource="http://example.org/envo-refined#Ogallala_Aquifer"/>
+    <env:hasVegetationCover rdf:resource="http://example.org/envo-refined#Grassland"/>
+    <rdfs:comment>Example habitat above an aquifer, illustrating hasSubstrate and hasVegetationCover relations.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has component</rdfs:label>
+    <rdfs:comment>Indicates physical components or sub-units of an environmental feature.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://example.org/envo-refined#Environment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasQuality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has quality</rdfs:label>
+    <rdfs:comment>Associates an environment with environmental quality descriptors.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://example.org/envo-refined#EnvironmentalQuality"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#NaturalEnvironment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Natural environment</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:comment>Environments primarily shaped by natural processes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#locatedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>located in</rdfs:label>
+    <rdfs:comment>Relates an entity to the region or larger environmental unit in which it is found.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://example.org/envo-refined#Region"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasSubstrate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has substrate</rdfs:label>
+    <rdfs:comment>Relates a habitat or surface environment to its underlying geological substrate.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Habitat"/>
+    <rdfs:range rdf:resource="http://example.org/envo-refined#GeologicalUnit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Great_Plains">
+    <rdf:type rdf:resource="http://example.org/envo-refined#Region"/>
+    <rdfs:label>Great Plains</rdfs:label>
+    <rdfs:comment>A broad expanse of flat land covering parts of central North America.</rdfs:comment>
+    <env:hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">174000</env:hasArea>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Aquifer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Aquifer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#HydrogeologicalFeature"/>
+    <rdfs:subClassOf rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b1"/>
+    <rdfs:subClassOf rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b2"/>
+    <rdfs:comment>A geological formation or group of formations capable of storing and transmitting significant quantities of groundwater.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#AnthropogenicEnvironment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Anthropogenic environment</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:comment>Environments significantly modified or created by human activity.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Biome">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Biome</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#NaturalEnvironment"/>
+    <rdfs:comment>Major ecological community type (e.g., tundra, savanna).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/envo-refined#hasComponent"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/envo-refined#ConfiningLayer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Region">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:comment>A named geographic region or administrative area.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Ecosystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Ecosystem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#Biome"/>
+    <rdfs:comment>A biological community of interacting organisms and their physical environment.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#ConfiningLayer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Confining layer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#HydrogeologicalFeature"/>
+    <rdfs:comment>Low-permeability layers that limit groundwater flow and confine aquifers.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#HydrogeologicalFeature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Hydrogeological feature</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#GeologicalUnit"/>
+    <rdfs:comment>Geological units characterized by their interaction with groundwater (e.g., aquifers, confining layers).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_16.ttl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dcterms:title>Refined Environmental Ontology (ENVO-inspired)</dcterms:title>
+    <dcterms:creator>Ontology Engineer</dcterms:creator>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-01</dcterms:created>
+    <dcterms:description>A refined ontology capturing environmental, geological, hydrogeological, and ecosystem concepts, including aquifers and associated properties.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Environment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Environment</rdfs:label>
+    <rdfs:comment>Top-level class representing any environment, natural or anthropogenic.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Vegetation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Vegetation</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#Habitat"/>
+    <rdfs:comment>Plant life covering an area (e.g., forest, grassland).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Ogallala_Aquifer">
+    <rdf:type rdf:resource="http://example.org/envo-refined#UnconfinedAquifer"/>
+    <rdfs:label>Ogallala Aquifer</rdfs:label>
+    <rdfs:comment>A major aquifer underlying the Great Plains of the United States (example individual).</rdfs:comment>
+    <env:hasDepth rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">300.0</env:hasDepth>
+    <env:hasPorosity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.25</env:hasPorosity>
+    <env:hasHydraulicConductivity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.0</env:hasHydraulicConductivity>
+    <env:hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">450000.0</env:hasArea>
+    <env:locatedIn rdf:resource="http://example.org/envo-refined#Great_Plains"/>
+    <env:hasQuality rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hydraulicConductivityConcept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>Hydraulic conductivity</skos:prefLabel>
+    <skos:definition>A measure of a material's ability to transmit water.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasHydraulicConductivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has hydraulic conductivity</rdfs:label>
+    <rdfs:comment>Hydraulic conductivity (L/T), e.g., meters per day; use xsd:decimal.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#HydrogeologicalFeature"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#ConfinedAquifer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Confined aquifer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#Aquifer"/>
+    <rdfs:subClassOf rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b3"/>
+    <rdfs:comment>An aquifer bounded above and/or below by confining layers.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#influencedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>influenced by</rdfs:label>
+    <rdfs:comment>Indicates anthropogenic or natural processes influencing an environment.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://example.org/envo-refined#Environment"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/envo-refined#hasDepth"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/envo-refined#hasDepth"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#partOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label>part of</rdfs:label>
+    <rdfs:comment>Indicates that one entity is a (possibly proper) part of another entity.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://example.org/envo-refined#Environment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasVegetationCover">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has vegetation cover</rdfs:label>
+    <rdfs:comment>Relates an environmental area to the dominant vegetation class.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://example.org/envo-refined#Vegetation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#Grassland">
+    <rdf:type rdf:resource="http://example.org/envo-refined#Vegetation"/>
+    <rdfs:label>Grassland</rdfs:label>
+    <rdfs:comment>Dominant vegetation type composed of grasses and herbaceous plants.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasSalinity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has salinity</rdfs:label>
+    <rdfs:comment>Salinity concentration (e.g., PSU or g/kg) as a decimal.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasThickness">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has thickness</rdfs:label>
+    <rdfs:comment>Thickness of a layer or formation in meters (xsd:decimal).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#GeologicalUnit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasTemperature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has temperature</rdfs:label>
+    <rdfs:comment>Representative temperature of an environmental feature in degrees Celsius (xsd:decimal).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#Environment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#hasPorosity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has porosity</rdfs:label>
+    <rdfs:comment>Porosity value (fraction between 0 and 1) describing void fraction; use xsd:decimal.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/envo-refined#HydrogeologicalFeature"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/envo-refined#UnconfinedAquifer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Unconfined aquifer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/envo-refined#Aquifer"/>
+    <rdfs:subClassOf rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b4"/>
+    <rdfs:comment>An aquifer with its upper surface (water table) open to the atmosphere through permeable material.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b5">
+    <rdf:type rdf:resource="http://example.org/envo-refined#EnvironmentalQuality"/>
+    <rdfs:label>Variable groundwater quality</rdfs:label>
+    <rdfs:comment>Groundwater quality varies spatially and temporally across the aquifer.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nbb142d39f42b4e918d4f417bf97c3fe4b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/envo-refined#hasPorosity"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+</rdf:RDF>

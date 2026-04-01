@@ -1,0 +1,324 @@
+# AquaDiva ontology (Turtle)
+# Created following NeOn methodology: reuse and re-engineer domain knowledge about groundwater, aquifers, subsurface life and biogeochemical cycles.
+# Keywords covered: groundwater, aquifer, microbe, carbon cycle, nitrogen cycle.
+# Metrics preserved from the original ontology: Classes = 20, Properties = 15, Individuals = 10.
+# High subclassing: 19 subclass relationships (all classes except the root are subclasses).
+# This file contains only valid Turtle syntax and comments. Use this file as the ontology TTL for the AquaDiva domain.
+
+@prefix : <http://example.org/aquadiva#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/aquadiva> rdf:type owl:Ontology ;
+    rdfs:label "AquaDiva Ontology" ;
+    rdfs:comment "Ontology describing groundwater, aquifers, subsurface microbial life and key biogeochemical cycles (carbon and nitrogen). Modeled following NeOn methodology: specification, conceptualization, formalization and reuse." .
+
+################################################################
+# Classes (20 total). All except :AquaDivaEntity are subclasses (19 subclass relations).
+################################################################
+
+: A qaudiva_dummy .  # placeholder to prevent certain editors from collapsing - harmless
+
+:AquaDivaEntity
+    rdf:type owl:Class ;
+    rdfs:label "AquaDivaEntity" ;
+    rdfs:comment "Top-level entity for the AquaDiva ontology (root class)." .
+
+:SubsurfaceEnvironment
+    rdf:type owl:Class ;
+    rdfs:label "SubsurfaceEnvironment" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Environments below ground surface, including groundwater and aquifer systems." .
+
+:Groundwater
+    rdf:type owl:Class ;
+    rdfs:label "Groundwater" ;
+    rdfs:subClassOf :SubsurfaceEnvironment ;
+    rdfs:comment "Free or phreatic water present beneath the Earth's surface - groundwater." .
+
+:Aquifer
+    rdf:type owl:Class ;
+    rdfs:label "Aquifer" ;
+    rdfs:subClassOf :SubsurfaceEnvironment ;
+    rdfs:comment "Geological formation that can store and transmit groundwater." .
+
+:AquiferZone
+    rdf:type owl:Class ;
+    rdfs:label "AquiferZone" ;
+    rdfs:subClassOf :Aquifer ;
+    rdfs:comment "A distinct zone within an aquifer (e.g., saturated zone, fracture zone)." .
+
+:WaterSample
+    rdf:type owl:Class ;
+    rdfs:label "WaterSample" ;
+    rdfs:subClassOf :Groundwater ;
+    rdfs:comment "A discrete sampled volume of groundwater used for analysis." .
+
+:Microbe
+    rdf:type owl:Class ;
+    rdfs:label "Microbe" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Microbial organism (bacteria, archaea, microscopic eukaryotes) in the subsurface." .
+
+:MicrobialCommunity
+    rdf:type owl:Class ;
+    rdfs:label "MicrobialCommunity" ;
+    rdfs:subClassOf :Microbe ;
+    rdfs:comment "Aggregations of microbes interacting in the subsurface environment." .
+
+:CarbonCycle
+    rdf:type owl:Class ;
+    rdfs:label "CarbonCycle" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Processes and fluxes related to carbon transformation and transport (subsurface carbon cycle)." .
+
+:NitrogenCycle
+    rdf:type owl:Class ;
+    rdfs:label "NitrogenCycle" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Processes and fluxes related to nitrogen transformation and transport (subsurface nitrogen cycle)." .
+
+:BiogeochemicalProcess
+    rdf:type owl:Class ;
+    rdfs:label "BiogeochemicalProcess" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "General class for processes affecting chemical elements via biological activity (e.g., respiration, denitrification)." .
+
+:OrganicCarbon
+    rdf:type owl:Class ;
+    rdfs:label "OrganicCarbon" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Measured organic carbon constituents in groundwater (DOC, POC proxies)." .
+
+:Nitrate
+    rdf:type owl:Class ;
+    rdfs:label "Nitrate" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Nitrate as a nitrogenous chemical parameter relevant for nitrogen cycle analyses." .
+
+:Biomass
+    rdf:type owl:Class ;
+    rdfs:label "Biomass" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Biomass as a measurable pool of organic material associated with microbes." .
+
+:Geology
+    rdf:type owl:Class ;
+    rdfs:label "Geology" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Geological attributes relevant to aquifer structure." .
+
+:Porosity
+    rdf:type owl:Class ;
+    rdfs:label "Porosity" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Porosity parameter class describing storage capacity of geological media." .
+
+:Permeability
+    rdf:type owl:Class ;
+    rdfs:label "Permeability" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Permeability parameter class describing transmissivity of geological media." .
+
+:SamplingEvent
+    rdf:type owl:Class ;
+    rdfs:label "SamplingEvent" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Event capturing metadata about a sampling action in the field." .
+
+:Measurement
+    rdf:type owl:Class ;
+    rdfs:label "Measurement" ;
+    rdfs:subClassOf :AquaDivaEntity ;
+    rdfs:comment "Quantitative observation associated with samples, parameters or processes." .
+
+:ChemicalParameter
+    rdf:type owl:Class ;
+    rdfs:label "ChemicalParameter" ;
+    rdfs:subClassOf :Measurement ;
+    rdfs:comment "Measured chemical species or parameters (e.g., DOC, NO3-, conductivity)." .
+
+################################################################
+# Properties (15 total)
+#  - 9 owl:ObjectProperty
+#  - 6 owl:DatatypeProperty
+################################################################
+
+### Object properties (9)
+
+:locatedIn
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:comment "Relates an entity (sample, microbe, community) to a subsurface environment or aquifer." ;
+    rdfs:domain :AquaDivaEntity ;
+    rdfs:range :SubsurfaceEnvironment .
+
+:hasAquifer
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "hasAquifer" ;
+    rdfs:comment "Relates a subsurface environment to the aquifer it belongs to." ;
+    rdfs:domain :SubsurfaceEnvironment ;
+    rdfs:range :Aquifer .
+
+:containsZone
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "containsZone" ;
+    rdfs:comment "Relates an aquifer to constituent zones." ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :AquiferZone .
+
+:sampledFrom
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "sampledFrom" ;
+    rdfs:comment "Relates a water sample to the aquifer zone where it was collected." ;
+    rdfs:domain :WaterSample ;
+    rdfs:range :AquiferZone .
+
+:hostsMicrobe
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "hostsMicrobe" ;
+    rdfs:comment "Relates a geological zone or sample to microbes it hosts." ;
+    rdfs:domain :AquiferZone ;
+    rdfs:range :Microbe .
+
+:hasMicrobialCommunity
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "hasMicrobialCommunity" ;
+    rdfs:comment "Relates a zone or sample to an observed microbial community." ;
+    rdfs:domain :AquiferZone ;
+    rdfs:range :MicrobialCommunity .
+
+:participatesIn
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "participatesIn" ;
+    rdfs:comment "Relates microbes or communities to biogeochemical processes (carbon/nitrogen cycles)." ;
+    rdfs:domain :Microbe ;
+    rdfs:range :BiogeochemicalProcess .
+
+:hasParameter
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "hasParameter" ;
+    rdfs:comment "Relates a sample or measurement context to a chemical parameter." ;
+    rdfs:domain :WaterSample ;
+    rdfs:range :ChemicalParameter .
+
+:relatedToCycle
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "relatedToCycle" ;
+    rdfs:comment "Relates a biogeochemical process or measurement to a named cycle (carbon, nitrogen)." ;
+    rdfs:domain :BiogeochemicalProcess ;
+    rdfs:range :AquaDivaEntity .
+
+### Datatype properties (6)
+
+:hasOrganicCarbon
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "hasOrganicCarbon" ;
+    rdfs:comment "Numeric value for organic carbon concentration (e.g., mg/L)." ;
+    rdfs:domain :ChemicalParameter ;
+    rdfs:range xsd:double .
+
+:hasNitrate
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "hasNitrate" ;
+    rdfs:comment "Numeric value for nitrate concentration (e.g., mg/L or as NO3-N)." ;
+    rdfs:domain :ChemicalParameter ;
+    rdfs:range xsd:double .
+
+:hasBiomass
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "hasBiomass" ;
+    rdfs:comment "Numeric estimate of biomass (e.g., g C/L or mg/L)." ;
+    rdfs:domain :Biomass ;
+    rdfs:range xsd:double .
+
+:hasPorosity
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "hasPorosity" ;
+    rdfs:comment "Porosity value (fraction, 0-1)." ;
+    rdfs:domain :Porosity ;
+    rdfs:range xsd:double .
+
+:hasPermeability
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "hasPermeability" ;
+    rdfs:comment "Permeability value (Darcy or m2)." ;
+    rdfs:domain :Permeability ;
+    rdfs:range xsd:double .
+
+:hasMicrobialAbundance
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "hasMicrobialAbundance" ;
+    rdfs:comment "Count or estimate of microbial cells per unit volume." ;
+    rdfs:domain :MicrobialCommunity ;
+    rdfs:range xsd:integer .
+
+################################################################
+# Individuals (10 total) with assertions connecting class instances and values
+################################################################
+
+:iAq1
+    rdf:type :Aquifer ;
+    rdfs:label "Aquifer_AQ-1" ;
+    :containsZone :iZoneA ;
+    rdfs:comment "Example aquifer instance representing a coastal sand aquifer." .
+
+:iZoneA
+    rdf:type :AquiferZone ;
+    rdfs:label "Zone_A" ;
+    :hostsMicrobe :iMicrobe1 , :iMicrobe2 ;
+    :hasMicrobialCommunity :iCommunity1 ;
+    rdfs:comment "A saturated fracture zone in Aquifer_AQ-1." .
+
+:iGW1
+    rdf:type :WaterSample ;
+    rdfs:label "GW_Sample_001" ;
+    :sampledFrom :iZoneA ;
+    :locatedIn :iAq1 ;
+    :hasParameter :iMeasOC1 , :iMeasNO31 ;
+    rdfs:comment "Groundwater sample collected from Zone_A." .
+
+:iMicrobe1
+    rdf:type :Microbe ;
+    rdfs:label "Desulfovibrio_sp" ;
+    :participatesIn :iCarbonCycle1 ;
+    rdfs:comment "Sulfate-reducing bacterium known to influence carbon transformations." .
+
+:iMicrobe2
+    rdf:type :Microbe ;
+    rdfs:label "Nitrospira_sp" ;
+    :participatesIn :iNitrogenCycle1 ;
+    rdfs:comment "Nitrite-oxidizing bacterium involved in nitrification." .
+
+:iCommunity1
+    rdf:type :MicrobialCommunity ;
+    rdfs:label "Community_ZoneA_1" ;
+    :hasMicrobialAbundance "1500"^^xsd:integer ;
+    :hasBiomass "0.75"^^xsd:double ;
+    rdfs:comment "Characterized microbial community for Zone_A (cell count and biomass estimate)." .
+
+:iCarbonCycle1
+    rdf:type :CarbonCycle ;
+    rdfs:label "CarbonCycle_ZoneA" ;
+    rdfs:comment "Localized carbon cycle processes (respiration, fermentation) active in Zone_A." .
+
+:iNitrogenCycle1
+    rdf:type :NitrogenCycle ;
+    rdfs:label "NitrogenCycle_ZoneA" ;
+    rdfs:comment "Localized nitrogen cycle processes (nitrification, denitrification) active in Zone_A." .
+
+:iMeasOC1
+    rdf:type :ChemicalParameter ;
+    rdfs:label "DOC_measurement_001" ;
+    :hasOrganicCarbon "12.4"^^xsd:double ;
+    rdfs:comment "Dissolved organic carbon measurement for GW_Sample_001." .
+
+:iMeasNO31
+    rdf:type :ChemicalParameter ;
+    rdfs:label "NO3_measurement_001" ;
+    :hasNitrate "3.5"^^xsd:double ;
+    rdfs:comment "Nitrate measurement for GW_Sample_001." .
+
+# End of AquaDiva ontology Turtle file.

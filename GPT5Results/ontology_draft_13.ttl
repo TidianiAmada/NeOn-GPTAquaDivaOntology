@@ -1,0 +1,270 @@
+# Ontology populated with meaningful individuals (water resources / environmental monitoring domain).
+# New and existing classes, properties and individuals are declared below.
+# This file is valid Turtle and contains an ontology with 20 classes, 15 properties and multiple individuals.
+# Comments/instructions are included only at the top of the file as required.
+
+@prefix ex: <http://example.org/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex: a owl:Ontology ;
+    rdfs:comment "Environmental monitoring ontology (populated with individuals)." .
+
+################################################################
+# Classes (20)
+################################################################
+ex:Feature a rdfs:Class .
+ex:EnvironmentalFeature a rdfs:Class ;
+    rdfs:subClassOf ex:Feature .
+ex:AquaticFeature a rdfs:Class ;
+    rdfs:subClassOf ex:EnvironmentalFeature .
+ex:TerrestrialFeature a rdfs:Class ;
+    rdfs:subClassOf ex:EnvironmentalFeature .
+ex:ManagedFeature a rdfs:Class ;
+    rdfs:subClassOf ex:EnvironmentalFeature .
+
+ex:SurfaceWater a rdfs:Class ;
+    rdfs:subClassOf ex:AquaticFeature .
+ex:Groundwater a rdfs:Class ;
+    rdfs:subClassOf ex:AquaticFeature .
+
+ex:River a rdfs:Class ;
+    rdfs:subClassOf ex:SurfaceWater .
+ex:Lake a rdfs:Class ;
+    rdfs:subClassOf ex:SurfaceWater .
+ex:Wetland a rdfs:Class ;
+    rdfs:subClassOf ex:SurfaceWater .
+
+ex:Aquifer a rdfs:Class ;
+    rdfs:subClassOf ex:Groundwater .
+
+ex:Well a rdfs:Class ;
+    rdfs:subClassOf ex:ManagedFeature .
+ex:Dam a rdfs:Class ;
+    rdfs:subClassOf ex:ManagedFeature .
+ex:MonitoringSite a rdfs:Class ;
+    rdfs:subClassOf ex:ManagedFeature .
+ex:Sensor a rdfs:Class ;
+    rdfs:subClassOf ex:ManagedFeature .
+
+ex:Watershed a rdfs:Class ;
+    rdfs:subClassOf ex:EnvironmentalFeature .
+
+ex:Contaminant a rdfs:Class ;
+    rdfs:subClassOf ex:Feature .
+
+ex:Sample a rdfs:Class .
+ex:Measurement a rdfs:Class .
+ex:Authority a rdfs:Class .
+
+################################################################
+# Properties (15)
+################################################################
+# Object properties
+ex:locatedIn a owl:ObjectProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:domain ex:Feature ;
+    rdfs:range ex:Feature .
+
+ex:hasPart a owl:ObjectProperty ;
+    rdfs:label "hasPart" ;
+    rdfs:domain ex:Feature ;
+    rdfs:range ex:Feature .
+
+ex:monitoredBy a owl:ObjectProperty ;
+    rdfs:label "monitoredBy" ;
+    rdfs:domain ex:MonitoringSite ;
+    rdfs:range ex:Sensor .
+
+ex:operatedBy a owl:ObjectProperty ;
+    rdfs:label "operatedBy" ;
+    rdfs:domain ex:Feature ;
+    rdfs:range ex:Authority .
+
+ex:hasSample a owl:ObjectProperty ;
+    rdfs:label "hasSample" ;
+    rdfs:domain ex:MonitoringSite ;
+    rdfs:range ex:Sample .
+
+ex:hasMeasurement a owl:ObjectProperty ;
+    rdfs:label "hasMeasurement" ;
+    rdfs:domain ex:Sample ;
+    rdfs:range ex:Measurement .
+
+ex:flowsInto a owl:ObjectProperty ;
+    rdfs:label "flowsInto" ;
+    rdfs:domain ex:SurfaceWater ;
+    rdfs:range ex:SurfaceWater .
+
+ex:containsContaminant a owl:ObjectProperty ;
+    rdfs:label "containsContaminant" ;
+    rdfs:domain ex:Sample ;
+    rdfs:range ex:Contaminant .
+
+# Datatype properties
+ex:hasName a owl:DatatypeProperty ;
+    rdfs:label "hasName" ;
+    rdfs:domain ex:Feature ;
+    rdfs:range xsd:string .
+
+ex:hasID a owl:DatatypeProperty ;
+    rdfs:label "hasID" ;
+    rdfs:domain ex:Feature ;
+    rdfs:range xsd:string .
+
+ex:depth a owl:DatatypeProperty ;
+    rdfs:label "depth" ;
+    rdfs:domain ex:Feature ;
+    rdfs:range xsd:decimal .
+
+ex:flowRate a owl:DatatypeProperty ;
+    rdfs:label "flowRate" ;
+    rdfs:domain ex:SurfaceWater ;
+    rdfs:range xsd:decimal .
+
+ex:measuredAt a owl:DatatypeProperty ;
+    rdfs:label "measuredAt" ;
+    rdfs:domain ex:Sample ;
+    rdfs:range xsd:dateTime .
+
+ex:concentration a owl:DatatypeProperty ;
+    rdfs:label "concentration" ;
+    rdfs:domain ex:Measurement ;
+    rdfs:range xsd:decimal .
+
+ex:installationDate a owl:DatatypeProperty ;
+    rdfs:label "installationDate" ;
+    rdfs:domain ex:Sensor ;
+    rdfs:range xsd:date .
+
+################################################################
+# Individuals (populated with meaningful instances)
+################################################################
+
+# Watershed
+ex:Watershed_W1 a ex:Watershed ;
+    ex:hasName "Green River Catchment" ;
+    ex:hasID "WS-101" .
+
+# Aquifer
+ex:Aquifer1 a ex:Aquifer ;
+    ex:hasName "Edenspring Aquifer" ;
+    ex:hasID "AQ-001" ;
+    ex:depth "120.5"^^xsd:decimal ;
+    ex:locatedIn ex:Watershed_W1 .
+
+# Surface water features
+ex:RiverGlen a ex:River ;
+    ex:hasName "Glen River" ;
+    ex:hasID "RV-210" ;
+    ex:flowRate "45.3"^^xsd:decimal ;
+    ex:locatedIn ex:Watershed_W1 ;
+    ex:flowsInto ex:LakeSilver .
+
+ex:LakeSilver a ex:Lake ;
+    ex:hasName "Lake Silver" ;
+    ex:hasID "LK-305" ;
+    ex:depth "30.0"^^xsd:decimal ;
+    ex:locatedIn ex:Watershed_W1 .
+
+ex:WetlandOld a ex:Wetland ;
+    ex:hasName "Old Marsh" ;
+    ex:hasID "WL-410" ;
+    ex:locatedIn ex:Watershed_W1 .
+
+# Managed infrastructure
+ex:Well_Alpha a ex:Well ;
+    ex:hasName "Alpha Well" ;
+    ex:hasID "WL-ALPHA" ;
+    ex:depth "85.0"^^xsd:decimal ;
+    ex:locatedIn ex:Aquifer1 ;
+    ex:operatedBy ex:Authority_ENV .
+
+ex:Well_Beta a ex:Well ;
+    ex:hasName "Beta Well" ;
+    ex:hasID "WL-BETA" ;
+    ex:depth "60.0"^^xsd:decimal ;
+    ex:locatedIn ex:Aquifer1 ;
+    ex:operatedBy ex:Authority_ENV .
+
+ex:Dam_Highcrest a ex:Dam ;
+    ex:hasName "Highcrest Dam" ;
+    ex:hasID "DM-77" ;
+    ex:installationDate "1989-06-15"^^xsd:date ;
+    ex:locatedIn ex:RiverGlen ;
+    ex:operatedBy ex:Authority_ENV .
+
+# Monitoring sites and sensors
+ex:MonitoringSite_MS1 a ex:MonitoringSite ;
+    ex:hasName "MS - Glen Rd" ;
+    ex:hasID "MS-001" ;
+    ex:locatedIn ex:RiverGlen ;
+    ex:hasSample ex:Sample_001 ;
+    ex:monitoredBy ex:Sensor_S1 ;
+    ex:operatedBy ex:Authority_ENV .
+
+ex:MonitoringSite_MS2 a ex:MonitoringSite ;
+    ex:hasName "MS - Lake Silver" ;
+    ex:hasID "MS-002" ;
+    ex:locatedIn ex:LakeSilver ;
+    ex:hasSample ex:Sample_002 ;
+    ex:monitoredBy ex:Sensor_S2 ;
+    ex:operatedBy ex:Authority_ENV .
+
+ex:Sensor_S1 a ex:Sensor ;
+    ex:hasName "T-Logger-100" ;
+    ex:hasID "SN-100" ;
+    ex:installationDate "2019-05-10"^^xsd:date .
+
+ex:Sensor_S2 a ex:Sensor ;
+    ex:hasName "Level Sensor L2" ;
+    ex:hasID "SN-200" ;
+    ex:installationDate "2021-11-02"^^xsd:date .
+
+# Samples, measurements and contaminants
+ex:Sample_001 a ex:Sample ;
+    ex:hasID "SMP-1001" ;
+    ex:measuredAt "2026-03-15T10:30:00"^^xsd:dateTime ;
+    ex:hasMeasurement ex:Measurement_M1 ;
+    ex:containsContaminant ex:Contam_Nitrate .
+
+ex:Measurement_M1 a ex:Measurement ;
+    ex:hasName "Nitrate concentration" ;
+    ex:hasID "M-9001" ;
+    ex:concentration "7.8"^^xsd:decimal .
+
+ex:Contam_Nitrate a ex:Contaminant ;
+    ex:hasName "Nitrate" ;
+    ex:hasID "C-001" .
+
+ex:Sample_002 a ex:Sample ;
+    ex:hasID "SMP-1002" ;
+    ex:measuredAt "2026-03-16T09:15:00"^^xsd:dateTime ;
+    ex:hasMeasurement ex:Measurement_M2 ;
+    ex:containsContaminant ex:Contam_Lead .
+
+ex:Measurement_M2 a ex:Measurement ;
+    ex:hasName "Lead concentration" ;
+    ex:hasID "M-9002" ;
+    ex:concentration "0.015"^^xsd:decimal .
+
+ex:Contam_Lead a ex:Contaminant ;
+    ex:hasName "Lead" ;
+    ex:hasID "C-002" .
+
+# Authorities
+ex:Authority_ENV a ex:Authority ;
+    ex:hasName "Regional Environmental Agency" ;
+    ex:hasID "AUTH-ENV-01" .
+
+ex:Authority_Fed a ex:Authority ;
+    ex:hasName "National Environmental Authority" ;
+    ex:hasID "AUTH-FED-01" .
+
+# Structural relations (composition within the watershed)
+ex:Watershed_W1 ex:hasPart ex:RiverGlen , ex:LakeSilver , ex:WetlandOld .
+
+# Additional geographic relationships
+ex:LakeSilver ex:hasPart ex:WetlandOld .

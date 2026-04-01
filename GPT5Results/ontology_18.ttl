@@ -1,0 +1,49 @@
+@prefix : <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ontology> a owl:Ontology ;
+    rdfs:label "Example ontology"@en ;
+    rdfs:comment "Fixed prefix syntax: replaced <#> with a full IRI"@en .
+
+:alice a :Person ;
+    :hasName "Alice" ;
+    :knows :bob ;
+    :memberOf :ExampleOrg .
+
+:hasName a rdf:Property ;
+    rdfs:label "has name"@en ;
+    rdfs:comment "The name of a person."@en ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string .
+
+:knows a rdf:Property ;
+    rdfs:label "knows"@en ;
+    rdfs:comment "Relates two people who know each other."@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Person .
+
+:memberOf a rdf:Property ;
+    rdfs:label "member of"@en ;
+    rdfs:comment "Indicates membership of a person in an organization."@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Organization .
+
+:bob a :Person ;
+    :hasName "Bob" ;
+    :memberOf :ExampleOrg .
+
+:ExampleOrg a :Organization ;
+    rdfs:label "Example Organization"@en ;
+    rdfs:comment "An example organization used in the ontology."@en .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:comment "An organization such as a company or non-profit."@en .
+
+:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:comment "A human being or agent."@en .
+

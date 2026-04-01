@@ -1,0 +1,246 @@
+# Complete ontology in Turtle.
+# Changes made:
+# - Added rdfs:label for all 20 classes and for all 10 individuals to satisfy SHACL minCount constraints.
+# - Introduced Data Properties where meaningful (7 datatype properties) and declared 8 object properties, keeping total properties at 15.
+# - Preserved the original counts: Classes: 20, Properties: 15, Individuals: 10.
+# - Increased subclassing (many rdfs:subClassOf axioms) to ensure a high subclass count.
+# Notes:
+# - Data property domains and ranges use appropriate xsd datatypes.
+# - This file is self-contained Turtle and contains only RDF/Turtle triples and comments.
+
+@prefix ex:    <http://example.org/ontology#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+ex: a owl:Ontology ;
+    rdfs:label "Example Ontology with Data Properties and Labels"@en .
+
+################################################################################
+# Classes (20)
+################################################################################
+
+# Top-level
+ex:Entity a owl:Class ;
+    rdfs:label "Entity"@en .
+
+ex:Agent a owl:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf ex:Agent .
+
+ex:Employee a owl:Class ;
+    rdfs:label "Employee"@en ;
+    rdfs:subClassOf ex:Person .
+
+ex:Manager a owl:Class ;
+    rdfs:label "Manager"@en ;
+    rdfs:subClassOf ex:Employee .
+
+ex:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:subClassOf ex:Agent .
+
+ex:Company a owl:Class ;
+    rdfs:label "Company"@en ;
+    rdfs:subClassOf ex:Organization .
+
+ex:Project a owl:Class ;
+    rdfs:label "Project"@en ;
+    rdfs:subClassOf ex:Entity .
+
+# Artifacts
+ex:Artifact a owl:Class ;
+    rdfs:label "Artifact"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:subClassOf ex:Artifact .
+
+ex:File a owl:Class ;
+    rdfs:label "File"@en ;
+    rdfs:subClassOf ex:Document .
+
+ex:Product a owl:Class ;
+    rdfs:label "Product"@en ;
+    rdfs:subClassOf ex:Artifact .
+
+# Places
+ex:Place a owl:Class ;
+    rdfs:label "Place"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Location a owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:subClassOf ex:Place .
+
+ex:City a owl:Class ;
+    rdfs:label "City"@en ;
+    rdfs:subClassOf ex:Location .
+
+ex:Branch a owl:Class ;
+    rdfs:label "Branch"@en ;
+    rdfs:subClassOf ex:Location .
+
+# Vehicles and Animals
+ex:Vehicle a owl:Class ;
+    rdfs:label "Vehicle"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Car a owl:Class ;
+    rdfs:label "Car"@en ;
+    rdfs:subClassOf ex:Vehicle .
+
+ex:Animal a owl:Class ;
+    rdfs:label "Animal"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Dog a owl:Class ;
+    rdfs:label "Dog"@en ;
+    rdfs:subClassOf ex:Animal .
+
+################################################################################
+# Properties (15 total: 8 object properties, 7 datatype properties)
+################################################################################
+
+# Object Properties (8)
+ex:worksFor a owl:ObjectProperty ;
+    rdfs:label "works for"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Organization .
+
+ex:manages a owl:ObjectProperty ;
+    rdfs:label "manages"@en ;
+    rdfs:domain ex:Manager ;
+    rdfs:range ex:Project .
+
+ex:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Place .
+
+ex:hasBranch a owl:ObjectProperty ;
+    rdfs:label "has branch"@en ;
+    rdfs:domain ex:Company ;
+    rdfs:range ex:Branch .
+
+ex:owns a owl:ObjectProperty ;
+    rdfs:label "owns"@en ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Artifact .
+
+ex:relatedTo a owl:ObjectProperty ;
+    rdfs:label "related to"@en ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity .
+
+ex:assignedTo a owl:ObjectProperty ;
+    rdfs:label "assigned to"@en ;
+    rdfs:domain ex:Project ;
+    rdfs:range ex:Employee .
+
+ex:producedBy a owl:ObjectProperty ;
+    rdfs:label "produced by"@en ;
+    rdfs:domain ex:Product ;
+    rdfs:range ex:Company .
+
+# Datatype Properties (7)
+ex:hasPopulation a owl:DatatypeProperty ;
+    rdfs:label "has population"@en ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:integer .
+
+ex:hasCapacity a owl:DatatypeProperty ;
+    rdfs:label "has capacity"@en ;
+    rdfs:domain ex:Branch ;
+    rdfs:range xsd:integer .
+
+ex:hasPrice a owl:DatatypeProperty ;
+    rdfs:label "has price"@en ;
+    rdfs:domain ex:Product ;
+    rdfs:range xsd:decimal .
+
+ex:hasStartDate a owl:DatatypeProperty ;
+    rdfs:label "has start date"@en ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:date .
+
+ex:hasEndDate a owl:DatatypeProperty ;
+    rdfs:label "has end date"@en ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:date .
+
+ex:hasAge a owl:DatatypeProperty ;
+    rdfs:label "has age"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:integer .
+
+ex:hasFileSize a owl:DatatypeProperty ;
+    rdfs:label "has file size"@en ;
+    rdfs:domain ex:File ;
+    rdfs:range xsd:decimal .
+
+################################################################################
+# Individuals (10) with labels and some property assertions
+################################################################################
+
+ex:alice a ex:Person ;
+    rdfs:label "Alice"@en ;
+    ex:worksFor ex:acmeCorp ;
+    ex:hasAge  "34"^^xsd:integer .
+
+ex:bob a ex:Manager ;
+    rdfs:label "Bob"@en ;
+    ex:worksFor ex:acmeCorp ;
+    ex:manages ex:projectX ;
+    ex:hasAge "41"^^xsd:integer .
+
+ex:acmeCorp a ex:Company ;
+    rdfs:label "ACME Corporation"@en ;
+    ex:hasBranch ex:mainBranch ;
+    ex:owns ex:product1 .
+
+ex:mainBranch a ex:Branch ;
+    rdfs:label "ACME Main Branch"@en ;
+    ex:locatedIn ex:paris ;
+    ex:hasCapacity "250"^^xsd:integer .
+
+ex:paris a ex:City ;
+    rdfs:label "Paris"@en ;
+    ex:hasPopulation "2161000"^^xsd:integer .
+
+ex:projectX a ex:Project ;
+    rdfs:label "Project X"@en ;
+    ex:assignedTo ex:alice ;
+    ex:hasStartDate "2025-01-15"^^xsd:date ;
+    ex:hasEndDate "2025-12-31"^^xsd:date ;
+    ex:locatedIn ex:mainBranch .
+
+ex:product1 a ex:Product ;
+    rdfs:label "Widget-1000"@en ;
+    ex:hasPrice "19.99"^^xsd:decimal ;
+    ex:producedBy ex:acmeCorp .
+
+ex:doc1 a ex:Document ;
+    rdfs:label "Project X Requirements"@en ;
+    ex:hasFileSize "0.45"^^xsd:decimal ;
+    ex:relatedTo ex:projectX .
+
+ex:sedan1 a ex:Car ;
+    rdfs:label "Sedan A-123"@en ;
+    ex:locatedIn ex:mainBranch ;
+    ex:relatedTo ex:acmeCorp .
+
+ex:fido a ex:Dog ;
+    rdfs:label "Fido"@en ;
+    ex:hasAge "5"^^xsd:integer ;
+    ex:relatedTo ex:alice .
+
+################################################################################
+# End of ontology
+################################################################################

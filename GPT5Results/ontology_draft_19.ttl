@@ -1,0 +1,91 @@
+# Fixed ontology: added rdfs:label for classes that were missing (to satisfy SHACL minCount constraints)
+# and added rdfs:domain (and rdfs:range and rdfs:label) for all custom properties in the : namespace
+# to address the reported "Missing domain for property @prefix : <#>" pitfall.
+# Classes updated: :Entity, :Person, :Student, :Teacher, :Course
+# Properties updated/added with explicit domains: :teaches, :takesCourse, :affiliatedWith
+# The content below is valid Turtle syntax for the complete ontology.
+
+@prefix : <#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#> a owl:Ontology ;
+    rdfs:label "Example educational ontology (fixed domains and labels)"@en .
+
+# Classes
+:Entity
+    a rdfs:Class ;
+    rdfs:label "Entity"@en .
+
+:Person
+    a rdfs:Class ;
+    rdfs:subClassOf :Entity ;
+    rdfs:label "Person"@en .
+
+:Student
+    a rdfs:Class ;
+    rdfs:subClassOf :Person ;
+    rdfs:label "Student"@en .
+
+:Teacher
+    a rdfs:Class ;
+    rdfs:subClassOf :Person ;
+    rdfs:label "Teacher"@en .
+
+:Course
+    a rdfs:Class ;
+    rdfs:label "Course"@en .
+
+# Properties with explicit domain (and range) declarations
+:teaches
+    a rdf:Property ;
+    rdfs:label "teaches"@en ;
+    rdfs:domain :Teacher ;
+    rdfs:range :Course ;
+    rdfs:comment "Indicates a teacher teaches a course."@en .
+
+:takesCourse
+    a rdf:Property ;
+    rdfs:label "takes course"@en ;
+    rdfs:domain :Student ;
+    rdfs:range :Course ;
+    rdfs:comment "Indicates a student takes a course."@en .
+
+:affiliatedWith
+    a rdf:Property ;
+    rdfs:label "affiliated with"@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Entity ;
+    rdfs:comment "Indicates a person is affiliated with an organization or entity."@en .
+
+# (Optional) Inverse and additional property characteristics
+:teaches rdfs:seeAlso :taughtBy .
+:taughtBy
+    a rdf:Property ;
+    rdfs:label "taught by"@en ;
+    rdfs:domain :Course ;
+    rdfs:range :Teacher ;
+    rdfs:comment "Inverse role of :teaches."@en .
+
+# Example individuals (optional, showing usage)
+:alice
+    a :Teacher ;
+    rdfs:label "Alice"@en ;
+    :teaches :math101 .
+
+:bob
+    a :Student ;
+    rdfs:label "Bob"@en ;
+    :takesCourse :math101 ;
+    :affiliatedWith :DeptCS .
+
+:math101
+    a :Course ;
+    rdfs:label "Mathematics 101"@en .
+
+:DeptCS
+    a :Entity ;
+    rdfs:label "Computer Science Department"@en .

@@ -1,0 +1,36 @@
+@prefix : <file:///app/GPT5Results/ontology_draft_18.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:alice a :Student ;
+    :enrolledIn :math101 .
+
+:bob a :Teacher ;
+    :teaches :math101 .
+
+:enrolledIn a owl:ObjectProperty ;
+    rdfs:domain :Student ;
+    rdfs:range :Course .
+
+:teaches a owl:ObjectProperty ;
+    rdfs:domain :Teacher ;
+    rdfs:range :Course .
+
+:Entity a owl:Class .
+
+:Person a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Student a owl:Class ;
+    rdfs:subClassOf :Person .
+
+:Teacher a owl:Class ;
+    rdfs:subClassOf :Person .
+
+:math101 a :Course .
+
+:Course a owl:Class ;
+    rdfs:subClassOf :Entity .
+

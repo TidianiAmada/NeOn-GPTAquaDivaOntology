@@ -1,12 +1,3 @@
-✔ Turtle syntax is correct.
-✔ Saved Turtle: /app/output/ontology_1.ttl
-✔ Saved RDF/XML: /app/output/ontology_1.rdf
-
---- SHACL Validation ---
-Validation Report
-Conforms: True
-
-✔ SHACL validation passed.
-
---- Pitfalls ---
-Total pitfalls: 0
+❌ Syntax error: at line 22 of <>:
+Bad syntax (expected '.' or '}' or ']' at end of statement) at ^ in:
+"...b'########################################################\n\n: '^b'A qaudiva_dummy .  # placeholder to prevent certain editors '..."

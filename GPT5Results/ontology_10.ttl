@@ -1,0 +1,216 @@
+@prefix : <http://example.org/ontology_9#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:AdministrativeStaff a owl:Class ;
+    rdfs:subClassOf :Employee,
+        :Role .
+
+:Consultant a owl:Class ;
+    rdfs:subClassOf :Person .
+
+:Executive a owl:Class ;
+    rdfs:subClassOf :Manager,
+        :Role .
+
+:HRDept a :Department ;
+    :locatedIn :UK ;
+    :memberOf :AcmeCorp ;
+    :name "Human Resources" ;
+    rdfs:subClassOf :Department .
+
+:Intern a owl:Class ;
+    rdfs:subClassOf :Employee .
+
+:Meeting a owl:Class ;
+    rdfs:subClassOf :Event .
+
+:Payment a owl:Class .
+
+:Product a owl:Class .
+
+:RemoteTeam a owl:Class ;
+    rdfs:subClassOf :Team .
+
+:Service a owl:Class .
+
+:dateOfBirth a owl:DatatypeProperty ;
+    rdfs:label "dateOfBirth" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:date .
+
+:hasAddress a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "hasAddress" ;
+    rdfs:domain :Organization ;
+    rdfs:range :Address .
+
+:hasDocument a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "hasDocument" ;
+    rdfs:domain :Organization ;
+    rdfs:range :Document .
+
+:isMarriedTo a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "isMarriedTo" ;
+    rdfs:domain :Person ;
+    rdfs:range :Person .
+
+:issuesInvoice a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "issuesInvoice" ;
+    rdfs:domain :Organization ;
+    rdfs:range :Invoice .
+
+:livesIn a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "livesIn" ;
+    rdfs:domain :Person ;
+    rdfs:range :City .
+
+:locatedIn a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:domain :Organization ;
+    rdfs:range :Location .
+
+:manages a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "manages" ;
+    rdfs:domain :Manager ;
+    rdfs:range :Department .
+
+:memberOf a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "memberOf" ;
+    rdfs:domain :Person ;
+    rdfs:range :Team .
+
+:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string .
+
+:participatesIn a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "participatesIn" ;
+    rdfs:domain :Person ;
+    rdfs:range :Project .
+
+:pays a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "pays" ;
+    rdfs:domain :Person ;
+    rdfs:range :Invoice .
+
+:salary a owl:DatatypeProperty ;
+    rdfs:label "salary" ;
+    rdfs:domain :Employee ;
+    rdfs:range xsd:decimal .
+
+:supervises a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "supervises" ;
+    rdfs:domain :Employee ;
+    rdfs:range :Employee .
+
+:worksFor a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "worksFor" ;
+    rdfs:domain :Person ;
+    rdfs:range :Organization .
+
+:Address a owl:Class ;
+    rdfs:subClassOf :Location .
+
+:Alice a :Person ;
+    :dateOfBirth "1985-04-12"^^xsd:date ;
+    :livesIn :London ;
+    :name "Alice" ;
+    :worksFor :AcmeCorp .
+
+:Carol a :Person ;
+    :dateOfBirth "1983-11-05"^^xsd:date ;
+    :isMarriedTo :Bob ;
+    :livesIn :London ;
+    :name "Carol" ;
+    :participatesIn :ProjectX .
+
+:Contract a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:Contract123 a :Contract ;
+    :issuedBy :AcmeCorp ;
+    :issuesInvoice :Invoice001 ;
+    :name "Contract #123" .
+
+:Country a owl:Class ;
+    rdfs:subClassOf :Location .
+
+:Invoice001 a :Invoice ;
+    :name "Invoice 001" ;
+    :pays :Bob .
+
+:ProjectX a :Project ;
+    :name "Project X" ;
+    :participatesIn :Alice .
+
+:TeamRed a :Team ;
+    :memberOf :AcmeCorp ;
+    :name "Team Red" .
+
+:Bob a :Person ;
+    :dateOfBirth "1978-09-23"^^xsd:date ;
+    :isMarriedTo :Carol ;
+    :livesIn :London ;
+    :memberOf :TeamRed ;
+    :name "Bob" ;
+    :worksFor :AcmeCorp .
+
+:City a owl:Class ;
+    rdfs:subClassOf :Location .
+
+:Document a owl:Class .
+
+:Event a owl:Class .
+
+:Manager a owl:Class ;
+    rdfs:subClassOf :Employee .
+
+:Project a owl:Class ;
+    rdfs:subClassOf :Event .
+
+:Role a owl:Class .
+
+:Department a owl:Class ;
+    rdfs:subClassOf :Organization .
+
+:Invoice a owl:Class .
+
+:London a :City ;
+    :locatedIn :UK ;
+    :name "London" .
+
+:Team a owl:Class ;
+    rdfs:subClassOf :Organization .
+
+:UK a :Country ;
+    :name "United Kingdom" .
+
+:Location a owl:Class .
+
+:AcmeCorp a :Organization ;
+    :hasAddress :AcmeAddress ;
+    :hasDocument :Contract123 ;
+    :locatedIn :UK ;
+    :name "Acme Corporation" .
+
+:Employee a owl:Class ;
+    rdfs:subClassOf :Person .
+
+:Organization a owl:Class .
+
+:Person a owl:Class .
+

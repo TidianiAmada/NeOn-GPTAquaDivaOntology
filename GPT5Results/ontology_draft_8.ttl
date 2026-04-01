@@ -1,0 +1,253 @@
+# Reflexive properties were generated and assigned to every object property in this ontology.
+# For each object property defined here, an owl:ReflexiveProperty triple has been added
+# so that each property is explicitly reflexive (an entity may relate to itself).
+# The file below is the complete ontology in Turtle syntax (classes, properties, individuals)
+# including those newly-added reflexive property declarations.
+@prefix : <http://example.org/onto#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/onto> a owl:Ontology ;
+    rdfs:label "Example Ontology with Reflexive Object Properties" .
+
+# Classes (20)
+:Entity a owl:Class ;
+    rdfs:label "Entity" .
+
+:Thing a owl:Class ;
+    rdfs:label "Thing" ;
+    rdfs:subClassOf :Entity .
+
+:Concept a owl:Class ;
+    rdfs:label "Concept" ;
+    rdfs:subClassOf :Entity .
+
+:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf :Agent, :Thing .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf :Agent, :Thing .
+
+:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:subClassOf :Process, :Thing .
+
+:Document a owl:Class ;
+    rdfs:label "Document" ;
+    rdfs:subClassOf :Thing .
+
+:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:subClassOf :Entity .
+
+:Place a owl:Class ;
+    rdfs:label "Place" ;
+    rdfs:subClassOf :Thing .
+
+:Product a owl:Class ;
+    rdfs:label "Product" ;
+    rdfs:subClassOf :Thing .
+
+:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:subClassOf :Entity .
+
+:Role a owl:Class ;
+    rdfs:label "Role" ;
+    rdfs:subClassOf :Agent .
+
+:Topic a owl:Class ;
+    rdfs:label "Topic" ;
+    rdfs:subClassOf :Category, :Concept .
+
+:Category a owl:Class ;
+    rdfs:label "Category" ;
+    rdfs:subClassOf :Concept .
+
+:Process a owl:Class ;
+    rdfs:label "Process" ;
+    rdfs:subClassOf :Entity .
+
+:Stage a owl:Class ;
+    rdfs:label "Stage" ;
+    rdfs:subClassOf :Process .
+
+:Activity a owl:Class ;
+    rdfs:label "Activity" ;
+    rdfs:subClassOf :Process .
+
+:Component a owl:Class ;
+    rdfs:label "Component" ;
+    rdfs:subClassOf :Product .
+
+:Requirement a owl:Class ;
+    rdfs:label "Requirement" ;
+    rdfs:subClassOf :Specification .
+
+:Specification a owl:Class ;
+    rdfs:label "Specification" ;
+    rdfs:subClassOf :Document .
+
+# A dense subclassing structure to ensure high subclass count:
+:Agent rdfs:subClassOf :Entity .
+:Role rdfs:subClassOf :Agent .
+:Person rdfs:subClassOf :Agent .
+:Organization rdfs:subClassOf :Agent .
+:Topic rdfs:subClassOf :Category .
+:Category rdfs:subClassOf :Concept .
+:Specification rdfs:subClassOf :Document .
+:Stage rdfs:subClassOf :Process .
+:Activity rdfs:subClassOf :Process .
+:Component rdfs:subClassOf :Product .
+
+# Object Properties (15) - all defined as owl:ObjectProperty
+:isSimilarTo a owl:ObjectProperty ;
+    rdfs:label "isSimilarTo" ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity .
+
+:relatedTo a owl:ObjectProperty ;
+    rdfs:label "relatedTo" ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity .
+
+:hasMember a owl:ObjectProperty ;
+    rdfs:label "hasMember" ;
+    rdfs:domain :Organization ;
+    rdfs:range :Agent .
+
+:manages a owl:ObjectProperty ;
+    rdfs:label "manages" ;
+    rdfs:domain :Agent ;
+    rdfs:range :Project .
+
+:worksOn a owl:ObjectProperty ;
+    rdfs:label "worksOn" ;
+    rdfs:domain :Agent ;
+    rdfs:range :Project .
+
+:authoredBy a owl:ObjectProperty ;
+    rdfs:label "authoredBy" ;
+    rdfs:domain :Document ;
+    rdfs:range :Agent .
+
+:references a owl:ObjectProperty ;
+    rdfs:label "references" ;
+    rdfs:domain :Document ;
+    rdfs:range :Document .
+
+:locatedAt a owl:ObjectProperty ;
+    rdfs:label "locatedAt" ;
+    rdfs:domain :Entity ;
+    rdfs:range :Place .
+
+:hasPart a owl:ObjectProperty ;
+    rdfs:label "hasPart" ;
+    rdfs:domain :Thing ;
+    rdfs:range :Thing .
+
+:dependsOn a owl:ObjectProperty ;
+    rdfs:label "dependsOn" ;
+    rdfs:domain :Process ;
+    rdfs:range :Process .
+
+:participatesIn a owl:ObjectProperty ;
+    rdfs:label "participatesIn" ;
+    rdfs:domain :Agent ;
+    rdfs:range :Event .
+
+:hasRole a owl:ObjectProperty ;
+    rdfs:label "hasRole" ;
+    rdfs:domain :Agent ;
+    rdfs:range :Role .
+
+:assignedTo a owl:ObjectProperty ;
+    rdfs:label "assignedTo" ;
+    rdfs:domain :Task ;
+    rdfs:range :Agent .
+
+:supervises a owl:ObjectProperty ;
+    rdfs:label "supervises" ;
+    rdfs:domain :Agent ;
+    rdfs:range :Agent .
+
+:contributedTo a owl:ObjectProperty ;
+    rdfs:label "contributedTo" ;
+    rdfs:domain :Agent ;
+    rdfs:range :Project .
+
+# Note: :Task is referenced as domain for assignedTo; define it as subclass to increase subclassing:
+:Task a owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:subClassOf :Activity, :Process .
+
+# Reflexive property declarations added for every object property above (15 new triples)
+:isSimilarTo a owl:ReflexiveProperty .
+:relatedTo a owl:ReflexiveProperty .
+:hasMember a owl:ReflexiveProperty .
+:manages a owl:ReflexiveProperty .
+:worksOn a owl:ReflexiveProperty .
+:authoredBy a owl:ReflexiveProperty .
+:references a owl:ReflexiveProperty .
+:locatedAt a owl:ReflexiveProperty .
+:hasPart a owl:ReflexiveProperty .
+:dependsOn a owl:ReflexiveProperty .
+:participatesIn a owl:ReflexiveProperty .
+:hasRole a owl:ReflexiveProperty .
+:assignedTo a owl:ReflexiveProperty .
+:supervises a owl:ReflexiveProperty .
+:contributedTo a owl:ReflexiveProperty .
+
+# Individuals (10)
+:alice a :Person ;
+    rdfs:label "Alice" ;
+    :worksOn :projectA ;
+    :authoredBy :doc1 .  # note: domain/range not strictly enforced here—this is an assertion
+
+:bob a :Person ;
+    rdfs:label "Bob" ;
+    :manages :projectA ;
+    :supervises :alice .
+
+:org1 a :Organization ;
+    rdfs:label "Org1" ;
+    :hasMember :alice ,
+               :bob .
+
+:projectA a :Project ;
+    rdfs:label "Project A" ;
+    :hasPart :componentX ;
+    :dependsOn :projectB .
+
+:projectB a :Project ;
+    rdfs:label "Project B" ;
+    :hasPart :componentY .
+
+:doc1 a :Document ;
+    rdfs:label "Doc 1" ;
+    :references :doc2 .
+
+:doc2 a :Document ;
+    rdfs:label "Doc 2" .
+
+:event1 a :Event ;
+    rdfs:label "Event 1" ;
+    :participatesIn :event1 .  # reflexive use example
+
+:place1 a :Place ;
+    rdfs:label "Place 1" ;
+    :locatedAt :place1 .  # reflexive use example
+
+:componentX a :Component ;
+    rdfs:label "Component X" ;
+    :hasPart :componentX .  # reflexive use example
+
+# Additional small declarations to ensure clarity
+:componentY a :Component ;
+    rdfs:label "Component Y" .
+
+# End of ontology.

@@ -1,0 +1,209 @@
+@prefix ex: <http://example.org/ontology11#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///app/GPT5Results/ontology_draft_11.ttl> a owl:Ontology ;
+    rdfs:label "Example Ontology 11 - Transitive properties enforced" .
+
+ex:Dog1 a ex:Dog ;
+    ex:label "Fido" ;
+    ex:relatedTo ex:Alice .
+
+ex:File a owl:Class ;
+    rdfs:subClassOf ex:Artifact,
+        ex:Document .
+
+ex:Manager a owl:Class ;
+    rdfs:subClassOf ex:Agent,
+        ex:Employee .
+
+ex:age a owl:DatatypeProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:integer .
+
+ex:connectedTo a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "connectedTo" ;
+    rdfs:domain ex:Place ;
+    rdfs:range ex:Place ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:contains a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "contains" ;
+    rdfs:domain ex:Place ;
+    rdfs:range ex:Entity ;
+    rdfs:subPropertyOf ex:hasPart .
+
+ex:createdOn a owl:DatatypeProperty ;
+    rdfs:domain ex:Artifact ;
+    rdfs:range xsd:dateTime .
+
+ex:description a owl:DatatypeProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range xsd:string .
+
+ex:hasMember a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "hasMember" ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Agent ;
+    rdfs:subPropertyOf ex:hasPart .
+
+ex:isAncestorOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "isAncestorOf" ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Person ;
+    rdfs:subPropertyOf ex:hasAncestor .
+
+ex:isPartOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "isPartOf" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity ;
+    rdfs:subPropertyOf ex:hasPart .
+
+ex:label a owl:DatatypeProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range xsd:string .
+
+ex:locatedIn a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Place ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:memberOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "memberOf" ;
+    rdfs:domain ex:Agent ;
+    rdfs:range ex:Organization .
+
+ex:price a owl:DatatypeProperty ;
+    rdfs:domain ex:Product ;
+    rdfs:range xsd:decimal .
+
+ex:Animal a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Branch a owl:Class ;
+    rdfs:subClassOf ex:Company,
+        ex:Organization,
+        ex:Place .
+
+ex:Car a owl:Class ;
+    rdfs:subClassOf ex:Product,
+        ex:Vehicle .
+
+ex:Car1 a ex:Car ;
+    ex:label "Car 1" ;
+    ex:price 25000.00 .
+
+ex:Carol a ex:Person ;
+    ex:age 70 ;
+    ex:hasAncestor ex:Bob ;
+    ex:label "Carol" .
+
+ex:City a owl:Class ;
+    rdfs:subClassOf ex:Location .
+
+ex:CityZ a ex:City ;
+    ex:connectedTo ex:BranchY ;
+    ex:label "City Z" .
+
+ex:Dog a owl:Class ;
+    rdfs:subClassOf ex:Animal .
+
+ex:Location a owl:Class ;
+    rdfs:subClassOf ex:Place .
+
+ex:Project a owl:Class ;
+    rdfs:subClassOf ex:Artifact .
+
+ex:ProjectA a ex:Project ;
+    ex:contains ex:Car1 ;
+    ex:hasPart ex:Document1 ;
+    ex:label "Project A" .
+
+ex:Vehicle a owl:Class ;
+    rdfs:subClassOf ex:Product .
+
+ex:hasAncestor a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "hasAncestor" ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Person .
+
+ex:Bob a ex:Employee ;
+    ex:hasAncestor ex:Alice ;
+    ex:label "Bob" ;
+    ex:locatedIn ex:BranchY ;
+    ex:memberOf ex:CompanyX .
+
+ex:Company a owl:Class ;
+    rdfs:subClassOf ex:Organization .
+
+ex:CompanyX a ex:Company ;
+    ex:contains ex:BranchY ;
+    ex:hasMember ex:Alice,
+        ex:Bob ;
+    ex:label "Company X" .
+
+ex:Document a owl:Class ;
+    rdfs:subClassOf ex:Artifact .
+
+ex:Document1 a ex:Document ;
+    ex:createdOn "2024-01-15T10:00:00"^^xsd:dateTime ;
+    ex:label "Project Plan" ;
+    ex:relatedTo ex:ProjectA .
+
+ex:Employee a owl:Class ;
+    rdfs:subClassOf ex:Agent,
+        ex:Person .
+
+ex:relatedTo a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "relatedTo" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity .
+
+ex:Alice a ex:Person ;
+    ex:age 42 ;
+    ex:hasAncestor ex:Carol ;
+    ex:label "Alice" ;
+    ex:memberOf ex:CompanyX .
+
+ex:BranchY a ex:Branch ;
+    ex:contains ex:Document1 ;
+    ex:label "Branch Y" ;
+    ex:locatedIn ex:CityZ .
+
+ex:Product a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:hasPart a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "hasPart" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity .
+
+ex:Artifact a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Organization a owl:Class ;
+    rdfs:subClassOf ex:Agent .
+
+ex:Agent a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Place a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Person a owl:Class ;
+    rdfs:subClassOf ex:Agent .
+
+ex:Entity a owl:Class .
+

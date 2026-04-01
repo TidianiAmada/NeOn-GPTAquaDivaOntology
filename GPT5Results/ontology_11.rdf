@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/ontology#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/ontology#startDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">start date</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#birthDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">birth date</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Location">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Location</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Invoice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Invoice</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#memberOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">member of</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Team"/>
+    <rdfs:comment xml:lang="en">Each Person is declared to have at most one Team membership here (functional by ontology-wide policy).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#PlatformTeam">
+    <rdf:type rdf:resource="http://example.org/ontology#Team"/>
+    <rdfs:label xml:lang="en">Platform Team</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Team"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#RemoteTeam"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#documentNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">document number</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Role">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Role</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Department">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Department</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Service">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Service</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Bob">
+    <rdf:type rdf:resource="http://example.org/ontology#Intern"/>
+    <rdfs:label xml:lang="en">Bob</rdfs:label>
+    <worksAt rdf:resource="http://example.org/ontology#AcmeInc"/>
+    <memberOf rdf:resource="http://example.org/ontology#PlatformTeam"/>
+    <reportsTo rdf:resource="http://example.org/ontology#Dana"/>
+    <birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1998-11-03</birthDate>
+    <salary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30000</salary>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Project">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Project</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#salary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">salary</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Alice">
+    <rdf:type rdf:resource="http://example.org/ontology#Employee"/>
+    <rdfs:label xml:lang="en">Alice</rdfs:label>
+    <worksAt rdf:resource="http://example.org/ontology#AcmeInc"/>
+    <memberOf rdf:resource="http://example.org/ontology#PlatformTeam"/>
+    <reportsTo rdf:resource="http://example.org/ontology#Carol"/>
+    <birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1987-05-12</birthDate>
+    <salary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">85000</salary>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#issuesInvoice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">issues invoice</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Invoice"/>
+    <rdfs:comment xml:lang="en">Each Organization issues at most one primary Invoice in this simplified model (functional).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Executive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Executive</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Manager"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Metropolis">
+    <rdf:type rdf:resource="http://example.org/ontology#City"/>
+    <rdfs:label xml:lang="en">Metropolis</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Organization</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#participatesIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">participates in</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Event"/>
+    <rdfs:comment xml:lang="en">Each Person participates in at most one primary Event (functional for this ontology).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#manages">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">manages</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Manager"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Department"/>
+    <rdfs:comment xml:lang="en">A Manager has at most one managed Department (functional).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#AcmeInc">
+    <rdf:type rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:label xml:lang="en">Acme, Inc.</rdfs:label>
+    <locatedIn rdf:resource="http://example.org/ontology#Metropolis"/>
+    <hasAddress rdf:resource="http://example.org/ontology#AcmeAddress"/>
+    <issuesInvoice rdf:resource="http://example.org/ontology#Invoice_001"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Consultant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Consultant</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Team">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Team</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Country">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Country</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#locatedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">located in</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#City"/>
+    <rdfs:comment xml:lang="en">Each Organization has at most one primary City (functional).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#organizes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">organizes</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Event"/>
+    <rdfs:comment xml:lang="en">Each Organization organizes at most one primary Event (functional).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#OperationsDept">
+    <rdf:type rdf:resource="http://example.org/ontology#Department"/>
+    <rdfs:label xml:lang="en">Operations Department</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Department"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#worksAt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">works at</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:comment xml:lang="en">Each Person has at most one primary organization (declared functional).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#AcmeAddress">
+    <rdf:type rdf:resource="http://example.org/ontology#Address"/>
+    <rdfs:label xml:lang="en">1 Acme Plaza</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Product">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Product</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#RemoteTeam">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Remote Team</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Team"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Manager">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Manager</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Employee"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Dana">
+    <rdf:type rdf:resource="http://example.org/ontology#Manager"/>
+    <rdfs:label xml:lang="en">Dana</rdfs:label>
+    <worksAt rdf:resource="http://example.org/ontology#AcmeInc"/>
+    <manages rdf:resource="http://example.org/ontology#OperationsDept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#reportsTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">reports to</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Employee"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Manager"/>
+    <rdfs:comment xml:lang="en">Each Employee reports to at most one Manager (functional).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Meeting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Meeting</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Employee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Employee</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasAddress">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">has address</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Address"/>
+    <rdfs:comment xml:lang="en">Each Organization has at most one primary address (declared functional).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Intern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Intern</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Employee"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Address">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Address</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#EngineeringDept">
+    <rdf:type rdf:resource="http://example.org/ontology#Department"/>
+    <rdfs:label xml:lang="en">Engineering Department</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Department"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#AdministrativeStaff">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Administrative Staff</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Employee"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Payment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Payment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasContract">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">has contract</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Contract"/>
+    <rdfs:comment xml:lang="en">Each Person has at most one primary Contract recorded (functional).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_10.ttl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">Example Organization Ontology (augmented)</rdfs:label>
+    <rdfs:comment xml:lang="en">Functional declarations added for all object properties; labels added for all classes to satisfy SHACL minCount constraints.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Document</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Contract">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Contract</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#City">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">City</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Carol">
+    <rdf:type rdf:resource="http://example.org/ontology#Manager"/>
+    <rdfs:label xml:lang="en">Carol</rdfs:label>
+    <worksAt rdf:resource="http://example.org/ontology#AcmeInc"/>
+    <manages rdf:resource="http://example.org/ontology#EngineeringDept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#endDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">end date</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Invoice_001">
+    <rdf:type rdf:resource="http://example.org/ontology#Invoice"/>
+    <rdfs:label xml:lang="en">INV-001</rdfs:label>
+    <documentNumber>INV-001</documentNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Event</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

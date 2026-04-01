@@ -1,6 +1,6 @@
 ✔ Turtle syntax is correct.
-✔ Saved Turtle: /app/output/ontology_19.ttl
-✔ Saved RDF/XML: /app/output/ontology_19.rdf
+✔ Saved Turtle: /app/GPT5Results/ontology_20.ttl
+✔ Saved RDF/XML: /app/GPT5Results/ontology_20.rdf
 
 --- SHACL Validation ---
 Validation Report

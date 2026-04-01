@@ -1,0 +1,214 @@
+@prefix ex: <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex: a owl:Ontology ;
+    rdfs:label "Example Ontology with Data Properties and Labels"@en .
+
+ex:assignedTo a owl:ObjectProperty ;
+    rdfs:label "assigned to"@en ;
+    rdfs:domain ex:Project ;
+    rdfs:range ex:Employee .
+
+ex:bob a ex:Manager ;
+    rdfs:label "Bob"@en ;
+    ex:hasAge 41 ;
+    ex:manages ex:projectX ;
+    ex:worksFor ex:acmeCorp .
+
+ex:doc1 a ex:Document ;
+    rdfs:label "Project X Requirements"@en ;
+    ex:hasFileSize 0.45 ;
+    ex:relatedTo ex:projectX .
+
+ex:fido a ex:Dog ;
+    rdfs:label "Fido"@en ;
+    ex:hasAge 5 ;
+    ex:relatedTo ex:alice .
+
+ex:hasAge a owl:DatatypeProperty ;
+    rdfs:label "has age"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:integer .
+
+ex:hasBranch a owl:ObjectProperty ;
+    rdfs:label "has branch"@en ;
+    rdfs:domain ex:Company ;
+    rdfs:range ex:Branch .
+
+ex:hasCapacity a owl:DatatypeProperty ;
+    rdfs:label "has capacity"@en ;
+    rdfs:domain ex:Branch ;
+    rdfs:range xsd:integer .
+
+ex:hasEndDate a owl:DatatypeProperty ;
+    rdfs:label "has end date"@en ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:date .
+
+ex:hasFileSize a owl:DatatypeProperty ;
+    rdfs:label "has file size"@en ;
+    rdfs:domain ex:File ;
+    rdfs:range xsd:decimal .
+
+ex:hasPopulation a owl:DatatypeProperty ;
+    rdfs:label "has population"@en ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:integer .
+
+ex:hasPrice a owl:DatatypeProperty ;
+    rdfs:label "has price"@en ;
+    rdfs:domain ex:Product ;
+    rdfs:range xsd:decimal .
+
+ex:hasStartDate a owl:DatatypeProperty ;
+    rdfs:label "has start date"@en ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:date .
+
+ex:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Place .
+
+ex:manages a owl:ObjectProperty ;
+    rdfs:label "manages"@en ;
+    rdfs:domain ex:Manager ;
+    rdfs:range ex:Project .
+
+ex:owns a owl:ObjectProperty ;
+    rdfs:label "owns"@en ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Artifact .
+
+ex:producedBy a owl:ObjectProperty ;
+    rdfs:label "produced by"@en ;
+    rdfs:domain ex:Product ;
+    rdfs:range ex:Company .
+
+ex:relatedTo a owl:ObjectProperty ;
+    rdfs:label "related to"@en ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity .
+
+ex:sedan1 a ex:Car ;
+    rdfs:label "Sedan A-123"@en ;
+    ex:locatedIn ex:mainBranch ;
+    ex:relatedTo ex:acmeCorp .
+
+ex:worksFor a owl:ObjectProperty ;
+    rdfs:label "works for"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Organization .
+
+ex:Animal a owl:Class ;
+    rdfs:label "Animal"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Car a owl:Class ;
+    rdfs:label "Car"@en ;
+    rdfs:subClassOf ex:Vehicle .
+
+ex:Dog a owl:Class ;
+    rdfs:label "Dog"@en ;
+    rdfs:subClassOf ex:Animal .
+
+ex:File a owl:Class ;
+    rdfs:label "File"@en ;
+    rdfs:subClassOf ex:Document .
+
+ex:Vehicle a owl:Class ;
+    rdfs:label "Vehicle"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:paris a ex:City ;
+    rdfs:label "Paris"@en ;
+    ex:hasPopulation 2161000 .
+
+ex:product1 a ex:Product ;
+    rdfs:label "Widget-1000"@en ;
+    ex:hasPrice 19.99 ;
+    ex:producedBy ex:acmeCorp .
+
+ex:Agent a owl:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:City a owl:Class ;
+    rdfs:label "City"@en ;
+    rdfs:subClassOf ex:Location .
+
+ex:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:subClassOf ex:Artifact .
+
+ex:Employee a owl:Class ;
+    rdfs:label "Employee"@en ;
+    rdfs:subClassOf ex:Person .
+
+ex:Location a owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:subClassOf ex:Place .
+
+ex:Manager a owl:Class ;
+    rdfs:label "Manager"@en ;
+    rdfs:subClassOf ex:Employee .
+
+ex:Place a owl:Class ;
+    rdfs:label "Place"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:alice a ex:Person ;
+    rdfs:label "Alice"@en ;
+    ex:hasAge 34 ;
+    ex:worksFor ex:acmeCorp .
+
+ex:projectX a ex:Project ;
+    rdfs:label "Project X"@en ;
+    ex:assignedTo ex:alice ;
+    ex:hasEndDate "2025-12-31"^^xsd:date ;
+    ex:hasStartDate "2025-01-15"^^xsd:date ;
+    ex:locatedIn ex:mainBranch .
+
+ex:Artifact a owl:Class ;
+    rdfs:label "Artifact"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Branch a owl:Class ;
+    rdfs:label "Branch"@en ;
+    rdfs:subClassOf ex:Location .
+
+ex:Company a owl:Class ;
+    rdfs:label "Company"@en ;
+    rdfs:subClassOf ex:Organization .
+
+ex:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:subClassOf ex:Agent .
+
+ex:Product a owl:Class ;
+    rdfs:label "Product"@en ;
+    rdfs:subClassOf ex:Artifact .
+
+ex:mainBranch a ex:Branch ;
+    rdfs:label "ACME Main Branch"@en ;
+    ex:hasCapacity 250 ;
+    ex:locatedIn ex:paris .
+
+ex:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf ex:Agent .
+
+ex:acmeCorp a ex:Company ;
+    rdfs:label "ACME Corporation"@en ;
+    ex:hasBranch ex:mainBranch ;
+    ex:owns ex:product1 .
+
+ex:Project a owl:Class ;
+    rdfs:label "Project"@en ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Entity a owl:Class ;
+    rdfs:label "Entity"@en .
+

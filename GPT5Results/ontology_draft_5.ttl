@@ -1,0 +1,262 @@
+# Ontology generated to include:
+# - Classes: 20
+# - Properties: 15 (10 object properties, 5 datatype properties)
+# - Individuals: 10
+# The model emphasizes a high subclass count (multiple subclass relations per class).
+# All triples for classes, properties and individuals are included below.
+# This Turtle file is self-contained. Use an RDF/OWL-aware tool to inspect and validate.
+
+@prefix ex: <http://example.org/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+################################################################
+# Class declarations (20 classes)
+################################################################
+
+ex:Entity a owl:Class ;
+    rdfs:label "Entity" .
+
+ex:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf ex:Agent .
+
+ex:Employee a owl:Class ;
+    rdfs:label "Employee" ;
+    rdfs:subClassOf ex:Person .
+
+ex:Manager a owl:Class ;
+    rdfs:label "Manager" ;
+    rdfs:subClassOf ex:Employee, ex:Agent .
+
+ex:Contractor a owl:Class ;
+    rdfs:label "Contractor" ;
+    rdfs:subClassOf ex:Person, ex:Agent .
+
+ex:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Company a owl:Class ;
+    rdfs:label "Company" ;
+    rdfs:subClassOf ex:Organization .
+
+ex:Department a owl:Class ;
+    rdfs:label "Department" ;
+    rdfs:subClassOf ex:Organization, ex:Agent .
+
+ex:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:subClassOf ex:Entity, ex:Resource .
+
+ex:Task a owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:subClassOf ex:Project, ex:Resource .
+
+ex:Document a owl:Class ;
+    rdfs:label "Document" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Report a owl:Class ;
+    rdfs:label "Report" ;
+    rdfs:subClassOf ex:Document, ex:Resource .
+
+ex:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Address a owl:Class ;
+    rdfs:label "Address" ;
+    rdfs:subClassOf ex:Location .
+
+ex:City a owl:Class ;
+    rdfs:label "City" ;
+    rdfs:subClassOf ex:Location, ex:Address .
+
+ex:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Meeting a owl:Class ;
+    rdfs:label "Meeting" ;
+    rdfs:subClassOf ex:Event, ex:Project .
+
+ex:Resource a owl:Class ;
+    rdfs:label "Resource" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Hardware a owl:Class ;
+    rdfs:label "Hardware" ;
+    rdfs:subClassOf ex:Resource .
+
+################################################################
+# Property declarations (15 properties)
+# - Object properties: 10
+# - Datatype properties: 5
+################################################################
+
+# Object properties
+ex:worksFor a owl:ObjectProperty ;
+    rdfs:label "works for" ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Organization .
+
+ex:manages a owl:ObjectProperty ;
+    rdfs:label "manages" ;
+    rdfs:domain ex:Manager ;
+    rdfs:range ex:Entity ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:assignedTo a owl:ObjectProperty ;
+    rdfs:label "assigned to" ;
+    rdfs:domain ex:Task ;
+    rdfs:range ex:Person ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:relatedTo a owl:ObjectProperty ;
+    rdfs:label "related to" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity .
+
+ex:locatedAt a owl:ObjectProperty ;
+    rdfs:label "located at" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Location .
+
+ex:hasAddress a owl:ObjectProperty ;
+    rdfs:label "has address" ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Address ;
+    rdfs:subPropertyOf ex:locatedAt .
+
+ex:partOf a owl:ObjectProperty ;
+    rdfs:label "part of" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity .
+
+ex:hasMember a owl:ObjectProperty ;
+    rdfs:label "has member" ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Person ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:createdBy a owl:ObjectProperty ;
+    rdfs:label "created by" ;
+    rdfs:domain ex:Document ;
+    rdfs:range ex:Person ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:usesResource a owl:ObjectProperty ;
+    rdfs:label "uses resource" ;
+    rdfs:domain ex:Project ;
+    rdfs:range ex:Resource ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+# Datatype properties
+ex:createdOn a owl:DatatypeProperty ;
+    rdfs:label "created on" ;
+    rdfs:domain ex:Document ;
+    rdfs:range xsd:dateTime .
+
+ex:startDate a owl:DatatypeProperty ;
+    rdfs:label "start date" ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:date .
+
+ex:endDate a owl:DatatypeProperty ;
+    rdfs:label "end date" ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:date .
+
+ex:hasStatus a owl:DatatypeProperty ;
+    rdfs:label "has status" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range xsd:string .
+
+ex:hasBudget a owl:DatatypeProperty ;
+    rdfs:label "has budget" ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:decimal .
+
+################################################################
+# Individuals (10) and their triples (types, relations, literals)
+################################################################
+
+# People
+ex:alice a ex:Employee ;
+    rdfs:label "Alice" ;
+    ex:worksFor ex:acme ;
+    ex:assignedTo ex:task001 ;
+    ex:hasStatus "active"^^xsd:string .
+
+ex:bob a ex:Manager ;
+    rdfs:label "Bob" ;
+    ex:worksFor ex:acme ;
+    ex:manages ex:projectApollo ;
+    ex:hasStatus "active"^^xsd:string .
+
+ex:carol a ex:Contractor ;
+    rdfs:label "Carol" ;
+    ex:worksFor ex:acme ;
+    ex:hasStatus "contract"^^xsd:string .
+
+# Organizations and subunits
+ex:acme a ex:Company ;
+    rdfs:label "ACME Corporation" ;
+    ex:hasAddress ex:nyOffice ;
+    ex:locatedAt ex:nyOffice .
+
+ex:deptRAndD a ex:Department ;
+    rdfs:label "R&D Department" ;
+    ex:hasMember ex:alice, ex:bob ;
+    ex:hasStatus "operational"^^xsd:string .
+
+# Projects, tasks, documents, resources
+ex:projectApollo a ex:Project ;
+    rdfs:label "Project Apollo" ;
+    ex:startDate "2025-03-01"^^xsd:date ;
+    ex:endDate "2025-09-30"^^xsd:date ;
+    ex:hasBudget "250000.00"^^xsd:decimal ;
+    ex:usesResource ex:server01 ;
+    ex:relatedTo ex:proposal2025 .
+
+ex:task001 a ex:Task ;
+    rdfs:label "Task 001 - Design" ;
+    ex:partOf ex:projectApollo ;
+    ex:hasStatus "in-progress"^^xsd:string .
+
+ex:proposal2025 a ex:Report ;
+    rdfs:label "Proposal 2025" ;
+    ex:createdBy ex:bob ;
+    ex:createdOn "2025-02-15T10:00:00"^^xsd:dateTime ;
+    ex:relatedTo ex:projectApollo .
+
+ex:nyOffice a ex:Address ;
+    rdfs:label "NY Office Address" ;
+    ex:hasStatus "office"^^xsd:string .
+
+ex:server01 a ex:Hardware ;
+    rdfs:label "Server 01" ;
+    ex:locatedAt ex:nyOffice ;
+    ex:hasStatus "available"^^xsd:string .
+
+################################################################
+# Additional structural triples (property/class relationships)
+################################################################
+
+# Some property schema links already set above; add a few more to show inter-relations
+ex:partOf rdfs:subPropertyOf ex:relatedTo .
+
+# Provide explicit domain/range for Task where applicable (reinforce multiple domains)
+ex:taskDomainClosure a owl:Axiom ;
+    owl:annotatedProperty rdfs:domain ;
+    owl:annotatedSource ex:assignedTo ;
+    owl:annotatedTarget ex:Task .
+
+# End of ontology.

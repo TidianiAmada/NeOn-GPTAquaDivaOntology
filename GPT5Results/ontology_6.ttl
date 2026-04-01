@@ -1,0 +1,235 @@
+@prefix ex: <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:City a owl:Class ;
+    rdfs:label "City" ;
+    rdfs:subClassOf ex:Address,
+        ex:Location .
+
+ex:Meeting a owl:Class ;
+    rdfs:label "Meeting" ;
+    rdfs:subClassOf ex:Event,
+        ex:Project .
+
+ex:carol a ex:Contractor ;
+    rdfs:label "Carol" ;
+    ex:hasStatus "contract"^^xsd:string ;
+    ex:worksFor ex:acme .
+
+ex:createdBy a owl:ObjectProperty ;
+    rdfs:label "created by" ;
+    rdfs:domain ex:Document ;
+    rdfs:range ex:Person ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:createdOn a owl:DatatypeProperty ;
+    rdfs:label "created on" ;
+    rdfs:domain ex:Document ;
+    rdfs:range xsd:dateTime .
+
+ex:deptRAndD a ex:Department ;
+    rdfs:label "R&D Department" ;
+    ex:hasMember ex:alice,
+        ex:bob ;
+    ex:hasStatus "operational"^^xsd:string .
+
+ex:endDate a owl:DatatypeProperty ;
+    rdfs:label "end date" ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:date .
+
+ex:hasAddress a owl:ObjectProperty ;
+    rdfs:label "has address" ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Address ;
+    rdfs:subPropertyOf ex:locatedAt .
+
+ex:hasBudget a owl:DatatypeProperty ;
+    rdfs:label "has budget" ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:decimal .
+
+ex:hasMember a owl:ObjectProperty ;
+    rdfs:label "has member" ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Person ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:hasStatus a owl:DatatypeProperty ;
+    rdfs:label "has status" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range xsd:string .
+
+ex:manages a owl:ObjectProperty ;
+    rdfs:label "manages" ;
+    rdfs:domain ex:Manager ;
+    rdfs:range ex:Entity ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:partOf a owl:ObjectProperty ;
+    rdfs:label "part of" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:startDate a owl:DatatypeProperty ;
+    rdfs:label "start date" ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:date .
+
+ex:taskDomainClosure a owl:Axiom ;
+    owl:annotatedProperty rdfs:domain ;
+    owl:annotatedSource ex:assignedTo ;
+    owl:annotatedTarget ex:Task .
+
+ex:usesResource a owl:ObjectProperty ;
+    rdfs:label "uses resource" ;
+    rdfs:domain ex:Project ;
+    rdfs:range ex:Resource ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:worksFor a owl:ObjectProperty ;
+    rdfs:label "works for" ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Organization .
+
+ex:Company a owl:Class ;
+    rdfs:label "Company" ;
+    rdfs:subClassOf ex:Organization .
+
+ex:Contractor a owl:Class ;
+    rdfs:label "Contractor" ;
+    rdfs:subClassOf ex:Agent,
+        ex:Person .
+
+ex:Department a owl:Class ;
+    rdfs:label "Department" ;
+    rdfs:subClassOf ex:Agent,
+        ex:Organization .
+
+ex:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Hardware a owl:Class ;
+    rdfs:label "Hardware" ;
+    rdfs:subClassOf ex:Resource .
+
+ex:Report a owl:Class ;
+    rdfs:label "Report" ;
+    rdfs:subClassOf ex:Document,
+        ex:Resource .
+
+ex:alice a ex:Employee ;
+    rdfs:label "Alice" ;
+    ex:assignedTo ex:task001 ;
+    ex:hasStatus "active"^^xsd:string ;
+    ex:worksFor ex:acme .
+
+ex:assignedTo a owl:ObjectProperty ;
+    rdfs:label "assigned to" ;
+    rdfs:domain ex:Task ;
+    rdfs:range ex:Person ;
+    rdfs:subPropertyOf ex:relatedTo .
+
+ex:locatedAt a owl:ObjectProperty ;
+    rdfs:label "located at" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Location .
+
+ex:proposal2025 a ex:Report ;
+    rdfs:label "Proposal 2025" ;
+    ex:createdBy ex:bob ;
+    ex:createdOn "2025-02-15T10:00:00"^^xsd:dateTime ;
+    ex:relatedTo ex:projectApollo .
+
+ex:server01 a ex:Hardware ;
+    rdfs:label "Server 01" ;
+    ex:hasStatus "available"^^xsd:string ;
+    ex:locatedAt ex:nyOffice .
+
+ex:task001 a ex:Task ;
+    rdfs:label "Task 001 - Design" ;
+    ex:hasStatus "in-progress"^^xsd:string ;
+    ex:partOf ex:projectApollo .
+
+ex:Employee a owl:Class ;
+    rdfs:label "Employee" ;
+    rdfs:subClassOf ex:Person .
+
+ex:Manager a owl:Class ;
+    rdfs:label "Manager" ;
+    rdfs:subClassOf ex:Agent,
+        ex:Employee .
+
+ex:bob a ex:Manager ;
+    rdfs:label "Bob" ;
+    ex:hasStatus "active"^^xsd:string ;
+    ex:manages ex:projectApollo ;
+    ex:worksFor ex:acme .
+
+ex:Address a owl:Class ;
+    rdfs:label "Address" ;
+    rdfs:subClassOf ex:Location .
+
+ex:Document a owl:Class ;
+    rdfs:label "Document" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Task a owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:subClassOf ex:Project,
+        ex:Resource .
+
+ex:acme a ex:Company ;
+    rdfs:label "ACME Corporation" ;
+    ex:hasAddress ex:nyOffice ;
+    ex:locatedAt ex:nyOffice .
+
+ex:nyOffice a ex:Address ;
+    rdfs:label "NY Office Address" ;
+    ex:hasStatus "office"^^xsd:string .
+
+ex:projectApollo a ex:Project ;
+    rdfs:label "Project Apollo" ;
+    ex:endDate "2025-09-30"^^xsd:date ;
+    ex:hasBudget 250000.00 ;
+    ex:relatedTo ex:proposal2025 ;
+    ex:startDate "2025-03-01"^^xsd:date ;
+    ex:usesResource ex:server01 .
+
+ex:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Resource a owl:Class ;
+    rdfs:label "Resource" ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf ex:Agent .
+
+ex:relatedTo a owl:ObjectProperty ;
+    rdfs:label "related to" ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Entity .
+
+ex:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:subClassOf ex:Entity,
+        ex:Resource .
+
+ex:Entity a owl:Class ;
+    rdfs:label "Entity" .
+

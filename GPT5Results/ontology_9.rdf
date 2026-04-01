@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/onto#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/onto#Product">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Product</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Component">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Component</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Product"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#org1">
+    <rdf:type rdf:resource="http://example.org/onto#Organization"/>
+    <rdfs:label>Org1</rdfs:label>
+    <hasMember rdf:resource="http://example.org/onto#alice"/>
+    <hasMember rdf:resource="http://example.org/onto#bob"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#contributedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>contributedTo</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Agent"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Process">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Process</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#hasPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>hasPart</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Thing"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Event</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#manages">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>manages</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Agent"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#hasMember">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>hasMember</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#worksOn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>worksOn</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Agent"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#componentY">
+    <rdf:type rdf:resource="http://example.org/onto#Component"/>
+    <rdfs:label>Component Y</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#event1">
+    <rdf:type rdf:resource="http://example.org/onto#Event"/>
+    <rdfs:label>Event 1</rdfs:label>
+    <participatesIn rdf:resource="http://example.org/onto#event1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#assignedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>assignedTo</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Task"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Specification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Specification</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#projectA">
+    <rdf:type rdf:resource="http://example.org/onto#Project"/>
+    <rdfs:label>Project A</rdfs:label>
+    <hasPart rdf:resource="http://example.org/onto#componentX"/>
+    <dependsOn rdf:resource="http://example.org/onto#projectB"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#doc1">
+    <rdf:type rdf:resource="http://example.org/onto#Document"/>
+    <rdfs:label>Doc 1</rdfs:label>
+    <references rdf:resource="http://example.org/onto#doc2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#participatesIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>participatesIn</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Agent"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Project">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Project</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Process"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Requirement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Requirement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Specification"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#relatedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>relatedTo</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Entity"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#references">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>references</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Document"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Organization</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Agent"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Topic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Topic</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Category"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#bob">
+    <rdf:type rdf:resource="http://example.org/onto#Person"/>
+    <rdfs:label>Bob</rdfs:label>
+    <manages rdf:resource="http://example.org/onto#projectA"/>
+    <supervises rdf:resource="http://example.org/onto#alice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#hasRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>hasRole</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Agent"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#projectB">
+    <rdf:type rdf:resource="http://example.org/onto#Project"/>
+    <rdfs:label>Project B</rdfs:label>
+    <hasPart rdf:resource="http://example.org/onto#componentY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#dependsOn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>dependsOn</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Process"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Process"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#place1">
+    <rdf:type rdf:resource="http://example.org/onto#Place"/>
+    <rdfs:label>Place 1</rdfs:label>
+    <locatedAt rdf:resource="http://example.org/onto#place1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Category">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Category</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#locatedAt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>locatedAt</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Entity"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Place"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Role">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Role</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Place">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Place</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#authoredBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>authoredBy</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Document"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#doc2">
+    <rdf:type rdf:resource="http://example.org/onto#Document"/>
+    <rdfs:label>Doc 2</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#alice">
+    <rdf:type rdf:resource="http://example.org/onto#Person"/>
+    <rdfs:label>Alice</rdfs:label>
+    <worksOn rdf:resource="http://example.org/onto#projectA"/>
+    <authoredBy rdf:resource="http://example.org/onto#doc1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#isSimilarTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>isSimilarTo</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Entity"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Person</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Agent"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Activity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Activity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Process"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#supervises">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label>supervises</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/onto#Agent"/>
+    <rdfs:range rdf:resource="http://example.org/onto#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Task">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Task</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Activity"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Process"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Thing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Thing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Agent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Agent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>Example Ontology with Reflexive Object Properties</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Entity</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Stage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Stage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Process"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Concept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Concept</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Document</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/onto#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/onto#componentX">
+    <rdf:type rdf:resource="http://example.org/onto#Component"/>
+    <rdfs:label>Component X</rdfs:label>
+    <hasPart rdf:resource="http://example.org/onto#componentX"/>
+  </rdf:Description>
+</rdf:RDF>

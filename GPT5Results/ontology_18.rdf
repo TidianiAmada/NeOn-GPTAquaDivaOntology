@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/ontology#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/ontology#memberOf">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">member of</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:comment xml:lang="en">Indicates membership of a person in an organization.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Person</rdfs:label>
+    <rdfs:comment xml:lang="en">A human being or agent.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#knows">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">knows</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:comment xml:lang="en">Relates two people who know each other.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#alice">
+    <rdf:type rdf:resource="http://example.org/ontology#Person"/>
+    <hasName>Alice</hasName>
+    <memberOf rdf:resource="http://example.org/ontology#ExampleOrg"/>
+    <knows rdf:resource="http://example.org/ontology#bob"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasName">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has name</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">The name of a person.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">Example ontology</rdfs:label>
+    <rdfs:comment xml:lang="en">Fixed prefix syntax: replaced &lt;#&gt; with a full IRI</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#ExampleOrg">
+    <rdf:type rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:label xml:lang="en">Example Organization</rdfs:label>
+    <rdfs:comment xml:lang="en">An example organization used in the ontology.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#bob">
+    <rdf:type rdf:resource="http://example.org/ontology#Person"/>
+    <hasName>Bob</hasName>
+    <memberOf rdf:resource="http://example.org/ontology#ExampleOrg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Organization</rdfs:label>
+    <rdfs:comment xml:lang="en">An organization such as a company or non-profit.</rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>

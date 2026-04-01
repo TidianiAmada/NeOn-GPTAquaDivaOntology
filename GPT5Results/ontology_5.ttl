@@ -1,0 +1,231 @@
+@prefix : <http://example.org/ontology/competency#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///app/GPT5Results/ontology_draft_4.ttl> a owl:Ontology ;
+    rdfs:label "Competency-driven Microbial Environment Ontology" ;
+    rdfs:comment "Ontology created from competency questions (CQs). Classes:20, Properties:15, Individuals:10." .
+
+:IsolationEvent a owl:Class ;
+    rdfs:label "IsolationEvent" ;
+    rdfs:comment "Event describing the isolation or collection of samples." ;
+    rdfs:subClassOf :Entity .
+
+:Protist a owl:Class ;
+    rdfs:label "Protist" ;
+    rdfs:subClassOf :Microbe .
+
+:Virus a owl:Class ;
+    rdfs:label "Virus" ;
+    rdfs:subClassOf :Microbe .
+
+:collectedDuring a owl:ObjectProperty ;
+    rdfs:label "collectedDuring" ;
+    rdfs:comment "Links a Sample to a Project or IsolationEvent during which it was collected." ;
+    rdfs:domain :Sample ;
+    rdfs:range :Project .
+
+:datasetURI a owl:DatatypeProperty ;
+    rdfs:label "datasetURI" ;
+    rdfs:comment "URI identifying a dataset." ;
+    rdfs:domain :Dataset ;
+    rdfs:range xsd:anyURI .
+
+:dataset_1 a :Dataset ;
+    rdfs:label "Aquifer dataset 1" ;
+    :datasetURI <http://example.org/datasets/aquifer-1> .
+
+:discoveredBy a owl:ObjectProperty ;
+    rdfs:label "discoveredBy" ;
+    rdfs:comment "Links a Microbe to the Researcher who discovered or reported it." ;
+    rdfs:domain :Microbe ;
+    rdfs:range :Researcher .
+
+:encodesProtein a owl:ObjectProperty ;
+    rdfs:label "encodesProtein" ;
+    rdfs:comment "Links a Gene to a Phenotype or protein function it encodes." ;
+    rdfs:domain :Gene ;
+    rdfs:range :Phenotype .
+
+:hasGene a owl:ObjectProperty ;
+    rdfs:label "hasGene" ;
+    rdfs:comment "Links a Microbe to a Gene found in it." ;
+    rdfs:domain :Microbe ;
+    rdfs:range :Gene .
+
+:hasLocation a owl:ObjectProperty ;
+    rdfs:label "hasLocation" ;
+    rdfs:comment "Links a Habitat (or other entity) to a Location." ;
+    rdfs:domain :Habitat ;
+    rdfs:range :Location .
+
+:hasPublication a owl:ObjectProperty ;
+    rdfs:label "hasPublication" ;
+    rdfs:comment "Links a Project to its Publication." ;
+    rdfs:domain :Project ;
+    rdfs:range :Publication .
+
+:hasUnit a owl:DatatypeProperty ;
+    rdfs:label "hasUnit" ;
+    rdfs:comment "Unit string for measurements (e.g., 'pH', 'mg/L')." ;
+    rdfs:domain :Measurement ;
+    rdfs:range xsd:string .
+
+:inhabits a owl:ObjectProperty ;
+    rdfs:label "inhabits" ;
+    rdfs:comment "Links a Microbe to a Habitat it inhabits." ;
+    rdfs:domain :Microbe ;
+    rdfs:range :Habitat .
+
+:measuredValue a owl:DatatypeProperty ;
+    rdfs:label "measuredValue" ;
+    rdfs:comment "Numeric value of a measurement." ;
+    rdfs:domain :Measurement ;
+    rdfs:range xsd:decimal .
+
+:measurementDate a owl:DatatypeProperty ;
+    rdfs:label "measurementDate" ;
+    rdfs:comment "Datetime for when the measurement was taken." ;
+    rdfs:domain :Measurement ;
+    rdfs:range xsd:dateTime .
+
+:measurement_M1 a :Measurement ;
+    rdfs:label "Measurement M1 (pH)" ;
+    :hasParameter :Parameter ;
+    :hasUnit "pH" ;
+    :measuredValue 7.2 ;
+    :measurementDate "2024-10-01T09:00:00"^^xsd:dateTime .
+
+:microbe_Archaeon1 a :Archaea ;
+    rdfs:label "Archaeon sample 1" ;
+    :discoveredBy :researcher_Doe ;
+    :inhabits :soil_Site1 .
+
+:microbe_Pseudomonas1 a :Bacteria ;
+    rdfs:label "Pseudomonas sp. sample 1" ;
+    :discoveredBy :researcher_Doe ;
+    :hasGene :gene_nifH ;
+    :inhabits :aquifer_Alpha .
+
+:publicationTitle a owl:DatatypeProperty ;
+    rdfs:label "publicationTitle" ;
+    rdfs:comment "Title of a publication." ;
+    rdfs:domain :Publication ;
+    rdfs:range xsd:string .
+
+:publication_1 a :Publication ;
+    rdfs:label "Study of Aquifer Microbes" ;
+    :publicationTitle "Study of Aquifer Microbes: community composition and gene content" .
+
+:researcherName a owl:DatatypeProperty ;
+    rdfs:label "researcherName" ;
+    rdfs:comment "Human readable name of a researcher." ;
+    rdfs:domain :Researcher ;
+    rdfs:range xsd:string .
+
+:sampleID a owl:DatatypeProperty ;
+    rdfs:label "sampleID" ;
+    rdfs:comment "Identifier used for a sample." ;
+    rdfs:domain :Sample ;
+    rdfs:range xsd:string .
+
+:sample_S1 a :Sample ;
+    rdfs:label "Sample S1" ;
+    :sampleID "S1" ;
+    :sampledFrom :aquifer_Alpha .
+
+:sampledFrom a owl:ObjectProperty ;
+    rdfs:label "sampledFrom" ;
+    rdfs:comment "Links a Sample to the Habitat it was taken from." ;
+    rdfs:domain :Sample ;
+    rdfs:range :Habitat .
+
+:Aquifer a owl:Class ;
+    rdfs:label "Aquifer" ;
+    rdfs:subClassOf :Habitat .
+
+:Archaea a owl:Class ;
+    rdfs:label "Archaea" ;
+    rdfs:subClassOf :Microbe .
+
+:Bacteria a owl:Class ;
+    rdfs:label "Bacteria" ;
+    rdfs:subClassOf :Microbe .
+
+:Parameter a owl:Class ;
+    rdfs:label "Parameter" ;
+    rdfs:subClassOf :Entity .
+
+:Soil a owl:Class ;
+    rdfs:label "Soil" ;
+    rdfs:subClassOf :Habitat .
+
+:gene_nifH a :Gene ;
+    rdfs:label "nifH gene" ;
+    :encodesProtein :Phenotype .
+
+:soil_Site1 a :Soil ;
+    rdfs:label "Site 1 Soil" .
+
+:Dataset a owl:Class ;
+    rdfs:label "Dataset" ;
+    rdfs:subClassOf :Entity .
+
+:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:subClassOf :Entity .
+
+:Phenotype a owl:Class ;
+    rdfs:label "Phenotype" ;
+    rdfs:subClassOf :Entity .
+
+:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:subClassOf :Entity .
+
+:aquifer_Alpha a :Aquifer ;
+    rdfs:label "Alpha Aquifer" ;
+    :hasLocation [ a :Location ;
+            rdfs:label "Alpha Aquifer GPS location" ;
+            rdfs:comment "Anonymous location node for example only." ] ;
+    rdfs:comment "Example aquifer used in competency questions." .
+
+:researcher_Doe a :Researcher ;
+    rdfs:label "Dr. Jane Doe" ;
+    :researcherName "Jane Doe" .
+
+:Gene a owl:Class ;
+    rdfs:label "Gene" ;
+    rdfs:subClassOf :Entity .
+
+:Publication a owl:Class ;
+    rdfs:label "Publication" ;
+    rdfs:subClassOf :Entity .
+
+:Researcher a owl:Class ;
+    rdfs:label "Researcher" ;
+    rdfs:subClassOf :Entity .
+
+:Measurement a owl:Class ;
+    rdfs:label "Measurement" ;
+    rdfs:subClassOf :Entity .
+
+:Sample a owl:Class ;
+    rdfs:label "Sample" ;
+    rdfs:subClassOf :Entity .
+
+:Habitat a owl:Class ;
+    rdfs:label "Habitat" ;
+    rdfs:comment "Environmental place where microbes can inhabit." ;
+    rdfs:subClassOf :Entity .
+
+:Microbe a owl:Class ;
+    rdfs:label "Microbe" ;
+    rdfs:comment "General microbial organism." ;
+    rdfs:subClassOf :Entity .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity" ;
+    rdfs:comment "Top-level entity to increase subclassing (high subclass count)." .
+

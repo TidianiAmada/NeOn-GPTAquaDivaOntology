@@ -1,0 +1,259 @@
+@prefix : <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///app/GPT5Results/ontology_draft_10.ttl> a owl:Ontology ;
+    rdfs:label "Example Organization Ontology (augmented)"@en ;
+    rdfs:comment "Functional declarations added for all object properties; labels added for all classes to satisfy SHACL minCount constraints."@en .
+
+:AdministrativeStaff a owl:Class ;
+    rdfs:label "Administrative Staff"@en ;
+    rdfs:subClassOf :Employee,
+        :Role .
+
+:Alice a :Employee ;
+    rdfs:label "Alice"@en ;
+    :birthDate "1987-05-12"^^xsd:date ;
+    :memberOf :PlatformTeam ;
+    :reportsTo :Carol ;
+    :salary 85000.0 ;
+    :worksAt :AcmeInc .
+
+:Bob a :Intern ;
+    rdfs:label "Bob"@en ;
+    :birthDate "1998-11-03"^^xsd:date ;
+    :memberOf :PlatformTeam ;
+    :reportsTo :Dana ;
+    :salary 30000.0 ;
+    :worksAt :AcmeInc .
+
+:Consultant a owl:Class ;
+    rdfs:label "Consultant"@en ;
+    rdfs:subClassOf :Person,
+        :Role .
+
+:Country a owl:Class ;
+    rdfs:label "Country"@en ;
+    rdfs:subClassOf :Location .
+
+:Executive a owl:Class ;
+    rdfs:label "Executive"@en ;
+    rdfs:subClassOf :Manager,
+        :Role .
+
+:Meeting a owl:Class ;
+    rdfs:label "Meeting"@en ;
+    rdfs:subClassOf :Event .
+
+:Payment a owl:Class ;
+    rdfs:label "Payment"@en .
+
+:Product a owl:Class ;
+    rdfs:label "Product"@en ;
+    rdfs:subClassOf :Organization .
+
+:Project a owl:Class ;
+    rdfs:label "Project"@en ;
+    rdfs:subClassOf :Organization .
+
+:Service a owl:Class ;
+    rdfs:label "Service"@en ;
+    rdfs:subClassOf :Organization .
+
+:birthDate a owl:DatatypeProperty ;
+    rdfs:label "birth date"@en ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:date .
+
+:documentNumber a owl:DatatypeProperty ;
+    rdfs:label "document number"@en ;
+    rdfs:domain :Document ;
+    rdfs:range xsd:string .
+
+:endDate a owl:DatatypeProperty ;
+    rdfs:label "end date"@en ;
+    rdfs:domain :Contract ;
+    rdfs:range xsd:date .
+
+:hasAddress a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has address"@en ;
+    rdfs:comment "Each Organization has at most one primary address (declared functional)."@en ;
+    rdfs:domain :Organization ;
+    rdfs:range :Address .
+
+:hasContract a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has contract"@en ;
+    rdfs:comment "Each Person has at most one primary Contract recorded (functional)."@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Contract .
+
+:issuesInvoice a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "issues invoice"@en ;
+    rdfs:comment "Each Organization issues at most one primary Invoice in this simplified model (functional)."@en ;
+    rdfs:domain :Organization ;
+    rdfs:range :Invoice .
+
+:locatedIn a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "located in"@en ;
+    rdfs:comment "Each Organization has at most one primary City (functional)."@en ;
+    rdfs:domain :Organization ;
+    rdfs:range :City .
+
+:manages a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "manages"@en ;
+    rdfs:comment "A Manager has at most one managed Department (functional)."@en ;
+    rdfs:domain :Manager ;
+    rdfs:range :Department .
+
+:memberOf a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "member of"@en ;
+    rdfs:comment "Each Person is declared to have at most one Team membership here (functional by ontology-wide policy)."@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Team .
+
+:organizes a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "organizes"@en ;
+    rdfs:comment "Each Organization organizes at most one primary Event (functional)."@en ;
+    rdfs:domain :Organization ;
+    rdfs:range :Event .
+
+:participatesIn a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "participates in"@en ;
+    rdfs:comment "Each Person participates in at most one primary Event (functional for this ontology)."@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Event .
+
+:reportsTo a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "reports to"@en ;
+    rdfs:comment "Each Employee reports to at most one Manager (functional)."@en ;
+    rdfs:domain :Employee ;
+    rdfs:range :Manager .
+
+:salary a owl:DatatypeProperty ;
+    rdfs:label "salary"@en ;
+    rdfs:domain :Employee ;
+    rdfs:range xsd:decimal .
+
+:startDate a owl:DatatypeProperty ;
+    rdfs:label "start date"@en ;
+    rdfs:domain :Contract ;
+    rdfs:range xsd:date .
+
+:worksAt a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "works at"@en ;
+    rdfs:comment "Each Person has at most one primary organization (declared functional)."@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Organization .
+
+:AcmeAddress a :Address ;
+    rdfs:label "1 Acme Plaza"@en .
+
+:Carol a :Manager ;
+    rdfs:label "Carol"@en ;
+    :manages :EngineeringDept ;
+    :worksAt :AcmeInc .
+
+:Dana a :Manager ;
+    rdfs:label "Dana"@en ;
+    :manages :OperationsDept ;
+    :worksAt :AcmeInc .
+
+:EngineeringDept a :Department ;
+    rdfs:label "Engineering Department"@en ;
+    rdfs:subClassOf :Department,
+        :Organization .
+
+:Intern a owl:Class ;
+    rdfs:label "Intern"@en ;
+    rdfs:subClassOf :Employee,
+        :Role .
+
+:Invoice_001 a :Invoice ;
+    rdfs:label "INV-001"@en ;
+    :documentNumber "INV-001" .
+
+:Metropolis a :City ;
+    rdfs:label "Metropolis"@en ;
+    rdfs:subClassOf :City .
+
+:OperationsDept a :Department ;
+    rdfs:label "Operations Department"@en ;
+    rdfs:subClassOf :Department,
+        :Organization .
+
+:RemoteTeam a owl:Class ;
+    rdfs:label "Remote Team"@en ;
+    rdfs:subClassOf :Team .
+
+:Address a owl:Class ;
+    rdfs:label "Address"@en ;
+    rdfs:subClassOf :Location .
+
+:Invoice a owl:Class ;
+    rdfs:label "Invoice"@en ;
+    rdfs:subClassOf :Document .
+
+:PlatformTeam a :Team ;
+    rdfs:label "Platform Team"@en ;
+    rdfs:subClassOf :RemoteTeam,
+        :Team .
+
+:City a owl:Class ;
+    rdfs:label "City"@en ;
+    rdfs:subClassOf :Location .
+
+:Contract a owl:Class ;
+    rdfs:label "Contract"@en ;
+    rdfs:subClassOf :Document .
+
+:Document a owl:Class ;
+    rdfs:label "Document"@en .
+
+:Event a owl:Class ;
+    rdfs:label "Event"@en .
+
+:Location a owl:Class ;
+    rdfs:label "Location"@en .
+
+:AcmeInc a :Organization ;
+    rdfs:label "Acme, Inc."@en ;
+    :hasAddress :AcmeAddress ;
+    :issuesInvoice :Invoice_001 ;
+    :locatedIn :Metropolis .
+
+:Team a owl:Class ;
+    rdfs:label "Team"@en .
+
+:Department a owl:Class ;
+    rdfs:label "Department"@en ;
+    rdfs:subClassOf :Organization .
+
+:Manager a owl:Class ;
+    rdfs:label "Manager"@en ;
+    rdfs:subClassOf :Employee,
+        :Role .
+
+:Role a owl:Class ;
+    rdfs:label "Role"@en .
+
+:Employee a owl:Class ;
+    rdfs:label "Employee"@en ;
+    rdfs:subClassOf :Person .
+
+:Person a owl:Class ;
+    rdfs:label "Person"@en .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization"@en .
+

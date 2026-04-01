@@ -1,0 +1,35 @@
+# Added ontology metadata and rdfs:label annotations for classes reported as missing.
+# These are the new triples to address the validation pitfalls.
+@prefix ex: <http://example.org/ontology#> .
+@prefix : <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://example.org/ontology>
+    a owl:Ontology ;
+    rdfs:label "Example Environmental Ontology"@en ;
+    owl:versionInfo "1.0.0" ;
+    dcterms:description "An ontology describing environmental features, monitoring sites, measurements, sensors, samples, and related authorities for environmental data management."@en .
+
+ex:AquaticFeature rdfs:label "Aquatic Feature"@en .
+ex:Aquifer rdfs:label "Aquifer"@en .
+ex:Authority rdfs:label "Authority"@en .
+ex:Contaminant rdfs:label "Contaminant"@en .
+ex:Dam rdfs:label "Dam"@en .
+ex:EnvironmentalFeature rdfs:label "Environmental Feature"@en .
+ex:Feature rdfs:label "Feature"@en .
+ex:Groundwater rdfs:label "Groundwater"@en .
+ex:Lake rdfs:label "Lake"@en .
+ex:ManagedFeature rdfs:label "Managed Feature"@en .
+ex:Measurement rdfs:label "Measurement"@en .
+ex:MonitoringSite rdfs:label "Monitoring Site"@en .
+ex:River rdfs:label "River"@en .
+ex:Sample rdfs:label "Sample"@en .
+ex:Sensor rdfs:label "Sensor"@en .
+ex:SurfaceWater rdfs:label "Surface Water"@en .
+ex:TerrestrialFeature rdfs:label "Terrestrial Feature"@en .
+ex:Watershed rdfs:label "Watershed"@en .
+ex:Well rdfs:label "Well"@en .
+ex:Wetland rdfs:label "Wetland"@en .

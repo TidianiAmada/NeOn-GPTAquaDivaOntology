@@ -1,0 +1,73 @@
+@prefix : <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Class13 rdfs:subClassOf :Class10,
+        :Class3,
+        :Class6 .
+
+:Class14 rdfs:subClassOf :Class3,
+        :Class7 .
+
+:Class15 rdfs:subClassOf :Class4,
+        :Class7 .
+
+:Class16 rdfs:subClassOf :Class5,
+        :Class8 .
+
+:Class17 rdfs:subClassOf :Class11,
+        :Class6,
+        :Class8 .
+
+:Class18 rdfs:subClassOf :Class7,
+        :Class9 .
+
+:Class19 rdfs:subClassOf :Class8,
+        :Class9 .
+
+:Class20 rdfs:subClassOf :Class10,
+        :Class12,
+        :Class9 .
+
+:createdBy owl:inverseOf :creates .
+
+:hasOwner owl:inverseOf :isOwnerOf .
+
+:hasParent owl:inverseOf :isChildOf .
+
+:hasPart owl:inverseOf :isPartOf .
+
+:locatedIn owl:inverseOf :locationOf .
+
+:manages owl:inverseOf :managedBy .
+
+:worksFor owl:inverseOf :employs .
+
+:Class11 rdfs:subClassOf :Class2,
+        :Class5 .
+
+:Class12 rdfs:subClassOf :Class2,
+        :Class6 .
+
+:relatedTo owl:inverseOf :relatedTo .
+
+:Class10 rdfs:subClassOf :Class5 .
+
+:Class4 rdfs:subClassOf :Class2 .
+
+:Class5 rdfs:subClassOf :Class1,
+        :Class2 .
+
+:Class6 rdfs:subClassOf :Class3 .
+
+:Class7 rdfs:subClassOf :Class3 .
+
+:Class8 rdfs:subClassOf :Class4 .
+
+:Class9 rdfs:subClassOf :Class2,
+        :Class4 .
+
+:Class3 rdfs:subClassOf :Class1 .
+
+:Class2 rdfs:subClassOf :Class1 .
+

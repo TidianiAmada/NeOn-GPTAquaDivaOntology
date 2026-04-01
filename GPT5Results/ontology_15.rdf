@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">Example Environmental Ontology</rdfs:label>
+    <owl:versionInfo>1.0.0</owl:versionInfo>
+    <dcterms:description xml:lang="en">An ontology describing environmental features, monitoring sites, measurements, sensors, samples, and related authorities for environmental data management.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Contaminant">
+    <rdfs:label xml:lang="en">Contaminant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Watershed">
+    <rdfs:label xml:lang="en">Watershed</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Groundwater">
+    <rdfs:label xml:lang="en">Groundwater</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Measurement">
+    <rdfs:label xml:lang="en">Measurement</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Lake">
+    <rdfs:label xml:lang="en">Lake</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Authority">
+    <rdfs:label xml:lang="en">Authority</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Dam">
+    <rdfs:label xml:lang="en">Dam</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#EnvironmentalFeature">
+    <rdfs:label xml:lang="en">Environmental Feature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#SurfaceWater">
+    <rdfs:label xml:lang="en">Surface Water</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#River">
+    <rdfs:label xml:lang="en">River</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#MonitoringSite">
+    <rdfs:label xml:lang="en">Monitoring Site</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#AquaticFeature">
+    <rdfs:label xml:lang="en">Aquatic Feature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Sample">
+    <rdfs:label xml:lang="en">Sample</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Wetland">
+    <rdfs:label xml:lang="en">Wetland</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#TerrestrialFeature">
+    <rdfs:label xml:lang="en">Terrestrial Feature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Well">
+    <rdfs:label xml:lang="en">Well</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#ManagedFeature">
+    <rdfs:label xml:lang="en">Managed Feature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Sensor">
+    <rdfs:label xml:lang="en">Sensor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Feature">
+    <rdfs:label xml:lang="en">Feature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Aquifer">
+    <rdfs:label xml:lang="en">Aquifer</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

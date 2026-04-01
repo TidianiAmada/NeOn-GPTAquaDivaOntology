@@ -1,0 +1,209 @@
+# This Turtle file is the complete ontology (ontology_9) with symmetric properties introduced.
+# For every object property in the ontology that did not have a symmetric characteristic,
+# a symmetric declaration (rdf:type owl:SymmetricProperty) has been added.
+# The original metrics are preserved: Classes: 20, Properties: 15, Individuals: 10.
+# High subclassing has been maintained (many rdfs:subClassOf triples).
+# The added symmetric declarations are included inline with the property definitions.
+# No additional explanation is provided outside of these comments.
+
+@prefix : <http://example.org/ontology_9#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+####################
+# Classes (20)
+####################
+:Person a owl:Class .
+:Employee a owl:Class ;
+    rdfs:subClassOf :Person .
+:Manager a owl:Class ;
+    rdfs:subClassOf :Employee .
+:Organization a owl:Class .
+:Department a owl:Class ;
+    rdfs:subClassOf :Organization .
+:Team a owl:Class ;
+    rdfs:subClassOf :Organization .
+:Project a owl:Class ;
+    rdfs:subClassOf :Event .
+:Event a owl:Class .
+:Meeting a owl:Class ;
+    rdfs:subClassOf :Event .
+:Location a owl:Class .
+:City a owl:Class ;
+    rdfs:subClassOf :Location .
+:Country a owl:Class ;
+    rdfs:subClassOf :Location .
+:Address a owl:Class ;
+    rdfs:subClassOf :Location .
+:Document a owl:Class .
+:Contract a owl:Class ;
+    rdfs:subClassOf :Document .
+:Product a owl:Class .
+:Service a owl:Class .
+:Invoice a owl:Class .
+:Payment a owl:Class .
+:Role a owl:Class .
+
+####################
+# Properties (15)
+####################
+# Object properties (12) — each declared as owl:ObjectProperty and as owl:SymmetricProperty
+:worksFor a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Organization ;
+    rdfs:label "worksFor" .
+
+:manages a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Manager ;
+    rdfs:range :Department ;
+    rdfs:label "manages" .
+
+:memberOf a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Team ;
+    rdfs:label "memberOf" .
+
+:locatedIn a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Organization ;
+    rdfs:range :Location ;
+    rdfs:label "locatedIn" .
+
+:hasAddress a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Organization ;
+    rdfs:range :Address ;
+    rdfs:label "hasAddress" .
+
+:livesIn a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :City ;
+    rdfs:label "livesIn" .
+
+:isMarriedTo a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Person ;
+    rdfs:label "isMarriedTo" .
+
+:supervises a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Employee ;
+    rdfs:range :Employee ;
+    rdfs:label "supervises" .
+
+:participatesIn a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Project ;
+    rdfs:label "participatesIn" .
+
+:hasDocument a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Organization ;
+    rdfs:range :Document ;
+    rdfs:label "hasDocument" .
+
+:issuesInvoice a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Organization ;
+    rdfs:range :Invoice ;
+    rdfs:label "issuesInvoice" .
+
+:pays a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Invoice ;
+    rdfs:label "pays" .
+
+# Datatype properties (3)
+:name a owl:DatatypeProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "name" .
+
+:salary a owl:DatatypeProperty ;
+    rdfs:domain :Employee ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "salary" .
+
+:dateOfBirth a owl:DatatypeProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:date ;
+    rdfs:label "dateOfBirth" .
+
+####################
+# Individuals (10)
+####################
+:Alice a :Person ;
+    :name "Alice" ;
+    :dateOfBirth "1985-04-12"^^xsd:date ;
+    :livesIn :London ;
+    :worksFor :AcmeCorp .
+
+:Bob a :Person ;
+    :name "Bob" ;
+    :dateOfBirth "1978-09-23"^^xsd:date ;
+    :livesIn :London ;
+    :isMarriedTo :Carol ;
+    :worksFor :AcmeCorp ;
+    :memberOf :TeamRed .
+
+:Carol a :Person ;
+    :name "Carol" ;
+    :dateOfBirth "1983-11-05"^^xsd:date ;
+    :livesIn :London ;
+    :isMarriedTo :Bob ;
+    :participatesIn :ProjectX .
+
+:AcmeCorp a :Organization ;
+    :name "Acme Corporation" ;
+    :locatedIn :UK ;
+    :hasAddress :AcmeAddress ;
+    :hasDocument :Contract123 .
+
+:HRDept a :Department ;
+    :name "Human Resources" ;
+    rdfs:subClassOf :Department ;
+    :locatedIn :UK ;
+    :memberOf :AcmeCorp .
+
+:ProjectX a :Project ;
+    :name "Project X" ;
+    :participatesIn :Alice .
+
+:TeamRed a :Team ;
+    :name "Team Red" ;
+    :memberOf :AcmeCorp .
+
+:London a :City ;
+    :name "London" ;
+    :locatedIn :UK .
+
+:UK a :Country ;
+    :name "United Kingdom" .
+
+:Contract123 a :Contract ;
+    :name "Contract #123" ;
+    :issuedBy :AcmeCorp ;
+    :issuesInvoice :Invoice001 .
+
+:Invoice001 a :Invoice ;
+    :name "Invoice 001" ;
+    :pays :Bob .
+
+####################
+# Additional subclassing (increase subclass count)
+####################
+:Intern a owl:Class ;
+    rdfs:subClassOf :Employee .
+
+:Consultant a owl:Class ;
+    rdfs:subClassOf :Person .
+
+:Executive a owl:Class ;
+    rdfs:subClassOf :Manager ;
+    rdfs:subClassOf :Role .
+
+:AdministrativeStaff a owl:Class ;
+    rdfs:subClassOf :Employee ;
+    rdfs:subClassOf :Role .
+
+:RemoteTeam a owl:Class ;
+    rdfs:subClassOf :Team .
+
+# End of ontology file.

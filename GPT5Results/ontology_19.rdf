@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="file:///app/GPT5Results/ontology_draft_18.ttl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#bob">
+    <rdf:type rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Teacher"/>
+    <teaches rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#math101"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#alice">
+    <rdf:type rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Student"/>
+    <enrolledIn rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#math101"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#enrolledIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Student"/>
+    <rdfs:range rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Course"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#teaches">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Teacher"/>
+    <rdfs:range rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Course"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#Student">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#Teacher">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#Course">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_18.ttl#math101">
+    <rdf:type rdf:resource="file:///app/GPT5Results/ontology_draft_18.ttl#Course"/>
+  </rdf:Description>
+</rdf:RDF>

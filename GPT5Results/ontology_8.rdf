@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/ontology#Class13">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class6"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class3"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class10"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class10">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasPart">
+    <owl:inverseOf rdf:resource="http://example.org/ontology#isPartOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class9">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class4"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#worksFor">
+    <owl:inverseOf rdf:resource="http://example.org/ontology#employs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#manages">
+    <owl:inverseOf rdf:resource="http://example.org/ontology#managedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#relatedTo">
+    <owl:inverseOf rdf:resource="http://example.org/ontology#relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class11">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class5"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class12">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class6"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class14">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class7"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class5">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class2"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasParent">
+    <owl:inverseOf rdf:resource="http://example.org/ontology#isChildOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class19">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class9"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class16">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class8"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class20">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class10"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class9"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class12"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#createdBy">
+    <owl:inverseOf rdf:resource="http://example.org/ontology#creates"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class17">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class8"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class6"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class11"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class18">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class9"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class3">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class4">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class6">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class15">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class7"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class7">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class2">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasOwner">
+    <owl:inverseOf rdf:resource="http://example.org/ontology#isOwnerOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#locatedIn">
+    <owl:inverseOf rdf:resource="http://example.org/ontology#locationOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Class8">
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Class4"/>
+  </rdf:Description>
+</rdf:RDF>

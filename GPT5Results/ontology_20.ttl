@@ -1,0 +1,66 @@
+@prefix : <file:///app/GPT5Results/ontology_draft_19.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Course a rdfs:Class ;
+    rdfs:label "Course"@en .
+
+:Entity a rdfs:Class ;
+    rdfs:label "Entity"@en .
+
+:Person a rdfs:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf :Entity .
+
+:Student a rdfs:Class ;
+    rdfs:label "Student"@en ;
+    rdfs:subClassOf :Person .
+
+:Teacher a rdfs:Class ;
+    rdfs:label "Teacher"@en ;
+    rdfs:subClassOf :Person .
+
+: a owl:Ontology ;
+    rdfs:label "Example educational ontology (fixed domains and labels)"@en .
+
+:affiliatedWith a rdf:Property ;
+    rdfs:label "affiliated with"@en ;
+    rdfs:comment "Indicates a person is affiliated with an organization or entity."@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Entity .
+
+:alice a :Teacher ;
+    rdfs:label "Alice"@en ;
+    :teaches :math101 .
+
+:bob a :Student ;
+    rdfs:label "Bob"@en ;
+    :affiliatedWith :DeptCS ;
+    :takesCourse :math101 .
+
+:takesCourse a rdf:Property ;
+    rdfs:label "takes course"@en ;
+    rdfs:comment "Indicates a student takes a course."@en ;
+    rdfs:domain :Student ;
+    rdfs:range :Course .
+
+:teaches a rdf:Property ;
+    rdfs:label "teaches"@en ;
+    rdfs:comment "Indicates a teacher teaches a course."@en ;
+    rdfs:domain :Teacher ;
+    rdfs:range :Course ;
+    rdfs:seeAlso :taughtBy .
+
+:DeptCS a :Entity ;
+    rdfs:label "Computer Science Department"@en .
+
+:taughtBy a rdf:Property ;
+    rdfs:label "taught by"@en ;
+    rdfs:comment "Inverse role of :teaches."@en ;
+    rdfs:domain :Course ;
+    rdfs:range :Teacher .
+
+:math101 a :Course ;
+    rdfs:label "Mathematics 101"@en .
+

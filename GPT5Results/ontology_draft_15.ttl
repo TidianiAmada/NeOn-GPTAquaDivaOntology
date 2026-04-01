@@ -1,0 +1,8 @@
+I don't have the ontology content to modify. Please upload or paste the complete ontology (Turtle) you want me to annotate. I will then add an rdfs:comment triple for every class and property and return the full modified ontology in valid Turtle syntax (with any explanations as comments at the top). 
+
+If you want specific phrasing for comments, tell me:
+- whether comments should be short (one line) or detailed,
+- whether to include examples or intended usage,
+- whether to annotate also annotation properties and datatype properties.
+
+Once you provide the ontology, I'll produce the updated Turtle file.

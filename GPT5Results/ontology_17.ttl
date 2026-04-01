@@ -1,0 +1,225 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix env: <http://example.org/envo-refined#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///app/GPT5Results/ontology_draft_16.ttl> a owl:Ontology ;
+    dcterms:created "2026-04-01"^^xsd:date ;
+    dcterms:creator "Ontology Engineer" ;
+    dcterms:description "A refined ontology capturing environmental, geological, hydrogeological, and ecosystem concepts, including aquifers and associated properties." ;
+    dcterms:title "Refined Environmental Ontology (ENVO-inspired)" .
+
+env:AnthropogenicEnvironment a owl:Class ;
+    rdfs:label "Anthropogenic environment" ;
+    rdfs:comment "Environments significantly modified or created by human activity." ;
+    rdfs:subClassOf env:Environment .
+
+env:ConfinedAquifer a owl:Class ;
+    rdfs:label "Confined aquifer" ;
+    rdfs:comment "An aquifer bounded above and/or below by confining layers." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty env:hasComponent ;
+            owl:someValuesFrom env:ConfiningLayer ],
+        env:Aquifer .
+
+env:Prairie_Habitat a env:Habitat ;
+    rdfs:label "Prairie habitat" ;
+    env:hasSubstrate env:Ogallala_Aquifer ;
+    env:hasVegetationCover env:Grassland ;
+    rdfs:comment "Example habitat above an aquifer, illustrating hasSubstrate and hasVegetationCover relations." .
+
+env:hasArea a owl:DatatypeProperty ;
+    rdfs:label "has area" ;
+    rdfs:comment "Horizontal area of an environment or region in square kilometers (xsd:decimal)." ;
+    rdfs:domain env:Environment ;
+    rdfs:range xsd:decimal .
+
+env:hasHydraulicConductivity a owl:DatatypeProperty ;
+    rdfs:label "has hydraulic conductivity" ;
+    rdfs:comment "Hydraulic conductivity (L/T), e.g., meters per day; use xsd:decimal." ;
+    rdfs:domain env:HydrogeologicalFeature ;
+    rdfs:range xsd:decimal .
+
+env:hasQuality a owl:ObjectProperty ;
+    rdfs:label "has quality" ;
+    rdfs:comment "Associates an environment with environmental quality descriptors." ;
+    rdfs:domain env:Environment ;
+    rdfs:range env:EnvironmentalQuality .
+
+env:hasSalinity a owl:DatatypeProperty ;
+    rdfs:label "has salinity" ;
+    rdfs:comment "Salinity concentration (e.g., PSU or g/kg) as a decimal." ;
+    rdfs:domain env:Environment ;
+    rdfs:range xsd:decimal .
+
+env:hasSubstrate a owl:ObjectProperty ;
+    rdfs:label "has substrate" ;
+    rdfs:comment "Relates a habitat or surface environment to its underlying geological substrate." ;
+    rdfs:domain env:Habitat ;
+    rdfs:range env:GeologicalUnit .
+
+env:hasTemperature a owl:DatatypeProperty ;
+    rdfs:label "has temperature" ;
+    rdfs:comment "Representative temperature of an environmental feature in degrees Celsius (xsd:decimal)." ;
+    rdfs:domain env:Environment ;
+    rdfs:range xsd:decimal .
+
+env:hasThickness a owl:DatatypeProperty ;
+    rdfs:label "has thickness" ;
+    rdfs:comment "Thickness of a layer or formation in meters (xsd:decimal)." ;
+    rdfs:domain env:GeologicalUnit ;
+    rdfs:range xsd:decimal .
+
+env:hasVegetationCover a owl:ObjectProperty ;
+    rdfs:label "has vegetation cover" ;
+    rdfs:comment "Relates an environmental area to the dominant vegetation class." ;
+    rdfs:domain env:Environment ;
+    rdfs:range env:Vegetation .
+
+env:hasVolume a owl:DatatypeProperty ;
+    rdfs:label "has volume" ;
+    rdfs:comment "Volume of a geological or hydrogeological feature in cubic meters (xsd:decimal)." ;
+    rdfs:domain env:GeologicalUnit ;
+    rdfs:range xsd:decimal .
+
+env:hydraulicConductivityConcept a skos:Concept ;
+    skos:definition "A measure of a material's ability to transmit water." ;
+    skos:prefLabel "Hydraulic conductivity" .
+
+env:influencedBy a owl:ObjectProperty ;
+    rdfs:label "influenced by" ;
+    rdfs:comment "Indicates anthropogenic or natural processes influencing an environment." ;
+    rdfs:domain env:Environment ;
+    rdfs:range env:Environment .
+
+env:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in" ;
+    rdfs:comment "Relates an entity to the region or larger environmental unit in which it is found." ;
+    rdfs:domain env:Environment ;
+    rdfs:range env:Region .
+
+env:partOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "part of" ;
+    rdfs:comment "Indicates that one entity is a (possibly proper) part of another entity." ;
+    rdfs:domain env:Environment ;
+    rdfs:range env:Environment .
+
+env:porosityConcept a skos:Concept ;
+    skos:definition "The proportion of void (empty) space in a material, expressed as a fraction or percentage." ;
+    skos:prefLabel "Porosity" .
+
+env:Biome a owl:Class ;
+    rdfs:label "Biome" ;
+    rdfs:comment "Major ecological community type (e.g., tundra, savanna)." ;
+    rdfs:subClassOf env:NaturalEnvironment .
+
+env:ConfiningLayer a owl:Class ;
+    rdfs:label "Confining layer" ;
+    rdfs:comment "Low-permeability layers that limit groundwater flow and confine aquifers." ;
+    rdfs:subClassOf env:HydrogeologicalFeature .
+
+env:Ecosystem a owl:Class ;
+    rdfs:label "Ecosystem" ;
+    rdfs:comment "A biological community of interacting organisms and their physical environment." ;
+    rdfs:subClassOf env:Biome .
+
+env:Grassland a env:Vegetation ;
+    rdfs:label "Grassland" ;
+    rdfs:comment "Dominant vegetation type composed of grasses and herbaceous plants." .
+
+env:Great_Plains a env:Region ;
+    rdfs:label "Great Plains" ;
+    env:hasArea 174000.0 ;
+    rdfs:comment "A broad expanse of flat land covering parts of central North America." .
+
+env:Ogallala_Aquifer a env:UnconfinedAquifer ;
+    rdfs:label "Ogallala Aquifer" ;
+    env:hasArea 450000.0 ;
+    env:hasDepth 300.0 ;
+    env:hasHydraulicConductivity 10.0 ;
+    env:hasPorosity 0.25 ;
+    env:hasQuality [ a env:EnvironmentalQuality ;
+            rdfs:label "Variable groundwater quality" ;
+            rdfs:comment "Groundwater quality varies spatially and temporally across the aquifer." ] ;
+    env:locatedIn env:Great_Plains ;
+    rdfs:comment "A major aquifer underlying the Great Plains of the United States (example individual)." .
+
+env:UnconfinedAquifer a owl:Class ;
+    rdfs:label "Unconfined aquifer" ;
+    rdfs:comment "An aquifer with its upper surface (water table) open to the atmosphere through permeable material." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty env:hasDepth ;
+            owl:someValuesFrom xsd:decimal ],
+        env:Aquifer .
+
+env:hasComponent a owl:ObjectProperty ;
+    rdfs:label "has component" ;
+    rdfs:comment "Indicates physical components or sub-units of an environmental feature." ;
+    rdfs:domain env:Environment ;
+    rdfs:range env:Environment .
+
+env:hasPorosity a owl:DatatypeProperty ;
+    rdfs:label "has porosity" ;
+    rdfs:comment "Porosity value (fraction between 0 and 1) describing void fraction; use xsd:decimal." ;
+    rdfs:domain env:HydrogeologicalFeature ;
+    rdfs:range xsd:decimal .
+
+env:Aquifer a owl:Class ;
+    rdfs:label "Aquifer" ;
+    rdfs:comment "A geological formation or group of formations capable of storing and transmitting significant quantities of groundwater." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty env:hasDepth ;
+            owl:someValuesFrom xsd:decimal ],
+        [ a owl:Restriction ;
+            owl:onProperty env:hasPorosity ;
+            owl:someValuesFrom xsd:decimal ],
+        env:HydrogeologicalFeature .
+
+env:EnvironmentalQuality a owl:Class ;
+    rdfs:label "Environmental quality" ;
+    rdfs:comment "Qualities or metrics describing environmental condition (e.g., water quality, contamination status)." .
+
+env:NaturalEnvironment a owl:Class ;
+    rdfs:label "Natural environment" ;
+    rdfs:comment "Environments primarily shaped by natural processes." ;
+    rdfs:subClassOf env:Environment .
+
+env:Region a owl:Class ;
+    rdfs:label "Region" ;
+    rdfs:comment "A named geographic region or administrative area." ;
+    rdfs:subClassOf env:Environment .
+
+env:Vegetation a owl:Class ;
+    rdfs:label "Vegetation" ;
+    rdfs:comment "Plant life covering an area (e.g., forest, grassland)." ;
+    rdfs:subClassOf env:Habitat .
+
+env:hasDepth a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "has depth" ;
+    rdfs:comment "Vertical extent (depth) of a hydrogeological feature or geological unit, in meters (use xsd:decimal)." ;
+    rdfs:domain env:HydrogeologicalFeature ;
+    rdfs:range xsd:decimal .
+
+env:Habitat a owl:Class ;
+    rdfs:label "Habitat" ;
+    rdfs:comment "The specific environment in which an organism or ecological population lives." ;
+    rdfs:subClassOf env:Ecosystem .
+
+env:GeologicalUnit a owl:Class ;
+    rdfs:label "Geological unit" ;
+    rdfs:comment "A defined volume of rock, sediment, soil, or other geologic material." ;
+    rdfs:subClassOf env:NaturalEnvironment .
+
+env:HydrogeologicalFeature a owl:Class ;
+    rdfs:label "Hydrogeological feature" ;
+    rdfs:comment "Geological units characterized by their interaction with groundwater (e.g., aquifers, confining layers)." ;
+    rdfs:subClassOf env:GeologicalUnit .
+
+env:Environment a owl:Class ;
+    rdfs:label "Environment" ;
+    rdfs:comment "Top-level class representing any environment, natural or anthropogenic." .
+

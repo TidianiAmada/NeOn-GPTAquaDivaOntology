@@ -1,12 +1,43 @@
 ✔ Turtle syntax is correct.
-✔ Saved Turtle: /app/output/ontology_18.ttl
-✔ Saved RDF/XML: /app/output/ontology_18.rdf
+✔ Saved Turtle: /app/GPT5Results/ontology_19.ttl
+✔ Saved RDF/XML: /app/GPT5Results/ontology_19.rdf
 
 --- SHACL Validation ---
 Validation Report
-Conforms: True
+Conforms: False
+Results (5):
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Course
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Course->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Entity
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Entity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Person
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Person->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Student
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Student->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Teacher
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Teacher->rdfs:label
 
-✔ SHACL validation passed.
+❌ SHACL validation failed.
 
 --- Pitfalls ---
 Total pitfalls: 0

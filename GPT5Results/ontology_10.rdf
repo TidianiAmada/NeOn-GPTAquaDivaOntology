@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/ontology_9#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/ontology_9#supervises">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Employee"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Employee"/>
+    <rdfs:label>supervises</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#manages">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Manager"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Department"/>
+    <rdfs:label>manages</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#UK">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Country"/>
+    <name>United Kingdom</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Bob">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Person"/>
+    <name>Bob</name>
+    <dateOfBirth rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1978-09-23</dateOfBirth>
+    <livesIn rdf:resource="http://example.org/ontology_9#London"/>
+    <isMarriedTo rdf:resource="http://example.org/ontology_9#Carol"/>
+    <worksFor rdf:resource="http://example.org/ontology_9#AcmeCorp"/>
+    <memberOf rdf:resource="http://example.org/ontology_9#TeamRed"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#memberOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Team"/>
+    <rdfs:label>memberOf</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#issuesInvoice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Invoice"/>
+    <rdfs:label>issuesInvoice</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#dateOfBirth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label>dateOfBirth</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Department">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#London">
+    <rdf:type rdf:resource="http://example.org/ontology_9#City"/>
+    <name>London</name>
+    <locatedIn rdf:resource="http://example.org/ontology_9#UK"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#participatesIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Project"/>
+    <rdfs:label>participatesIn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Team">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#pays">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Invoice"/>
+    <rdfs:label>pays</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#hasAddress">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Address"/>
+    <rdfs:label>hasAddress</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Alice">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Person"/>
+    <name>Alice</name>
+    <dateOfBirth rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1985-04-12</dateOfBirth>
+    <livesIn rdf:resource="http://example.org/ontology_9#London"/>
+    <worksFor rdf:resource="http://example.org/ontology_9#AcmeCorp"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#City">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#hasDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Document"/>
+    <rdfs:label>hasDocument</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#AdministrativeStaff">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Employee"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Location">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#AcmeCorp">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Organization"/>
+    <name>Acme Corporation</name>
+    <locatedIn rdf:resource="http://example.org/ontology_9#UK"/>
+    <hasAddress rdf:resource="http://example.org/ontology_9#AcmeAddress"/>
+    <hasDocument rdf:resource="http://example.org/ontology_9#Contract123"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Invoice001">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Invoice"/>
+    <name>Invoice 001</name>
+    <pays rdf:resource="http://example.org/ontology_9#Bob"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Service">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Project">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Executive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Manager"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#isMarriedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:label>isMarriedTo</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#TeamRed">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Team"/>
+    <name>Team Red</name>
+    <memberOf rdf:resource="http://example.org/ontology_9#AcmeCorp"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#livesIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#City"/>
+    <rdfs:label>livesIn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Intern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Employee"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Manager">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Employee"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Contract123">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Contract"/>
+    <name>Contract #123</name>
+    <issuedBy rdf:resource="http://example.org/ontology_9#AcmeCorp"/>
+    <issuesInvoice rdf:resource="http://example.org/ontology_9#Invoice001"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Carol">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Person"/>
+    <name>Carol</name>
+    <dateOfBirth rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1983-11-05</dateOfBirth>
+    <livesIn rdf:resource="http://example.org/ontology_9#London"/>
+    <isMarriedTo rdf:resource="http://example.org/ontology_9#Bob"/>
+    <participatesIn rdf:resource="http://example.org/ontology_9#ProjectX"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Consultant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Country">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Payment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#worksFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Organization"/>
+    <rdfs:label>worksFor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Contract">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#HRDept">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Department"/>
+    <name>Human Resources</name>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Department"/>
+    <locatedIn rdf:resource="http://example.org/ontology_9#UK"/>
+    <memberOf rdf:resource="http://example.org/ontology_9#AcmeCorp"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#salary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label>salary</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#locatedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Organization"/>
+    <rdfs:range rdf:resource="http://example.org/ontology_9#Location"/>
+    <rdfs:label>locatedIn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology_9#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>name</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Employee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Meeting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Address">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Invoice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Product">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Role">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#ProjectX">
+    <rdf:type rdf:resource="http://example.org/ontology_9#Project"/>
+    <name>Project X</name>
+    <participatesIn rdf:resource="http://example.org/ontology_9#Alice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#RemoteTeam">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology_9#Team"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology_9#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>

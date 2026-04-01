@@ -1,0 +1,281 @@
+@prefix : <http://example.org/ontology/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ontology/core> a owl:Ontology ;
+    rdfs:label "Core Geoscience Ontology" ;
+    rdfs:comment "Core module focusing on aquifers, wells, formations, zones, and layers. Includes competency questions as comments." .
+
+:ConfiningLayer a owl:Class ;
+    rdfs:label "Confining layer" ;
+    rdfs:comment "A low-permeability layer that restricts groundwater flow (aquitard/aquiclude)." ;
+    rdfs:subClassOf :GeoscienceEntity .
+
+:HydrogeologicalUnit a owl:Class ;
+    rdfs:label "Hydrogeological unit" ;
+    rdfs:comment "A unit defined by hydrogeological behavior and properties." ;
+    rdfs:subClassOf :GeoscienceEntity .
+
+:HydrostratigraphicUnit a owl:Class ;
+    rdfs:label "Hydrostratigraphic unit" ;
+    rdfs:comment "A stratigraphic unit defined primarily by its hydrogeologic properties." ;
+    rdfs:subClassOf :GeologicalFormation,
+        :GeoscienceEntity .
+
+:Lake a owl:Class ;
+    rdfs:label "Lake" ;
+    rdfs:comment "A sizable inland body of standing water." ;
+    rdfs:subClassOf :GeoscienceEntity,
+        :WaterBody .
+
+:ObservationWell a owl:Class ;
+    rdfs:label "Observation well" ;
+    rdfs:comment "A well used for observational purposes (short-term or specific tests)." ;
+    rdfs:subClassOf :GeoscienceEntity,
+        :Well .
+
+:Well1 a :MonitoringWell ;
+    rdfs:label "Well MW-001" ;
+    :hasDateMeasured "2025-06-15T09:30:00"^^xsd:dateTime ;
+    :hasDepth 120.5 ;
+    :hasName "MW-001" ;
+    :isWellOf :CentralAquifer .
+
+:Well2 a :ProductionWell ;
+    rdfs:label "Well PW-010" ;
+    :hasDepth 250.0 ;
+    :hasName "PW-010" ;
+    :isWellOf :NorthernConfinedAquifer .
+
+:connectedTo a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "connected to" ;
+    rdfs:comment "Symmetric relation indicating hydraulic or spatial connection between entities." ;
+    rdfs:domain :GeoscienceEntity ;
+    rdfs:range :GeoscienceEntity .
+
+:hasDateMeasured a owl:DatatypeProperty ;
+    rdfs:label "has date measured" ;
+    rdfs:comment "Date/time when a measurement was taken." ;
+    rdfs:domain :MonitoringWell ;
+    rdfs:range xsd:dateTime .
+
+:hasDepth a owl:DatatypeProperty ;
+    rdfs:label "has depth" ;
+    rdfs:comment "Depth or elevation value associated with a well (meters)." ;
+    rdfs:domain :Well ;
+    rdfs:range xsd:double .
+
+:hasFormation a owl:ObjectProperty ;
+    rdfs:label "has formation" ;
+    rdfs:comment "Relates a higher-level entity to a geological formation it contains or overlies." ;
+    rdfs:domain :GeoscienceEntity ;
+    rdfs:range :GeologicalFormation .
+
+:hasLayer a owl:ObjectProperty ;
+    rdfs:label "has layer" ;
+    rdfs:comment "Relates a formation to a soil or sediment layer." ;
+    rdfs:domain :GeologicalFormation ;
+    rdfs:range :SoilLayer .
+
+:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name" ;
+    rdfs:comment "Literal name for an entity." ;
+    rdfs:domain :GeoscienceEntity ;
+    rdfs:range xsd:string .
+
+:hasPermeability a owl:DatatypeProperty ;
+    rdfs:label "has permeability" ;
+    rdfs:comment "Numeric permeability measurement (e.g., m^2 or darcy depending on unit context)." ;
+    rdfs:domain :SoilLayer ;
+    rdfs:range xsd:double .
+
+:hasPorosity a owl:DatatypeProperty ;
+    rdfs:label "has porosity" ;
+    rdfs:comment "Porosity fraction (0-1) or percent depending on measurement units." ;
+    rdfs:domain :SoilLayer ;
+    rdfs:range xsd:double .
+
+:hasWaterBody a owl:ObjectProperty ;
+    rdfs:label "has water body" ;
+    rdfs:comment "Relates an aquifer or formation to an associated surface water body." ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :WaterBody .
+
+:ConfinedAquifer a owl:Class ;
+    rdfs:label "Confined aquifer" ;
+    rdfs:comment "An aquifer that is bounded above and below by confining layers." ;
+    rdfs:subClassOf :Aquifer,
+        :GeoscienceEntity .
+
+:DischargeZone a owl:Class ;
+    rdfs:label "Discharge zone" ;
+    rdfs:comment "Part of an aquifer where groundwater leaves the aquifer (e.g., springs, seepage)." ;
+    rdfs:subClassOf :AquiferZone,
+        :GeoscienceEntity .
+
+:DischargeZone1 a :DischargeZone ;
+    rdfs:label "Discharge Zone 1" ;
+    :hasName "Discharge Zone 1" ;
+    :isZoneOf :SouthernUnconfinedAquifer .
+
+:NorthernConfinedAquifer a :ConfinedAquifer ;
+    rdfs:label "Northern Confined Aquifer" ;
+    :hasFormation :FormationAlpha ;
+    :hasName "Northern Confined Aquifer" ;
+    :overlies :FormationAlpha .
+
+:ProductionWell a owl:Class ;
+    rdfs:label "Production well" ;
+    rdfs:comment "A well used to extract groundwater for use." ;
+    rdfs:subClassOf :GeoscienceEntity,
+        :Well .
+
+:RechargeZone a owl:Class ;
+    rdfs:label "Recharge zone" ;
+    rdfs:comment "Part of an aquifer where water enters and replenishes the groundwater." ;
+    rdfs:subClassOf :AquiferZone,
+        :GeoscienceEntity .
+
+:RechargeZone1 a :RechargeZone ;
+    rdfs:label "Recharge Zone 1" ;
+    :hasName "Recharge Zone 1" ;
+    :isZoneOf :CentralAquifer .
+
+:River a owl:Class ;
+    rdfs:label "River" ;
+    rdfs:comment "A natural flowing watercourse." ;
+    rdfs:subClassOf :GeoscienceEntity,
+        :WaterBody .
+
+:River1 a :River ;
+    rdfs:label "River Delta" ;
+    :connectedTo :CentralAquifer ;
+    :hasName "River Delta" .
+
+:SedLayer1 a :SedimentLayer ;
+    rdfs:label "Sediment Layer 1" ;
+    :hasName "Sediment Layer 1" ;
+    :hasPermeability 1.2e-12 ;
+    :hasPorosity 0.28 .
+
+:SedimentLayer a owl:Class ;
+    rdfs:label "Sediment layer" ;
+    rdfs:comment "A layer composed primarily of unconsolidated sediments." ;
+    rdfs:subClassOf :GeoscienceEntity,
+        :SoilLayer .
+
+:SouthernUnconfinedAquifer a :UnconfinedAquifer ;
+    rdfs:label "Southern Unconfined Aquifer" ;
+    :hasName "Southern Unconfined Aquifer" ;
+    :hasWaterBody :Lake1 ;
+    :hasZone :DischargeZone1 .
+
+:UnconfinedAquifer a owl:Class ;
+    rdfs:label "Unconfined aquifer" ;
+    rdfs:comment "An aquifer whose upper surface (water table) is open to the atmosphere through permeable material." ;
+    rdfs:subClassOf :Aquifer,
+        :GeoscienceEntity .
+
+:ZoneA a :AquiferZone ;
+    rdfs:label "Zone A" ;
+    :hasName "Zone A" ;
+    :isZoneOf :CentralAquifer .
+
+:hasWell a owl:ObjectProperty ;
+    rdfs:label "has well" ;
+    rdfs:comment "Relates an aquifer or formation to a well located in or abstractly associated with it." ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :Well ;
+    owl:inverseOf :isWellOf .
+
+:hasZone a owl:ObjectProperty ;
+    rdfs:label "has zone" ;
+    rdfs:comment "Relates an aquifer to its aquifer zones." ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :AquiferZone ;
+    owl:inverseOf :isZoneOf .
+
+:isWellOf a owl:ObjectProperty ;
+    rdfs:label "is well of" ;
+    rdfs:comment "Inverse of hasWell: relates a well to the aquifer it is associated with." ;
+    rdfs:domain :Well ;
+    rdfs:range :Aquifer ;
+    owl:inverseOf :hasWell .
+
+:isZoneOf a owl:ObjectProperty ;
+    rdfs:label "is zone of" ;
+    rdfs:comment "Inverse of hasZone: relates a zone to its parent aquifer." ;
+    rdfs:domain :AquiferZone ;
+    rdfs:range :Aquifer ;
+    owl:inverseOf :hasZone .
+
+:overlies a owl:ObjectProperty ;
+    rdfs:label "overlies" ;
+    rdfs:comment "Indicates that one formation or aquifer overlies another formation." ;
+    rdfs:domain :GeoscienceEntity ;
+    rdfs:range :GeologicalFormation ;
+    owl:inverseOf :underlies .
+
+:underlies a owl:ObjectProperty ;
+    rdfs:label "underlies" ;
+    rdfs:comment "Inverse of overlies: indicates that an entity underlies a formation." ;
+    rdfs:domain :GeoscienceEntity ;
+    rdfs:range :GeologicalFormation ;
+    owl:inverseOf :overlies .
+
+:MonitoringWell a owl:Class ;
+    rdfs:label "Monitoring well" ;
+    rdfs:comment "A well installed to monitor groundwater levels or quality." ;
+    rdfs:subClassOf :GeoscienceEntity,
+        :Well .
+
+:FormationAlpha a :GeologicalFormation ;
+    rdfs:label "Formation Alpha" ;
+    :hasLayer :SedLayer1 ;
+    :hasName "Formation Alpha" .
+
+:WaterBody a owl:Class ;
+    rdfs:label "Water body" ;
+    rdfs:comment "Surface water feature such as rivers, lakes, wetlands." ;
+    rdfs:subClassOf :GeoscienceEntity .
+
+:CentralAquifer a :Aquifer ;
+    rdfs:label "Central Aquifer" ;
+    :hasFormation :FormationAlpha ;
+    :hasName "Central Aquifer" ;
+    :hasWaterBody :River1 ;
+    :hasZone :RechargeZone1,
+        :ZoneA .
+
+:SoilLayer a owl:Class ;
+    rdfs:label "Soil layer" ;
+    rdfs:comment "A stratified layer of soil material." ;
+    rdfs:subClassOf :GeoscienceEntity .
+
+:AquiferZone a owl:Class ;
+    rdfs:label "Aquifer zone" ;
+    rdfs:comment "A delineated zone within an aquifer (e.g., a management or hydrogeological zone)." ;
+    rdfs:subClassOf :GeoscienceEntity .
+
+:GeologicalFormation a owl:Class ;
+    rdfs:label "Geological formation" ;
+    rdfs:comment "A mappable unit of rock or sediment with distinguishable characteristics." ;
+    rdfs:subClassOf :GeoscienceEntity .
+
+:Well a owl:Class ;
+    rdfs:label "Well" ;
+    rdfs:comment "A borehole constructed to access groundwater." ;
+    rdfs:subClassOf :GeoscienceEntity .
+
+:Aquifer a owl:Class ;
+    rdfs:label "Aquifer" ;
+    rdfs:comment "A water-bearing geological formation capable of yielding usable quantities of groundwater." ;
+    rdfs:subClassOf :GeoscienceEntity .
+
+:GeoscienceEntity a owl:Class ;
+    rdfs:label "Geoscience entity" ;
+    rdfs:comment "Top level class for geoscience domain entities." .
+

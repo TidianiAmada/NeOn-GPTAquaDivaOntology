@@ -1,0 +1,193 @@
+# Example Environmental Ontology (extended from ENVO)
+# - This file is a self-contained Turtle serialization of an ontology that:
+#   * Reuses ENVO by importing it (see owl:imports).
+#   * Defines a clear hierarchical structure of environmental concepts.
+#   * Adds a concrete example class "Aquifer" and domain-specific properties such as "hasDepth".
+# - The previous validation error was caused by an invalid placeholder string; this file contains no such invalid tokens.
+# - Notes on reuse: ENVO is imported to enable interoperability; classes in this file are defined in our namespace
+#   and can be mapped to ENVO terms as needed. Mapping to specific ENVO identifiers can be added later once
+#   precise ENVO IRIs are selected.
+#
+# License: CC-BY-4.0 (example)
+#
+# End of comments — ontology triples start below.
+
+@prefix : <http://example.org/env-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix envo: <http://purl.obolibrary.org/obo/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+<http://example.org/env-ontology> a owl:Ontology ;
+    dcterms:title "Example Environmental Ontology (extended from ENVO)" ;
+    dcterms:description "An example ontology that reuses the ENVO ontology (import) and provides a clearer hierarchical structure for environmental concepts. Contains the Aquifer class and related properties such as hasDepth." ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    owl:imports <http://purl.obolibrary.org/obo/envo.owl> .
+
+# Top-level classes and hierarchy
+:EnvironmentalEntity a owl:Class ;
+    rdfs:label "Environmental entity" ;
+    rdfs:comment "Top-level class for environmental features and processes represented in this ontology. Aligns conceptually with ENVO high-level entities." .
+
+:PhysicalEntity a owl:Class ;
+    rdfs:subClassOf :EnvironmentalEntity ;
+    rdfs:label "Physical entity" ;
+    rdfs:comment "Physical entities in the environment (materials, formations, bodies of water, etc.)." .
+
+:WaterBody a owl:Class ;
+    rdfs:subClassOf :PhysicalEntity ;
+    rdfs:label "Water body" ;
+    rdfs:comment "Any contiguous volume of water, including surface water and groundwater." .
+
+:SurfaceWaterBody a owl:Class ;
+    rdfs:subClassOf :WaterBody ;
+    rdfs:label "Surface water body" ;
+    rdfs:comment "Bodies of water that are at the surface (rivers, lakes, seas)." .
+
+:GroundwaterBody a owl:Class ;
+    rdfs:subClassOf :WaterBody ;
+    rdfs:label "Groundwater body" ;
+    rdfs:comment "Water residing in saturated subsurface geological formations." .
+
+:Aquifer a owl:Class ;
+    rdfs:subClassOf :GroundwaterBody ;
+    rdfs:label "Aquifer" ;
+    rdfs:comment "A geological formation or group of formations that can store, transmit and yield significant quantities of groundwater." ;
+    rdfs:seeAlso <http://purl.obolibrary.org/obo/envo.owl> .
+
+# Geologic and subsurface classes
+:GeologicFormation a owl:Class ;
+    rdfs:subClassOf :PhysicalEntity ;
+    rdfs:label "Geologic formation" ;
+    rdfs:comment "A recognizable, mappable set of rock strata or sedimentary deposit that has particular lithologic characteristics." .
+
+:SubsurfaceZone a owl:Class ;
+    rdfs:subClassOf :PhysicalEntity ;
+    rdfs:label "Subsurface zone" ;
+    rdfs:comment "General class for subsurface stratigraphic or hydrogeologic subdivisions (e.g., vadose zone, phreatic zone, aquifer intervals)." .
+
+# Example hierarchical refinement levels for Aquifer (zones, types)
+:AquiferZone a owl:Class ;
+    rdfs:subClassOf :SubsurfaceZone ;
+    rdfs:label "Aquifer zone" ;
+    rdfs:comment "A sub-division of an aquifer by depth, lithology, or hydrogeologic function (e.g., confined zone, unconfined zone)." .
+
+:ConfinedAquifer a owl:Class ;
+    rdfs:subClassOf (:Aquifer ; :AquiferZone) ;
+    rdfs:label "Confined aquifer" ;
+    rdfs:comment "An aquifer that is bounded above and/or below by confining layers of low permeability." .
+
+:UnconfinedAquifer a owl:Class ;
+    rdfs:subClassOf (:Aquifer ; :AquiferZone) ;
+    rdfs:label "Unconfined aquifer" ;
+    rdfs:comment "An aquifer where the water table is open to the atmosphere through the porous media." .
+
+# Object properties (relationships between resources)
+:hasPart a owl:ObjectProperty ;
+    rdfs:label "has part" ;
+    rdfs:comment "General partonomy relation; reflexive composition of larger features into smaller ones." ;
+    rdfs:domain :EnvironmentalEntity ;
+    rdfs:range :EnvironmentalEntity ;
+    owl:inverseOf :isPartOf .
+
+:isPartOf a owl:ObjectProperty ;
+    rdfs:label "is part of" ;
+    rdfs:comment "Inverse of hasPart." ;
+    rdfs:domain :EnvironmentalEntity ;
+    rdfs:range :EnvironmentalEntity .
+
+:overlies a owl:ObjectProperty ;
+    rdfs:label "overlies" ;
+    rdfs:comment "Relates an upper geological feature to a lower one (e.g., aquifer overlies bedrock or confining formation)." ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :GeologicFormation .
+
+:adjacentTo a owl:ObjectProperty ;
+    rdfs:label "adjacent to" ;
+    rdfs:comment "Non-directional spatial adjacency relation." ;
+    rdfs:domain :EnvironmentalEntity ;
+    rdfs:range :EnvironmentalEntity ;
+    owl:symmetricProperty true .
+
+# Datatype properties (measurable attributes)
+:hasDepth a owl:DatatypeProperty ;
+    rdfs:label "has depth" ;
+    rdfs:comment "The vertical thickness or depth of a feature measured in meters. For aquifers, this may represent saturated thickness or total vertical extent; provenance should be specified in metadata." ;
+    rdfs:domain :Aquifer ;
+    rdfs:range xsd:decimal .
+
+:hasThickness a owl:DatatypeProperty ;
+    rdfs:label "has thickness" ;
+    rdfs:comment "General thickness of a geological or stratigraphic unit, in meters." ;
+    rdfs:domain :GeologicFormation ;
+    rdfs:range xsd:decimal .
+
+:hasPorosity a owl:DatatypeProperty ;
+    rdfs:label "has porosity" ;
+    rdfs:comment "Porosity as a fraction (0.0 - 1.0) or percentage if annotated; recommended to use decimal fraction." ;
+    rdfs:domain :Aquifer ;
+    rdfs:range xsd:decimal .
+
+:hasHydraulicConductivity a owl:DatatypeProperty ;
+    rdfs:label "has hydraulic conductivity" ;
+    rdfs:comment "Hydraulic conductivity in meters per second (m/s)." ;
+    rdfs:domain :Aquifer ;
+    rdfs:range xsd:decimal .
+
+:hasPermeability a owl:DatatypeProperty ;
+    rdfs:label "has permeability" ;
+    rdfs:comment "Intrinsic permeability in square meters (m^2)." ;
+    rdfs:domain :GeologicFormation ;
+    rdfs:range xsd:decimal .
+
+:hasMeasurementUnit a owl:DatatypeProperty ;
+    rdfs:label "has measurement unit" ;
+    rdfs:comment "Textual or coded unit for measured numeric properties. Prefer using standard unit vocabularies (e.g., QUDT)." ;
+    rdfs:domain :EnvironmentalEntity ;
+    rdfs:range xsd:string .
+
+# Example logical restrictions and patterns to encourage consistency
+# - Aquifer should have at least one depth or thickness measurement (data restriction example)
+:Aquifer rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :hasDepth ;
+    owl:someValuesFrom xsd:decimal
+] .
+
+# - A confined aquifer should be related to at least one confining formation (object restriction)
+:ConfinedAquifer rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :overlies ;
+    owl:someValuesFrom :GeologicFormation
+] .
+
+# Useful annotation properties for reuse and provenance
+:mapsToENVO a owl:AnnotationProperty ;
+    rdfs:label "maps to ENVO (recommended)" ;
+    rdfs:comment "Annotation property to record a preferred mapping to an ENVO class IRI (use full ENVO IRI values as strings or IRIs)." .
+
+# Example usage of mapping annotation (recommended practice)
+# Note: Do not hardcode a mapping until the exact ENVO ID is verified.
+:Aquifer :mapsToENVO "Please map to appropriate ENVO aquifer term (add full ENVO IRI when known)" .
+
+# SKOS-based lightweight alignment suggestion
+:EnvironmentalEntity skos:closeMatch envo:ENVO_00000000 .
+
+# Simple example individuals (optional, demonstrating expected property usage)
+# (These are illustrative and not intended as authoritative data)
+:Example_Aquifer_001 a :Aquifer ;
+    rdfs:label "Example Aquifer 001" ;
+    :hasDepth "23.5"^^xsd:decimal ;
+    :hasPorosity "0.18"^^xsd:decimal ;
+    :hasHydraulicConductivity "1.2E-05"^^xsd:decimal ;
+    :overlies :Example_Bedrock_Unit_001 .
+
+:Example_Bedrock_Unit_001 a :GeologicFormation ;
+    rdfs:label "Example Bedrock Unit 001" ;
+    :hasThickness "120.0"^^xsd:decimal .
+
+# End of ontology.

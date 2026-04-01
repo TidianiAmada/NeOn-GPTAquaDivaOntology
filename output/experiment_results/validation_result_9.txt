@@ -1,12 +1,163 @@
 ✔ Turtle syntax is correct.
-✔ Saved Turtle: /app/output/ontology_9.ttl
-✔ Saved RDF/XML: /app/output/ontology_9.rdf
+✔ Saved Turtle: /app/GPT5Results/ontology_10.ttl
+✔ Saved RDF/XML: /app/GPT5Results/ontology_10.rdf
 
 --- SHACL Validation ---
 Validation Report
-Conforms: True
+Conforms: False
+Results (25):
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Address
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Address->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :AdministrativeStaff
+	Result Path: rdfs:label
+	Message: Less than 1 values on :AdministrativeStaff->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :City
+	Result Path: rdfs:label
+	Message: Less than 1 values on :City->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Consultant
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Consultant->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Contract
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Contract->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Country
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Country->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Department
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Department->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Document
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Document->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Employee
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Employee->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Event
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Event->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Executive
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Executive->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Intern
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Intern->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Invoice
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Invoice->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Location
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Location->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Manager
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Manager->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Meeting
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Meeting->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Organization
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Organization->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Payment
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Payment->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Person
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Person->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Product
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Product->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Project
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Project->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :RemoteTeam
+	Result Path: rdfs:label
+	Message: Less than 1 values on :RemoteTeam->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Role
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Role->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Service
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Service->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: :Team
+	Result Path: rdfs:label
+	Message: Less than 1 values on :Team->rdfs:label
 
-✔ SHACL validation passed.
+❌ SHACL validation failed.
 
 --- Pitfalls ---
 Total pitfalls: 0

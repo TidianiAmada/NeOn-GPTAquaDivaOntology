@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/ontology/competency#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#IsolationEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>IsolationEvent</rdfs:label>
+    <rdfs:comment>Event describing the isolation or collection of samples.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#hasLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasLocation</rdfs:label>
+    <rdfs:comment>Links a Habitat (or other entity) to a Location.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Habitat"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/competency#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#measurementDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>measurementDate</rdfs:label>
+    <rdfs:comment>Datetime for when the measurement was taken.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Measurement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#microbe_Pseudomonas1">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Bacteria"/>
+    <rdfs:label>Pseudomonas sp. sample 1</rdfs:label>
+    <inhabits rdf:resource="http://example.org/ontology/competency#aquifer_Alpha"/>
+    <discoveredBy rdf:resource="http://example.org/ontology/competency#researcher_Doe"/>
+    <hasGene rdf:resource="http://example.org/ontology/competency#gene_nifH"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#researcher_Doe">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Researcher"/>
+    <rdfs:label>Dr. Jane Doe</rdfs:label>
+    <researcherName>Jane Doe</researcherName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#datasetURI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>datasetURI</rdfs:label>
+    <rdfs:comment>URI identifying a dataset.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Dataset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#measurement_M1">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Measurement"/>
+    <rdfs:label>Measurement M1 (pH)</rdfs:label>
+    <hasParameter rdf:resource="http://example.org/ontology/competency#Parameter"/>
+    <measuredValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.2</measuredValue>
+    <hasUnit>pH</hasUnit>
+    <measurementDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-10-01T09:00:00</measurementDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#hasPublication">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasPublication</rdfs:label>
+    <rdfs:comment>Links a Project to its Publication.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Project"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/competency#Publication"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#publication_1">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Publication"/>
+    <rdfs:label>Study of Aquifer Microbes</rdfs:label>
+    <publicationTitle>Study of Aquifer Microbes: community composition and gene content</publicationTitle>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Soil">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Habitat"/>
+    <rdfs:label>Soil</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Project">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Project</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#dataset_1">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Dataset"/>
+    <rdfs:label>Aquifer dataset 1</rdfs:label>
+    <datasetURI rdf:resource="http://example.org/datasets/aquifer-1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#measuredValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>measuredValue</rdfs:label>
+    <rdfs:comment>Numeric value of a measurement.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Measurement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#gene_nifH">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Gene"/>
+    <rdfs:label>nifH gene</rdfs:label>
+    <encodesProtein rdf:resource="http://example.org/ontology/competency#Phenotype"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Publication">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Publication</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#collectedDuring">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>collectedDuring</rdfs:label>
+    <rdfs:comment>Links a Sample to a Project or IsolationEvent during which it was collected.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Sample"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/competency#Project"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#inhabits">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>inhabits</rdfs:label>
+    <rdfs:comment>Links a Microbe to a Habitat it inhabits.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Microbe"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/competency#Habitat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Habitat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Habitat</rdfs:label>
+    <rdfs:comment>Environmental place where microbes can inhabit.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#sample_S1">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Sample"/>
+    <rdfs:label>Sample S1</rdfs:label>
+    <sampledFrom rdf:resource="http://example.org/ontology/competency#aquifer_Alpha"/>
+    <sampleID>S1</sampleID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Measurement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Measurement</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#hasUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>hasUnit</rdfs:label>
+    <rdfs:comment>Unit string for measurements (e.g., 'pH', 'mg/L').</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Measurement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#encodesProtein">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>encodesProtein</rdfs:label>
+    <rdfs:comment>Links a Gene to a Phenotype or protein function it encodes.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Gene"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/competency#Phenotype"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9aa07ef618ff4def9d2e8cdd2fd45cd6b1">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Location"/>
+    <rdfs:label>Alpha Aquifer GPS location</rdfs:label>
+    <rdfs:comment>Anonymous location node for example only.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#hasGene">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasGene</rdfs:label>
+    <rdfs:comment>Links a Microbe to a Gene found in it.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Microbe"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/competency#Gene"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Microbe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Microbe</rdfs:label>
+    <rdfs:comment>General microbial organism.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Location">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Location</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#sampleID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>sampleID</rdfs:label>
+    <rdfs:comment>Identifier used for a sample.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Sample"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Parameter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Parameter</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#researcherName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>researcherName</rdfs:label>
+    <rdfs:comment>Human readable name of a researcher.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Researcher"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Phenotype">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Phenotype</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Gene">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Gene</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Archaea">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Microbe"/>
+    <rdfs:label>Archaea</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#discoveredBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>discoveredBy</rdfs:label>
+    <rdfs:comment>Links a Microbe to the Researcher who discovered or reported it.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Microbe"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/competency#Researcher"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Aquifer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Habitat"/>
+    <rdfs:label>Aquifer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#aquifer_Alpha">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Aquifer"/>
+    <rdfs:label>Alpha Aquifer</rdfs:label>
+    <rdfs:comment>Example aquifer used in competency questions.</rdfs:comment>
+    <hasLocation rdf:nodeID="n9aa07ef618ff4def9d2e8cdd2fd45cd6b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#sampledFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>sampledFrom</rdfs:label>
+    <rdfs:comment>Links a Sample to the Habitat it was taken from.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Sample"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/competency#Habitat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Dataset">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Dataset</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#microbe_Archaeon1">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Archaea"/>
+    <rdfs:label>Archaeon sample 1</rdfs:label>
+    <inhabits rdf:resource="http://example.org/ontology/competency#soil_Site1"/>
+    <discoveredBy rdf:resource="http://example.org/ontology/competency#researcher_Doe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#publicationTitle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>publicationTitle</rdfs:label>
+    <rdfs:comment>Title of a publication.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/competency#Publication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Researcher">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Researcher</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Protist">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Microbe"/>
+    <rdfs:label>Protist</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="file:///app/GPT5Results/ontology_draft_4.ttl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>Competency-driven Microbial Environment Ontology</rdfs:label>
+    <rdfs:comment>Ontology created from competency questions (CQs). Classes:20, Properties:15, Individuals:10.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Virus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Microbe"/>
+    <rdfs:label>Virus</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Sample">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Entity"/>
+    <rdfs:label>Sample</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Entity</rdfs:label>
+    <rdfs:comment>Top-level entity to increase subclassing (high subclass count).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#soil_Site1">
+    <rdf:type rdf:resource="http://example.org/ontology/competency#Soil"/>
+    <rdfs:label>Site 1 Soil</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/competency#Bacteria">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/competency#Microbe"/>
+    <rdfs:label>Bacteria</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

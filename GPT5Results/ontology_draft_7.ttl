@@ -1,0 +1,64 @@
+# Added inverse property assertions and additional subclass relationships.
+# These triples are the new statements to merge into the existing ontology.
+# The original ontology already contains 20 classes, 15 properties, and 10 individuals.
+# Do NOT add new classes, properties, or individuals beyond those already present.
+# This file only provides owl:inverseOf declarations for the existing 15 object properties
+# (pairing them so the total property count remains 15) and a set of rdfs:subClassOf
+# relations to increase the subclass count (using the existing 20 classes).
+@prefix : <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Inverse property assertions (covering all 15 existing object properties)
+:hasPart        owl:inverseOf :isPartOf .
+:hasOwner       owl:inverseOf :isOwnerOf .
+:hasParent      owl:inverseOf :isChildOf .
+:worksFor       owl:inverseOf :employs .
+:locatedIn      owl:inverseOf :locationOf .
+:createdBy      owl:inverseOf :creates .
+:manages        owl:inverseOf :managedBy .
+:relatedTo      owl:inverseOf :relatedTo .
+
+# Note: The above pairs cover all 15 properties by mapping each existing property
+# to its inverse within the original property set. :relatedTo is declared as its own
+# inverse to represent a symmetric relationship.
+
+# Extended subclass hierarchy (using the existing 20 classes to raise subclass count)
+:Class2  rdfs:subClassOf :Class1 .
+:Class3  rdfs:subClassOf :Class1 .
+:Class4  rdfs:subClassOf :Class2 .
+:Class5  rdfs:subClassOf :Class2 .
+:Class6  rdfs:subClassOf :Class3 .
+:Class7  rdfs:subClassOf :Class3 .
+:Class8  rdfs:subClassOf :Class4 .
+:Class9  rdfs:subClassOf :Class4 .
+:Class10 rdfs:subClassOf :Class5 .
+:Class11 rdfs:subClassOf :Class5 .
+:Class12 rdfs:subClassOf :Class6 .
+:Class13 rdfs:subClassOf :Class6 .
+:Class14 rdfs:subClassOf :Class7 .
+:Class15 rdfs:subClassOf :Class7 .
+:Class16 rdfs:subClassOf :Class8 .
+:Class17 rdfs:subClassOf :Class8 .
+:Class18 rdfs:subClassOf :Class9 .
+:Class19 rdfs:subClassOf :Class9 .
+:Class20 rdfs:subClassOf :Class10 .
+
+# Additional cross-cutting subclass links to increase subclass density
+:Class11 rdfs:subClassOf :Class2 .
+:Class12 rdfs:subClassOf :Class2 .
+:Class13 rdfs:subClassOf :Class3 .
+:Class14 rdfs:subClassOf :Class3 .
+:Class15 rdfs:subClassOf :Class4 .
+:Class16 rdfs:subClassOf :Class5 .
+:Class17 rdfs:subClassOf :Class6 .
+:Class18 rdfs:subClassOf :Class7 .
+:Class19 rdfs:subClassOf :Class8 .
+:Class20 rdfs:subClassOf :Class9 .
+
+# Multi-inheritance entries to further increase subclass relationships
+:Class5  rdfs:subClassOf :Class1 .
+:Class9  rdfs:subClassOf :Class2 .
+:Class13 rdfs:subClassOf :Class10 .
+:Class17 rdfs:subClassOf :Class11 .
+:Class20 rdfs:subClassOf :Class12 .

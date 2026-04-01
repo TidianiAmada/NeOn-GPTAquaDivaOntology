@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/ontology/core#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/ontology/core#MonitoringWell">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#Well"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Monitoring well</rdfs:label>
+    <rdfs:comment>A well installed to monitor groundwater levels or quality.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#connectedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label>connected to</rdfs:label>
+    <rdfs:comment>Symmetric relation indicating hydraulic or spatial connection between entities.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasLayer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has layer</rdfs:label>
+    <rdfs:comment>Relates a formation to a soil or sediment layer.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#GeologicalFormation"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#SoilLayer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasDepth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has depth</rdfs:label>
+    <rdfs:comment>Depth or elevation value associated with a well (meters).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#Well"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#overlies">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>overlies</rdfs:label>
+    <rdfs:comment>Indicates that one formation or aquifer overlies another formation.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#GeologicalFormation"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology/core#underlies"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasPorosity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has porosity</rdfs:label>
+    <rdfs:comment>Porosity fraction (0-1) or percent depending on measurement units.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#SoilLayer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#Well">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Well</rdfs:label>
+    <rdfs:comment>A borehole constructed to access groundwater.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#HydrogeologicalUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Hydrogeological unit</rdfs:label>
+    <rdfs:comment>A unit defined by hydrogeological behavior and properties.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#NorthernConfinedAquifer">
+    <rdf:type rdf:resource="http://example.org/ontology/core#ConfinedAquifer"/>
+    <rdfs:label>Northern Confined Aquifer</rdfs:label>
+    <hasName>Northern Confined Aquifer</hasName>
+    <hasFormation rdf:resource="http://example.org/ontology/core#FormationAlpha"/>
+    <overlies rdf:resource="http://example.org/ontology/core#FormationAlpha"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#ZoneA">
+    <rdf:type rdf:resource="http://example.org/ontology/core#AquiferZone"/>
+    <rdfs:label>Zone A</rdfs:label>
+    <hasName>Zone A</hasName>
+    <isZoneOf rdf:resource="http://example.org/ontology/core#CentralAquifer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>Core Geoscience Ontology</rdfs:label>
+    <rdfs:comment>Core module focusing on aquifers, wells, formations, zones, and layers. Includes competency questions as comments.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#DischargeZone1">
+    <rdf:type rdf:resource="http://example.org/ontology/core#DischargeZone"/>
+    <rdfs:label>Discharge Zone 1</rdfs:label>
+    <hasName>Discharge Zone 1</hasName>
+    <isZoneOf rdf:resource="http://example.org/ontology/core#SouthernUnconfinedAquifer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#Aquifer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Aquifer</rdfs:label>
+    <rdfs:comment>A water-bearing geological formation capable of yielding usable quantities of groundwater.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#Well1">
+    <rdf:type rdf:resource="http://example.org/ontology/core#MonitoringWell"/>
+    <rdfs:label>Well MW-001</rdfs:label>
+    <hasName>MW-001</hasName>
+    <hasDepth rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120.5</hasDepth>
+    <isWellOf rdf:resource="http://example.org/ontology/core#CentralAquifer"/>
+    <hasDateMeasured rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-15T09:30:00</hasDateMeasured>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#ProductionWell">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#Well"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Production well</rdfs:label>
+    <rdfs:comment>A well used to extract groundwater for use.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#RechargeZone1">
+    <rdf:type rdf:resource="http://example.org/ontology/core#RechargeZone"/>
+    <rdfs:label>Recharge Zone 1</rdfs:label>
+    <hasName>Recharge Zone 1</hasName>
+    <isZoneOf rdf:resource="http://example.org/ontology/core#CentralAquifer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#SedLayer1">
+    <rdf:type rdf:resource="http://example.org/ontology/core#SedimentLayer"/>
+    <rdfs:label>Sediment Layer 1</rdfs:label>
+    <hasName>Sediment Layer 1</hasName>
+    <hasPermeability rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2e-12</hasPermeability>
+    <hasPorosity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.28</hasPorosity>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#FormationAlpha">
+    <rdf:type rdf:resource="http://example.org/ontology/core#GeologicalFormation"/>
+    <rdfs:label>Formation Alpha</rdfs:label>
+    <hasName>Formation Alpha</hasName>
+    <hasLayer rdf:resource="http://example.org/ontology/core#SedLayer1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#SedimentLayer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#SoilLayer"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Sediment layer</rdfs:label>
+    <rdfs:comment>A layer composed primarily of unconsolidated sediments.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#HydrostratigraphicUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeologicalFormation"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Hydrostratigraphic unit</rdfs:label>
+    <rdfs:comment>A stratigraphic unit defined primarily by its hydrogeologic properties.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#ConfinedAquifer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#Aquifer"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Confined aquifer</rdfs:label>
+    <rdfs:comment>An aquifer that is bounded above and below by confining layers.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasWell">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has well</rdfs:label>
+    <rdfs:comment>Relates an aquifer or formation to a well located in or abstractly associated with it.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#Aquifer"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#Well"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology/core#isWellOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasZone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has zone</rdfs:label>
+    <rdfs:comment>Relates an aquifer to its aquifer zones.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#Aquifer"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#AquiferZone"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology/core#isZoneOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#Well2">
+    <rdf:type rdf:resource="http://example.org/ontology/core#ProductionWell"/>
+    <rdfs:label>Well PW-010</rdfs:label>
+    <hasName>PW-010</hasName>
+    <hasDepth rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">250.0</hasDepth>
+    <isWellOf rdf:resource="http://example.org/ontology/core#NorthernConfinedAquifer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#underlies">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>underlies</rdfs:label>
+    <rdfs:comment>Inverse of overlies: indicates that an entity underlies a formation.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#GeologicalFormation"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology/core#overlies"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasWaterBody">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has water body</rdfs:label>
+    <rdfs:comment>Relates an aquifer or formation to an associated surface water body.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#Aquifer"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#WaterBody"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has name</rdfs:label>
+    <rdfs:comment>Literal name for an entity.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#ConfiningLayer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Confining layer</rdfs:label>
+    <rdfs:comment>A low-permeability layer that restricts groundwater flow (aquitard/aquiclude).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#CentralAquifer">
+    <rdf:type rdf:resource="http://example.org/ontology/core#Aquifer"/>
+    <rdfs:label>Central Aquifer</rdfs:label>
+    <hasName>Central Aquifer</hasName>
+    <hasZone rdf:resource="http://example.org/ontology/core#ZoneA"/>
+    <hasZone rdf:resource="http://example.org/ontology/core#RechargeZone1"/>
+    <hasWaterBody rdf:resource="http://example.org/ontology/core#River1"/>
+    <hasFormation rdf:resource="http://example.org/ontology/core#FormationAlpha"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#DischargeZone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#AquiferZone"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Discharge zone</rdfs:label>
+    <rdfs:comment>Part of an aquifer where groundwater leaves the aquifer (e.g., springs, seepage).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#RechargeZone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#AquiferZone"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Recharge zone</rdfs:label>
+    <rdfs:comment>Part of an aquifer where water enters and replenishes the groundwater.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#UnconfinedAquifer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#Aquifer"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Unconfined aquifer</rdfs:label>
+    <rdfs:comment>An aquifer whose upper surface (water table) is open to the atmosphere through permeable material.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#isZoneOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>is zone of</rdfs:label>
+    <rdfs:comment>Inverse of hasZone: relates a zone to its parent aquifer.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#AquiferZone"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#Aquifer"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology/core#hasZone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#Lake">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#WaterBody"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Lake</rdfs:label>
+    <rdfs:comment>A sizable inland body of standing water.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#SouthernUnconfinedAquifer">
+    <rdf:type rdf:resource="http://example.org/ontology/core#UnconfinedAquifer"/>
+    <rdfs:label>Southern Unconfined Aquifer</rdfs:label>
+    <hasName>Southern Unconfined Aquifer</hasName>
+    <hasWaterBody rdf:resource="http://example.org/ontology/core#Lake1"/>
+    <hasZone rdf:resource="http://example.org/ontology/core#DischargeZone1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#River">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#WaterBody"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>River</rdfs:label>
+    <rdfs:comment>A natural flowing watercourse.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasDateMeasured">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has date measured</rdfs:label>
+    <rdfs:comment>Date/time when a measurement was taken.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#MonitoringWell"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#SoilLayer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Soil layer</rdfs:label>
+    <rdfs:comment>A stratified layer of soil material.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#GeoscienceEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Geoscience entity</rdfs:label>
+    <rdfs:comment>Top level class for geoscience domain entities.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasPermeability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>has permeability</rdfs:label>
+    <rdfs:comment>Numeric permeability measurement (e.g., m^2 or darcy depending on unit context).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#SoilLayer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#isWellOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>is well of</rdfs:label>
+    <rdfs:comment>Inverse of hasWell: relates a well to the aquifer it is associated with.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#Well"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#Aquifer"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology/core#hasWell"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#ObservationWell">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#Well"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Observation well</rdfs:label>
+    <rdfs:comment>A well used for observational purposes (short-term or specific tests).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#WaterBody">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Water body</rdfs:label>
+    <rdfs:comment>Surface water feature such as rivers, lakes, wetlands.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#GeologicalFormation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Geological formation</rdfs:label>
+    <rdfs:comment>A mappable unit of rock or sediment with distinguishable characteristics.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#River1">
+    <rdf:type rdf:resource="http://example.org/ontology/core#River"/>
+    <rdfs:label>River Delta</rdfs:label>
+    <hasName>River Delta</hasName>
+    <connectedTo rdf:resource="http://example.org/ontology/core#CentralAquifer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#AquiferZone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:label>Aquifer zone</rdfs:label>
+    <rdfs:comment>A delineated zone within an aquifer (e.g., a management or hydrogeological zone).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/core#hasFormation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has formation</rdfs:label>
+    <rdfs:comment>Relates a higher-level entity to a geological formation it contains or overlies.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/ontology/core#GeoscienceEntity"/>
+    <rdfs:range rdf:resource="http://example.org/ontology/core#GeologicalFormation"/>
+  </rdf:Description>
+</rdf:RDF>
