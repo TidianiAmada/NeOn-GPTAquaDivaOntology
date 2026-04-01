@@ -75,7 +75,7 @@ def call_openai_and_save(prompt, idx, validation_context=None):
     full_prompt = fill_placeholders(prompt['text'], validation_context=validation_context)
     try:
         response = client.chat.completions.create(
-            model="gpt-5-mini",  # or "gpt-4o" alternatively
+            model="gpt-5.4-mini",  # or "gpt-5.4" alternatively for bigger context window, but "mini" is faster and cheaper for iterative testing
             messages=[
                 {"role": "system", "content": "You are an expert ontology engineer."},
                 {"role": "user", "content": full_prompt}
