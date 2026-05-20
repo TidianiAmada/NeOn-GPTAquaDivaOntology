@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python)",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\ReuseResources\" -Recurse | Select-Object Name, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"Folder\"}else{\"File\"}}}, FullName)",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\ReuseResources\" -Recurse | Select-Object Name, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"Folder\"}else{\"File\"}}})",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\" -Recurse -File | Where-Object {\\($_.Name -match 'owl$|ttl$|rdf$'\\) -and \\($_.FullName -notmatch 'GPT5Results'\\)} | Select-Object Name, @{Name=\"Size\";Expression={$_.Length}}, FullName)",
+      "PowerShell(ls -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\" -Directory | ForEach-Object { Write-Host \"=== $\\($_.Name\\) ===\"; ls -Path $_.FullName -File | Select-Object Name })",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\OntologyDescription\" -File | Select-Object Name, @{Name=\"Size\";Expression={$_.Length}})",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\ReuseResources\" -File | Select-Object Name, @{Name=\"Size\";Expression={$_.Length}})",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\Few-shotExamplesExtractedFromAquaDiva\" -File | Select-Object Name, @{Name=\"Size\";Expression={$_.Length}})",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\VersionOne\" -File | Select-Object Name, @{Name=\"Size\";Expression={$_.Length}})",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\code\" -File | Select-Object Name, @{Name=\"Size\";Expression={$_.Length}})",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\Results\" -File -Recurse | Select-Object Name, @{Name=\"Size\";Expression={$_.Length}})",
+      "Bash(python -c \"import py_compile; py_compile.compile\\('evaluate_gpt5_results.py', doraise=True\\); print\\('Syntax OK'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python evaluate_gpt5_results.py)",
+      "Bash(python -c ' *)",
+      "Bash(dir \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\GPT5Results\\\\evaluation_results*\")",
+      "Bash(dir \"d:\\\\MSDA S3\\\\KG LLMs\\\\NeOn-GPTAquaDivaOntology\\\\GPT5Results\\\\*alignment*\")",
+      "Bash(findstr /V \"Batches\\\\|Loading weights\\\\|it/s\\\\|it]\\\\|Encoding\")"
+    ]
+  }
+}
