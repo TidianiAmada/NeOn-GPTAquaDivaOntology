@@ -1,0 +1,1074 @@
+@prefix : <http://example.org/aquadiva#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/aquadiva> a owl:Ontology ;
+    rdfs:label "AquaDiva Ontology"@en ;
+    rdfs:comment "Ontology for groundwater ecosystems integrating hydrogeology, microbial ecology, geochemistry, karst systems, environmental drivers, and monitoring/analytics."@en .
+
+:Acceptor a owl:Class ;
+    rdfs:subClassOf :ChemicalRole .
+
+:Acid a owl:Class ;
+    rdfs:subClassOf :ChemicalRole .
+
+:Alyla a :Site .
+
+:AmmoniaOxidation a owl:Class ;
+    rdfs:subClassOf :NitrogenTransformation .
+
+:AnammoxBacterium a owl:Class ;
+    rdfs:subClassOf :Bacteria,
+        :NitrogenCyclingGuild .
+
+:AquaticColloid a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:AquaticFungus a owl:Class ;
+    rdfs:subClassOf :AquaticMicrobe,
+        :Fungi .
+
+:AquiferChemicalData a owl:Class ;
+    rdfs:subClassOf :ChemicalData .
+
+:AquiferFungus a owl:Class ;
+    rdfs:subClassOf :AquiferMicrobe,
+        :Fungi .
+
+:Autolithoautotrophy a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Autotrophy a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:BHorizon a owl:Class ;
+    rdfs:subClassOf :SoilHorizon .
+
+:Bauoxic a :Feature .
+
+:BeechForest a owl:Class ;
+    rdfs:subClassOf :Forest .
+
+:BiogeochemicalProcess a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:BiologicalRole a owl:Class ;
+    rdfs:subClassOf :ProcessRole .
+
+:BiologicalSignal a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:BreakthroughAnalysis a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:BreakthroughCurve a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:BypassFlow a owl:Class ;
+    rdfs:subClassOf :PreferentialFlow .
+
+:CIsotope a owl:Class ;
+    rdfs:subClassOf :IsotopeSignature .
+
+:CO2Fixation a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:CO2FixationPathway a owl:Class ;
+    rdfs:subClassOf :Feature,
+        :Metabolism .
+
+:CO2Isotope a owl:Class ;
+    rdfs:subClassOf :IsotopeSignature .
+
+:CanopyStructure a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:CarbonateAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:CarbonateDissolution a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:CarbonateMineral a owl:Class ;
+    rdfs:subClassOf :SecondaryMineral .
+
+:CatchmentArea a owl:Class ;
+    rdfs:subClassOf :Site .
+
+:CellCount a owl:Class ;
+    rdfs:subClassOf :Measurement .
+
+:Chemoautotroph a owl:Class ;
+    rdfs:subClassOf :Autotroph .
+
+:Climate a owl:Class ;
+    rdfs:subClassOf :EnvironmentalDriver .
+
+:Colloid a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:ColloidalTransport a owl:Class ;
+    rdfs:subClassOf :Transport .
+
+:CommunityComposition a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:CommunityStructure a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Compound a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:Concentration a owl:Class ;
+    rdfs:subClassOf :ChemicalParameter .
+
+:Connectivity a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:ContinuityOfStrata a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:CrossKingdomMicrobialCommunity a owl:Class ;
+    rdfs:subClassOf :AquiferMicrobiome,
+        :MicrobialCommunity,
+        :SoilMicrobiome .
+
+:DNAConcentration a owl:Class ;
+    rdfs:subClassOf :Measurement .
+
+:DOM a owl:Class ;
+    rdfs:subClassOf :DissolvedOrganicMatter .
+
+:Denitrification a owl:Class ;
+    rdfs:subClassOf :NitrogenTransformation .
+
+:Denitrifier a owl:Class ;
+    rdfs:subClassOf :Microbe,
+        :NitrogenCyclingGuild .
+
+:Depth a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Discharge a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Drainage a owl:Class ;
+    rdfs:subClassOf :SoilWaterFlow .
+
+:DryDeposition a owl:Class ;
+    rdfs:subClassOf :Deposition .
+
+:Earthworm a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:ElementalComposition a owl:Class ;
+    rdfs:subClassOf :ChemicalParameter .
+
+:EnergyMetabolism a owl:Class ;
+    rdfs:subClassOf :Metabolism .
+
+:EnvironmentalContainment a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Evapotranspiration a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Feces a owl:Class ;
+    rdfs:subClassOf :BiologicalSample .
+
+:FlowCytometry a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:ForestSoil a owl:Class ;
+    rdfs:subClassOf :Soil .
+
+:Fracture a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:FracturedFlow a owl:Class ;
+    rdfs:subClassOf :FlowProcess .
+
+:FracturedRock a owl:Class ;
+    rdfs:subClassOf :AquiferRock .
+
+:FunctionalGene a owl:Class ;
+    rdfs:subClassOf :SequenceData .
+
+:GW a :Groundwater .
+
+:GasAnalysis a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:Geochemistry a owl:Class ;
+    rdfs:subClassOf :Chemistry .
+
+:Geology a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Grasshopper a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:GreenhouseGas a owl:Class ;
+    rdfs:subClassOf :TraceGas .
+
+:GroundwaterChemistry a owl:Class ;
+    rdfs:subClassOf :Hydrochemistry .
+
+:GroundwaterComparison a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:GroundwaterContamination a owl:Class ;
+    rdfs:subClassOf :GroundwaterQuality,
+        :Process .
+
+:GroundwaterProtectionMeasure a owl:Class ;
+    rdfs:subClassOf :GroundwaterManagement,
+        :GroundwaterProtection .
+
+:GroundwaterTransport a owl:Class ;
+    rdfs:subClassOf :Transport .
+
+:GroundwaterVulnerability a owl:Class ;
+    rdfs:subClassOf :Feature,
+        :GroundwaterProtection .
+
+:GutMicrobiome a owl:Class ;
+    rdfs:subClassOf :MicrobialCommunity .
+
+:HZY a :Site .
+
+:HainichAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:HainichCZ a :Site .
+
+:HainichCZE a :Site .
+
+:Heterogeneity a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Heterotroph a owl:Class ;
+    rdfs:subClassOf :Microbe,
+        :MicrobialFunctionalGuild .
+
+:Heterotrophy a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:HydraulicConductivity a owl:Class ;
+    rdfs:subClassOf :HydraulicProperty .
+
+:HydrogeochemicalCharacterization a owl:Class ;
+    rdfs:subClassOf :Hydrochemistry .
+
+:HydrogeochemicalData a owl:Class ;
+    rdfs:subClassOf :ChemicalData .
+
+:HydrologicalSignal a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:InfiltrationArea a owl:Class ;
+    rdfs:subClassOf :Site .
+
+:Inhibitor a owl:Class ;
+    rdfs:subClassOf :ChemicalRole .
+
+:IntestinalHabitat a owl:Class ;
+    rdfs:subClassOf :Habitat .
+
+:IronMineral a owl:Class ;
+    rdfs:subClassOf :SecondaryMineral .
+
+:IronReducer a owl:Class ;
+    rdfs:subClassOf :Bacteria,
+        :MicrobialFunctionalGuild .
+
+:Kammerforst a :Site .
+
+:KarstRock a owl:Class ;
+    rdfs:subClassOf :AquiferRock .
+
+:Karstification a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:LateralFlow a owl:Class ;
+    rdfs:subClassOf :FlowProcess .
+
+:LeafAreaIndex a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:LegacyEffect a owl:Class ;
+    rdfs:subClassOf :EnvironmentalDriver,
+        :Feature .
+
+:Limestone a owl:Class ;
+    rdfs:subClassOf :AquiferRock .
+
+:LongTermEffect a owl:Class ;
+    rdfs:subClassOf :EnvironmentalDriver,
+        :Feature .
+
+:LowerAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:MarinePhage a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:Marlstone a owl:Class ;
+    rdfs:subClassOf :AquiferRock .
+
+:MeanValue a owl:Class ;
+    rdfs:subClassOf :Measurement .
+
+:Metabolite a owl:Class ;
+    rdfs:subClassOf :Molecule .
+
+:MicrobialDiversity a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:MicrobialDynamics a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:MicrobialProcess a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:MidInfraredIsotopeRatioSensor a owl:Class ;
+    rdfs:subClassOf :Sensor .
+
+:MineralSoil a owl:Class ;
+    rdfs:subClassOf :Soil .
+
+:Miz a :Dataset .
+
+:MobileOrganicMatter a owl:Class ;
+    rdfs:subClassOf :DissolvedOrganicMatter .
+
+:MolecularMarker a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:MultilevelSystem a owl:Class ;
+    rdfs:subClassOf :Hydrogeology .
+
+:Muschelkalk a owl:Class ;
+    rdfs:subClassOf :TriassicRock .
+
+:NIsotope a owl:Class ;
+    rdfs:subClassOf :IsotopeSignature .
+
+:NOM a owl:Class ;
+    rdfs:subClassOf :DissolvedOrganicMatter .
+
+:NetPrecipitation a owl:Class ;
+    rdfs:subClassOf :Precipitation .
+
+:Niederschlag a owl:Class ;
+    rdfs:subClassOf :RainfallEvent .
+
+:NitrogenCycle a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Nitrosphira a owl:Class ;
+    rdfs:subClassOf :AmmoniaOxidiser .
+
+:OrganicLayer a owl:Class ;
+    rdfs:subClassOf :Soil .
+
+:PLFA a owl:Class ;
+    rdfs:subClassOf :Biomarker .
+
+:ParentMaterial a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:Pasture a owl:Class ;
+    rdfs:subClassOf :Grassland .
+
+:Permeability a owl:Class ;
+    rdfs:subClassOf :HydraulicProperty .
+
+:Phage a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:Photoautotroph a owl:Class ;
+    rdfs:subClassOf :Autotroph .
+
+:Poison a owl:Class ;
+    rdfs:subClassOf :ChemicalRole .
+
+:Porosity a owl:Class ;
+    rdfs:subClassOf :HydraulicProperty .
+
+:PristineAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:ProductionConsumptionTraceGases a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Proteome a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:ProteomeAnalysis a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:RNASSequencing a owl:Class ;
+    rdfs:subClassOf :Sequencing .
+
+:RadiocarbonAge a owl:Class ;
+    rdfs:subClassOf :Measurement .
+
+:RainEvent a owl:Class ;
+    rdfs:subClassOf :Precipitation .
+
+:Rainfall a owl:Class ;
+    rdfs:subClassOf :ClimaticParameter .
+
+:RangeCorrelationLength a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:RapidVerticalTransport a owl:Class ;
+    rdfs:subClassOf :FlowProcess .
+
+:RareSpecies a owl:Class ;
+    rdfs:subClassOf :Species .
+
+:ResidenceTime a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Rubisco a owl:Class ;
+    rdfs:subClassOf :Protein .
+
+:Rueckschau14Tage a :Dataset .
+
+:S16Gene a owl:Class ;
+    rdfs:subClassOf :SequenceData .
+
+:SampleTime a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:SedimentSample a owl:Class ;
+    rdfs:subClassOf :Sample .
+
+:SeepageWater a owl:Class ;
+    rdfs:subClassOf :Groundwater .
+
+:SoilBulkDensity a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:SoilHydraulicParameter a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:SoilInfiltration a owl:Class ;
+    rdfs:subClassOf :Infiltration .
+
+:SoilMicrobe a owl:Class ;
+    rdfs:subClassOf :Bacteria,
+        :Fungi,
+        :Microorganism .
+
+:SoilNitrogen a owl:Class ;
+    rdfs:subClassOf :SoilOrganicMatter .
+
+:SoilOrganicCarbon a owl:Class ;
+    rdfs:subClassOf :SoilOrganicMatter .
+
+:SoilPercolation a owl:Class ;
+    rdfs:subClassOf :Percolation .
+
+:SoilPorosity a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:SoilProfile a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:SoilSample a owl:Class ;
+    rdfs:subClassOf :Sample .
+
+:SoilSolution a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:SoilTexture a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:SoilWaterContent a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:SourceCatchmentInfiltrationArea a owl:Class ;
+    rdfs:subClassOf :Site .
+
+:SpatialRedistribution a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Stemflow a owl:Class ;
+    rdfs:subClassOf :Precipitation .
+
+:SummerCondition a owl:Class ;
+    rdfs:subClassOf :ClimaticParameter .
+
+:SurfaceSignal a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Temperature a owl:Class ;
+    rdfs:subClassOf :ClimaticParameter .
+
+:TemporalChange a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Terrain a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Throughfall a owl:Class ;
+    rdfs:subClassOf :Precipitation .
+
+:Topography a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:TransitTime a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:TransportProcess a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:TreeSpecies a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:UpperAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:VOC a owl:Class ;
+    rdfs:subClassOf :TraceGas .
+
+:VegetationCover a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:VegetationType a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:VerticalFlow a owl:Class ;
+    rdfs:subClassOf :FlowProcess .
+
+:WasteFlowHotspot a owl:Class ;
+    rdfs:subClassOf :Feature,
+        :Site .
+
+:WaterBalance a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:WaterInput a owl:Class ;
+    rdfs:subClassOf :EnvironmentalDriver .
+
+:WaterSample a owl:Class ;
+    rdfs:subClassOf :Sample .
+
+:WaterSource a owl:Class ;
+    rdfs:subClassOf :EnvironmentalDriver .
+
+:Well a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:WetDeposition a owl:Class ;
+    rdfs:subClassOf :Deposition .
+
+:WinterCondition a owl:Class ;
+    rdfs:subClassOf :ClimaticParameter .
+
+:abundanceValue a owl:DatatypeProperty ;
+    rdfs:domain :Feature ;
+    rdfs:range xsd:decimal .
+
+:affects a owl:ObjectProperty ;
+    rdfs:domain :Process ;
+    rdfs:range :Entity .
+
+:anoxic a owl:Class ;
+    rdfs:subClassOf :AnoxicAquifer .
+
+:associatedWith a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity .
+
+:carstified a owl:Class ;
+    rdfs:subClassOf :KarstAquifer .
+
+:commentText a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
+
+:connectedTo a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity .
+
+:dateTimeValue a owl:DatatypeProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range xsd:dateTime .
+
+:depthValue a owl:DatatypeProperty ;
+    rdfs:domain :Feature ;
+    rdfs:range xsd:decimal .
+
+:derivedFrom a owl:ObjectProperty ;
+    rdfs:domain :MaterialEntity ;
+    rdfs:range :MaterialEntity .
+
+:dicValue a owl:DatatypeProperty ;
+    rdfs:domain :DIC ;
+    rdfs:range xsd:decimal .
+
+:docValue a owl:DatatypeProperty ;
+    rdfs:domain :DOC ;
+    rdfs:range xsd:decimal .
+
+:ecValue a owl:DatatypeProperty ;
+    rdfs:domain :ElectricalConductivity ;
+    rdfs:range xsd:decimal .
+
+:fractured a owl:Class ;
+    rdfs:subClassOf :FracturedRockAquifer .
+
+:hasAquifer a owl:ObjectProperty ;
+    rdfs:domain :Feature ;
+    rdfs:range :Aquifer .
+
+:hasChemicalData a owl:ObjectProperty ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :ChemicalData .
+
+:hasCommunity a owl:ObjectProperty ;
+    rdfs:domain :Habitat ;
+    rdfs:range :MicrobialCommunity .
+
+:hasDepthProfile a owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :DepthProfile .
+
+:hasDriver a owl:ObjectProperty ;
+    rdfs:domain :Process ;
+    rdfs:range :EnvironmentalDriver .
+
+:hasHabitat a owl:ObjectProperty ;
+    rdfs:domain :BiologicalEntity ;
+    rdfs:range :Habitat .
+
+:hasHydraulicProperty a owl:ObjectProperty ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :HydraulicProperty .
+
+:hasHydrochemistry a owl:ObjectProperty ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :Hydrochemistry .
+
+:hasIsotopeSignature a owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :IsotopeSignature .
+
+:hasMeasurement a owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :Measurement .
+
+:hasMicrobe a owl:ObjectProperty ;
+    rdfs:domain :Habitat ;
+    rdfs:range :Microorganism .
+
+:hasParameter a owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :Feature .
+
+:hasProduct a owl:ObjectProperty ;
+    rdfs:domain :Process ;
+    rdfs:range :MaterialEntity .
+
+:hasRock a owl:ObjectProperty ;
+    rdfs:domain :Aquifer ;
+    rdfs:range :AquiferRock .
+
+:hasRole a owl:ObjectProperty ;
+    rdfs:domain :BiologicalEntity ;
+    rdfs:range :Role .
+
+:hasSample a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Sample .
+
+:hasSite a owl:ObjectProperty ;
+    rdfs:domain :Dataset ;
+    rdfs:range :Site .
+
+:hasSubstrate a owl:ObjectProperty ;
+    rdfs:domain :Process ;
+    rdfs:range :MaterialEntity .
+
+:hasTimeSeries a owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :TimeSeries .
+
+:hasTracer a owl:ObjectProperty ;
+    rdfs:domain :TracerStudy ;
+    rdfs:range :Tracer .
+
+:hasUnit a owl:ObjectProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:range rdfs:Literal .
+
+:hasValue a owl:ObjectProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:range rdfs:Literal .
+
+:karst a owl:Class ;
+    rdfs:subClassOf :KarstAquifer .
+
+:labelText a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
+
+:latitude a owl:DatatypeProperty ;
+    rdfs:domain :Site ;
+    rdfs:range xsd:decimal .
+
+:locatedIn a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Site .
+
+:longitude a owl:DatatypeProperty ;
+    rdfs:domain :Site ;
+    rdfs:range xsd:decimal .
+
+:measuredBy a owl:ObjectProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:range :Sensor .
+
+:minus a owl:NamedIndividual .
+
+:nan a owl:NamedIndividual .
+
+:numericValue a owl:DatatypeProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:range xsd:decimal .
+
+:occursIn a owl:ObjectProperty ;
+    rdfs:domain :Process ;
+    rdfs:range :Habitat .
+
+:oxic a owl:Class ;
+    rdfs:subClassOf :OxicAquifer .
+
+:oxygenValue a owl:DatatypeProperty ;
+    rdfs:domain :OxygenContent ;
+    rdfs:range xsd:decimal .
+
+:partOf a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity .
+
+:phValue a owl:DatatypeProperty ;
+    rdfs:domain :PH ;
+    rdfs:range xsd:decimal .
+
+:phosphorusValue a owl:DatatypeProperty ;
+    rdfs:domain :ChemicalParameter ;
+    rdfs:range xsd:decimal .
+
+:sequenceCount a owl:DatatypeProperty ;
+    rdfs:domain :SequenceData ;
+    rdfs:range xsd:integer .
+
+:temperatureValue a owl:DatatypeProperty ;
+    rdfs:domain :Feature ;
+    rdfs:range xsd:decimal .
+
+:unitText a owl:DatatypeProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:range xsd:string .
+
+:AmmoniaOxidiser a owl:Class ;
+    rdfs:subClassOf :Microbe,
+        :NitrogenCyclingGuild .
+
+:AnoxicAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:AquiferMicrobe a owl:Class ;
+    rdfs:subClassOf :AquaticMicrobe,
+        :Archaea,
+        :Bacteria,
+        :Fungi .
+
+:AquiferMicrobiome a owl:Class ;
+    rdfs:subClassOf :MicrobialCommunity .
+
+:Archaea a owl:Class ;
+    rdfs:subClassOf :Microorganism .
+
+:BiologicalSample a owl:Class ;
+    rdfs:subClassOf :Sample .
+
+:Biomarker a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Chemistry a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:DIC a owl:Class ;
+    rdfs:subClassOf :DissolvedInorganicCarbon .
+
+:DOC a owl:Class ;
+    rdfs:subClassOf :DissolvedOrganicCarbon .
+
+:DepthProfile a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:DissolvedInorganicCarbon a owl:Class ;
+    rdfs:subClassOf :Substance .
+
+:DissolvedOrganicCarbon a owl:Class ;
+    rdfs:subClassOf :DissolvedOrganicMatter .
+
+:ElectricalConductivity a owl:Class ;
+    rdfs:subClassOf :GroundwaterPhysiochemicalParameter .
+
+:Forest a owl:Class ;
+    rdfs:subClassOf :Vegetation .
+
+:FracturedRockAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:Grassland a owl:Class ;
+    rdfs:subClassOf :Vegetation .
+
+:GroundwaterManagement a owl:Class ;
+    rdfs:subClassOf :ManagementAction .
+
+:GroundwaterQuality a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Infiltration a owl:Class ;
+    rdfs:subClassOf :RechargeProcess .
+
+:MicrobialGuild a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Molecule a owl:Class ;
+    rdfs:subClassOf :Substance .
+
+:OxicAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:OxygenContent a owl:Class ;
+    rdfs:subClassOf :GroundwaterPhysiochemicalParameter .
+
+:PH a owl:Class ;
+    rdfs:subClassOf :GroundwaterPhysiochemicalParameter .
+
+:Percolation a owl:Class ;
+    rdfs:subClassOf :RechargeProcess .
+
+:PhysiochemicalParameter a owl:Class ;
+    rdfs:subClassOf :ChemicalParameter .
+
+:PreferentialFlow a owl:Class ;
+    rdfs:subClassOf :FlowProcess .
+
+:Protein a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:RainfallEvent a owl:Class ;
+    rdfs:subClassOf :EnvironmentalDriver .
+
+:Role a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Sequencing a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:SoilHorizon a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:SoilMicrobiome a owl:Class ;
+    rdfs:subClassOf :MicrobialCommunity .
+
+:SoilWaterFlow a owl:Class ;
+    rdfs:subClassOf :FlowProcess .
+
+:Species a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:TimeSeries a owl:Class ;
+    rdfs:subClassOf :Dataset .
+
+:Tracer a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:TracerStudy a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:TriassicRock a owl:Class ;
+    rdfs:subClassOf :AquiferRock .
+
+:AquaticMicrobe a owl:Class ;
+    rdfs:subClassOf :Microorganism .
+
+:Autotroph a owl:Class ;
+    rdfs:subClassOf :Microbe,
+        :MicrobialFunctionalGuild .
+
+:Deposition a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Groundwater a owl:Class ;
+    rdfs:subClassOf :NaturalEntity ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :NaturalEntity ) ] .
+
+:GroundwaterProtection a owl:Class ;
+    rdfs:subClassOf :ManagementAction .
+
+:Hydrogeology a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:KarstAquifer a owl:Class ;
+    rdfs:subClassOf :AquiferType .
+
+:ManagementAction a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Metabolism a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:NitrogenTransformation a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:ProcessRole a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:RechargeProcess a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:SecondaryMineral a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:Sensor a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:SoilOrganicMatter a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:TraceGas a owl:Class ;
+    rdfs:subClassOf :Substance .
+
+:Transport a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Vegetation a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:ChemicalData a owl:Class ;
+    rdfs:subClassOf :Dataset .
+
+:GroundwaterPhysiochemicalParameter a owl:Class ;
+    rdfs:subClassOf :PhysiochemicalParameter .
+
+:Hydrochemistry a owl:Class ;
+    rdfs:subClassOf :Hydrogeology .
+
+:NitrogenCyclingGuild a owl:Class ;
+    rdfs:subClassOf :MicrobialFunctionalGuild,
+        :MicrobialGuild .
+
+:SequenceData a owl:Class ;
+    rdfs:subClassOf :Dataset .
+
+:Soil a owl:Class ;
+    rdfs:subClassOf :NaturalEntity .
+
+:Bacteria a owl:Class ;
+    rdfs:subClassOf :Microorganism .
+
+:ChemicalParameter a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:ChemicalRole a owl:Class ;
+    rdfs:subClassOf :ProcessRole .
+
+:ClimaticParameter a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:DissolvedOrganicMatter a owl:Class ;
+    rdfs:subClassOf :Substance .
+
+:Fungi a owl:Class ;
+    rdfs:subClassOf :Microorganism .
+
+:HydraulicProperty a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:IsotopeSignature a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:MicrobialFunctionalGuild a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:NaturalEntity a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Precipitation a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Substance a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:Microbe a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:MicrobialCommunity a owl:Class ;
+    rdfs:subClassOf :BiologicalEntity .
+
+:Sample a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Aquifer a owl:Class ;
+    rdfs:subClassOf :Habitat ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Habitat ) ] .
+
+:AquiferRock a owl:Class ;
+    rdfs:subClassOf :MaterialEntity .
+
+:Dataset a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:FlowProcess a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Microorganism a owl:Class ;
+    rdfs:subClassOf :Microbe .
+
+:EnvironmentalDriver a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:Habitat a owl:Class ;
+    rdfs:subClassOf :Feature .
+
+:AquiferType a owl:Class ;
+    rdfs:subClassOf :Aquifer .
+
+:Measurement a owl:Class ;
+    rdfs:subClassOf :Observation .
+
+:BiologicalEntity a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Site a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Observation a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:MaterialEntity a owl:Class ;
+    rdfs:subClassOf :NaturalEntity .
+
+:Entity a owl:Class .
+
+:Process a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Feature a owl:Class ;
+    rdfs:subClassOf :Entity .
+

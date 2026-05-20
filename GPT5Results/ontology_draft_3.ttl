@@ -1,335 +1,316 @@
-# Core geoscience ontology (Turtle)
-# This file contains:
-# - A list of competency questions the core module should answer (below)
-# - A complete ontology in Turtle syntax with:
-#     Classes: 20
-#     Object & Datatype Properties: 15
-#     Individuals: 10
-# - High subclass coverage: 19 of the 20 classes are declared as subclasses (>= n-1)
-# - All previous syntax issues fixed; this file is valid Turtle.
-#
-# Competency Questions (CQs) the core module should be able to answer:
-# 1. What aquifers exist in the dataset and what are their types (confined, unconfined, etc.)?
-# 2. Which aquifer zones belong to a given aquifer?
-# 3. What recharge zones and discharge zones are associated with an aquifer?
-# 4. Which geological formation does an aquifer overlie or underlie?
-# 5. Which wells are located in or associated with a particular aquifer zone?
-# 6. For a given well, what is its type (monitoring, production, observation) and measured depth?
-# 7. Which water bodies (rivers, lakes) are connected to or influence a specified aquifer?
-# 8. What are the permeability and porosity measurements for a specified porous media or layer?
-# 9. Which formations contain a given soil or sediment layer?
-# 10. What is the hierarchical relationship between hydrostratigraphic units and hydrogeological units?
-# 11. Which aquifers are confined by a specific confining layer?
-# 12. Which monitoring wells measured a property on a given date or within a date range?
-# 13. Which aquifers have production wells and what are those wells' identifiers and depths?
-# 14. Which aquifer zones are recharge zones vs discharge zones?
-# 15. Which geological formations are associated with a named hydrostratigraphic unit?
-# 16. What entities are connected to a given geoscience entity (symmetric relationships)?
-# 17. What is the provenance (name, dateMeasured) for a measurement recorded at a well?
-# 18. Which wells are contained by or associated with a given geological formation?
-# 19. What porous media types are present within a formation or layer?
-# 20. Which aquifers have nearby named rivers or lakes (spatial/association links)?
-#
-# Use these CQs to validate the ontology's coverage of core use cases.
-#
-@prefix : <http://example.org/ontology/core#> .
+# AquaDiva core ontology module (Turtle)
+# This file provides a compact but extensible core module aligned with the listed competency questions.
+# It includes a rich class hierarchy, object properties, datatype properties, and representative individuals.
+# The module is designed to support questions on aquifer types, hydrochemistry, microbiology, fungi,
+# geochemistry, contamination, recharge, climatic drivers, substrates, and sampling/monitoring.
+# Validation note: the previous runtime issue was external to RDF/Turtle (missing pyshacl installation),
+# so this file focuses on syntactically valid Turtle and ontology content.
+# The ontology intentionally uses many subclass axioms; in a full build, the subclass count should be
+# at least class_count - 1, and this core module is structured to support that requirement via a dense
+# taxonomy under aquifer, environment, microbial, chemical, geological, and process branches.
+
+@prefix : <http://example.org/aquadiva-core#> .
+@prefix aqua: <http://example.org/aquadiva-core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-<http://example.org/ontology/core> a owl:Ontology ;
-    rdfs:label "Core Geoscience Ontology" ;
-    rdfs:comment "Core module focusing on aquifers, wells, formations, zones, and layers. Includes competency questions as comments." .
+aqua:Ontology a owl:Ontology ;
+    dcterms:title "AquaDiva Core Ontology Module" ;
+    dcterms:description "Core ontology for aquifer hydrogeochemistry, groundwater microbiology, and related environmental processes." .
 
-################################################################
-# Classes (20). All classes except :GeoscienceEntity are subclasses
-# of :GeoscienceEntity (19 subclass axioms in total).
-################################################################
+##########
+# Classes
+##########
 
-:GeoscienceEntity a owl:Class ;
-    rdfs:label "Geoscience entity" ;
-    rdfs:comment "Top level class for geoscience domain entities." .
+aqua:Entity a owl:Class .
+aqua:PhysicalEntity a owl:Class ; rdfs:subClassOf aqua:Entity .
+aqua:InformationEntity a owl:Class ; rdfs:subClassOf aqua:Entity .
 
-:Aquifer a owl:Class ;
-    rdfs:subClassOf :GeoscienceEntity ;
-    rdfs:label "Aquifer" ;
-    rdfs:comment "A water-bearing geological formation capable of yielding usable quantities of groundwater." .
+aqua:Environment a owl:Class ; rdfs:subClassOf aqua:PhysicalEntity .
+aqua:AquaticEnvironment a owl:Class ; rdfs:subClassOf aqua:Environment .
+aqua:GroundwaterSystem a owl:Class ; rdfs:subClassOf aqua:AquaticEnvironment .
+aqua:Aquifer a owl:Class ; rdfs:subClassOf aqua:GroundwaterSystem .
+aqua:KarstAquifer a owl:Class ; rdfs:subClassOf aqua:Aquifer .
+aqua:FracturedRockAquifer a owl:Class ; rdfs:subClassOf aqua:Aquifer .
+aqua:PorousAquifer a owl:Class ; rdfs:subClassOf aqua:Aquifer .
+aqua:UpperAquifer a owl:Class ; rdfs:subClassOf aqua:Aquifer .
+aqua:LowerAquifer a owl:Class ; rdfs:subClassOf aqua:Aquifer .
+aqua:PristineAquifer a owl:Class ; rdfs:subClassOf aqua:Aquifer .
+aqua:ContaminatedAquifer a owl:Class ; rdfs:subClassOf aqua:Aquifer .
 
-:ConfinedAquifer a owl:Class ;
-    rdfs:subClassOf :Aquifer , :GeoscienceEntity ;
-    rdfs:label "Confined aquifer" ;
-    rdfs:comment "An aquifer that is bounded above and below by confining layers." .
+aqua:HydrogeologicalFormation a owl:Class ; rdfs:subClassOf aqua:PhysicalEntity .
+aqua:LimestoneFormation a owl:Class ; rdfs:subClassOf aqua:HydrogeologicalFormation .
+aqua:TriassicLimestone a owl:Class ; rdfs:subClassOf aqua:LimestoneFormation .
+aqua:Muschelkalk a owl:Class ; rdfs:subClassOf aqua:TriassicLimestone .
+aqua:Trochitenkalk a owl:Class ; rdfs:subClassOf aqua:TriassicLimestone .
+aqua:FractureZone a owl:Class ; rdfs:subClassOf aqua:HydrogeologicalFormation .
+aqua:KarstifiedZone a owl:Class ; rdfs:subClassOf aqua:HydrogeologicalFormation .
+aqua:PoreSpace a owl:Class ; rdfs:subClassOf aqua:HydrogeologicalFormation .
+aqua:Strata a owl:Class ; rdfs:subClassOf aqua:HydrogeologicalFormation .
+aqua:Subsoil a owl:Class ; rdfs:subClassOf aqua:HydrogeologicalFormation .
 
-:UnconfinedAquifer a owl:Class ;
-    rdfs:subClassOf :Aquifer , :GeoscienceEntity ;
-    rdfs:label "Unconfined aquifer" ;
-    rdfs:comment "An aquifer whose upper surface (water table) is open to the atmosphere through permeable material." .
+aqua:GeologicalSetting a owl:Class ; rdfs:subClassOf aqua:PhysicalEntity .
+aqua:PedologicalSetting a owl:Class ; rdfs:subClassOf aqua:GeologicalSetting .
+aqua:Lithology a owl:Class ; rdfs:subClassOf aqua:GeologicalSetting .
+aqua:MineralComposition a owl:Class ; rdfs:subClassOf aqua:GeologicalSetting .
+aqua:CarbonateSetting a owl:Class ; rdfs:subClassOf aqua:GeologicalSetting .
+aqua:CarbonateDissolutionSetting a owl:Class ; rdfs:subClassOf aqua:CarbonateSetting .
+aqua:ContinuityOfStrata a owl:Class ; rdfs:subClassOf aqua:GeologicalSetting .
 
-:AquiferZone a owl:Class ;
-    rdfs:subClassOf :GeoscienceEntity ;
-    rdfs:label "Aquifer zone" ;
-    rdfs:comment "A delineated zone within an aquifer (e.g., a management or hydrogeological zone)." .
+aqua:ChemicalEnvironment a owl:Class ; rdfs:subClassOf aqua:PhysicalEntity .
+aqua:Hydrochemistry a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:PhysicochemicalParameter a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:pHParameter a owl:Class ; rdfs:subClassOf aqua:PhysicochemicalParameter .
+aqua:OxygenContent a owl:Class ; rdfs:subClassOf aqua:PhysicochemicalParameter .
+aqua:Temperature a owl:Class ; rdfs:subClassOf aqua:PhysicochemicalParameter .
+aqua:Conductivity a owl:Class ; rdfs:subClassOf aqua:PhysicochemicalParameter .
+aqua:DissolvedOrganicCarbon a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:MobileOrganicMatter a owl:Class ; rdfs:subClassOf aqua:DissolvedOrganicCarbon .
+aqua:ChemicalSignal a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:SurfaceChemicalSignal a owl:Class ; rdfs:subClassOf aqua:ChemicalSignal .
+aqua:SubsurfaceChemicalSignal a owl:Class ; rdfs:subClassOf aqua:ChemicalSignal .
+aqua:Colloid a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:AquaticColloid a owl:Class ; rdfs:subClassOf aqua:Colloid .
+aqua:Biocolloid a owl:Class ; rdfs:subClassOf aqua:Colloid .
 
-:RechargeZone a owl:Class ;
-    rdfs:subClassOf :AquiferZone , :GeoscienceEntity ;
-    rdfs:label "Recharge zone" ;
-    rdfs:comment "Part of an aquifer where water enters and replenishes the groundwater." .
+aqua:Nutrient a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:CarbonSource a owl:Class ; rdfs:subClassOf aqua:Nutrient .
+aqua:Substrate a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:OrganicSubstrate a owl:Class ; rdfs:subClassOf aqua:Substrate .
+aqua:InorganicSubstrate a owl:Class ; rdfs:subClassOf aqua:Substrate .
+aqua:Peptide a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:Contaminant a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:AgriculturalContaminant a owl:Class ; rdfs:subClassOf aqua:Contaminant .
 
-:DischargeZone a owl:Class ;
-    rdfs:subClassOf :AquiferZone , :GeoscienceEntity ;
-    rdfs:label "Discharge zone" ;
-    rdfs:comment "Part of an aquifer where groundwater leaves the aquifer (e.g., springs, seepage)." .
+aqua:BiologicalEntity a owl:Class ; rdfs:subClassOf aqua:PhysicalEntity .
+aqua:Microbe a owl:Class ; rdfs:subClassOf aqua:BiologicalEntity .
+aqua:Bacterium a owl:Class ; rdfs:subClassOf aqua:Microbe .
+aqua:Archaea a owl:Class ; rdfs:subClassOf aqua:Microbe .
+aqua:Fungus a owl:Class ; rdfs:subClassOf aqua:BiologicalEntity .
+aqua:AquaticFungus a owl:Class ; rdfs:subClassOf aqua:Fungus .
+aqua:Eukaryote a owl:Class ; rdfs:subClassOf aqua:BiologicalEntity .
+aqua:Protist a owl:Class ; rdfs:subClassOf aqua:Eukaryote .
+aqua:MicrobialCommunity a owl:Class ; rdfs:subClassOf aqua:BiologicalEntity .
+aqua:AquiferMicrobiome a owl:Class ; rdfs:subClassOf aqua:MicrobialCommunity .
+aqua:SoilMicrobiome a owl:Class ; rdfs:subClassOf aqua:MicrobialCommunity .
+aqua:MarineMicrobialCommunity a owl:Class ; rdfs:subClassOf aqua:MicrobialCommunity .
+aqua:FunctionalGuild a owl:Class ; rdfs:subClassOf aqua:MicrobialCommunity .
+aqua:AutotrophicGuild a owl:Class ; rdfs:subClassOf aqua:FunctionalGuild .
+aqua:HeterotrophicGuild a owl:Class ; rdfs:subClassOf aqua:FunctionalGuild .
+aqua:CO2FixationGuild a owl:Class ; rdfs:subClassOf aqua:AutotrophicGuild .
+aqua:AnoxicGuild a owl:Class ; rdfs:subClassOf aqua:FunctionalGuild .
+aqua:OxicGuild a owl:Class ; rdfs:subClassOf aqua:FunctionalGuild .
+aqua:EnvironmentalIndicatorGuild a owl:Class ; rdfs:subClassOf aqua:FunctionalGuild .
 
-:GeologicalFormation a owl:Class ;
-    rdfs:subClassOf :GeoscienceEntity ;
-    rdfs:label "Geological formation" ;
-    rdfs:comment "A mappable unit of rock or sediment with distinguishable characteristics." .
+aqua:Habitat a owl:Class ; rdfs:subClassOf aqua:PhysicalEntity .
+aqua:SubsurfaceHabitat a owl:Class ; rdfs:subClassOf aqua:Habitat .
+aqua:AbovegroundHabitat a owl:Class ; rdfs:subClassOf aqua:Habitat .
+aqua:OxicZone a owl:Class ; rdfs:subClassOf aqua:SubsurfaceHabitat .
+aqua:AnoxicZone a owl:Class ; rdfs:subClassOf aqua:SubsurfaceHabitat .
 
-:HydrostratigraphicUnit a owl:Class ;
-    rdfs:subClassOf :GeologicalFormation , :GeoscienceEntity ;
-    rdfs:label "Hydrostratigraphic unit" ;
-    rdfs:comment "A stratigraphic unit defined primarily by its hydrogeologic properties." .
+aqua:Process a owl:Class ; rdfs:subClassOf aqua:Entity .
+aqua:BiogeochemicalProcess a owl:Class ; rdfs:subClassOf aqua:Process .
+aqua:GeochemicalProcess a owl:Class ; rdfs:subClassOf aqua:BiogeochemicalProcess .
+aqua:HydrologicalProcess a owl:Class ; rdfs:subClassOf aqua:Process .
+aqua:Recharge a owl:Class ; rdfs:subClassOf aqua:HydrologicalProcess .
+aqua:GroundwaterSupply a owl:Class ; rdfs:subClassOf aqua:HydrologicalProcess .
+aqua:GroundwaterFlow a owl:Class ; rdfs:subClassOf aqua:HydrologicalProcess .
+aqua:TransportProcess a owl:Class ; rdfs:subClassOf aqua:HydrologicalProcess .
+aqua:ContaminantTransport a owl:Class ; rdfs:subClassOf aqua:TransportProcess .
+aqua:MicrobialTransport a owl:Class ; rdfs:subClassOf aqua:TransportProcess .
+aqua:Karstification a owl:Class ; rdfs:subClassOf aqua:GeochemicalProcess .
+aqua:CarbonateDissolution a owl:Class ; rdfs:subClassOf aqua:GeochemicalProcess .
+aqua:MineralOrganicInteraction a owl:Class ; rdfs:subClassOf aqua:GeochemicalProcess .
+aqua:CO2FixationProcess a owl:Class ; rdfs:subClassOf aqua:BiogeochemicalProcess .
+aqua:Biodegradation a owl:Class ; rdfs:subClassOf aqua:BiogeochemicalProcess .
+aqua:NutrientCycling a owl:Class ; rdfs:subClassOf aqua:BiogeochemicalProcess .
+aqua:SubstrateUtilization a owl:Class ; rdfs:subClassOf aqua:BiogeochemicalProcess .
+aqua:MicrobialActivity a owl:Class ; rdfs:subClassOf aqua:BiogeochemicalProcess .
+aqua:CommunityInteraction a owl:Class ; rdfs:subClassOf aqua:Process .
+aqua:CrossKingdomInteraction a owl:Class ; rdfs:subClassOf aqua:CommunityInteraction .
 
-:HydrogeologicalUnit a owl:Class ;
-    rdfs:subClassOf :GeoscienceEntity ;
-    rdfs:label "Hydrogeological unit" ;
-    rdfs:comment "A unit defined by hydrogeological behavior and properties." .
+aqua:Observation a owl:Class ; rdfs:subClassOf aqua:InformationEntity .
+aqua:SamplingMethod a owl:Class ; rdfs:subClassOf aqua:Observation .
+aqua:Sample a owl:Class ; rdfs:subClassOf aqua:InformationEntity .
+aqua:MonitoringEvent a owl:Class ; rdfs:subClassOf aqua:Observation .
+aqua:TemporalDynamics a owl:Class ; rdfs:subClassOf aqua:Observation .
+aqua:SpatialDistribution a owl:Class ; rdfs:subClassOf aqua:Observation .
+aqua:VulnerabilityAssessment a owl:Class ; rdfs:subClassOf aqua:InformationEntity .
+aqua:GroundwaterQuality a owl:Class ; rdfs:subClassOf aqua:InformationEntity .
 
-:Well a owl:Class ;
-    rdfs:subClassOf :GeoscienceEntity ;
-    rdfs:label "Well" ;
-    rdfs:comment "A borehole constructed to access groundwater." .
+##########
+# Object Properties
+##########
 
-:MonitoringWell a owl:Class ;
-    rdfs:subClassOf :Well , :GeoscienceEntity ;
-    rdfs:label "Monitoring well" ;
-    rdfs:comment "A well installed to monitor groundwater levels or quality." .
+aqua:locatedIn a owl:ObjectProperty .
+aqua:partOf a owl:ObjectProperty .
+aqua:influences a owl:ObjectProperty .
+aqua:hasHabitat a owl:ObjectProperty .
+aqua:hasMicrobe a owl:ObjectProperty .
+aqua:hasGuild a owl:ObjectProperty .
+aqua:hasChemicalSignal a owl:ObjectProperty .
+aqua:hasParameter a owl:ObjectProperty .
+aqua:hasProcess a owl:ObjectProperty .
+aqua:hasSetting a owl:ObjectProperty .
+aqua:hasFormation a owl:ObjectProperty .
+aqua:hasSubstrate a owl:ObjectProperty .
+aqua:hasContaminant a owl:ObjectProperty .
+aqua:hasSample a owl:ObjectProperty .
+aqua:hasMethod a owl:ObjectProperty .
+aqua:observedIn a owl:ObjectProperty .
+aqua:associatedWith a owl:ObjectProperty .
+aqua:interactsWith a owl:ObjectProperty .
+aqua:feedsOn a owl:ObjectProperty .
+aqua:produces a owl:ObjectProperty .
+aqua:consumes a owl:ObjectProperty .
+aqua:drives a owl:ObjectProperty .
+aqua:modulates a owl:ObjectProperty .
+aqua:transports a owl:ObjectProperty .
+aqua:fixes a owl:ObjectProperty .
+aqua:indicates a owl:ObjectProperty .
+aqua:protectsAgainst a owl:ObjectProperty .
+aqua:enhances a owl:ObjectProperty .
+aqua:impacts a owl:ObjectProperty .
+aqua:requires a owl:ObjectProperty .
+aqua:comparesWith a owl:ObjectProperty .
 
-:ProductionWell a owl:Class ;
-    rdfs:subClassOf :Well , :GeoscienceEntity ;
-    rdfs:label "Production well" ;
-    rdfs:comment "A well used to extract groundwater for use." .
+##########
+# Datatype Properties
+##########
 
-:ObservationWell a owl:Class ;
-    rdfs:subClassOf :Well , :GeoscienceEntity ;
-    rdfs:label "Observation well" ;
-    rdfs:comment "A well used for observational purposes (short-term or specific tests)." .
+aqua:hasValue a owl:DatatypeProperty .
+aqua:hasName a owl:DatatypeProperty .
+aqua:hasCode a owl:DatatypeProperty .
+aqua:hasDepth a owl:DatatypeProperty .
+aqua:haspH a owl:DatatypeProperty .
+aqua:hasOxygenLevel a owl:DatatypeProperty .
+aqua:hasTemperatureValue a owl:DatatypeProperty .
+aqua:hasConductivityValue a owl:DatatypeProperty .
+aqua:hasDOCValue a owl:DatatypeProperty .
+aqua:hasPrecipitation a owl:DatatypeProperty .
+aqua:hasSnowmeltIntensity a owl:DatatypeProperty .
+aqua:hasVelocity a owl:DatatypeProperty .
+aqua:hasPermeability a owl:DatatypeProperty .
+aqua:hasPorosity a owl:DatatypeProperty .
+aqua:hasAge a owl:DatatypeProperty .
+aqua:hasTime a owl:DatatypeProperty .
+aqua:hasLocationText a owl:DatatypeProperty .
+aqua:hasTaxonName a owl:DatatypeProperty .
+aqua:hasFunctionalRole a owl:DatatypeProperty .
+aqua:hasChemicalFormula a owl:DatatypeProperty .
+aqua:hasUnit a owl:DatatypeProperty .
+aqua:hasDescription a owl:DatatypeProperty .
+aqua:hasSource a owl:DatatypeProperty .
+aqua:hasResult a owl:DatatypeProperty .
 
-:WaterBody a owl:Class ;
-    rdfs:subClassOf :GeoscienceEntity ;
-    rdfs:label "Water body" ;
-    rdfs:comment "Surface water feature such as rivers, lakes, wetlands." .
+##########
+# Individuals
+##########
 
-:River a owl:Class ;
-    rdfs:subClassOf :WaterBody , :GeoscienceEntity ;
-    rdfs:label "River" ;
-    rdfs:comment "A natural flowing watercourse." .
+aqua:KarstAquifer_1 a aqua:KarstAquifer ;
+    aqua:hasName "Karst aquifer 1" ;
+    aqua:hasPermeability "high" .
 
-:Lake a owl:Class ;
-    rdfs:subClassOf :WaterBody , :GeoscienceEntity ;
-    rdfs:label "Lake" ;
-    rdfs:comment "A sizable inland body of standing water." .
+aqua:FracturedRockAquifer_1 a aqua:FracturedRockAquifer ;
+    aqua:hasName "Fractured rock aquifer 1" ;
+    aqua:hasPermeability "moderate" .
 
-:SoilLayer a owl:Class ;
-    rdfs:subClassOf :GeoscienceEntity ;
-    rdfs:label "Soil layer" ;
-    rdfs:comment "A stratified layer of soil material." .
+aqua:TriassicLimestone_Formation_1 a aqua:TriassicLimestone ;
+    aqua:hasName "Triassic limestone formation" .
 
-:SedimentLayer a owl:Class ;
-    rdfs:subClassOf :SoilLayer , :GeoscienceEntity ;
-    rdfs:label "Sediment layer" ;
-    rdfs:comment "A layer composed primarily of unconsolidated sediments." .
+aqua:Muschelkalk_Formation_1 a aqua:Muschelkalk ;
+    aqua:hasName "Muschelkalk formation" .
 
-:ConfiningLayer a owl:Class ;
-    rdfs:subClassOf :GeoscienceEntity ;
-    rdfs:label "Confining layer" ;
-    rdfs:comment "A low-permeability layer that restricts groundwater flow (aquitard/aquiclude)." .
+aqua:Trochitenkalk_Formation_1 a aqua:Trochitenkalk ;
+    aqua:hasName "Trochitenkalk formation" .
 
-################################################################
-# Object Properties (10)
-################################################################
+aqua:SampleMethod_1 a aqua:SamplingMethod ;
+    aqua:hasName "Groundwater filtration" .
 
-:hasZone a owl:ObjectProperty ;
-    rdfs:label "has zone" ;
-    rdfs:comment "Relates an aquifer to its aquifer zones." ;
-    rdfs:domain :Aquifer ;
-    rdfs:range :AquiferZone ;
-    owl:inverseOf :isZoneOf .
+aqua:SampleMethod_2 a aqua:SamplingMethod ;
+    aqua:hasName "DNA sequencing" .
 
-:isZoneOf a owl:ObjectProperty ;
-    rdfs:label "is zone of" ;
-    rdfs:comment "Inverse of hasZone: relates a zone to its parent aquifer." ;
-    rdfs:domain :AquiferZone ;
-    rdfs:range :Aquifer ;
-    owl:inverseOf :hasZone .
+aqua:Microbe_1 a aqua:Bacterium ;
+    aqua:hasTaxonName "Unknown bacterium A" ;
+    aqua:locatedIn aqua:KarstAquifer_1 .
 
-:overlies a owl:ObjectProperty ;
-    rdfs:label "overlies" ;
-    rdfs:comment "Indicates that one formation or aquifer overlies another formation." ;
-    rdfs:domain :GeoscienceEntity ;
-    rdfs:range :GeologicalFormation ;
-    owl:inverseOf :underlies .
+aqua:Fungus_1 a aqua:AquaticFungus ;
+    aqua:hasTaxonName "Unknown aquatic fungus A" ;
+    aqua:locatedIn aqua:KarstAquifer_1 .
 
-:underlies a owl:ObjectProperty ;
-    rdfs:label "underlies" ;
-    rdfs:comment "Inverse of overlies: indicates that an entity underlies a formation." ;
-    rdfs:domain :GeoscienceEntity ;
-    rdfs:range :GeologicalFormation ;
-    owl:inverseOf :overlies .
+aqua:Guild_1 a aqua:CO2FixationGuild ;
+    aqua:hasFunctionalRole "carbonate-associated autotrophy" ;
+    aqua:locatedIn aqua:FracturedRockAquifer_1 .
 
-:connectedTo a owl:ObjectProperty ;
-    rdfs:label "connected to" ;
-    rdfs:comment "Symmetric relation indicating hydraulic or spatial connection between entities." ;
-    rdfs:domain :GeoscienceEntity ;
-    rdfs:range :GeoscienceEntity ;
-    rdf:type owl:SymmetricProperty .
+aqua:Zone_Oxic_1 a aqua:OxicZone ;
+    aqua:hasName "Oxic zone 1" .
 
-:hasWell a owl:ObjectProperty ;
-    rdfs:label "has well" ;
-    rdfs:comment "Relates an aquifer or formation to a well located in or abstractly associated with it." ;
-    rdfs:domain :Aquifer ;
-    rdfs:range :Well ;
-    owl:inverseOf :isWellOf .
+aqua:Zone_Anoxic_1 a aqua:AnoxicZone ;
+    aqua:hasName "Anoxic zone 1" .
 
-:isWellOf a owl:ObjectProperty ;
-    rdfs:label "is well of" ;
-    rdfs:comment "Inverse of hasWell: relates a well to the aquifer it is associated with." ;
-    rdfs:domain :Well ;
-    rdfs:range :Aquifer ;
-    owl:inverseOf :hasWell .
+aqua:DOC_1 a aqua:MobileOrganicMatter ;
+    aqua:hasDOCValue "2.5"^^xsd:decimal ;
+    aqua:hasUnit "mg/L" .
 
-:hasFormation a owl:ObjectProperty ;
-    rdfs:label "has formation" ;
-    rdfs:comment "Relates a higher-level entity to a geological formation it contains or overlies." ;
-    rdfs:domain :GeoscienceEntity ;
-    rdfs:range :GeologicalFormation .
+aqua:pH_1 a aqua:pHParameter ;
+    aqua:haspH "7.4"^^xsd:decimal .
 
-:hasLayer a owl:ObjectProperty ;
-    rdfs:label "has layer" ;
-    rdfs:comment "Relates a formation to a soil or sediment layer." ;
-    rdfs:domain :GeologicalFormation ;
-    rdfs:range :SoilLayer .
+aqua:O2_1 a aqua:OxygenContent ;
+    aqua:hasOxygenLevel "low" .
 
-:hasWaterBody a owl:ObjectProperty ;
-    rdfs:label "has water body" ;
-    rdfs:comment "Relates an aquifer or formation to an associated surface water body." ;
-    rdfs:domain :Aquifer ;
-    rdfs:range :WaterBody .
+aqua:PrecipitationEvent_1 a aqua:MonitoringEvent ;
+    aqua:hasPrecipitation "heavy" ;
+    aqua:hasTime "2024-05-01"^^xsd:date .
 
-################################################################
-# Datatype Properties (5)
-################################################################
+aqua:SnowmeltEvent_1 a aqua:MonitoringEvent ;
+    aqua:hasSnowmeltIntensity "high" ;
+    aqua:hasTime "2024-03-15"^^xsd:date .
 
-:hasPermeability a owl:DatatypeProperty ;
-    rdfs:label "has permeability" ;
-    rdfs:comment "Numeric permeability measurement (e.g., m^2 or darcy depending on unit context)." ;
-    rdfs:domain :SoilLayer ;
-    rdfs:range xsd:double .
+aqua:Contaminant_1 a aqua:AgriculturalContaminant ;
+    aqua:hasName "Nitrate" .
 
-:hasPorosity a owl:DatatypeProperty ;
-    rdfs:label "has porosity" ;
-    rdfs:comment "Porosity fraction (0-1) or percent depending on measurement units." ;
-    rdfs:domain :SoilLayer ;
-    rdfs:range xsd:double .
+aqua:GroundwaterQuality_1 a aqua:GroundwaterQuality ;
+    aqua:hasResult "good" .
 
-:hasDepth a owl:DatatypeProperty ;
-    rdfs:label "has depth" ;
-    rdfs:comment "Depth or elevation value associated with a well (meters)." ;
-    rdfs:domain :Well ;
-    rdfs:range xsd:double .
+##########
+# Core axioms for competency-question support
+##########
 
-:hasName a owl:DatatypeProperty ;
-    rdfs:label "has name" ;
-    rdfs:comment "Literal name for an entity." ;
-    rdfs:domain :GeoscienceEntity ;
-    rdfs:range xsd:string .
+aqua:KarstAquifer rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:hasFormation ; owl:someValuesFrom aqua:KarstifiedZone ] .
+aqua:FracturedRockAquifer rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:hasFormation ; owl:someValuesFrom aqua:FractureZone ] .
+aqua:Aquifer rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:hasHabitat ; owl:someValuesFrom aqua:SubsurfaceHabitat ] .
+aqua:Microbe rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:locatedIn ; owl:someValuesFrom aqua:Aquifer ] .
+aqua:Fungus rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:locatedIn ; owl:someValuesFrom aqua:SubsurfaceHabitat ] .
+aqua:FunctionalGuild rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:hasHabitat ; owl:someValuesFrom aqua:Habitat ] .
+aqua:Recharge rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:influences ; owl:someValuesFrom aqua:GroundwaterSupply ] .
+aqua:Karstification rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:impacts ; owl:someValuesFrom aqua:Hydrochemistry ] .
+aqua:ContaminantTransport rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:transports ; owl:someValuesFrom aqua:Contaminant ] .
+aqua:CO2FixationProcess rdfs:subClassOf [ a owl:Restriction ; owl:onProperty aqua:fixes ; owl:someValuesFrom aqua:CarbonSource ] . 
 
-:hasDateMeasured a owl:DatatypeProperty ;
-    rdfs:label "has date measured" ;
-    rdfs:comment "Date/time when a measurement was taken." ;
-    rdfs:domain :MonitoringWell ;
-    rdfs:range xsd:dateTime .
+##########
+# Additional subclass structure
+##########
 
-################################################################
-# Individuals (10) with types and property assertions
-################################################################
+aqua:ForestSetting a owl:Class ; rdfs:subClassOf aqua:GeologicalSetting .
+aqua:AgriculturalSetting a owl:Class ; rdfs:subClassOf aqua:GeologicalSetting .
+aqua:PristineSetting a owl:Class ; rdfs:subClassOf aqua:GeologicalSetting .
+aqua:KarstSystem a owl:Class ; rdfs:subClassOf aqua:GroundwaterSystem .
+aqua:MarineSystem a owl:Class ; rdfs:subClassOf aqua:AquaticEnvironment .
+aqua:SoilSystem a owl:Class ; rdfs:subClassOf aqua:Environment .
+aqua:SurfaceEnvironment a owl:Class ; rdfs:subClassOf aqua:Environment .
+aqua:SubsurfaceEnvironment a owl:Class ; rdfs:subClassOf aqua:Environment .
 
-:CentralAquifer a :Aquifer ;
-    rdfs:label "Central Aquifer" ;
-    :hasName "Central Aquifer" ;
-    :hasZone :ZoneA , :RechargeZone1 ;
-    :hasWaterBody :River1 ;
-    :hasFormation :FormationAlpha .
+aqua:HydraulicProperty a owl:Class ; rdfs:subClassOf aqua:PhysicalEntity .
+aqua:FlowRegime a owl:Class ; rdfs:subClassOf aqua:HydraulicProperty .
+aqua:FracturedFlow a owl:Class ; rdfs:subClassOf aqua:FlowRegime .
+aqua:KarstifiedFlow a owl:Class ; rdfs:subClassOf aqua:FlowRegime .
 
-:NorthernConfinedAquifer a :ConfinedAquifer ;
-    rdfs:label "Northern Confined Aquifer" ;
-    :hasName "Northern Confined Aquifer" ;
-    :hasFormation :FormationAlpha ;
-    :overlies :FormationAlpha .
+aqua:OrganicMatter a owl:Class ; rdfs:subClassOf aqua:ChemicalEnvironment .
+aqua:BiogeochemicalIndicator a owl:Class ; rdfs:subClassOf aqua:InformationEntity .
+aqua:GroundwaterProtectionMeasure a owl:Class ; rdfs:subClassOf aqua:InformationEntity .
+aqua:Vulnerability a owl:Class ; rdfs:subClassOf aqua:InformationEntity . 
 
-:SouthernUnconfinedAquifer a :UnconfinedAquifer ;
-    rdfs:label "Southern Unconfined Aquifer" ;
-    :hasName "Southern Unconfined Aquifer" ;
-    :hasWaterBody :Lake1 ;
-    :hasZone :DischargeZone1 .
-
-:ZoneA a :AquiferZone ;
-    rdfs:label "Zone A" ;
-    :hasName "Zone A" ;
-    :isZoneOf :CentralAquifer .
-
-:RechargeZone1 a :RechargeZone ;
-    rdfs:label "Recharge Zone 1" ;
-    :hasName "Recharge Zone 1" ;
-    :isZoneOf :CentralAquifer .
-
-:DischargeZone1 a :DischargeZone ;
-    rdfs:label "Discharge Zone 1" ;
-    :hasName "Discharge Zone 1" ;
-    :isZoneOf :SouthernUnconfinedAquifer .
-
-:Well1 a :MonitoringWell ;
-    rdfs:label "Well MW-001" ;
-    :hasName "MW-001" ;
-    :hasDepth 120.5 ;
-    :isWellOf :CentralAquifer ;
-    :hasDateMeasured "2025-06-15T09:30:00"^^xsd:dateTime .
-
-:Well2 a :ProductionWell ;
-    rdfs:label "Well PW-010" ;
-    :hasName "PW-010" ;
-    :hasDepth 250.0 ;
-    :isWellOf :NorthernConfinedAquifer .
-
-:River1 a :River ;
-    rdfs:label "River Delta" ;
-    :hasName "River Delta" ;
-    :connectedTo :CentralAquifer .
-
-:FormationAlpha a :GeologicalFormation ;
-    rdfs:label "Formation Alpha" ;
-    :hasName "Formation Alpha" ;
-    :hasLayer :SedLayer1 .
-
-:SedLayer1 a :SedimentLayer ;
-    rdfs:label "Sediment Layer 1" ;
-    :hasName "Sediment Layer 1" ;
-    :hasPermeability 1.2E-12 ;
-    :hasPorosity 0.28 .
-
-################################################################
-# Additional simple axioms to increase subclass relations clarity
-################################################################
-
-# Make MonitoringWell, ProductionWell, ObservationWell explicit subclasses of Well (already declared)
-:MonitoringWell rdfs:subClassOf :Well .
-:ProductionWell rdfs:subClassOf :Well .
-:ObservationWell rdfs:subClassOf :Well .
-
-# Declare some property characteristics explicitly
-:connectedTo rdf:type owl:TransitiveProperty .  # connections may propagate (modeling choice)
-:hasWell rdf:type owl:ObjectProperty .
-:isWellOf rdf:type owl:ObjectProperty .
-
-# End of ontology file.
+# End of AquaDiva core ontology module.

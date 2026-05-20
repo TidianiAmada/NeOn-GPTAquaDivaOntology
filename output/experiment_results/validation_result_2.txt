@@ -1,3 +1,6 @@
-❌ Syntax error: at line 80 of <>:
-Bad syntax (expected item in list or ')') at ^ in:
-"...b'\n:ConfinedAquifer a owl:Class ;\n    rdfs:subClassOf (:Aquife'^b'r ; :AquiferZone) ;\n    rdfs:label "Confined aquifer" ;\n    '..."
+
+--- STDERR ---
+Traceback (most recent call last):
+  File "D:\MSDA S3\KG LLMs\NeOn-GPTAquaDivaOntology\code\ontology_validation_syntax_consistency_pitfall_no_pellet_no_hermit.py", line 7, in <module>
+    from pyshacl import validate
+ModuleNotFoundError: No module named 'pyshacl'

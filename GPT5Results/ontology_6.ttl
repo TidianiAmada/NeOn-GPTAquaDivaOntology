@@ -1,235 +1,712 @@
-@prefix ex: <http://example.org/ontology#> .
+@prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:City a owl:Class ;
-    rdfs:label "City" ;
-    rdfs:subClassOf ex:Address,
-        ex:Location .
+<http://example.org/ontology> a owl:Ontology ;
+    rdfs:comment "Conceptual ontology model with a large class hierarchy, object properties, datatype properties, and individuals."@en .
 
-ex:Meeting a owl:Class ;
-    rdfs:label "Meeting" ;
-    rdfs:subClassOf ex:Event,
-        ex:Project .
+:AcademicOrganization a owl:Class ;
+    rdfs:subClassOf :Organization .
 
-ex:carol a ex:Contractor ;
-    rdfs:label "Carol" ;
-    ex:hasStatus "contract"^^xsd:string ;
-    ex:worksFor ex:acme .
+:AccessPolicy a owl:Class ;
+    rdfs:subClassOf :SecurityPolicy .
 
-ex:createdBy a owl:ObjectProperty ;
-    rdfs:label "created by" ;
-    rdfs:domain ex:Document ;
-    rdfs:range ex:Person ;
-    rdfs:subPropertyOf ex:relatedTo .
+:AccessRule a owl:Class ;
+    rdfs:subClassOf :OperationalRule .
 
-ex:createdOn a owl:DatatypeProperty ;
-    rdfs:label "created on" ;
-    rdfs:domain ex:Document ;
-    rdfs:range xsd:dateTime .
+:AdministrativeEntity a owl:Class ;
+    rdfs:subClassOf :Organization .
 
-ex:deptRAndD a ex:Department ;
-    rdfs:label "R&D Department" ;
-    ex:hasMember ex:alice,
-        ex:bob ;
-    ex:hasStatus "operational"^^xsd:string .
+:ApprovalEvent a owl:Class ;
+    rdfs:subClassOf :ReviewEvent .
 
-ex:endDate a owl:DatatypeProperty ;
-    rdfs:label "end date" ;
-    rdfs:domain ex:Project ;
-    rdfs:range xsd:date .
+:BusinessProcess a owl:Class ;
+    rdfs:subClassOf :OperationalProcess .
 
-ex:hasAddress a owl:ObjectProperty ;
-    rdfs:label "has address" ;
-    rdfs:domain ex:Organization ;
-    rdfs:range ex:Address ;
-    rdfs:subPropertyOf ex:locatedAt .
+:CodeIdentifier a owl:Class ;
+    rdfs:subClassOf :Identifier .
 
-ex:hasBudget a owl:DatatypeProperty ;
-    rdfs:label "has budget" ;
-    rdfs:domain ex:Project ;
+:ComplianceMeasure a owl:Class ;
+    rdfs:subClassOf :QualityMeasure .
+
+:Contract a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:CorporateOrganization a owl:Class ;
+    rdfs:subClassOf :Organization .
+
+:CreationEvent a owl:Class ;
+    rdfs:subClassOf :LifecycleEvent .
+
+:Customer a owl:Class ;
+    rdfs:subClassOf :Person .
+
+:Day a owl:Class ;
+    rdfs:subClassOf :CalendarPeriod .
+
+:DecisionRecord a owl:Class ;
+    rdfs:subClassOf :OperationalDocument .
+
+:DeletionEvent a owl:Class ;
+    rdfs:subClassOf :LifecycleEvent .
+
+:Director a owl:Class ;
+    rdfs:subClassOf :Manager .
+
+:DraftDocument a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:FinalDocument a owl:Class ;
+    rdfs:subClassOf :ApprovedDocument .
+
+:FinancialMeasure a owl:Class ;
+    rdfs:subClassOf :Measure .
+
+:GovernmentOrganization a owl:Class ;
+    rdfs:subClassOf :Organization .
+
+:Guideline a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:HardwareResource a owl:Class ;
+    rdfs:subClassOf :PhysicalResource .
+
+:InstallationGuide a owl:Class ;
+    rdfs:subClassOf :UserGuide .
+
+:LeadershipRole a owl:Class ;
+    rdfs:subClassOf :InterpersonalRole .
+
+:License a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:MaintenanceGuide a owl:Class ;
+    rdfs:subClassOf :UserGuide .
+
+:Minutes a owl:Class ;
+    rdfs:subClassOf :MeetingRecord .
+
+:ModificationEvent a owl:Class ;
+    rdfs:subClassOf :LifecycleEvent .
+
+:Month a owl:Class ;
+    rdfs:subClassOf :CalendarPeriod .
+
+:NonProfitOrganization a owl:Class ;
+    rdfs:subClassOf :Organization .
+
+:NumericIdentifier a owl:Class ;
+    rdfs:subClassOf :Identifier .
+
+:Partner a owl:Class ;
+    rdfs:subClassOf :Agent .
+
+:PerformanceAttribute a owl:Class ;
+    rdfs:subClassOf :QualityAttribute .
+
+:PrivateOrganization a owl:Class ;
+    rdfs:subClassOf :Organization .
+
+:Product a owl:Class ;
+    rdfs:subClassOf :Resource .
+
+:PublicResource a owl:Class ;
+    rdfs:subClassOf :ManagedResource .
+
+:PublicationEvent a owl:Class ;
+    rdfs:subClassOf :Event .
+
+:Region a owl:Class ;
+    rdfs:subClassOf :SpatialLocation .
+
+:Researcher a owl:Class ;
+    rdfs:subClassOf :Employee .
+
+:RestrictedResource a owl:Class ;
+    rdfs:subClassOf :LicensedResource .
+
+:RiskMeasure a owl:Class ;
+    rdfs:subClassOf :Measure .
+
+:SecurityAttribute a owl:Class ;
+    rdfs:subClassOf :QualityAttribute .
+
+:Service a owl:Class ;
+    rdfs:subClassOf :Resource .
+
+:Site a owl:Class ;
+    rdfs:subClassOf :SpatialLocation .
+
+:SoftwareResource a owl:Class ;
+    rdfs:subClassOf :DigitalResource .
+
+:Student a owl:Class ;
+    rdfs:subClassOf :Person .
+
+:SubWorkflow a owl:Class ;
+    rdfs:subClassOf :Workflow .
+
+:Supplier a owl:Class ;
+    rdfs:subClassOf :Agent .
+
+:TechnicalRole a owl:Class ;
+    rdfs:subClassOf :Role .
+
+:TemporalMeasure a owl:Class ;
+    rdfs:subClassOf :Measure .
+
+:UsagePolicy a owl:Class ;
+    rdfs:subClassOf :Policy .
+
+:ValidationRule a owl:Class ;
+    rdfs:subClassOf :Rule .
+
+:Year a owl:Class ;
+    rdfs:subClassOf :CalendarPeriod .
+
+:actualEffort a owl:DatatypeProperty ;
+    rdfs:domain :Task ;
     rdfs:range xsd:decimal .
 
-ex:hasMember a owl:ObjectProperty ;
-    rdfs:label "has member" ;
-    rdfs:domain ex:Organization ;
-    rdfs:range ex:Person ;
-    rdfs:subPropertyOf ex:relatedTo .
-
-ex:hasStatus a owl:DatatypeProperty ;
-    rdfs:label "has status" ;
-    rdfs:domain ex:Entity ;
+:addressLine a owl:DatatypeProperty ;
+    rdfs:domain :Address ;
     rdfs:range xsd:string .
 
-ex:manages a owl:ObjectProperty ;
-    rdfs:label "manages" ;
-    rdfs:domain ex:Manager ;
-    rdfs:range ex:Entity ;
-    rdfs:subPropertyOf ex:relatedTo .
+:appliesTo a owl:ObjectProperty ;
+    rdfs:domain :Rule ;
+    rdfs:range :Entity .
 
-ex:partOf a owl:ObjectProperty ;
-    rdfs:label "part of" ;
-    rdfs:domain ex:Entity ;
-    rdfs:range ex:Entity ;
-    rdfs:subPropertyOf ex:relatedTo .
+:approvedBy a owl:ObjectProperty ;
+    rdfs:domain :Document ;
+    rdfs:range :Person .
 
-ex:startDate a owl:DatatypeProperty ;
-    rdfs:label "start date" ;
-    rdfs:domain ex:Project ;
-    rdfs:range xsd:date .
+:belongsToProject a owl:ObjectProperty ;
+    rdfs:domain :Project ;
+    rdfs:range :Organization ;
+    owl:inverseOf :hasProject .
 
-ex:taskDomainClosure a owl:Axiom ;
-    owl:annotatedProperty rdfs:domain ;
-    owl:annotatedSource ex:assignedTo ;
-    owl:annotatedTarget ex:Task .
+:budget a owl:DatatypeProperty ;
+    rdfs:domain :Project ;
+    rdfs:range xsd:decimal .
 
-ex:usesResource a owl:ObjectProperty ;
-    rdfs:label "uses resource" ;
-    rdfs:domain ex:Project ;
-    rdfs:range ex:Resource ;
-    rdfs:subPropertyOf ex:relatedTo .
+:capacity a owl:DatatypeProperty ;
+    rdfs:domain :Resource ;
+    rdfs:range xsd:decimal .
 
-ex:worksFor a owl:ObjectProperty ;
-    rdfs:label "works for" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Organization .
+:city a owl:DatatypeProperty ;
+    rdfs:domain :Address ;
+    rdfs:range xsd:string .
 
-ex:Company a owl:Class ;
-    rdfs:label "Company" ;
-    rdfs:subClassOf ex:Organization .
+:code a owl:DatatypeProperty ;
+    rdfs:domain :Identifier ;
+    rdfs:range xsd:string .
 
-ex:Contractor a owl:Class ;
-    rdfs:label "Contractor" ;
-    rdfs:subClassOf ex:Agent,
-        ex:Person .
+:constrains a owl:ObjectProperty ;
+    rdfs:domain :Constraint ;
+    rdfs:range :Entity .
 
-ex:Department a owl:Class ;
-    rdfs:label "Department" ;
-    rdfs:subClassOf ex:Agent,
-        ex:Organization .
+:consumes a owl:ObjectProperty ;
+    rdfs:domain :Process ;
+    rdfs:range :Resource .
 
-ex:Event a owl:Class ;
-    rdfs:label "Event" ;
-    rdfs:subClassOf ex:Entity .
+:contains a owl:ObjectProperty ;
+    rdfs:domain :Collection ;
+    rdfs:range :Entity .
 
-ex:Hardware a owl:Class ;
-    rdfs:label "Hardware" ;
-    rdfs:subClassOf ex:Resource .
+:cost a owl:DatatypeProperty ;
+    rdfs:domain :Resource ;
+    rdfs:range xsd:decimal .
 
-ex:Report a owl:Class ;
-    rdfs:label "Report" ;
-    rdfs:subClassOf ex:Document,
-        ex:Resource .
+:country a owl:DatatypeProperty ;
+    rdfs:domain :Address ;
+    rdfs:range xsd:string .
 
-ex:alice a ex:Employee ;
-    rdfs:label "Alice" ;
-    ex:assignedTo ex:task001 ;
-    ex:hasStatus "active"^^xsd:string ;
-    ex:worksFor ex:acme .
+:createdAt a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:dateTime .
 
-ex:assignedTo a owl:ObjectProperty ;
-    rdfs:label "assigned to" ;
-    rdfs:domain ex:Task ;
-    rdfs:range ex:Person ;
-    rdfs:subPropertyOf ex:relatedTo .
+:createdBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Agent .
 
-ex:locatedAt a owl:ObjectProperty ;
-    rdfs:label "located at" ;
-    rdfs:domain ex:Entity ;
-    rdfs:range ex:Location .
+:dependsOn a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity .
 
-ex:proposal2025 a ex:Report ;
-    rdfs:label "Proposal 2025" ;
-    ex:createdBy ex:bob ;
-    ex:createdOn "2025-02-15T10:00:00"^^xsd:dateTime ;
-    ex:relatedTo ex:projectApollo .
+:description a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
 
-ex:server01 a ex:Hardware ;
-    rdfs:label "Server 01" ;
-    ex:hasStatus "available"^^xsd:string ;
-    ex:locatedAt ex:nyOffice .
+:documents a owl:ObjectProperty ;
+    rdfs:domain :Document ;
+    rdfs:range :Entity ;
+    owl:inverseOf :hasDocument .
 
-ex:task001 a ex:Task ;
-    rdfs:label "Task 001 - Design" ;
-    ex:hasStatus "in-progress"^^xsd:string ;
-    ex:partOf ex:projectApollo .
+:email a owl:DatatypeProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string .
 
-ex:Employee a owl:Class ;
-    rdfs:label "Employee" ;
-    rdfs:subClassOf ex:Person .
+:endDate a owl:DatatypeProperty ;
+    rdfs:domain :TimePeriod ;
+    rdfs:range xsd:dateTime .
 
-ex:Manager a owl:Class ;
-    rdfs:label "Manager" ;
-    rdfs:subClassOf ex:Agent,
-        ex:Employee .
+:estimatedEffort a owl:DatatypeProperty ;
+    rdfs:domain :Task ;
+    rdfs:range xsd:decimal .
 
-ex:bob a ex:Manager ;
-    rdfs:label "Bob" ;
-    ex:hasStatus "active"^^xsd:string ;
-    ex:manages ex:projectApollo ;
-    ex:worksFor ex:acme .
+:followedBy a owl:ObjectProperty ;
+    rdfs:domain :ProjectPhase ;
+    rdfs:range :ProjectPhase ;
+    owl:inverseOf :precededBy .
 
-ex:Address a owl:Class ;
-    rdfs:label "Address" ;
-    rdfs:subClassOf ex:Location .
+:hasComponent a owl:ObjectProperty ;
+    rdfs:domain :System ;
+    rdfs:range :Component .
 
-ex:Document a owl:Class ;
-    rdfs:label "Document" ;
-    rdfs:subClassOf ex:Entity .
+:hasDataset a owl:ObjectProperty ;
+    rdfs:domain :Collection ;
+    rdfs:range :Dataset .
 
-ex:Location a owl:Class ;
-    rdfs:label "Location" ;
-    rdfs:subClassOf ex:Entity .
+:hasLocation a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Location ;
+    owl:inverseOf :locatedIn .
 
-ex:Task a owl:Class ;
-    rdfs:label "Task" ;
-    rdfs:subClassOf ex:Project,
-        ex:Resource .
+:hasRequirement a owl:ObjectProperty ;
+    rdfs:domain :Plan ;
+    rdfs:range :Requirement .
 
-ex:acme a ex:Company ;
-    rdfs:label "ACME Corporation" ;
-    ex:hasAddress ex:nyOffice ;
-    ex:locatedAt ex:nyOffice .
+:hasRole a owl:ObjectProperty ;
+    rdfs:domain :Agent ;
+    rdfs:range :Role .
 
-ex:nyOffice a ex:Address ;
-    rdfs:label "NY Office Address" ;
-    ex:hasStatus "office"^^xsd:string .
+:hasTask a owl:ObjectProperty ;
+    rdfs:domain :Workflow ;
+    rdfs:range :Task .
 
-ex:projectApollo a ex:Project ;
-    rdfs:label "Project Apollo" ;
-    ex:endDate "2025-09-30"^^xsd:date ;
-    ex:hasBudget 250000.00 ;
-    ex:relatedTo ex:proposal2025 ;
-    ex:startDate "2025-03-01"^^xsd:date ;
-    ex:usesResource ex:server01 .
+:hasValue a owl:ObjectProperty ;
+    rdfs:domain :Measure ;
+    rdfs:range :Value .
 
-ex:Agent a owl:Class ;
-    rdfs:label "Agent" ;
-    rdfs:subClassOf ex:Entity .
+:identifier a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
 
-ex:Organization a owl:Class ;
-    rdfs:label "Organization" ;
-    rdfs:subClassOf ex:Entity .
+:implements a owl:ObjectProperty ;
+    rdfs:domain :Component ;
+    rdfs:range :Specification .
 
-ex:Resource a owl:Class ;
-    rdfs:label "Resource" ;
-    rdfs:subClassOf ex:Entity .
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Document ;
+    owl:inverseOf :describes .
 
-ex:Person a owl:Class ;
-    rdfs:label "Person" ;
-    rdfs:subClassOf ex:Agent .
+:label a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
 
-ex:relatedTo a owl:ObjectProperty ;
-    rdfs:label "related to" ;
-    rdfs:domain ex:Entity ;
-    rdfs:range ex:Entity .
+:measures a owl:ObjectProperty ;
+    rdfs:domain :Metric ;
+    rdfs:range :Entity .
 
-ex:Project a owl:Class ;
-    rdfs:label "Project" ;
-    rdfs:subClassOf ex:Entity,
-        ex:Resource .
+:metric1 a :KPI ;
+    :hasValue :value1 ;
+    :identifier "MET-001" ;
+    :label "On-time delivery" ;
+    :measures :project1 .
 
-ex:Entity a owl:Class ;
-    rdfs:label "Entity" .
+:partOf a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity ;
+    owl:inverseOf :hasPart .
+
+:participatesIn a owl:ObjectProperty ;
+    rdfs:domain :Agent ;
+    rdfs:range :Event .
+
+:phone a owl:DatatypeProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string .
+
+:priority a owl:DatatypeProperty ;
+    rdfs:domain :Task ;
+    rdfs:range xsd:integer .
+
+:produces a owl:ObjectProperty ;
+    rdfs:domain :Process ;
+    rdfs:range :Resource .
+
+:quantity a owl:DatatypeProperty ;
+    rdfs:domain :Resource ;
+    rdfs:range xsd:decimal .
+
+:reviewedBy a owl:ObjectProperty ;
+    rdfs:domain :Document ;
+    rdfs:range :Person .
+
+:startDate a owl:DatatypeProperty ;
+    rdfs:domain :TimePeriod ;
+    rdfs:range xsd:dateTime .
+
+:status a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
+
+:updatedAt a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:dateTime .
+
+:updatedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Agent .
+
+:uses a owl:ObjectProperty ;
+    rdfs:domain :Activity ;
+    rdfs:range :Resource .
+
+:valueDate a owl:DatatypeProperty ;
+    rdfs:domain :Value ;
+    rdfs:range xsd:dateTime .
+
+:valueNumber a owl:DatatypeProperty ;
+    rdfs:domain :Value ;
+    rdfs:range xsd:decimal .
+
+:valueString a owl:DatatypeProperty ;
+    rdfs:domain :Value ;
+    rdfs:range xsd:string .
+
+:version a owl:DatatypeProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
+
+:ApprovedDocument a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:Attribute a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:ClosurePhase a owl:Class ;
+    rdfs:subClassOf :ProjectPhase .
+
+:Constraint a owl:Class ;
+    rdfs:subClassOf :Rule .
+
+:DataArtifact a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:DigitalResource a owl:Class ;
+    rdfs:subClassOf :Resource .
+
+:ExecutionPhase a owl:Class ;
+    rdfs:subClassOf :ProjectPhase .
+
+:InitiationPhase a owl:Class ;
+    rdfs:subClassOf :ProjectPhase .
+
+:InterpersonalRole a owl:Class ;
+    rdfs:subClassOf :Role .
+
+:KPI a owl:Class ;
+    rdfs:subClassOf :OperationalMetric .
+
+:LicensedResource a owl:Class ;
+    rdfs:subClassOf :ManagedResource .
+
+:Manager a owl:Class ;
+    rdfs:subClassOf :Employee .
+
+:MeetingRecord a owl:Class ;
+    rdfs:subClassOf :OperationalDocument .
+
+:OperationalMetric a owl:Class ;
+    rdfs:subClassOf :Metric .
+
+:OperationalProcess a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:OperationalRule a owl:Class ;
+    rdfs:subClassOf :Rule .
+
+:PhysicalResource a owl:Class ;
+    rdfs:subClassOf :Resource .
+
+:Plan a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:QualityMeasure a owl:Class ;
+    rdfs:subClassOf :Measure .
+
+:Report a owl:Class ;
+    rdfs:subClassOf :TextDocument .
+
+:Requirement a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:ReviewEvent a owl:Class ;
+    rdfs:subClassOf :Event .
+
+:SecurityPolicy a owl:Class ;
+    rdfs:subClassOf :Policy .
+
+:Specification a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:System a owl:Class ;
+    rdfs:subClassOf :Resource .
+
+:TechnicalDocument a owl:Class ;
+    rdfs:subClassOf :TextDocument .
+
+:address1 a :Address ;
+    :addressLine "1 Example Street" ;
+    :city "Example City" ;
+    :country "Example Country" ;
+    :identifier "ADR-001" ;
+    :label "Main Office" .
+
+:assignedTo a owl:ObjectProperty ;
+    rdfs:domain :Task ;
+    rdfs:range :Person .
+
+:dataset1 a :Dataset ;
+    :createdBy :person1 ;
+    :identifier "DS-001" ;
+    :label "Project Dataset" ;
+    :partOf :project1 .
+
+:describes a owl:ObjectProperty ;
+    rdfs:domain :Document ;
+    rdfs:range :Entity .
+
+:doc1 a :Report ;
+    :describes :project1 ;
+    :identifier "DOC-001" ;
+    :isDescribedBy :project1 ;
+    :label "Status Report" ;
+    :reviewedBy :person1 .
+
+:hasDocument a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Document .
+
+:hasMember a owl:ObjectProperty ;
+    rdfs:domain :Organization ;
+    rdfs:range :Person .
+
+:hasPart a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity .
+
+:hasPhase a owl:ObjectProperty ;
+    rdfs:domain :Project ;
+    rdfs:range :ProjectPhase .
+
+:hasProject a owl:ObjectProperty ;
+    rdfs:domain :Organization ;
+    rdfs:range :Project .
+
+:locatedIn a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:range :Location .
+
+:phase3 a :ClosurePhase ;
+    :identifier "PH-003" ;
+    :label "Closure" ;
+    :precededBy :phase2 .
+
+:precededBy a owl:ObjectProperty ;
+    rdfs:domain :ProjectPhase ;
+    rdfs:range :ProjectPhase .
+
+:task1 a :Task ;
+    :assignedTo :person1 ;
+    :estimatedEffort 8.0 ;
+    :identifier "TSK-001" ;
+    :label "Define scope" ;
+    :partOf :workflow1 ;
+    :priority 1 .
+
+:task2 a :Task ;
+    :assignedTo :person2 ;
+    :estimatedEffort 40.0 ;
+    :identifier "TSK-002" ;
+    :label "Implement core module" ;
+    :partOf :workflow1 ;
+    :priority 2 .
+
+:value1 a :Value ;
+    :valueNumber 0.95 ;
+    :valueString "95 percent" .
+
+:worksFor a owl:ObjectProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Organization .
+
+:Activity a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:Collection a owl:Class ;
+    rdfs:subClassOf :Resource .
+
+:Component a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Dataset a owl:Class ;
+    rdfs:subClassOf :DataArtifact .
+
+:Employee a owl:Class ;
+    rdfs:subClassOf :Person .
+
+:ManagedResource a owl:Class ;
+    rdfs:subClassOf :Resource .
+
+:Metric a owl:Class ;
+    rdfs:subClassOf :Measure .
+
+:OperationalDocument a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:Policy a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:QualityAttribute a owl:Class ;
+    rdfs:subClassOf :Attribute .
+
+:TextDocument a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:UserGuide a owl:Class ;
+    rdfs:subClassOf :TechnicalDocument .
+
+:phase1 a :InitiationPhase ;
+    :identifier "PH-001" ;
+    :label "Initiation" .
+
+:phase2 a :ExecutionPhase ;
+    :identifier "PH-002" ;
+    :label "Execution" ;
+    :precededBy :phase1 .
+
+:CalendarPeriod a owl:Class ;
+    rdfs:subClassOf :TimePeriod .
+
+:Identifier a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:LifecycleEvent a owl:Class ;
+    rdfs:subClassOf :Event .
+
+:Location a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Role a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:SpatialLocation a owl:Class ;
+    rdfs:subClassOf :Location .
+
+:TimePeriod a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Workflow a owl:Class ;
+    rdfs:subClassOf :Process .
+
+:org1 a :Organization ;
+    :hasMember :person1,
+        :person2 ;
+    :hasProject :project1 ;
+    :identifier "ORG-001" ;
+    :label "Acme Organization" ;
+    :locatedIn :address1 ;
+    :status "active" .
+
+:person2 a :Person ;
+    :email "bob@example.org" ;
+    :identifier "PER-002" ;
+    :label "Bob Jones" ;
+    :worksFor :org1 .
+
+:workflow1 a :Workflow ;
+    :hasTask :task1,
+        :task2 ;
+    :identifier "WF-001" ;
+    :label "Delivery workflow" .
+
+:Address a owl:Class ;
+    rdfs:subClassOf :SpatialLocation .
+
+:Rule a owl:Class ;
+    rdfs:subClassOf :Document .
+
+:Event a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Process a owl:Class ;
+    rdfs:subClassOf :Event .
+
+:Project a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasPhase ;
+            owl:someValuesFrom :ProjectPhase ],
+        :Entity .
+
+:Value a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:person1 a :Person ;
+    :email "alice@example.org" ;
+    :identifier "PER-001" ;
+    :label "Alice Smith" ;
+    :worksFor :org1 .
+
+:project1 a :Project ;
+    :belongsToProject :org1 ;
+    :budget 1000000.00 ;
+    :createdBy :person1 ;
+    :dependsOn :dataset1 ;
+    :hasDocument :doc1 ;
+    :hasPart :workflow1 ;
+    :hasPhase :phase1,
+        :phase2,
+        :phase3 ;
+    :identifier "PRJ-001" ;
+    :label "Project Alpha" ;
+    :updatedBy :person2 .
+
+:Measure a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Task a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :assignedTo ;
+            owl:someValuesFrom :Person ],
+        :Activity .
+
+:Agent a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:ProjectPhase a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Organization a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasMember ;
+            owl:someValuesFrom :Person ],
+        :Agent .
+
+:Person a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :worksFor ;
+            owl:someValuesFrom :Organization ],
+        :Agent .
+
+:Resource a owl:Class ;
+    rdfs:subClassOf :Entity .
+
+:Document a owl:Class ;
+    rdfs:subClassOf :Resource .
+
+:Entity a owl:Class .
 

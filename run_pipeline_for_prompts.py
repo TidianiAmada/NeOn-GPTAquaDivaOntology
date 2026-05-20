@@ -1,11 +1,11 @@
 
 import os
 import json
-from dotenv import load_dotenv
-
+import re
 import subprocess
-from datetime import datetime
+from dotenv import load_dotenv
 from openai import OpenAI
+from rdflib import Graph, OWL, RDF, RDFS
 
 
 PROMPTS_JSON = "Prompts.json"
@@ -13,14 +13,96 @@ VALIDATION_SCRIPT = os.path.join("code", "ontology_validation_syntax_consistency
 RESULTS_DIR = os.path.join("output", "experiment_results")
 RESULTS_ONTOLOGY_DIR = "GPT5Results"
 
-# OpenAI API key (move to .env in production)
+# Paths to domain resource files
+_BASE = os.path.dirname(os.path.abspath(__file__))
+_PERSONA_FILE          = os.path.join(_BASE, "Persona.txt")
+_DOMAIN_DESC_FILE      = os.path.join(_BASE, "OntologyDescription", "AquaDiva.txt")
+_KEYWORDS_FILE         = os.path.join(_BASE, "AquaDivakeywords.json")
+_EXAMPLES_FILE         = os.path.join(_BASE, "Few-shotExamplesExtractedFromAquaDiva", "AquaDivaExamples.txt")
+_CQ_FILE               = os.path.join(_BASE, "CompetencyQuestions", "Competency Questions for the AquaDiva Ontology (Version 1).txt")
+_GOLD_ONTOLOGY_FILE    = os.path.join(_BASE, "VersionOne", "AquaDivaMergedNew.ttl")
 
-# Load environment variables from .env file
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 if not openai_api_key:
     raise RuntimeError("OPENAI_API_KEY is not set. Please set it in your environment or in a .env file.")
 client = OpenAI(api_key=openai_api_key)
+
+
+# ================= RESOURCE LOADERS =================
+
+def _read(path: str) -> str:
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read().strip()
+
+
+def _load_keywords() -> str:
+    """Flatten all keyword strings from AquaDivakeywords.json into one comma-separated list."""
+    with open(_KEYWORDS_FILE, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    seen = set()
+    flat = []
+    for entry in data:
+        for kw in re.split(r"[;,]", str(entry.get("keywords", ""))):
+            kw = kw.strip()
+            if kw and kw.lower() not in seen:
+                seen.add(kw.lower())
+                flat.append(kw)
+    return ", ".join(flat)
+
+
+def _load_examples() -> dict:
+    """
+    Parse AquaDivaExamples.txt into three sections keyed by:
+      'cq_triples'   – Subject-relation-object examples from CQs
+      'data_props'   – Data property examples
+      'individuals'  – Meaningful individual examples
+    """
+    text = _read(_EXAMPLES_FILE)
+    sections = {}
+
+    markers = [
+        ("cq_triples",   "Subject-relation-object from Competency Questions examples:"),
+        ("data_props",   "Data property with domain and range examples:"),
+        ("individuals",  "Meaningful individuals examples:"),
+    ]
+
+    for i, (key, header) in enumerate(markers):
+        start = text.find(header)
+        if start == -1:
+            sections[key] = ""
+            continue
+        start += len(header)
+        end = len(text)
+        for _, next_header in markers[i + 1:]:
+            pos = text.find(next_header)
+            if pos != -1:
+                end = pos
+                break
+        sections[key] = text[start:end].strip()
+
+    return sections
+
+
+def _load_competency_questions() -> str:
+    """Return the full CQ list as a numbered string."""
+    return _read(_CQ_FILE)
+
+
+def _compute_ontology_metrics() -> str:
+    """Count classes, properties, and individuals in the AquaDiva gold standard TTL."""
+    g = Graph()
+    g.parse(_GOLD_ONTOLOGY_FILE)
+    classes     = len(set(g.subjects(RDF.type, OWL.Class)))
+    obj_props   = len(set(g.subjects(RDF.type, OWL.ObjectProperty)))
+    data_props  = len(set(g.subjects(RDF.type, OWL.DatatypeProperty)))
+    individuals = len(set(g.subjects(RDF.type, OWL.NamedIndividual)))
+    subclass    = len(list(g.subject_objects(RDFS.subClassOf)))
+    return (
+        f"Classes: {classes}, ObjectProperties: {obj_props}, "
+        f"DatatypeProperties: {data_props}, Individuals: {individuals}, "
+        f"SubClassOf relations: {subclass}"
+    )
 
 # Ensure results directory exists
 def ensure_results_dir():
@@ -42,32 +124,62 @@ def load_prompts():
 # Run validation script for each prompt
 
 def fill_placeholders(prompt_text, validation_context=None):
-    # Dummy values for placeholders; replace with real data as needed
+    examples = _load_examples()
+
     values = {
-        "{Persona}": "expert aquatic ecologist and knowledge engineer",
-        "{Domain Name}": "AquaDiva",
-        "{Domain Description}": "A domain about groundwater and subsurface life.",
-        "{Keywords}": "groundwater, aquifer, microbe, carbon cycle, nitrogen cycle",
-        "{Ontology Metric Counts}": "Classes: 20, Properties: 15, Individuals: 10",
-        "{Existing Resource Name and Description}": "ENVO ontology, environmental terms",
-        "{Few-shot examples from existing resource}": "Class: Aquifer, Property: hasDepth",
-        "{Few-shot examples for entity and relationship extraction from competency questions}": "Entity: Microbe, Property: inhabits, Entity: Aquifer",
-        "{Few-shot examples to demonstrate introducing data properties}": "Property: hasDepth (domain: Aquifer, range: float)",
-        "{Few-shot examples of meaningful individuals}": "Individual: Aquifer1 (type: Aquifer)",
-        "{RDFLib Syntax Error Message}": "Syntax error at line 10",
-        "{Affected Part of the Ontology}": "@prefix : <#> .",
-        "{HermiT Reasoner Error Message}": "Inconsistency detected in class hierarchy",
-        "{OOPS API Error Message}": "Pitfall: Missing domain for property",
+        # ── Identity / domain ────────────────────────────────────────────────
+        "{Persona}":              _read(_PERSONA_FILE),
+        "{Domain Name}":          "AquaDiva",
+        "{Domain Description}":   _read(_DOMAIN_DESC_FILE),
+        "{Keywords}":             _load_keywords(),
+
+        # ── Gold-standard metrics (computed live from AquaDivaMergedNew.ttl) ─
+        "{Ontology Metric Counts}": _compute_ontology_metrics(),
+
+        # ── Existing resource ────────────────────────────────────────────────
+        "{Existing Resource Name and Description}":
+            "AquaDiva ontology (AquaDivaMergedNew.ttl) — a life-science ontology "
+            "covering groundwater ecosystems, microbial ecology, hydrogeology, "
+            "karst systems, and geochemistry.",
+
+        # ── Few-shot examples (parsed from AquaDivaExamples.txt) ────────────
+        "{Few-shot examples from existing resource}":
+            examples["cq_triples"],
+        "{Few-shot examples for entity and relationship extraction from competency questions}":
+            examples["cq_triples"],
+        "{Few-shot examples to demonstrate introducing data properties}":
+            examples["data_props"],
+        "{Few-shot examples of meaningful individuals}":
+            examples["individuals"],
+
+        # ── Error message placeholders (filled by the iterative loop) ────────
+        "{RDFLib Syntax Error Message}":    validation_context or "",
+        "{Affected Part of the Ontology}":  "",
+        "{HermiT Reasoner Error Message}":  "",
+        "{OOPS API Error Message}":         "",
     }
+
     for k, v in values.items():
         prompt_text = prompt_text.replace(k, v)
-    # Add validation context if provided
+
+    # Inject the competency questions when the prompt asks to work from them.
+    # The CQ file is referenced by text but has no dedicated placeholder in Prompts.json.
+    if "Competency Question" in prompt_text:
+        cqs = _load_competency_questions()
+        prompt_text = (
+            f"Competency Questions for the AquaDiva ontology:\n{cqs}\n\n"
+            + prompt_text
+        )
+
     if validation_context:
         prompt_text += f"\n\nPrevious validation result (please fix all issues):\n{validation_context}\n"
-    # Add strict instruction for LLM output format
-    prompt_text += ("\n\nReturn the complete ontology in valid Turtle syntax. "
-                   "Any explanation or instructions must be included as comments (lines starting with #) at the top of the file. "
-                   "Do NOT use triple backticks or any markdown formatting. Output only valid Turtle syntax, with any explanation as Turtle comments.")
+
+    prompt_text += (
+        "\n\nReturn the complete ontology in valid Turtle syntax. "
+        "Any explanation or instructions must be included as comments (lines starting with #) at the top of the file. "
+        "Do NOT use triple backticks or any markdown formatting. "
+        "Output only valid Turtle syntax, with any explanation as Turtle comments."
+    )
     return prompt_text
 
 def call_openai_and_save(prompt, idx, validation_context=None):

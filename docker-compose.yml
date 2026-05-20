@@ -1,24 +1,5 @@
 services:
 
-  # ── OOPS! Ontology Pitfall Scanner ─────────────────────────────────────────
-  # Docs: https://oops.linkeddata.es/catalogue.jsp
-  # Image: https://hub.docker.com/r/mpovedavillalon/oops
-  oops:
-    image: mpovedavillalon/oops:v1
-    platform: linux/arm64   # image has no amd64 build; QEMU emulation handles this on x86
-    container_name: oops
-    ports:
-      - "80:8080"          # exposes the OOPS web UI at http://localhost/OOPS/
-    # Uncomment the line below if you have a local WordNet copy for richer pitfall detection:
-    # volumes:
-    #   - ./WordNet:/usr/local/tomcat/WordNet
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/OOPS/"]
-      interval: 10s
-      timeout: 5s
-      retries: 6
-      start_period: 30s   # Tomcat needs time to fully start
-
   # ── Ontology pipeline ───────────────────────────────────────────────────────
   ontology-validation:
     build: .
@@ -27,10 +8,7 @@ services:
       - .:/app
     environment:
       - PYTHONUNBUFFERED=1
-      # Points validation script to the OOPS service over Docker's internal network.
-      # Services communicate on the container port (8080), not the host-mapped port (80).
-      - OOPS_URL=http://oops:8080/OOPS/rest
-    depends_on:
-      oops:
-        condition: service_healthy
+      # Use the public OOPS! REST service directly.
+      # If it is unreachable the validation script skips OOPS gracefully.
+      - OOPS_URL=https://oops.linkeddata.es/rest
     command: python run_pipeline_for_prompts.py

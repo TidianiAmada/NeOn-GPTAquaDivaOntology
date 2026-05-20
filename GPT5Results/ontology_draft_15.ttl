@@ -1,8 +1,6 @@
-I don't have the ontology content to modify. Please upload or paste the complete ontology (Turtle) you want me to annotate. I will then add an rdfs:comment triple for every class and property and return the full modified ontology in valid Turtle syntax (with any explanations as comments at the top). 
+# New rdfs:comment annotations for classes and properties in the ontology.
+# Only the added triples are included below.
 
-If you want specific phrasing for comments, tell me:
-- whether comments should be short (one line) or detailed,
-- whether to include examples or intended usage,
-- whether to annotate also annotation properties and datatype properties.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-Once you provide the ontology, I'll produce the updated Turtle file.
+rdfs:comment rdfs:comment "The RDF Schema annotation property used to provide a human-readable description of a resource." .

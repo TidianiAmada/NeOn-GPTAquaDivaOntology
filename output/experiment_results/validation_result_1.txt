@@ -1,3 +1,6 @@
-❌ Syntax error: at line 22 of <>:
-Bad syntax (expected '.' or '}' or ']' at end of statement) at ^ in:
-"...b'########################################################\n\n: '^b'A qaudiva_dummy .  # placeholder to prevent certain editors '..."
+
+--- STDERR ---
+Traceback (most recent call last):
+  File "D:\MSDA S3\KG LLMs\NeOn-GPTAquaDivaOntology\code\ontology_validation_syntax_consistency_pitfall_no_pellet_no_hermit.py", line 7, in <module>
+    from pyshacl import validate
+ModuleNotFoundError: No module named 'pyshacl'

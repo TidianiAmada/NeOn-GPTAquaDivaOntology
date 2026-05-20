@@ -1,3 +1,6 @@
-❌ Syntax error: at line 1 of <>:
-Bad syntax (expected directive or statement) at ^ in:
-"b''^b"I don't have the ontology content to modify. Please upload o"..."
+
+--- STDERR ---
+Traceback (most recent call last):
+  File "D:\MSDA S3\KG LLMs\NeOn-GPTAquaDivaOntology\code\ontology_validation_syntax_consistency_pitfall_no_pellet_no_hermit.py", line 7, in <module>
+    from pyshacl import validate
+ModuleNotFoundError: No module named 'pyshacl'

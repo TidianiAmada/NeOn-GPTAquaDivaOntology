@@ -1,0 +1,14 @@
+@prefix : <http://purl.obolibrary.org/obo/iao.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:InformationArtifactOntology rdfs:comment "The ontology that provides terms for information artifacts and related concepts." .
+
+owl:AnnotationProperty rdfs:comment "The class of all OWL annotation properties." .
+
+owl:Class rdfs:comment "The class of all OWL classes." .
+
+owl:DatatypeProperty rdfs:comment "The class of all OWL datatype properties." .
+
+owl:ObjectProperty rdfs:comment "The class of all OWL object properties." .
+

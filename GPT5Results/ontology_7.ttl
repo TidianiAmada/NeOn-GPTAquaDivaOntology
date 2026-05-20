@@ -1,240 +1,831 @@
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix ex: <http://example.org/ontology#> .
+@prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:Address a owl:Class ;
-    rdfs:label "Address" ;
-    rdfs:comment "A postal or physical address." .
+<http://example.org/ontology> a owl:Ontology ;
+    rdfs:label "Conceptual Enterprise Ontology"@en ;
+    owl:versionInfo "1.0"@en .
 
-ex:Bob a ex:Person ;
-    ex:birthDate "1979-03-05"^^xsd:date ;
-    ex:hasName "Bob Jones" ;
-    ex:manages ex:DevTeam ;
-    ex:worksFor ex:AcmeCorp .
+:AccessPolicy a owl:Class ;
+    rdfs:label "Access Policy"@en ;
+    rdfs:subClassOf :Policy .
 
-ex:Carol a ex:Person ;
-    ex:birthDate "1990-11-20"^^xsd:date ;
-    ex:hasName "Carol Nguyen" ;
-    ex:worksFor ex:BetaOrg .
+:Address a owl:Class ;
+    rdfs:label "Address"@en ;
+    rdfs:subClassOf :Location .
 
-ex:Contract a owl:Class ;
-    rdfs:label "Contract" ;
-    rdfs:comment "A contractual document." ;
-    rdfs:subClassOf ex:Document .
+:AdministrativeEntity a owl:Class ;
+    rdfs:label "Administrative Entity"@en ;
+    rdfs:subClassOf :Organization .
 
-ex:Event a owl:Class ;
-    rdfs:label "Event" ;
-    rdfs:comment "An occurrence at a time and place." .
+:ApprovedDocument a owl:Class ;
+    rdfs:label "Approved Document"@en ;
+    rdfs:subClassOf :Document .
 
-ex:Invoice a owl:Class ;
-    rdfs:label "Invoice" ;
-    rdfs:comment "An invoice document." ;
-    rdfs:subClassOf ex:Document .
+:Attribute a owl:Class ;
+    rdfs:label "Attribute"@en ;
+    rdfs:subClassOf :Entity .
 
-ex:OrgOntology a owl:Ontology ;
-    dct:created "2026-04-01"^^xsd:date ;
-    dct:creator "Ontology Engineer" ;
-    dct:title "Example Organization Ontology" ;
-    rdfs:comment "A small ontology representing organisations, people, projects, tasks and related concepts." .
+:ClosurePhase a owl:Class ;
+    rdfs:label "Closure Phase"@en ;
+    rdfs:subClassOf :ProjectPhase .
 
-ex:Payment a owl:Class ;
-    rdfs:label "Payment" ;
-    rdfs:comment "A payment or transaction." .
+:ComplianceMeasure a owl:Class ;
+    rdfs:label "Compliance Measure"@en ;
+    rdfs:subClassOf :Entity .
 
-ex:Product a owl:Class ;
-    rdfs:label "Product" ;
-    rdfs:comment "A product offered by an organization." .
+:Constraint a owl:Class ;
+    rdfs:label "Constraint"@en ;
+    rdfs:subClassOf :Entity .
 
-ex:ProjectX a ex:Project ;
-    ex:budget 150000.00 ;
-    ex:hasLocation ex:HQ ;
-    ex:hasName "Project X" .
+:DataArtifact a owl:Class ;
+    rdfs:label "Data Artifact"@en ;
+    rdfs:subClassOf :Resource .
 
-ex:Qualification a owl:Class ;
-    rdfs:label "Qualification" ;
-    rdfs:comment "A qualification or certification." .
+:DeletionEvent a owl:Class ;
+    rdfs:label "Deletion Event"@en ;
+    rdfs:subClassOf :LifecycleEvent .
 
-ex:Service a owl:Class ;
-    rdfs:label "Service" ;
-    rdfs:comment "A service offered by an organization." .
+:DigitalResource a owl:Class ;
+    rdfs:label "Digital Resource"@en ;
+    rdfs:subClassOf :Resource .
 
-ex:Skill a owl:Class ;
-    rdfs:label "Skill" ;
-    rdfs:comment "A skill that a person can have." .
+:Director a owl:Class ;
+    rdfs:label "Director"@en ;
+    rdfs:subClassOf :LeadershipRole .
 
-ex:USD a ex:Currency ;
-    ex:currencyCode "USD" .
+:ExecutionPhase a owl:Class ;
+    rdfs:label "Execution Phase"@en ;
+    rdfs:subClassOf :ProjectPhase .
 
-ex:assignedTo a owl:ObjectProperty ;
-    rdfs:label "assigned to" ;
-    rdfs:comment "Relates a task to the person assigned to it." ;
-    rdfs:domain ex:Task ;
-    rdfs:range ex:Person .
+:Guideline a owl:Class ;
+    rdfs:label "Guideline"@en ;
+    rdfs:subClassOf :Document .
 
-ex:birthDate a owl:DatatypeProperty ;
-    rdfs:label "birth date" ;
-    rdfs:comment "Birth date for a person." ;
-    rdfs:domain ex:Person ;
-    rdfs:range xsd:date .
+:InitiationPhase a owl:Class ;
+    rdfs:label "Initiation Phase"@en ;
+    rdfs:subClassOf :ProjectPhase .
 
-ex:budget a owl:DatatypeProperty ;
-    rdfs:label "budget" ;
-    rdfs:comment "Monetary budget for a project." ;
-    rdfs:domain ex:Project ;
+:InstallationGuide a owl:Class ;
+    rdfs:label "Installation Guide"@en ;
+    rdfs:subClassOf :UserGuide .
+
+:LicensedResource a owl:Class ;
+    rdfs:label "Licensed Resource"@en ;
+    rdfs:subClassOf :Resource .
+
+:MaintenanceGuide a owl:Class ;
+    rdfs:label "Maintenance Guide"@en ;
+    rdfs:subClassOf :UserGuide .
+
+:ManagedResource a owl:Class ;
+    rdfs:label "Managed Resource"@en ;
+    rdfs:subClassOf :Resource .
+
+:MeetingRecord a owl:Class ;
+    rdfs:label "Meeting Record"@en ;
+    rdfs:subClassOf :Document .
+
+:Minutes a owl:Class ;
+    rdfs:label "Minutes"@en ;
+    rdfs:subClassOf :Document .
+
+:ModificationEvent a owl:Class ;
+    rdfs:label "Modification Event"@en ;
+    rdfs:subClassOf :LifecycleEvent .
+
+:OperationalDocument a owl:Class ;
+    rdfs:label "Operational Document"@en ;
+    rdfs:subClassOf :Document .
+
+:OperationalMetric a owl:Class ;
+    rdfs:label "Operational Metric"@en ;
+    rdfs:subClassOf :Metric .
+
+:OperationalProcess a owl:Class ;
+    rdfs:label "Operational Process"@en ;
+    rdfs:subClassOf :Process .
+
+:OperationalRule a owl:Class ;
+    rdfs:label "Operational Rule"@en ;
+    rdfs:subClassOf :Rule .
+
+:Partner a owl:Class ;
+    rdfs:label "Partner"@en ;
+    rdfs:subClassOf :Organization .
+
+:PhysicalResource a owl:Class ;
+    rdfs:label "Physical Resource"@en ;
+    rdfs:subClassOf :Resource .
+
+:Plan a owl:Class ;
+    rdfs:label "Plan"@en ;
+    rdfs:subClassOf :Document .
+
+:PolicyClass a owl:Class ;
+    rdfs:label "Policy Class"@en ;
+    rdfs:subClassOf :Entity .
+
+:PrivateOrganization a owl:Class ;
+    rdfs:label "Private Organization"@en ;
+    rdfs:subClassOf :Organization .
+
+:Product a owl:Class ;
+    rdfs:label "Product"@en ;
+    rdfs:subClassOf :Entity .
+
+:PublicResource a owl:Class ;
+    rdfs:label "Public Resource"@en ;
+    rdfs:subClassOf :Resource .
+
+:PublicationEvent a owl:Class ;
+    rdfs:label "Publication Event"@en ;
+    rdfs:subClassOf :LifecycleEvent .
+
+:QualityAttribute a owl:Class ;
+    rdfs:label "Quality Attribute"@en ;
+    rdfs:subClassOf :PerformanceAttribute .
+
+:Report a owl:Class ;
+    rdfs:label "Report"@en ;
+    rdfs:subClassOf :Document .
+
+:RestrictedResource a owl:Class ;
+    rdfs:label "Restricted Resource"@en ;
+    rdfs:subClassOf :Resource .
+
+:ReviewEvent a owl:Class ;
+    rdfs:label "Review Event"@en ;
+    rdfs:subClassOf :LifecycleEvent .
+
+:RiskMeasure a owl:Class ;
+    rdfs:label "Risk Measure"@en ;
+    rdfs:subClassOf :Measure .
+
+:SecurityAttribute a owl:Class ;
+    rdfs:label "Security Attribute"@en ;
+    rdfs:subClassOf :PerformanceAttribute .
+
+:Service a owl:Class ;
+    rdfs:label "Service"@en ;
+    rdfs:subClassOf :Entity .
+
+:Specification a owl:Class ;
+    rdfs:label "Specification"@en ;
+    rdfs:subClassOf :Document .
+
+:Supplier a owl:Class ;
+    rdfs:label "Supplier"@en ;
+    rdfs:subClassOf :Organization .
+
+:TemporalMeasure a owl:Class ;
+    rdfs:label "Temporal Measure"@en ;
+    rdfs:subClassOf :Measure .
+
+:TextDocument a owl:Class ;
+    rdfs:label "Text Document"@en ;
+    rdfs:subClassOf :Document .
+
+:TimePeriod a owl:Class ;
+    rdfs:label "Time Period"@en ;
+    rdfs:subClassOf :CalendarPeriod .
+
+:UsagePolicy a owl:Class ;
+    rdfs:label "Usage Policy"@en ;
+    rdfs:subClassOf :Policy .
+
+:amount a owl:DatatypeProperty ;
+    rdfs:label "amount"@en ;
+    rdfs:domain :FinancialMeasure ;
     rdfs:range xsd:decimal .
 
-ex:currencyCode a owl:DatatypeProperty ;
-    rdfs:label "currency code" ;
-    rdfs:comment "ISO currency code for monetary amounts." ;
-    rdfs:domain ex:Currency ;
-    rdfs:range xsd:string .
+:appliesTo a owl:ObjectProperty ;
+    rdfs:label "applies to"@en ;
+    rdfs:domain :Rule ;
+    rdfs:range :Entity .
 
-ex:employs a owl:ObjectProperty ;
-    rdfs:label "employs" ;
-    rdfs:comment "Relates an organization to a person it employs." ;
-    rdfs:domain ex:Organization ;
-    rdfs:range ex:Person ;
-    owl:inverseOf ex:worksFor .
+:approvedBy a owl:ObjectProperty ;
+    rdfs:label "approved by"@en ;
+    rdfs:domain :Document ;
+    rdfs:range :Agent .
 
-ex:endDate a owl:DatatypeProperty ;
-    rdfs:label "end date" ;
-    rdfs:comment "End date/time for a time interval, event or project." ;
-    rdfs:domain ex:TimeInterval ;
+:budget a owl:DatatypeProperty ;
+    rdfs:label "budget"@en ;
+    rdfs:domain :Project ;
+    rdfs:range xsd:decimal .
+
+:codeIdentifier a owl:DatatypeProperty ;
+    rdfs:label "code identifier"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :identifier .
+
+:collection1 a :Collection ;
+    rdfs:label "Primary Collection"@en ;
+    :hasPart :doc1,
+        :doc2 ;
+    :identifier "COL-001" .
+
+:cost a owl:DatatypeProperty ;
+    rdfs:label "cost"@en ;
+    rdfs:domain :Resource ;
+    rdfs:range xsd:decimal .
+
+:dateCreated a owl:DatatypeProperty ;
+    rdfs:label "date created"@en ;
+    rdfs:domain :Entity ;
     rdfs:range xsd:dateTime .
 
-ex:hasLocation a owl:ObjectProperty ;
-    rdfs:label "has location" ;
-    rdfs:comment "Relates an organization, project or event to a location." ;
-    rdfs:domain ex:Organization ;
-    rdfs:range ex:Location .
-
-ex:hasName a owl:DatatypeProperty ;
-    rdfs:label "has name" ;
-    rdfs:comment "A human-readable name for an entity." ;
-    rdfs:domain rdfs:Resource ;
-    rdfs:range xsd:string .
-
-ex:hasRole a owl:ObjectProperty ;
-    rdfs:label "has role" ;
-    rdfs:comment "Assigns a role to a person." ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Role .
-
-ex:manages a owl:ObjectProperty ;
-    rdfs:label "manages" ;
-    rdfs:comment "Relates a person (manager) to a team they manage." ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Team .
-
-ex:memberOf a owl:ObjectProperty ;
-    rdfs:label "member of" ;
-    rdfs:comment "Relates a person to a team they are a member of." ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Team .
-
-ex:partOf a owl:ObjectProperty,
-        owl:TransitiveProperty ;
-    rdfs:label "part of" ;
-    rdfs:comment "Indicates a hierarchical part relationship (team part of department, etc.)." ;
-    rdfs:domain ex:Team ;
-    rdfs:range ex:Department .
-
-ex:responsibleFor a owl:ObjectProperty ;
-    rdfs:label "responsible for" ;
-    rdfs:comment "Relates a role to tasks for which it is responsible." ;
-    rdfs:domain ex:Role ;
-    rdfs:range ex:Task .
-
-ex:startDate a owl:DatatypeProperty ;
-    rdfs:label "start date" ;
-    rdfs:comment "Start date/time for a time interval, event or project." ;
-    rdfs:domain ex:TimeInterval ;
+:dateModified a owl:DatatypeProperty ;
+    rdfs:label "date modified"@en ;
+    rdfs:domain :Entity ;
     rdfs:range xsd:dateTime .
 
-ex:Alice a ex:Person ;
-    ex:birthDate "1985-07-12"^^xsd:date ;
-    ex:hasName "Alice Smith" ;
-    ex:hasRole ex:DeveloperRole ;
-    ex:memberOf ex:DevTeam ;
-    ex:worksFor ex:AcmeCorp .
+:decision1 a :DecisionRecord ;
+    rdfs:label "Decision Record 1"@en ;
+    :identifier "DEC-001" ;
+    :relatedTo :proj1 .
 
-ex:BetaOrg a ex:Organization ;
-    ex:hasLocation ex:HQ ;
-    ex:hasName "Beta Organization" .
+:dependsOn a owl:ObjectProperty ;
+    rdfs:label "depends on"@en ;
+    rdfs:domain :Entity ;
+    rdfs:range :Entity .
 
-ex:DeveloperRole a ex:Role ;
-    ex:hasName "Developer" ;
-    ex:responsibleFor ex:Task1 .
+:description a owl:DatatypeProperty ;
+    rdfs:label "description"@en ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
 
-ex:RAndD a ex:Department ;
-    ex:hasName "Research and Development" .
+:documents a owl:ObjectProperty ;
+    rdfs:label "documents"@en ;
+    owl:inverseOf :hasDocument .
 
-ex:Task1 a ex:Task ;
-    ex:assignedTo ex:Alice ;
-    ex:hasName "Implement feature A" .
+:enforces a owl:ObjectProperty ;
+    rdfs:label "enforces"@en ;
+    rdfs:domain :Policy ;
+    rdfs:range :Rule .
 
-ex:worksFor a owl:ObjectProperty ;
-    rdfs:label "works for" ;
-    rdfs:comment "Relates a person to the organization they work for." ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Organization .
+:event1 a :CreationEvent ;
+    rdfs:label "Creation Event 1"@en ;
+    :dateCreated "2026-01-01T10:00:00"^^xsd:dateTime ;
+    :identifier "EVT-001" ;
+    :occursIn :day1 .
 
-ex:AcmeCorp a ex:Organization ;
-    ex:hasLocation ex:HQ ;
-    ex:hasName "Acme Corporation" .
+:event2 a :ApprovalEvent ;
+    rdfs:label "Approval Event 1"@en ;
+    :dateCreated "2026-01-02T10:00:00"^^xsd:dateTime ;
+    :identifier "EVT-002" ;
+    :occursIn :day1 .
 
-ex:Currency a owl:Class ;
-    rdfs:label "Currency" ;
-    rdfs:comment "A currency (e.g. USD, EUR)." .
+:hasMetric a owl:ObjectProperty ;
+    rdfs:label "has metric"@en ;
+    rdfs:domain :Entity ;
+    rdfs:range :Metric .
 
-ex:Department a owl:Class ;
-    rdfs:label "Department" ;
-    rdfs:comment "A department within an organization." .
+:hasParticipant a owl:ObjectProperty ;
+    rdfs:label "has participant"@en ;
+    rdfs:domain :Process ;
+    rdfs:range :Agent .
 
-ex:DevTeam a ex:Team ;
-    ex:hasName "Development Team" ;
-    ex:partOf ex:RAndD .
+:hasPolicy a owl:ObjectProperty ;
+    rdfs:label "has policy"@en ;
+    rdfs:domain :Organization ;
+    rdfs:range :Policy .
 
-ex:Document a owl:Class ;
-    rdfs:label "Document" ;
-    rdfs:comment "A document, contract, invoice, etc." .
+:hasRole a owl:ObjectProperty ;
+    rdfs:label "has role"@en ;
+    rdfs:domain :Agent ;
+    rdfs:range :Role .
 
-ex:Location a owl:Class ;
-    rdfs:label "Location" ;
-    rdfs:comment "A physical or logical location (office, site)." .
+:hasStep a owl:ObjectProperty ;
+    rdfs:label "has step"@en ;
+    rdfs:domain :Workflow ;
+    rdfs:range :Process .
 
-ex:Project a owl:Class ;
-    rdfs:label "Project" ;
-    rdfs:comment "A planned set of activities with a budget and schedule." .
+:hasTask a owl:ObjectProperty ;
+    rdfs:label "has task"@en ;
+    rdfs:domain :Process ;
+    rdfs:range :Task .
 
-ex:TimeInterval a owl:Class ;
-    rdfs:label "Time Interval" ;
-    rdfs:comment "A time period with a start and end." .
+:loc2 a :Region ;
+    rdfs:label "EMEA Region"@en ;
+    :identifier "LOC-002" ;
+    :timezone "UTC+1" .
 
-ex:HQ a ex:Location ;
-    ex:hasName "Headquarters" .
+:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en ;
+    owl:inverseOf :hasLocation .
 
-ex:Role a owl:Class ;
-    rdfs:label "Role" ;
-    rdfs:comment "A role that a person can hold (e.g. Developer, Manager)." .
+:managedBy a owl:ObjectProperty ;
+    rdfs:label "managed by"@en ;
+    rdfs:domain :Resource ;
+    rdfs:range :Agent .
 
-ex:Task a owl:Class ;
-    rdfs:label "Task" ;
-    rdfs:comment "A unit of work assigned to a person or role." .
+:measures a owl:ObjectProperty ;
+    rdfs:label "measures"@en ;
+    rdfs:domain :Measure ;
+    rdfs:range :Entity .
 
-ex:Team a owl:Class ;
-    rdfs:label "Team" ;
-    rdfs:comment "A team (work group) within an organization." ;
-    rdfs:subClassOf ex:Organization .
+:month1 a :Month ;
+    rdfs:label "Month 1"@en ;
+    :identifier "MON-001" .
 
-ex:Organization a owl:Class ;
-    rdfs:label "Organization" ;
-    rdfs:comment "An organization, company or institution." .
+:name a owl:DatatypeProperty ;
+    rdfs:label "name"@en ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
 
-ex:Person a owl:Class ;
-    rdfs:label "Person" ;
-    rdfs:comment "A human being (employee, contractor, etc.)." ;
-    owl:disjointWith ex:Organization .
+:numericIdentifier a owl:DatatypeProperty ;
+    rdfs:label "numeric identifier"@en ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :identifier .
+
+:occursIn a owl:ObjectProperty ;
+    rdfs:label "occurs in"@en ;
+    owl:inverseOf :hasPeriod .
+
+:org1 a :AcademicOrganization ;
+    rdfs:label "Example Academic Organization"@en ;
+    :identifier "ORG-001" ;
+    :status "active" .
+
+:org3 a :GovernmentOrganization ;
+    rdfs:label "Example Government Organization"@en ;
+    :identifier "ORG-003" ;
+    :status "active" .
+
+:org4 a :NonProfitOrganization ;
+    rdfs:label "Example Non-Profit Organization"@en ;
+    :identifier "ORG-004" ;
+    :status "active" .
+
+:partOf a owl:ObjectProperty ;
+    rdfs:label "part of"@en ;
+    owl:inverseOf :hasPart .
+
+:performs a owl:ObjectProperty ;
+    rdfs:label "performs"@en ;
+    rdfs:domain :Agent ;
+    rdfs:range :Process .
+
+:person2 a :Customer ;
+    rdfs:label "Bob Customer"@en ;
+    :identifier "P-002" ;
+    :name "Bob" .
+
+:person3 a :Researcher ;
+    rdfs:label "Carol Researcher"@en ;
+    :identifier "P-003" ;
+    :name "Carol" .
+
+:person4 a :Student ;
+    rdfs:label "David Student"@en ;
+    :identifier "P-004" ;
+    :name "David" .
+
+:priority a owl:DatatypeProperty ;
+    rdfs:label "priority"@en ;
+    rdfs:domain :Task ;
+    rdfs:range xsd:integer .
+
+:proj2 a :Project ;
+    rdfs:label "Project Beta"@en ;
+    :budget 250000.00 ;
+    :hasDocument :doc3 ;
+    :hasPart :task2 ;
+    :identifier "PRJ-002" .
+
+:relatedTo a owl:ObjectProperty ;
+    rdfs:label "related to"@en .
+
+:res2 a :HardwareResource ;
+    rdfs:label "Server Cluster"@en ;
+    :cost 50000.00 ;
+    :identifier "RES-002" ;
+    :managedBy :org2 .
+
+:role2 a :TechnicalRole ;
+    rdfs:label "Technical Role"@en ;
+    :identifier "ROL-002" .
+
+:role3 a :InterpersonalRole ;
+    rdfs:label "Interpersonal Role"@en ;
+    :identifier "ROL-003" .
+
+:status a owl:DatatypeProperty ;
+    rdfs:label "status"@en ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
+
+:subWorkflowOf a owl:ObjectProperty ;
+    rdfs:label "subworkflow of"@en ;
+    rdfs:domain :SubWorkflow ;
+    rdfs:range :Workflow .
+
+:subwf1 a :SubWorkflow ;
+    rdfs:label "Subworkflow A"@en ;
+    :identifier "SWF-001" ;
+    :subWorkflowOf :workflow1 .
+
+:timezone a owl:DatatypeProperty ;
+    rdfs:label "timezone"@en ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string .
+
+:title a owl:DatatypeProperty ;
+    rdfs:label "title"@en ;
+    rdfs:domain :Document ;
+    rdfs:range xsd:string .
+
+:usesResource a owl:ObjectProperty ;
+    rdfs:label "uses resource"@en ;
+    owl:inverseOf :hasResource .
+
+:valueNumber a owl:DatatypeProperty ;
+    rdfs:label "value number"@en ;
+    rdfs:domain :Value ;
+    rdfs:range xsd:decimal .
+
+:valueString a owl:DatatypeProperty ;
+    rdfs:label "value string"@en ;
+    rdfs:domain :Value ;
+    rdfs:range xsd:string .
+
+:version a owl:DatatypeProperty ;
+    rdfs:label "version"@en ;
+    rdfs:domain :Document ;
+    rdfs:range xsd:string .
+
+:year1 a :Year ;
+    rdfs:label "Year 1"@en ;
+    :identifier "Y-001" .
+
+:AcademicOrganization a owl:Class ;
+    rdfs:label "Academic Organization"@en ;
+    rdfs:subClassOf :Organization .
+
+:AccessRule a owl:Class ;
+    rdfs:label "Access Rule"@en ;
+    rdfs:subClassOf :Rule .
+
+:ApprovalEvent a owl:Class ;
+    rdfs:label "Approval Event"@en ;
+    rdfs:subClassOf :LifecycleEvent .
+
+:BusinessProcess a owl:Class ;
+    rdfs:label "Business Process"@en ;
+    rdfs:subClassOf :Entity .
+
+:Collection a owl:Class ;
+    rdfs:label "Collection"@en ;
+    rdfs:subClassOf :Entity .
+
+:Component a owl:Class ;
+    rdfs:label "Component"@en ;
+    rdfs:subClassOf :Entity .
+
+:CorporateOrganization a owl:Class ;
+    rdfs:label "Corporate Organization"@en ;
+    rdfs:subClassOf :Organization .
+
+:CreationEvent a owl:Class ;
+    rdfs:label "Creation Event"@en ;
+    rdfs:subClassOf :LifecycleEvent .
+
+:Customer a owl:Class ;
+    rdfs:label "Customer"@en ;
+    rdfs:subClassOf :Person .
+
+:Day a owl:Class ;
+    rdfs:label "Day"@en ;
+    rdfs:subClassOf :CalendarPeriod .
+
+:DecisionRecord a owl:Class ;
+    rdfs:label "Decision Record"@en ;
+    rdfs:subClassOf :Entity .
+
+:DraftDocument a owl:Class ;
+    rdfs:label "Draft Document"@en ;
+    rdfs:subClassOf :Document .
+
+:Employee a owl:Class ;
+    rdfs:label "Employee"@en ;
+    rdfs:subClassOf :Person .
+
+:FinalDocument a owl:Class ;
+    rdfs:label "Final Document"@en ;
+    rdfs:subClassOf :Document .
+
+:FinancialMeasure a owl:Class ;
+    rdfs:label "Financial Measure"@en ;
+    rdfs:subClassOf :Measure .
+
+:GovernmentOrganization a owl:Class ;
+    rdfs:label "Government Organization"@en ;
+    rdfs:subClassOf :Organization .
+
+:HardwareResource a owl:Class ;
+    rdfs:label "Hardware Resource"@en ;
+    rdfs:subClassOf :Resource .
+
+:InterpersonalRole a owl:Class ;
+    rdfs:label "Interpersonal Role"@en ;
+    rdfs:subClassOf :Role .
+
+:KPI a owl:Class ;
+    rdfs:label "KPI"@en ;
+    rdfs:subClassOf :Metric .
+
+:Manager a owl:Class ;
+    rdfs:label "Manager"@en ;
+    rdfs:subClassOf :LeadershipRole .
+
+:Month a owl:Class ;
+    rdfs:label "Month"@en ;
+    rdfs:subClassOf :CalendarPeriod .
+
+:NonProfitOrganization a owl:Class ;
+    rdfs:label "Non-Profit Organization"@en ;
+    rdfs:subClassOf :Organization .
+
+:Region a owl:Class ;
+    rdfs:label "Region"@en ;
+    rdfs:subClassOf :SpatialLocation .
+
+:Researcher a owl:Class ;
+    rdfs:label "Researcher"@en ;
+    rdfs:subClassOf :Person .
+
+:SecurityPolicy a owl:Class ;
+    rdfs:label "Security Policy"@en ;
+    rdfs:subClassOf :Policy .
+
+:Site a owl:Class ;
+    rdfs:label "Site"@en ;
+    rdfs:subClassOf :SpatialLocation .
+
+:SoftwareResource a owl:Class ;
+    rdfs:label "Software Resource"@en ;
+    rdfs:subClassOf :Resource .
+
+:Student a owl:Class ;
+    rdfs:label "Student"@en ;
+    rdfs:subClassOf :Person .
+
+:System a owl:Class ;
+    rdfs:label "System"@en ;
+    rdfs:subClassOf :Entity .
+
+:TechnicalDocument a owl:Class ;
+    rdfs:label "Technical Document"@en ;
+    rdfs:subClassOf :Document .
+
+:TechnicalRole a owl:Class ;
+    rdfs:label "Technical Role"@en ;
+    rdfs:subClassOf :Role .
+
+:ValidationRule a owl:Class ;
+    rdfs:label "Validation Rule"@en ;
+    rdfs:subClassOf :Rule .
+
+:Year a owl:Class ;
+    rdfs:label "Year"@en ;
+    rdfs:subClassOf :CalendarPeriod .
+
+:component1 a :Component ;
+    rdfs:label "Core Component"@en ;
+    :identifier "CMP-001" .
+
+:doc2 a :FinalDocument ;
+    rdfs:label "Final Requirements"@en ;
+    :approvedBy :person1 ;
+    :identifier "DOC-002" ;
+    :title "Final Requirements" ;
+    :version "1.0" .
+
+:doc3 a :TechnicalDocument ;
+    rdfs:label "Technical Specification"@en ;
+    :identifier "DOC-003" ;
+    :title "Technical Specification" ;
+    :version "1.0" .
+
+:hasDocument a owl:ObjectProperty ;
+    rdfs:label "has document"@en ;
+    rdfs:domain :Entity ;
+    rdfs:range :Document .
+
+:hasLocation a owl:ObjectProperty ;
+    rdfs:label "has location"@en ;
+    rdfs:domain :Entity ;
+    rdfs:range :Location .
+
+:hasPart a owl:ObjectProperty ;
+    rdfs:label "has part"@en .
+
+:hasPeriod a owl:ObjectProperty ;
+    rdfs:label "has period"@en ;
+    rdfs:domain :Event ;
+    rdfs:range :CalendarPeriod .
+
+:hasResource a owl:ObjectProperty ;
+    rdfs:label "has resource"@en ;
+    rdfs:domain :Process ;
+    rdfs:range :Resource .
+
+:loc1 a :Site ;
+    rdfs:label "Main Campus"@en ;
+    :identifier "LOC-001" ;
+    :timezone "UTC" .
+
+:metric1 a :KPI ;
+    rdfs:label "On-time Delivery"@en ;
+    :amount 95.5 ;
+    :identifier "MET-001" .
+
+:org2 a :CorporateOrganization ;
+    rdfs:label "Example Corporate Organization"@en ;
+    :hasPart :system1 ;
+    :hasPolicy :policy1 ;
+    :identifier "ORG-002" ;
+    :status "active" .
+
+:policy1 a :SecurityPolicy ;
+    rdfs:label "Default Security Policy"@en ;
+    :enforces :rule1,
+        :rule2 ;
+    :identifier "POL-001" .
+
+:proj1 a :Project ;
+    rdfs:label "Project Alpha"@en ;
+    :budget 100000.00 ;
+    :hasDocument :doc1 ;
+    :hasMetric :metric1 ;
+    :hasTask :task1 ;
+    :identifier "PRJ-001" .
+
+:res1 a :SoftwareResource ;
+    rdfs:label "Workflow Engine"@en ;
+    :cost 1200.50 ;
+    :identifier "RES-001" ;
+    :managedBy :person1 .
+
+:role1 a :Manager ;
+    rdfs:label "Manager Role"@en ;
+    :identifier "ROL-001" .
+
+:rule1 a :AccessRule ;
+    rdfs:label "Access Rule A"@en ;
+    :appliesTo :doc1 ;
+    :identifier "RUL-001" .
+
+:rule2 a :ValidationRule ;
+    rdfs:label "Validation Rule B"@en ;
+    :identifier "RUL-002" .
+
+:system1 a :System ;
+    rdfs:label "Enterprise System"@en ;
+    :hasPart :component1 ;
+    :identifier "SYS-001" .
+
+:task2 a :Task ;
+    rdfs:label "Task Two"@en ;
+    :dependsOn :task1 ;
+    :identifier "TSK-002" ;
+    :priority 2 .
+
+:workflow1 a :Workflow ;
+    rdfs:label "Sample Workflow"@en ;
+    :hasStep :task1 ;
+    :identifier "WF-001" .
+
+:Event a owl:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:subClassOf :Entity .
+
+:LeadershipRole a owl:Class ;
+    rdfs:label "Leadership Role"@en ;
+    rdfs:subClassOf :Role .
+
+:PerformanceAttribute a owl:Class ;
+    rdfs:label "Performance Attribute"@en ;
+    rdfs:subClassOf :Entity .
+
+:SpatialLocation a owl:Class ;
+    rdfs:label "Spatial Location"@en ;
+    rdfs:subClassOf :Location .
+
+:SubWorkflow a owl:Class ;
+    rdfs:label "Subworkflow"@en ;
+    rdfs:subClassOf :Workflow .
+
+:UserGuide a owl:Class ;
+    rdfs:label "User Guide"@en ;
+    rdfs:subClassOf :Document .
+
+:Value a owl:Class ;
+    rdfs:label "Value"@en ;
+    rdfs:subClassOf :Entity .
+
+:day1 a :Day ;
+    rdfs:label "Day 1"@en ;
+    :identifier "DAY-001" .
+
+:identifier a owl:DatatypeProperty ;
+    rdfs:label "identifier"@en ;
+    rdfs:domain :Entity ;
+    rdfs:range xsd:string .
+
+:person1 a :Employee ;
+    rdfs:label "Alice Employee"@en ;
+    :hasLocation :loc1 ;
+    :hasRole :role1 ;
+    :identifier "P-001" ;
+    :name "Alice" .
+
+:Metric a owl:Class ;
+    rdfs:label "Metric"@en ;
+    rdfs:subClassOf :Measure .
+
+:Project a owl:Class ;
+    rdfs:label "Project"@en ;
+    rdfs:subClassOf :Entity .
+
+:ProjectPhase a owl:Class ;
+    rdfs:label "Project Phase"@en ;
+    rdfs:subClassOf :Entity .
+
+:doc1 a :DraftDocument ;
+    rdfs:label "Draft Requirements"@en ;
+    :identifier "DOC-001" ;
+    :title "Draft Requirements" ;
+    :version "0.1" .
+
+:task1 a :Task ;
+    rdfs:label "Task One"@en ;
+    :dependsOn :res1 ;
+    :identifier "TSK-001" ;
+    :priority 1 .
+
+:Location a owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:subClassOf :Entity .
+
+:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:subClassOf :Agent .
+
+:Role a owl:Class ;
+    rdfs:label "Role"@en ;
+    rdfs:subClassOf :Entity .
+
+:Task a owl:Class ;
+    rdfs:label "Task"@en ;
+    rdfs:subClassOf :Entity .
+
+:Workflow a owl:Class ;
+    rdfs:label "Workflow"@en ;
+    rdfs:subClassOf :Process .
+
+:CalendarPeriod a owl:Class ;
+    rdfs:label "Calendar Period"@en ;
+    rdfs:subClassOf :Entity .
+
+:Measure a owl:Class ;
+    rdfs:label "Measure"@en ;
+    rdfs:subClassOf :Entity .
+
+:Policy a owl:Class ;
+    rdfs:label "Policy"@en ;
+    rdfs:subClassOf :Document .
+
+:Rule a owl:Class ;
+    rdfs:label "Rule"@en ;
+    rdfs:subClassOf :Entity .
+
+:LifecycleEvent a owl:Class ;
+    rdfs:label "Lifecycle Event"@en ;
+    rdfs:subClassOf :Event .
+
+:Agent a owl:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:subClassOf :Entity .
+
+:Process a owl:Class ;
+    rdfs:label "Process"@en ;
+    rdfs:subClassOf :BusinessProcess .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:subClassOf :Agent .
+
+:Resource a owl:Class ;
+    rdfs:label "Resource"@en ;
+    rdfs:subClassOf :Entity .
+
+:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:subClassOf :Entity .
+
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en .
 
