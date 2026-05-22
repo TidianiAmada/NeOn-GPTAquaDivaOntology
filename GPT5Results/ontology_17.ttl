@@ -1,396 +1,372 @@
-@prefix aqd: <http://example.org/aquadiva#> .
+@prefix : <http://example.org/aquadiva#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/aquadiva> a owl:Ontology ;
-    rdfs:label "AquaDiva Ontology"@en ;
+    rdfs:label "AquaDiva ontology"@en ;
     rdfs:comment "Ontology for groundwater ecosystems, microbial ecology, hydrogeology, karst systems, and geochemistry."@en .
 
-aqd:Archaea a owl:Class ;
-    rdfs:label "Archaea"@en ;
-    rdfs:subClassOf aqd:Microbe .
+:Aquifer a owl:Class ;
+    rdfs:label "Aquifer"@en ;
+    rdfs:subClassOf :HydrogeologicalEntity .
 
-aqd:Bacterium a owl:Class ;
-    rdfs:label "Bacterium"@en ;
-    rdfs:subClassOf aqd:Microbe .
-
-aqd:BaseUnit a owl:Class ;
-    rdfs:label "Base Unit"@en ;
-    rdfs:comment "A fundamental unit in a unit system."@en ;
-    rdfs:subClassOf aqd:Unit .
-
-aqd:Biofilm a owl:Class ;
-    rdfs:label "Biofilm"@en ;
-    rdfs:subClassOf aqd:MicrobialCommunity .
-
-aqd:Cave a owl:Class ;
+:Cave a owl:Class ;
     rdfs:label "Cave"@en ;
-    rdfs:subClassOf aqd:KarstSystem .
+    rdfs:subClassOf :KarstFeature .
 
-aqd:ChemicalSpecies a owl:Class ;
-    rdfs:label "Chemical Species"@en ;
-    rdfs:subClassOf aqd:GeochemicalEntity .
+:ChemicalConcentration a owl:Class ;
+    rdfs:label "Chemical Concentration"@en ;
+    rdfs:subClassOf :GeochemicalEntity .
 
-aqd:CompositeUnit a owl:Class ;
-    rdfs:label "Composite Unit"@en ;
-    rdfs:comment "A unit composed of multiple units combined by multiplication or division."@en ;
-    rdfs:subClassOf aqd:Unit .
+:GroundwaterBody a owl:Class ;
+    rdfs:label "Groundwater Body"@en ;
+    rdfs:subClassOf :HydrogeologicalEntity .
 
-aqd:Conduit a owl:Class ;
-    rdfs:label "Conduit"@en ;
-    rdfs:subClassOf aqd:KarstSystem .
+:MeasurementShape a sh:NodeShape ;
+    sh:property [ sh:class :MeasuredValue ;
+            sh:minCount 0 ;
+            sh:path :hasValue ],
+        [ sh:class :Observation ;
+            sh:minCount 0 ;
+            sh:path :measurementFor ] ;
+    sh:targetClass :Measurement .
 
-aqd:DerivedUnit a owl:Class ;
-    rdfs:label "Derived Unit"@en ;
-    rdfs:comment "A unit derived from one or more base units."@en ;
-    rdfs:subClassOf aqd:Unit .
+:ObservationShape a sh:NodeShape ;
+    sh:property [ sh:class :Measurement ;
+            sh:minCount 0 ;
+            sh:path :hasMeasurement ],
+        [ sh:class :Entity ;
+            sh:minCount 0 ;
+            sh:path :ofEntity ] ;
+    sh:targetClass :Observation .
 
-aqd:Fungus a owl:Class ;
-    rdfs:label "Fungus"@en ;
-    rdfs:subClassOf aqd:Microbe .
+:RedoxCondition a owl:Class ;
+    rdfs:label "Redox Condition"@en ;
+    rdfs:subClassOf :GeochemicalEntity .
 
-aqd:GroundwaterHabitat a owl:Class ;
-    rdfs:label "Groundwater Habitat"@en ;
-    rdfs:subClassOf aqd:Habitat .
+:Sediment a owl:Class ;
+    rdfs:label "Sediment"@en ;
+    rdfs:subClassOf :EnvironmentalEntity .
 
-aqd:KarstAquifer a owl:Class ;
-    rdfs:label "Karst Aquifer"@en ;
-    rdfs:subClassOf aqd:Aquifer,
-        aqd:KarstSystem .
+:Sinkhole a owl:Class ;
+    rdfs:label "Sinkhole"@en ;
+    rdfs:subClassOf :KarstFeature .
 
-aqd:KarstHabitat a owl:Class ;
-    rdfs:label "Karst Habitat"@en ;
-    rdfs:subClassOf aqd:Habitat .
-
-aqd:PrefixedUnit a owl:Class ;
-    rdfs:label "Prefixed Unit"@en ;
-    rdfs:comment "A unit modified by a prefix such as kilo- or milli-."@en ;
-    rdfs:subClassOf aqd:Unit .
-
-aqd:SedimentSample a owl:Class ;
-    rdfs:label "Sediment Sample"@en ;
-    rdfs:subClassOf aqd:GeochemicalEntity .
-
-aqd:Spring a owl:Class ;
+:Spring a owl:Class ;
     rdfs:label "Spring"@en ;
-    rdfs:subClassOf aqd:GroundwaterSystem .
+    rdfs:subClassOf :HydrogeologicalEntity .
 
-aqd:WaterSample a owl:Class ;
-    rdfs:label "Water Sample"@en ;
-    rdfs:subClassOf aqd:GeochemicalEntity .
-
-aqd:characteristicFor a owl:ObjectProperty ;
+:characteristicFor a owl:ObjectProperty ;
     rdfs:label "characteristicFor"@en ;
     rdfs:comment "Associates a characteristic with the entity it characterizes."@en ;
-    rdfs:domain aqd:Characteristic ;
-    rdfs:range aqd:Entity .
+    rdfs:domain :Characteristic ;
+    rdfs:range :Entity .
 
-aqd:entityRelated a owl:ObjectProperty ;
+:containsMicrobialCommunity a owl:ObjectProperty ;
+    rdfs:label "containsMicrobialCommunity"@en ;
+    rdfs:comment "Indicates that a sample contains a microbial community."@en ;
+    rdfs:domain :WaterSample ;
+    rdfs:range :MicrobialCommunity .
+
+:containsMicroorganism a owl:ObjectProperty ;
+    rdfs:label "containsMicroorganism"@en ;
+    rdfs:comment "Indicates that a microbial community contains a microorganism."@en ;
+    rdfs:domain :MicrobialCommunity ;
+    rdfs:range :Microorganism .
+
+:entityRelated a owl:ObjectProperty ;
     rdfs:label "entityRelated"@en ;
-    rdfs:comment "Relates entities observed in different observations."@en ;
-    rdfs:domain aqd:Observation ;
-    rdfs:range aqd:Observation .
+    rdfs:comment "Relates observations involving entities in different contexts."@en ;
+    rdfs:domain :Observation ;
+    rdfs:range :Observation .
 
-aqd:hasContext a owl:ObjectProperty ;
-    rdfs:label "hasContext"@en ;
-    rdfs:comment "Links an observation to another observation providing context."@en ;
-    rdfs:domain aqd:Observation ;
-    rdfs:range aqd:Observation .
-
-aqd:hasContextualEntity a owl:ObjectProperty ;
-    rdfs:label "hasContextualEntity"@en ;
-    rdfs:comment "Links a context to the entity representing that context."@en ;
-    rdfs:domain aqd:Context ;
-    rdfs:range aqd:Entity .
-
-aqd:hasMeasurement a owl:ObjectProperty ;
-    rdfs:label "hasMeasurement"@en ;
-    rdfs:comment "Links an observation to one of its measurements."@en ;
-    rdfs:domain aqd:Observation ;
-    rdfs:range aqd:Measurement .
-
-aqd:hasObservedCharacteristic a owl:ObjectProperty ;
-    rdfs:label "hasObservedCharacteristic"@en ;
-    rdfs:comment "Links an observation to a characteristic that was observed."@en ;
-    rdfs:domain aqd:Observation ;
-    rdfs:range aqd:Characteristic .
-
-aqd:hasObservedRelation a owl:ObjectProperty ;
-    rdfs:label "hasObservedRelation"@en ;
-    rdfs:comment "Links an observation to an observed relation present in the observation."@en ;
-    rdfs:domain aqd:Observation ;
-    rdfs:range aqd:ObservedRelation .
-
-aqd:hasQualifier a owl:ObjectProperty ;
-    rdfs:label "hasQualifier"@en ;
-    rdfs:comment "Links a measured characteristic to a qualifier refining it."@en ;
-    rdfs:domain aqd:MeasuredCharacteristic ;
-    rdfs:range aqd:CharacteristicQualifier .
-
-aqd:hasUnit a owl:ObjectProperty ;
-    rdfs:label "hasUnit"@en ;
-    rdfs:comment "Links composite, derived, or prefixed units to the unit they are based on or composed from."@en ;
-    rdfs:domain aqd:Unit ;
-    rdfs:range aqd:Unit .
-
-aqd:inCollection a owl:ObjectProperty ;
-    rdfs:label "inCollection"@en ;
-    rdfs:comment "Inverse relation of hasMember."@en ;
-    rdfs:domain aqd:Observation ;
-    rdfs:range aqd:ObservationCollection ;
-    owl:inverseOf aqd:hasMember .
-
-aqd:measurementFor a owl:ObjectProperty ;
-    rdfs:label "measurementFor"@en ;
-    rdfs:comment "Links a measurement to the observation it belongs to."@en ;
-    rdfs:domain aqd:Measurement ;
-    rdfs:range aqd:Observation .
-
-aqd:measuresCharacteristic a owl:ObjectProperty ;
-    rdfs:label "measuresCharacteristic"@en ;
-    rdfs:comment "Links a measurement type to the characteristic it measures."@en ;
-    rdfs:domain aqd:MeasurementType ;
-    rdfs:range aqd:Characteristic .
-
-aqd:measuresEntity a owl:ObjectProperty ;
-    rdfs:label "measuresEntity"@en ;
-    rdfs:comment "Links a measurement type to the kind of entity it measures."@en ;
-    rdfs:domain aqd:MeasurementType ;
-    rdfs:range aqd:Entity .
-
-aqd:measuresUsingProtocol a owl:ObjectProperty ;
-    rdfs:label "measuresUsingProtocol"@en ;
-    rdfs:comment "Links a measurement type to a protocol used for measurement."@en ;
-    rdfs:domain aqd:MeasurementType ;
-    rdfs:range aqd:Protocol .
-
-aqd:measuresUsingStandard a owl:ObjectProperty ;
-    rdfs:label "measuresUsingStandard"@en ;
-    rdfs:comment "Links a measurement type to a standard used for measurement."@en ;
-    rdfs:domain aqd:MeasurementType ;
-    rdfs:range aqd:Standard .
-
-aqd:numericValue a owl:DatatypeProperty ;
-    rdfs:label "numericValue"@en ;
-    rdfs:comment "Numeric representation of a measured value."@en ;
-    rdfs:domain aqd:MeasuredValue ;
-    rdfs:range xsd:decimal .
-
-aqd:ofCharacteristic a owl:ObjectProperty ;
-    rdfs:label "ofCharacteristic"@en ;
-    rdfs:comment "Links a measurement to the characteristic it represents."@en ;
-    rdfs:domain aqd:Measurement ;
-    rdfs:range aqd:Characteristic .
-
-aqd:relatesTo a owl:ObjectProperty ;
-    rdfs:label "relatesTo"@en ;
-    rdfs:comment "General relation between entities or observations."@en ;
-    rdfs:domain aqd:Entity ;
-    rdfs:range aqd:Entity .
-
-aqd:resultOf a owl:ObjectProperty ;
-    rdfs:label "resultOf"@en ;
-    rdfs:comment "General inverse relation for outputs of measurements or observations."@en .
-
-aqd:textValue a owl:DatatypeProperty ;
-    rdfs:label "textValue"@en ;
-    rdfs:comment "Textual representation of a measured value when numeric values are not sufficient."@en ;
-    rdfs:domain aqd:MeasuredValue ;
-    rdfs:range xsd:string .
-
-aqd:unitLabel a owl:DatatypeProperty ;
-    rdfs:label "unitLabel"@en ;
-    rdfs:comment "Human-readable label for a unit."@en ;
-    rdfs:domain aqd:Unit ;
-    rdfs:range xsd:string .
-
-aqd:usesProtocol a owl:ObjectProperty ;
-    rdfs:label "usesProtocol"@en ;
-    rdfs:comment "Links a measurement to the protocol used."@en ;
-    rdfs:domain aqd:Measurement ;
-    rdfs:range aqd:Protocol .
-
-aqd:usesStandard a owl:ObjectProperty ;
-    rdfs:label "usesStandard"@en ;
-    rdfs:comment "Links a measurement to the standard used."@en ;
-    rdfs:domain aqd:Measurement ;
-    rdfs:range aqd:Standard .
-
-aqd:Aquifer a owl:Class ;
-    rdfs:label "Aquifer"@en ;
-    rdfs:subClassOf aqd:GroundwaterSystem .
-
-aqd:Context a owl:Class ;
-    rdfs:label "Context"@en ;
-    rdfs:comment "A contextual entity or condition for an observation."@en .
-
-aqd:EnvironmentalEntity a owl:Class ;
-    rdfs:label "Environmental Entity"@en ;
-    rdfs:subClassOf aqd:Entity .
-
-aqd:MeasuredCharacteristic a owl:Class ;
-    rdfs:label "Measured Characteristic"@en ;
-    rdfs:comment "A characteristic that is directly measured or inferred from a measurement."@en ;
-    rdfs:subClassOf aqd:Characteristic .
-
-aqd:MicrobialCommunity a owl:Class ;
-    rdfs:label "Microbial Community"@en ;
-    rdfs:subClassOf aqd:MicrobialEntity .
-
-aqd:ObservedRelation a owl:Class ;
-    rdfs:label "Observed Relation"@en ;
-    rdfs:comment "A relation observed between entities or observations."@en .
-
-aqd:hasBaseQualifier a owl:ObjectProperty ;
+:hasBaseQualifier a owl:ObjectProperty ;
     rdfs:label "hasBaseQualifier"@en ;
-    rdfs:comment "Links a composite characteristic qualifier to its base qualifier."@en ;
-    rdfs:domain aqd:CompositeCharacteristicQualifier ;
-    rdfs:range aqd:BaseCharacteristicQualifier .
+    rdfs:comment "Links a composite qualifier to its base qualifier."@en ;
+    rdfs:domain :CompositeCharacteristicQualifier ;
+    rdfs:range :BaseCharacteristicQualifier .
 
-aqd:hasNextQualifier a owl:ObjectProperty ;
+:hasContext a owl:ObjectProperty ;
+    rdfs:label "hasContext"@en ;
+    rdfs:comment "Identifies the observation that provides context for another observation."@en ;
+    rdfs:domain :Observation ;
+    rdfs:range :Observation .
+
+:hasGeochemicalFeature a owl:ObjectProperty ;
+    rdfs:label "hasGeochemicalFeature"@en ;
+    rdfs:comment "Links an environmental entity to a geochemical feature."@en ;
+    rdfs:domain :EnvironmentalEntity ;
+    rdfs:range :GeochemicalEntity .
+
+:hasHydrogeologicalFeature a owl:ObjectProperty ;
+    rdfs:label "hasHydrogeologicalFeature"@en ;
+    rdfs:comment "Links an environmental entity to a hydrogeological feature."@en ;
+    rdfs:domain :EnvironmentalEntity ;
+    rdfs:range :HydrogeologicalEntity .
+
+:hasMember a owl:ObjectProperty ;
+    rdfs:label "hasMember"@en ;
+    rdfs:comment "Relates an observation collection to its member observations."@en ;
+    rdfs:domain :ObservationCollection ;
+    rdfs:range :Observation .
+
+:hasNextQualifier a owl:ObjectProperty ;
     rdfs:label "hasNextQualifier"@en ;
-    rdfs:comment "Links a composite characteristic qualifier to the next qualifier in the chain."@en ;
-    rdfs:domain aqd:CompositeCharacteristicQualifier ;
-    rdfs:range aqd:CharacteristicQualifier .
+    rdfs:comment "Links a composite qualifier to the next qualifier in the chain."@en ;
+    rdfs:domain :CompositeCharacteristicQualifier ;
+    rdfs:range :CharacteristicQualifier .
 
-aqd:hasSourceUnit a owl:ObjectProperty ;
+:hasObservedRelation a owl:ObjectProperty ;
+    rdfs:label "hasObservedRelation"@en ;
+    rdfs:comment "Specifies an observed relation within an observation."@en ;
+    rdfs:domain :Observation ;
+    rdfs:range :ObservationRelation .
+
+:hasQualifier a owl:ObjectProperty ;
+    rdfs:label "hasQualifier"@en ;
+    rdfs:comment "Associates a measured characteristic with a qualifier."@en ;
+    rdfs:domain :MeasuredCharacteristic ;
+    rdfs:range :CharacteristicQualifier .
+
+:hasSample a owl:ObjectProperty ;
+    rdfs:label "hasSample"@en ;
+    rdfs:comment "Links an observation to a sample used in the observation."@en ;
+    rdfs:domain :Observation ;
+    rdfs:range :WaterSample .
+
+:hasSourceUnit a owl:ObjectProperty ;
     rdfs:label "hasSourceUnit"@en ;
-    rdfs:comment "Links a unit conversion to its source unit."@en ;
-    rdfs:domain aqd:UnitConversion ;
-    rdfs:range aqd:Unit .
+    rdfs:comment "Identifies the source unit in a unit conversion."@en ;
+    rdfs:domain :UnitConversion ;
+    rdfs:range :Unit .
 
-aqd:hasTargetUnit a owl:ObjectProperty ;
+:hasTargetUnit a owl:ObjectProperty ;
     rdfs:label "hasTargetUnit"@en ;
-    rdfs:comment "Links a unit conversion to its target unit."@en ;
-    rdfs:domain aqd:UnitConversion ;
-    rdfs:range aqd:Unit .
+    rdfs:comment "Identifies the target unit in a unit conversion."@en ;
+    rdfs:domain :UnitConversion ;
+    rdfs:range :Unit .
 
-aqd:hasValue a owl:ObjectProperty ;
+:hasUnit a owl:ObjectProperty ;
+    rdfs:label "hasUnit"@en ;
+    rdfs:comment "Associates a composite, derived, or prefixed unit with its underlying unit."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :CompositeUnit :DerivedUnit :PrefixedUnit ) ] ;
+    rdfs:range :BaseUnit .
+
+:measuresCharacteristic a owl:ObjectProperty ;
+    rdfs:label "measuresCharacteristic"@en ;
+    rdfs:comment "Indicates which characteristic a measurement type measures."@en ;
+    rdfs:domain :MeasurementType ;
+    rdfs:range :Characteristic .
+
+:measuresEntity a owl:ObjectProperty ;
+    rdfs:label "measuresEntity"@en ;
+    rdfs:comment "Indicates which entity a measurement type measures."@en ;
+    rdfs:domain :MeasurementType ;
+    rdfs:range :Entity .
+
+:measuresUsingProtocol a owl:ObjectProperty ;
+    rdfs:label "measuresUsingProtocol"@en ;
+    rdfs:comment "Indicates the protocol used by a measurement type."@en ;
+    rdfs:domain :MeasurementType ;
+    rdfs:range :Protocol .
+
+:measuresUsingStandard a owl:ObjectProperty ;
+    rdfs:label "measuresUsingStandard"@en ;
+    rdfs:comment "Indicates the standard used by a measurement type."@en ;
+    rdfs:domain :MeasurementType ;
+    rdfs:range :Standard .
+
+:observedIn a owl:ObjectProperty ;
+    rdfs:label "observedIn"@en ;
+    rdfs:comment "Links an observation to the environmental entity or setting in which it was made."@en ;
+    rdfs:domain :Observation ;
+    rdfs:range :EnvironmentalEntity .
+
+:ofCharacteristic a owl:ObjectProperty ;
+    rdfs:label "ofCharacteristic"@en ;
+    rdfs:comment "Indicates the characteristic represented by a measurement."@en ;
+    rdfs:domain :Measurement ;
+    rdfs:range :Characteristic .
+
+:unit1 a :BaseUnit ;
+    rdfs:label "Example base unit 1"@en .
+
+:usesProtocol a owl:ObjectProperty ;
+    rdfs:label "usesProtocol"@en ;
+    rdfs:comment "Indicates the protocol used in a measurement."@en ;
+    rdfs:domain :Measurement ;
+    rdfs:range :Protocol .
+
+:usesStandard a owl:ObjectProperty ;
+    rdfs:label "usesStandard"@en ;
+    rdfs:comment "Indicates the standard used in a measurement."@en ;
+    rdfs:domain :Measurement ;
+    rdfs:range :Standard .
+
+:BaseCharacteristicQualifier a owl:Class ;
+    rdfs:label "Base Characteristic Qualifier"@en ;
+    rdfs:subClassOf :CharacteristicQualifier .
+
+:CompositeUnit a owl:Class ;
+    rdfs:label "Composite Unit"@en ;
+    rdfs:subClassOf :Unit .
+
+:DerivedUnit a owl:Class ;
+    rdfs:label "Derived Unit"@en ;
+    rdfs:subClassOf :Unit .
+
+:MeasuredCharacteristic a owl:Class ;
+    rdfs:label "Measured Characteristic"@en ;
+    rdfs:subClassOf :Characteristic .
+
+:Microorganism a owl:Class ;
+    rdfs:label "Microorganism"@en ;
+    rdfs:subClassOf :MicrobialEntity .
+
+:ObservationCollection a owl:Class ;
+    rdfs:label "Observation Collection"@en ;
+    rdfs:subClassOf :Entity .
+
+:ObservationRelation a owl:Class ;
+    rdfs:label "Observed Relation"@en ;
+    rdfs:subClassOf :Entity .
+
+:PrefixedUnit a owl:Class ;
+    rdfs:label "Prefixed Unit"@en ;
+    rdfs:subClassOf :Unit .
+
+:hasMeasurement a owl:ObjectProperty ;
+    rdfs:label "hasMeasurement"@en ;
+    rdfs:comment "Links an observation to its associated measurement."@en ;
+    rdfs:domain :Observation ;
+    rdfs:range :Measurement .
+
+:hasValue a owl:ObjectProperty ;
     rdfs:label "hasValue"@en ;
     rdfs:comment "Links a measurement to its measured value."@en ;
-    rdfs:domain aqd:Measurement ;
-    rdfs:range aqd:MeasuredValue .
+    rdfs:domain :Measurement ;
+    rdfs:range :MeasuredValue .
 
-aqd:ofEntity a owl:ObjectProperty ;
+:meas1 a :Measurement ;
+    rdfs:label "Example measurement 1"@en ;
+    :hasValue :val1 ;
+    :measurementFor :obs1 ;
+    :usesProtocol :protocol1 ;
+    :usesStandard :standard1 .
+
+:measurementFor a owl:ObjectProperty ;
+    rdfs:label "measurementFor"@en ;
+    rdfs:comment "Indicates the observation that a measurement belongs to."@en ;
+    rdfs:domain :Measurement ;
+    rdfs:range :Observation .
+
+:obs1 a :Observation ;
+    rdfs:label "Example observation 1"@en ;
+    :hasContext :obs2 ;
+    :hasMeasurement :meas1 ;
+    :ofEntity :sample1 .
+
+:obs2 a :Observation ;
+    rdfs:label "Example observation 2"@en .
+
+:ofEntity a owl:ObjectProperty ;
     rdfs:label "ofEntity"@en ;
-    rdfs:comment "Links an observation to the entity being observed."@en ;
-    rdfs:domain aqd:Observation ;
-    rdfs:range aqd:Entity .
+    rdfs:comment "Indicates the entity observed in an observation."@en ;
+    rdfs:domain :Observation ;
+    rdfs:range :Entity .
 
-aqd:BaseCharacteristicQualifier a owl:Class ;
-    rdfs:label "Base Characteristic Qualifier"@en ;
-    rdfs:comment "The base component of a composite characteristic qualifier."@en ;
-    rdfs:subClassOf aqd:CharacteristicQualifier .
+:protocol1 a :Protocol ;
+    rdfs:label "Example protocol"@en .
 
-aqd:CompositeCharacteristicQualifier a owl:Class ;
+:sample1 a :WaterSample ;
+    rdfs:label "Example water sample 1"@en .
+
+:standard1 a :Standard ;
+    rdfs:label "Example standard"@en .
+
+:val1 a :MeasuredValue ;
+    rdfs:label "Example measured value 1"@en .
+
+:BaseUnit a owl:Class ;
+    rdfs:label "Base Unit"@en ;
+    rdfs:subClassOf :Unit .
+
+:CompositeCharacteristicQualifier a owl:Class ;
     rdfs:label "Composite Characteristic Qualifier"@en ;
-    rdfs:comment "A qualifier composed of one or more component qualifiers."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty aqd:hasBaseQualifier ;
-            owl:someValuesFrom aqd:BaseCharacteristicQualifier ],
-        [ a owl:Restriction ;
-            owl:onProperty aqd:hasNextQualifier ;
-            owl:someValuesFrom aqd:CharacteristicQualifier ],
-        aqd:CharacteristicQualifier .
+    rdfs:subClassOf :CharacteristicQualifier .
 
-aqd:GroundwaterSystem a owl:Class ;
-    rdfs:label "Groundwater System"@en ;
-    rdfs:subClassOf aqd:HydrogeologicalEntity .
+:KarstFeature a owl:Class ;
+    rdfs:label "Karst Feature"@en ;
+    rdfs:subClassOf :HydrogeologicalEntity .
 
-aqd:Habitat a owl:Class ;
-    rdfs:label "Habitat"@en ;
-    rdfs:subClassOf aqd:EnvironmentalEntity .
+:MicrobialCommunity a owl:Class ;
+    rdfs:label "Microbial Community"@en ;
+    rdfs:subClassOf :MicrobialEntity .
 
-aqd:HydrogeologicalEntity a owl:Class ;
-    rdfs:label "Hydrogeological Entity"@en ;
-    rdfs:subClassOf aqd:Entity .
-
-aqd:MicrobialEntity a owl:Class ;
+:MicrobialEntity a owl:Class ;
     rdfs:label "Microbial Entity"@en ;
-    rdfs:subClassOf aqd:Entity .
+    rdfs:subClassOf :Entity .
 
-aqd:ObservationCollection a owl:Class ;
-    rdfs:label "Observation Collection"@en ;
-    rdfs:comment "A collection of observations grouped for analysis or comparison."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty aqd:hasMember ;
-            owl:someValuesFrom aqd:Observation ],
-        aqd:Entity .
-
-aqd:Protocol a owl:Class ;
-    rdfs:label "Protocol"@en ;
-    rdfs:comment "A standardized procedure used for observation or measurement."@en .
-
-aqd:Standard a owl:Class ;
-    rdfs:label "Standard"@en ;
-    rdfs:comment "A standard used to normalize or interpret measurements."@en .
-
-aqd:UnitConversion a owl:Class ;
+:UnitConversion a owl:Class ;
     rdfs:label "Unit Conversion"@en ;
-    rdfs:comment "A conversion specification between a source and a target unit."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty aqd:hasSourceUnit ;
-            owl:someValuesFrom aqd:Unit ],
-        [ a owl:Restriction ;
-            owl:onProperty aqd:hasTargetUnit ;
-            owl:someValuesFrom aqd:Unit ] .
+    rdfs:subClassOf :Entity .
 
-aqd:hasMember a owl:ObjectProperty ;
-    rdfs:label "hasMember"@en ;
-    rdfs:comment "Links an observation collection to a contained observation."@en ;
-    rdfs:domain aqd:ObservationCollection ;
-    rdfs:range aqd:Observation .
-
-aqd:GeochemicalEntity a owl:Class ;
+:GeochemicalEntity a owl:Class ;
     rdfs:label "Geochemical Entity"@en ;
-    rdfs:subClassOf aqd:Entity .
+    rdfs:subClassOf :Entity .
 
-aqd:KarstSystem a owl:Class ;
-    rdfs:label "Karst System"@en ;
-    rdfs:subClassOf aqd:HydrogeologicalEntity .
-
-aqd:Microbe a owl:Class ;
-    rdfs:label "Microbe"@en ;
-    rdfs:subClassOf aqd:MicrobialEntity .
-
-aqd:MeasuredValue a owl:Class ;
+:MeasuredValue a owl:Class ;
     rdfs:label "Measured Value"@en ;
-    rdfs:comment "A numeric or symbolic value obtained from a measurement."@en .
+    rdfs:subClassOf :Entity .
 
-aqd:MeasurementType a owl:Class ;
-    rdfs:label "Measurement Type"@en ;
-    rdfs:comment "A type of measurement defining what is measured and how."@en .
+:Protocol a owl:Class ;
+    rdfs:label "Protocol"@en ;
+    rdfs:subClassOf :Entity .
 
-aqd:Characteristic a owl:Class ;
+:Standard a owl:Class ;
+    rdfs:label "Standard"@en ;
+    rdfs:subClassOf :Entity .
+
+:WaterSample a owl:Class ;
+    rdfs:label "Water Sample"@en ;
+    rdfs:subClassOf :Entity .
+
+:Characteristic a owl:Class ;
     rdfs:label "Characteristic"@en ;
-    rdfs:comment "A property or feature of an entity that can be observed or measured."@en ;
-    rdfs:subClassOf aqd:Entity .
+    rdfs:subClassOf :Entity .
 
-aqd:CharacteristicQualifier a owl:Class ;
+:CharacteristicQualifier a owl:Class ;
     rdfs:label "Characteristic Qualifier"@en ;
-    rdfs:comment "A qualifier that refines the interpretation of a characteristic."@en .
+    rdfs:subClassOf :Entity .
 
-aqd:Measurement a owl:Class ;
-    rdfs:label "Measurement"@en ;
-    rdfs:comment "A quantified result associated with an observation."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty aqd:hasValue ;
-            owl:someValuesFrom aqd:MeasuredValue ] .
+:MeasurementType a owl:Class ;
+    rdfs:label "Measurement Type"@en ;
+    rdfs:subClassOf :Entity .
 
-aqd:Unit a owl:Class ;
+:EnvironmentalEntity a owl:Class ;
+    rdfs:label "Environmental Entity"@en ;
+    rdfs:subClassOf :Entity .
+
+:HydrogeologicalEntity a owl:Class ;
+    rdfs:label "Hydrogeological Entity"@en ;
+    rdfs:subClassOf :EnvironmentalEntity .
+
+:Unit a owl:Class ;
     rdfs:label "Unit"@en ;
-    rdfs:comment "A unit of measurement."@en .
+    rdfs:subClassOf :Entity .
 
-aqd:Observation a owl:Class ;
+:Measurement a owl:Class ;
+    rdfs:label "Measurement"@en ;
+    rdfs:subClassOf :Entity .
+
+:Observation a owl:Class ;
     rdfs:label "Observation"@en ;
-    rdfs:comment "An observation of one or more entities in a particular context."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty aqd:ofEntity ;
-            owl:someValuesFrom aqd:Entity ],
-        aqd:Entity .
+    rdfs:subClassOf :Entity .
 
-aqd:Entity a owl:Class ;
-    rdfs:label "Entity"@en ;
-    rdfs:comment "Any domain entity that can be observed or measured."@en .
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en .
 

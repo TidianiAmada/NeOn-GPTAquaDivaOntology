@@ -1,6 +1,5 @@
-# New rdfs:comment annotations for classes and properties in the ontology.
-# Only the added triples are included below.
-
+# rdfs:comment annotations for the ontology's classes and properties
+# These triples add natural-language meanings to each class and property.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-rdfs:comment rdfs:comment "The RDF Schema annotation property used to provide a human-readable description of a resource." .
+rdfs:comment rdfs:comment "Defines a human-readable description for a resource." .

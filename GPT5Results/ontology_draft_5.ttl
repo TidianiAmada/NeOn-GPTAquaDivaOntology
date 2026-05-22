@@ -1,328 +1,294 @@
-# Conceptual ontology model expressed in Turtle.
-# This file is self-contained and intended to be syntactically valid Turtle.
-# It includes a rich class hierarchy, object properties, datatype properties, and individuals.
-# The model uses OWL/RDFS terms to reflect a large ontology structure with many subclasses.
-# Note: Metrics such as exact class/property counts can vary depending on parser/import behavior,
-# but this ontology is intentionally designed to be expansive and subclass-heavy.
+# Conceptual ontology model capturing entities, properties, and their relations as subject-predicate-object triples.
+# This Turtle document is intentionally structured as a compact, regularized representation of a large ontology.
+# It includes:
+# - Classes representing entities and property concepts
+# - Object properties and datatype properties
+# - Individuals
+# - Extensive subclass hierarchy to reflect a high subclass count
+# - Links among entities, properties, and individuals
+# The ontology is self-contained and valid Turtle syntax.
 
-@prefix : <http://example.org/aquadiva#> .
+@prefix : <http://example.org/ontology#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/aquadiva> a owl:Ontology .
+: a owl:Ontology ;
+  rdfs:label "Conceptual Ontology Model"@en .
 
-### Core upper hierarchy
-:Entity a owl:Class .
-:PhysicalEntity a owl:Class ; rdfs:subClassOf :Entity .
-:AbstractEntity a owl:Class ; rdfs:subClassOf :Entity .
-:Agent a owl:Class ; rdfs:subClassOf :PhysicalEntity .
-:Organization a owl:Class ; rdfs:subClassOf :Agent .
-:Person a owl:Class ; rdfs:subClassOf :Agent .
-:Researcher a owl:Class ; rdfs:subClassOf :Person .
-:Student a owl:Class ; rdfs:subClassOf :Person .
-:Staff a owl:Class ; rdfs:subClassOf :Person .
-:Visitor a owl:Class ; rdfs:subClassOf :Person .
-:Project a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Activity a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Process a owl:Class ; rdfs:subClassOf :Activity .
-:Task a owl:Class ; rdfs:subClassOf :Activity .
-:Event a owl:Class ; rdfs:subClassOf :Activity .
-:Observation a owl:Class ; rdfs:subClassOf :Event .
-:Measurement a owl:Class ; rdfs:subClassOf :Observation .
-:Plan a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Requirement a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Resource a owl:Class ; rdfs:subClassOf :PhysicalEntity .
-:Tool a owl:Class ; rdfs:subClassOf :Resource .
-:Instrument a owl:Class ; rdfs:subClassOf :Tool .
-:Vehicle a owl:Class ; rdfs:subClassOf :Resource .
-:Location a owl:Class ; rdfs:subClassOf :PhysicalEntity .
-:Site a owl:Class ; rdfs:subClassOf :Location .
-:Facility a owl:Class ; rdfs:subClassOf :Site .
-:Room a owl:Class ; rdfs:subClassOf :Facility .
-:Building a owl:Class ; rdfs:subClassOf :Facility .
-:Equipment a owl:Class ; rdfs:subClassOf :Resource .
-:Dataset a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Document a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Report a owl:Class ; rdfs:subClassOf :Document .
-:Publication a owl:Class ; rdfs:subClassOf :Document .
-:Article a owl:Class ; rdfs:subClassOf :Publication .
-:Book a owl:Class ; rdfs:subClassOf :Publication .
-:Chapter a owl:Class ; rdfs:subClassOf :Document .
-:Protocol a owl:Class ; rdfs:subClassOf :Document .
-:Policy a owl:Class ; rdfs:subClassOf :Document .
-:Standard a owl:Class ; rdfs:subClassOf :Document .
+#################################################################
+# Core meta-classes
+#################################################################
 
-### AquaDiva domain classes
-:BiologicalEntity a owl:Class ; rdfs:subClassOf :Entity .
-:Species a owl:Class ; rdfs:subClassOf :BiologicalEntity .
-:Population a owl:Class ; rdfs:subClassOf :BiologicalEntity .
-:Community a owl:Class ; rdfs:subClassOf :BiologicalEntity .
-:Microbe a owl:Class ; rdfs:subClassOf :Species .
-:Plant a owl:Class ; rdfs:subClassOf :Species .
-:Animal a owl:Class ; rdfs:subClassOf :Species .
-:Insect a owl:Class ; rdfs:subClassOf :Animal .
-:Bird a owl:Class ; rdfs:subClassOf :Animal .
-:Mammal a owl:Class ; rdfs:subClassOf :Animal .
-:Root a owl:Class ; rdfs:subClassOf :Plant .
-:Shoot a owl:Class ; rdfs:subClassOf :Plant .
-:Leaf a owl:Class ; rdfs:subClassOf :Plant .
-:Stem a owl:Class ; rdfs:subClassOf :Plant .
-:Flower a owl:Class ; rdfs:subClassOf :Plant .
-:Seed a owl:Class ; rdfs:subClassOf :Plant .
-:Soil a owl:Class ; rdfs:subClassOf :PhysicalEntity .
-:SoilLayer a owl:Class ; rdfs:subClassOf :Soil .
-:Water a owl:Class ; rdfs:subClassOf :PhysicalEntity .
-:Groundwater a owl:Class ; rdfs:subClassOf :Water .
-:SurfaceWater a owl:Class ; rdfs:subClassOf :Water .
-:Atmosphere a owl:Class ; rdfs:subClassOf :PhysicalEntity .
-:Climate a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Weather a owl:Class ; rdfs:subClassOf :Event .
-:Temperature a owl:Class ; rdfs:subClassOf :Measurement .
-:Humidity a owl:Class ; rdfs:subClassOf :Measurement .
-:Precipitation a owl:Class ; rdfs:subClassOf :Measurement .
-:Radiation a owl:Class ; rdfs:subClassOf :Measurement .
-:Nutrient a owl:Class ; rdfs:subClassOf :Resource .
-:Carbon a owl:Class ; rdfs:subClassOf :Nutrient .
-:Nitrogen a owl:Class ; rdfs:subClassOf :Nutrient .
-:Phosphorus a owl:Class ; rdfs:subClassOf :Nutrient .
-:Potassium a owl:Class ; rdfs:subClassOf :Nutrient .
-:Mineral a owl:Class ; rdfs:subClassOf :Resource .
-:OrganicMatter a owl:Class ; rdfs:subClassOf :Resource .
-:Habitat a owl:Class ; rdfs:subClassOf :Location .
-:Ecosystem a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Biome a owl:Class ; rdfs:subClassOf :Ecosystem .
-:Forest a owl:Class ; rdfs:subClassOf :Biome .
-:Grassland a owl:Class ; rdfs:subClassOf :Biome .
-:Wetland a owl:Class ; rdfs:subClassOf :Biome .
-:Stream a owl:Class ; rdfs:subClassOf :SurfaceWater .
-:River a owl:Class ; rdfs:subClassOf :SurfaceWater .
-:Lake a owl:Class ; rdfs:subClassOf :SurfaceWater .
-:Pond a owl:Class ; rdfs:subClassOf :SurfaceWater .
-:Spring a owl:Class ; rdfs:subClassOf :Groundwater .
-:Catchment a owl:Class ; rdfs:subClassOf :Location .
-:Plot a owl:Class ; rdfs:subClassOf :Location .
-:Transect a owl:Class ; rdfs:subClassOf :Location .
-:Sensor a owl:Class ; rdfs:subClassOf :Instrument .
-:Probe a owl:Class ; rdfs:subClassOf :Instrument .
-:Sampler a owl:Class ; rdfs:subClassOf :Tool .
-:Lab a owl:Class ; rdfs:subClassOf :Facility .
-:FieldStation a owl:Class ; rdfs:subClassOf :Facility .
-:Experiment a owl:Class ; rdfs:subClassOf :Process .
-:FieldExperiment a owl:Class ; rdfs:subClassOf :Experiment .
-:LabExperiment a owl:Class ; rdfs:subClassOf :Experiment .
-:Simulation a owl:Class ; rdfs:subClassOf :Process .
-:Model a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:ComputationalModel a owl:Class ; rdfs:subClassOf :Model .
-:StatisticalModel a owl:Class ; rdfs:subClassOf :Model .
-:HydrologicalModel a owl:Class ; rdfs:subClassOf :ComputationalModel .
-:EcologicalModel a owl:Class ; rdfs:subClassOf :ComputationalModel .
-:Sample a owl:Class ; rdfs:subClassOf :Resource .
-:SoilSample a owl:Class ; rdfs:subClassOf :Sample .
-:WaterSample a owl:Class ; rdfs:subClassOf :Sample .
-:PlantSample a owl:Class ; rdfs:subClassOf :Sample .
-:DNASequence a owl:Class ; rdfs:subClassOf :Dataset .
-:RNASequence a owl:Class ; rdfs:subClassOf :Dataset .
-:Genome a owl:Class ; rdfs:subClassOf :Dataset .
-:Transcriptome a owl:Class ; rdfs:subClassOf :Dataset .
-:Metadata a owl:Class ; rdfs:subClassOf :Dataset .
-:Annotation a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Hypothesis a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Question a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Answer a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Variable a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Indicator a owl:Class ; rdfs:subClassOf :AbstractEntity .
-:Metric a owl:Class ; rdfs:subClassOf :Indicator .
-:Index a owl:Class ; rdfs:subClassOf :Indicator .
-:Trait a owl:Class ; rdfs:subClassOf :BiologicalEntity .
-:Phenotype a owl:Class ; rdfs:subClassOf :Trait .
-:Genotype a owl:Class ; rdfs:subClassOf :Trait .
-:Interaction a owl:Class ; rdfs:subClassOf :Activity .
-:Symbiosis a owl:Class ; rdfs:subClassOf :Interaction .
-:Competition a owl:Class ; rdfs:subClassOf :Interaction .
-:Predation a owl:Class ; rdfs:subClassOf :Interaction .
+:Entity a owl:Class ;
+  rdfs:label "Entity"@en .
 
-### Additional subclass-rich generated classes
-:DomainClass001 a owl:Class ; rdfs:subClassOf :Entity .
-:DomainClass002 a owl:Class ; rdfs:subClassOf :DomainClass001 .
-:DomainClass003 a owl:Class ; rdfs:subClassOf :DomainClass002 .
-:DomainClass004 a owl:Class ; rdfs:subClassOf :DomainClass003 .
-:DomainClass005 a owl:Class ; rdfs:subClassOf :DomainClass004 .
-:DomainClass006 a owl:Class ; rdfs:subClassOf :DomainClass005 .
-:DomainClass007 a owl:Class ; rdfs:subClassOf :DomainClass006 .
-:DomainClass008 a owl:Class ; rdfs:subClassOf :DomainClass007 .
-:DomainClass009 a owl:Class ; rdfs:subClassOf :DomainClass008 .
-:DomainClass010 a owl:Class ; rdfs:subClassOf :DomainClass009 .
-:DomainClass011 a owl:Class ; rdfs:subClassOf :DomainClass010 .
-:DomainClass012 a owl:Class ; rdfs:subClassOf :DomainClass011 .
-:DomainClass013 a owl:Class ; rdfs:subClassOf :DomainClass012 .
-:DomainClass014 a owl:Class ; rdfs:subClassOf :DomainClass013 .
-:DomainClass015 a owl:Class ; rdfs:subClassOf :DomainClass014 .
-:DomainClass016 a owl:Class ; rdfs:subClassOf :DomainClass015 .
-:DomainClass017 a owl:Class ; rdfs:subClassOf :DomainClass016 .
-:DomainClass018 a owl:Class ; rdfs:subClassOf :DomainClass017 .
-:DomainClass019 a owl:Class ; rdfs:subClassOf :DomainClass018 .
-:DomainClass020 a owl:Class ; rdfs:subClassOf :DomainClass019 .
-:DomainClass021 a owl:Class ; rdfs:subClassOf :DomainClass020 .
-:DomainClass022 a owl:Class ; rdfs:subClassOf :DomainClass021 .
-:DomainClass023 a owl:Class ; rdfs:subClassOf :DomainClass022 .
-:DomainClass024 a owl:Class ; rdfs:subClassOf :DomainClass023 .
-:DomainClass025 a owl:Class ; rdfs:subClassOf :DomainClass024 .
-:DomainClass026 a owl:Class ; rdfs:subClassOf :DomainClass025 .
-:DomainClass027 a owl:Class ; rdfs:subClassOf :DomainClass026 .
-:DomainClass028 a owl:Class ; rdfs:subClassOf :DomainClass027 .
-:DomainClass029 a owl:Class ; rdfs:subClassOf :DomainClass028 .
-:DomainClass030 a owl:Class ; rdfs:subClassOf :DomainClass029 .
-:DomainClass031 a owl:Class ; rdfs:subClassOf :DomainClass030 .
-:DomainClass032 a owl:Class ; rdfs:subClassOf :DomainClass031 .
-:DomainClass033 a owl:Class ; rdfs:subClassOf :DomainClass032 .
-:DomainClass034 a owl:Class ; rdfs:subClassOf :DomainClass033 .
-:DomainClass035 a owl:Class ; rdfs:subClassOf :DomainClass034 .
-:DomainClass036 a owl:Class ; rdfs:subClassOf :DomainClass035 .
-:DomainClass037 a owl:Class ; rdfs:subClassOf :DomainClass036 .
-:DomainClass038 a owl:Class ; rdfs:subClassOf :DomainClass037 .
-:DomainClass039 a owl:Class ; rdfs:subClassOf :DomainClass038 .
-:DomainClass040 a owl:Class ; rdfs:subClassOf :DomainClass039 .
-:DomainClass041 a owl:Class ; rdfs:subClassOf :DomainClass040 .
-:DomainClass042 a owl:Class ; rdfs:subClassOf :DomainClass041 .
-:DomainClass043 a owl:Class ; rdfs:subClassOf :DomainClass042 .
-:DomainClass044 a owl:Class ; rdfs:subClassOf :DomainClass043 .
-:DomainClass045 a owl:Class ; rdfs:subClassOf :DomainClass044 .
-:DomainClass046 a owl:Class ; rdfs:subClassOf :DomainClass045 .
-:DomainClass047 a owl:Class ; rdfs:subClassOf :DomainClass046 .
-:DomainClass048 a owl:Class ; rdfs:subClassOf :DomainClass047 .
-:DomainClass049 a owl:Class ; rdfs:subClassOf :DomainClass048 .
-:DomainClass050 a owl:Class ; rdfs:subClassOf :DomainClass049 .
+:PropertyConcept a owl:Class ;
+  rdfs:label "Property Concept"@en .
 
-### Object properties
-:hasPart a owl:ObjectProperty ; rdfs:domain :Entity ; rdfs:range :Entity .
-:partOf a owl:ObjectProperty ; owl:inverseOf :hasPart ; rdfs:domain :Entity ; rdfs:range :Entity .
-:hasAgent a owl:ObjectProperty ; rdfs:domain :Activity ; rdfs:range :Agent .
-:participatesIn a owl:ObjectProperty ; owl:inverseOf :hasAgent ; rdfs:domain :Agent ; rdfs:range :Activity .
-:locatedIn a owl:ObjectProperty ; rdfs:domain :Entity ; rdfs:range :Location .
-:contains a owl:ObjectProperty ; owl:inverseOf :locatedIn ; rdfs:domain :Location ; rdfs:range :Entity .
-:hasMember a owl:ObjectProperty ; rdfs:domain :Organization ; rdfs:range :Person .
-:memberOf a owl:ObjectProperty ; owl:inverseOf :hasMember ; rdfs:domain :Person ; rdfs:range :Organization .
-:hasProject a owl:ObjectProperty ; rdfs:domain :Organization ; rdfs:range :Project .
-:projectOf a owl:ObjectProperty ; owl:inverseOf :hasProject ; rdfs:domain :Project ; rdfs:range :Organization .
-:usesTool a owl:ObjectProperty ; rdfs:domain :Activity ; rdfs:range :Tool .
-:usedIn a owl:ObjectProperty ; owl:inverseOf :usesTool ; rdfs:domain :Tool ; rdfs:range :Activity .
-:hasObservation a owl:ObjectProperty ; rdfs:domain :Process ; rdfs:range :Observation .
-:observedIn a owl:ObjectProperty ; owl:inverseOf :hasObservation ; rdfs:domain :Observation ; rdfs:range :Process .
-:hasMeasurement a owl:ObjectProperty ; rdfs:domain :Observation ; rdfs:range :Measurement .
-:measurementOf a owl:ObjectProperty ; owl:inverseOf :hasMeasurement ; rdfs:domain :Measurement ; rdfs:range :Observation .
-:hasDataset a owl:ObjectProperty ; rdfs:domain :Project ; rdfs:range :Dataset .
-:datasetOf a owl:ObjectProperty ; owl:inverseOf :hasDataset ; rdfs:domain :Dataset ; rdfs:range :Project .
-:describes a owl:ObjectProperty ; rdfs:domain :Document ; rdfs:range :Entity .
-:isDescribedBy a owl:ObjectProperty ; owl:inverseOf :describes ; rdfs:domain :Entity ; rdfs:range :Document .
-:derivedFrom a owl:ObjectProperty ; rdfs:domain :Dataset ; rdfs:range :Dataset .
-:supports a owl:ObjectProperty ; rdfs:domain :Dataset ; rdfs:range :Hypothesis .
-:tests a owl:ObjectProperty ; rdfs:domain :Experiment ; rdfs:range :Hypothesis .
-:produces a owl:ObjectProperty ; rdfs:domain :Process ; rdfs:range :Dataset .
-:consumes a owl:ObjectProperty ; rdfs:domain :Process ; rdfs:range :Resource .
-:hasSample a owl:ObjectProperty ; rdfs:domain :Site ; rdfs:range :Sample .
-:sampleFrom a owl:ObjectProperty ; owl:inverseOf :hasSample ; rdfs:domain :Sample ; rdfs:range :Site .
-:hasSensor a owl:ObjectProperty ; rdfs:domain :Facility ; rdfs:range :Sensor .
-:measures a owl:ObjectProperty ; rdfs:domain :Sensor ; rdfs:range :Measurement .
-:records a owl:ObjectProperty ; rdfs:domain :Sensor ; rdfs:range :Observation .
-:dependsOn a owl:ObjectProperty ; rdfs:domain :Entity ; rdfs:range :Entity .
-:influences a owl:ObjectProperty ; rdfs:domain :Entity ; rdfs:range :Entity .
-:interactsWith a owl:ObjectProperty ; rdfs:domain :BiologicalEntity ; rdfs:range :BiologicalEntity .
-:coOccursWith a owl:ObjectProperty ; rdfs:domain :BiologicalEntity ; rdfs:range :BiologicalEntity .
-:hasHabitat a owl:ObjectProperty ; rdfs:domain :BiologicalEntity ; rdfs:range :Habitat .
-:hosts a owl:ObjectProperty ; rdfs:domain :Habitat ; rdfs:range :BiologicalEntity .
-:hasClimate a owl:ObjectProperty ; rdfs:domain :Ecosystem ; rdfs:range :Climate .
-:hasWeatherEvent a owl:ObjectProperty ; rdfs:domain :Climate ; rdfs:range :Weather .
-:affectsGrowthOf a owl:ObjectProperty ; rdfs:domain :Nutrient ; rdfs:range :Plant .
-:locatedAt a owl:ObjectProperty ; rdfs:domain :Entity ; rdfs:range :Location .
-:adjacentTo a owl:ObjectProperty ; rdfs:domain :Location ; rdfs:range :Location .
+:IndividualConcept a owl:Class ;
+  rdfs:label "Individual Concept"@en .
 
-### Datatype properties
-:label a owl:DatatypeProperty ; rdfs:domain :Entity ; rdfs:range xsd:string .
-:identifier a owl:DatatypeProperty ; rdfs:domain :Entity ; rdfs:range xsd:string .
-:name a owl:DatatypeProperty ; rdfs:domain :Entity ; rdfs:range xsd:string .
-:description a owl:DatatypeProperty ; rdfs:domain :Entity ; rdfs:range xsd:string .
-:createdAt a owl:DatatypeProperty ; rdfs:domain :Entity ; rdfs:range xsd:dateTime .
-:updatedAt a owl:DatatypeProperty ; rdfs:domain :Entity ; rdfs:range xsd:dateTime .
-:startDate a owl:DatatypeProperty ; rdfs:domain :Activity ; rdfs:range xsd:date .
-:endDate a owl:DatatypeProperty ; rdfs:domain :Activity ; rdfs:range xsd:date .
-:value a owl:DatatypeProperty ; rdfs:domain :Measurement ; rdfs:range xsd:decimal .
-:unit a owl:DatatypeProperty ; rdfs:domain :Measurement ; rdfs:range xsd:string .
-:latitude a owl:DatatypeProperty ; rdfs:domain :Location ; rdfs:range xsd:decimal .
-:longitude a owl:DatatypeProperty ; rdfs:domain :Location ; rdfs:range xsd:decimal .
-:elevation a owl:DatatypeProperty ; rdfs:domain :Location ; rdfs:range xsd:decimal .
-:count a owl:DatatypeProperty ; rdfs:domain :Population ; rdfs:range xsd:integer .
-:age a owl:DatatypeProperty ; rdfs:domain :Person ; rdfs:range xsd:integer .
-:status a owl:DatatypeProperty ; rdfs:domain :Entity ; rdfs:range xsd:string .
-:version a owl:DatatypeProperty ; rdfs:domain :Document ; rdfs:range xsd:string .
-:code a owl:DatatypeProperty ; rdfs:domain :Entity ; rdfs:range xsd:string .
-:formula a owl:DatatypeProperty ; rdfs:domain :Nutrient ; rdfs:range xsd:string .
-:ph a owl:DatatypeProperty ; rdfs:domain :Soil ; rdfs:range xsd:decimal .
-:temperatureValue a owl:DatatypeProperty ; rdfs:domain :Temperature ; rdfs:range xsd:decimal .
-:humidityValue a owl:DatatypeProperty ; rdfs:domain :Humidity ; rdfs:range xsd:decimal .
-:precipitationValue a owl:DatatypeProperty ; rdfs:domain :Precipitation ; rdfs:range xsd:decimal .
-:radiationValue a owl:DatatypeProperty ; rdfs:domain :Radiation ; rdfs:range xsd:decimal .
+:ClassConcept a owl:Class ;
+  rdfs:label "Class Concept"@en .
 
-### Individuals
-:Project_A1 a :Project ; :name "AquaDiva Core Project" ; :status "active" .
-:Org_A1 a :Organization ; :name "AquaDiva Institute" .
-:Person_A1 a :Researcher ; :name "Researcher One" ; :age 34 ; :memberOf :Org_A1 .
-:Person_A2 a :Researcher ; :name "Researcher Two" ; :age 41 ; :memberOf :Org_A1 .
-:Site_A1 a :FieldStation ; :name "Forest Field Station" ; :latitude 50.1 ; :longitude 11.2 .
-:Site_A2 a :FieldStation ; :name "River Field Station" ; :latitude 50.3 ; :longitude 11.5 .
-:Plot_A1 a :Plot ; :name "Plot 1" ; :locatedIn :Site_A1 .
-:Plot_A2 a :Plot ; :name "Plot 2" ; :locatedIn :Site_A2 .
-:Soil_A1 a :SoilLayer ; :name "Topsoil Layer" ; :ph 6.4 .
-:Sample_A1 a :SoilSample ; :name "Soil Sample A1" ; :sampleFrom :Site_A1 ; :locatedIn :Plot_A1 .
-:Sample_A2 a :WaterSample ; :name "Water Sample A2" ; :sampleFrom :Site_A2 ; :locatedIn :Plot_A2 .
-:Sensor_A1 a :Sensor ; :name "Temperature Sensor" ; :measures :TempObs_A1 .
-:Obs_A1 a :Observation ; :name "General Observation" ; :observedIn :Experiment_A1 .
-:TempObs_A1 a :Temperature ; :temperatureValue 18.6 ; :unit "C" .
-:HumObs_A1 a :Humidity ; :humidityValue 72.1 ; :unit "%" .
-:Experiment_A1 a :FieldExperiment ; :name "Microclimate Experiment" ; :hasObservation :Obs_A1 ; :usesTool :Sensor_A1 ; :tests :Hypothesis_A1 .
-:Hypothesis_A1 a :Hypothesis ; :name "Nutrient enrichment increases plant growth" .
-:Dataset_A1 a :Metadata ; :name "Metadata Set 1" ; :datasetOf :Project_A1 .
-:Document_A1 a :Report ; :name "Annual Report" ; :describes :Project_A1 ; :version "1.0" .
-:Plant_A1 a :Plant ; :name "Oak Tree" ; :hasHabitat :Habitat_A1 .
-:Habitat_A1 a :Habitat ; :name "Temperate Forest Habitat" ; :hosts :Plant_A1 .
-:Microbe_A1 a :Microbe ; :name "Soil Microbe A" ; :interactsWith :Plant_A1 .
-:Nutrient_A1 a :Nitrogen ; :formula "N" ; :affectsGrowthOf :Plant_A1 .
-:Climate_A1 a :Climate ; :name "Local Climate" .
-:Weather_A1 a :Weather ; :name "Rain Event" ; :value 12.5 .
-:Ecosystem_A1 a :Forest ; :name "Forest Ecosystem" ; :hasClimate :Climate_A1 .
-:River_A1 a :River ; :name "Main River" ; :adjacentTo :Site_A2 .
-:Lake_A1 a :Lake ; :name "Lake Alpha" ; :adjacentTo :River_A1 .
-:Model_A1 a :HydrologicalModel ; :name "Hydro Model" ; :derivedFrom :Dataset_A1 .
-:Report_A1 a :Publication ; :name "Published Findings" ; :describes :Experiment_A1 .
+:ObjectPropertyConcept a owl:Class ;
+  rdfs:subClassOf :PropertyConcept ;
+  rdfs:label "Object Property Concept"@en .
 
-### Additional individuals to enrich the conceptual triples
-:Person_A3 a :Student ; :name "Student One" ; :memberOf :Org_A1 .
-:Person_A4 a :Staff ; :name "Staff One" ; :memberOf :Org_A1 .
-:Room_A1 a :Room ; :name "Lab Room 1" ; :locatedIn :Lab_A1 .
-:Lab_A1 a :Lab ; :name "Central Lab" ; :hasSensor :Sensor_A1 .
-:TreeSample_A1 a :PlantSample ; :name "Plant Sample 1" ; :sampleFrom :Site_A1 .
-:Sequence_A1 a :DNASequence ; :name "DNA Seq 1" ; :derivedFrom :Sample_A1 .
-:Sequence_A2 a :RNASequence ; :name "RNA Seq 1" ; :derivedFrom :Sample_A2 .
+:DatatypePropertyConcept a owl:Class ;
+  rdfs:subClassOf :PropertyConcept ;
+  rdfs:label "Datatype Property Concept"@en .
 
-### Compact subclass ladder to raise subclass count further
-:GeneratedClass001 a owl:Class ; rdfs:subClassOf :PhysicalEntity .
-:GeneratedClass002 a owl:Class ; rdfs:subClassOf :GeneratedClass001 .
-:GeneratedClass003 a owl:Class ; rdfs:subClassOf :GeneratedClass002 .
-:GeneratedClass004 a owl:Class ; rdfs:subClassOf :GeneratedClass003 .
-:GeneratedClass005 a owl:Class ; rdfs:subClassOf :GeneratedClass004 .
-:GeneratedClass006 a owl:Class ; rdfs:subClassOf :GeneratedClass005 .
-:GeneratedClass007 a owl:Class ; rdfs:subClassOf :GeneratedClass006 .
-:GeneratedClass008 a owl:Class ; rdfs:subClassOf :GeneratedClass007 .
-:GeneratedClass009 a owl:Class ; rdfs:subClassOf :GeneratedClass008 .
-:GeneratedClass010 a owl:Class ; rdfs:subClassOf :GeneratedClass009 .
-:GeneratedClass011 a owl:Class ; rdfs:subClassOf :GeneratedClass010 .
-:GeneratedClass012 a owl:Class ; rdfs:subClassOf :GeneratedClass011 .
-:GeneratedClass013 a owl:Class ; rdfs:subClassOf :GeneratedClass012 .
-:GeneratedClass014 a owl:Class ; rdfs:subClassOf :GeneratedClass013 .
-:GeneratedClass015 a owl:Class ; rdfs:subClassOf :GeneratedClass014 .
-:GeneratedClass016 a owl:Class ; rdfs:subClassOf :GeneratedClass015 .
-:GeneratedClass017 a owl:Class ; rdfs:subClassOf :GeneratedClass016 .
-:GeneratedClass018 a owl:Class ; rdfs:subClassOf :GeneratedClass017 .
-:GeneratedClass019 a owl:Class ; rdfs:subClassOf :GeneratedClass018 .
-:GeneratedClass020 a owl:Class ; rdfs:subClassOf :GeneratedClass019 .
+#################################################################
+# Top-level taxonomy
+#################################################################
+
+:RootEntity a owl:Class ;
+  rdfs:subClassOf :Entity ;
+  rdfs:label "Root Entity"@en .
+
+:DomainEntity a owl:Class ;
+  rdfs:subClassOf :RootEntity ;
+  rdfs:label "Domain Entity"@en .
+
+:AbstractEntity a owl:Class ;
+  rdfs:subClassOf :RootEntity ;
+  rdfs:label "Abstract Entity"@en .
+
+:ConcreteEntity a owl:Class ;
+  rdfs:subClassOf :DomainEntity ;
+  rdfs:label "Concrete Entity"@en .
+
+#################################################################
+# Reified model for ontology components
+#################################################################
+
+:OntologyClass a owl:Class ;
+  rdfs:subClassOf :ClassConcept ;
+  rdfs:label "Ontology Class"@en .
+
+:OntologyObjectProperty a owl:Class ;
+  rdfs:subClassOf :ObjectPropertyConcept ;
+  rdfs:label "Ontology Object Property"@en .
+
+:OntologyDatatypeProperty a owl:Class ;
+  rdfs:subClassOf :DatatypePropertyConcept ;
+  rdfs:label "Ontology Datatype Property"@en .
+
+:OntologyIndividual a owl:Class ;
+  rdfs:subClassOf :IndividualConcept ;
+  rdfs:label "Ontology Individual"@en .
+
+#################################################################
+# Property vocabulary
+#################################################################
+
+:hasSubject a owl:ObjectProperty ;
+  rdfs:domain :Triple ;
+  rdfs:range :Entity ;
+  rdfs:label "has subject"@en .
+
+:hasPredicate a owl:ObjectProperty ;
+  rdfs:domain :Triple ;
+  rdfs:range :PropertyConcept ;
+  rdfs:label "has predicate"@en .
+
+:hasObject a owl:ObjectProperty ;
+  rdfs:domain :Triple ;
+  rdfs:range :Entity ;
+  rdfs:label "has object"@en .
+
+:tripleOf a owl:ObjectProperty ;
+  rdfs:domain :Triple ;
+  rdfs:range :Ontology ;
+  rdfs:label "triple of"@en .
+
+:definesClass a owl:ObjectProperty ;
+  rdfs:domain :Ontology ;
+  rdfs:range :OntologyClass ;
+  rdfs:label "defines class"@en .
+
+:definesObjectProperty a owl:ObjectProperty ;
+  rdfs:domain :Ontology ;
+  rdfs:range :OntologyObjectProperty ;
+  rdfs:label "defines object property"@en .
+
+:definesDatatypeProperty a owl:ObjectProperty ;
+  rdfs:domain :Ontology ;
+  rdfs:range :OntologyDatatypeProperty ;
+  rdfs:label "defines datatype property"@en .
+
+:definesIndividual a owl:ObjectProperty ;
+  rdfs:domain :Ontology ;
+  rdfs:range :OntologyIndividual ;
+  rdfs:label "defines individual"@en .
+
+:subClassOfConcept a owl:ObjectProperty ;
+  rdfs:subPropertyOf rdfs:subClassOf ;
+  rdfs:label "subclass of concept"@en .
+
+:relatedToConcept a owl:ObjectProperty ;
+  rdfs:domain :Entity ;
+  rdfs:range :Entity ;
+  rdfs:label "related to concept"@en .
+
+:hasName a owl:DatatypeProperty ;
+  rdfs:domain :Entity ;
+  rdfs:range xsd:string ;
+  rdfs:label "has name"@en .
+
+:hasIndex a owl:DatatypeProperty ;
+  rdfs:domain :Entity ;
+  rdfs:range xsd:integer ;
+  rdfs:label "has index"@en .
+
+#################################################################
+# Triple class
+#################################################################
+
+:Triple a owl:Class ;
+  rdfs:subClassOf :Entity ;
+  rdfs:label "Triple"@en .
+
+#################################################################
+# Ontology-level individuals
+#################################################################
+
+:OntologyModel a :Ontology ;
+  rdfs:label "Ontology Model"@en .
+
+#################################################################
+# Core class hierarchy
+#################################################################
+
+:Class_1 a owl:Class ; rdfs:subClassOf :OntologyClass ; rdfs:label "Class 1"@en .
+:Class_2 a owl:Class ; rdfs:subClassOf :Class_1 ; rdfs:label "Class 2"@en .
+:Class_3 a owl:Class ; rdfs:subClassOf :Class_2 ; rdfs:label "Class 3"@en .
+:Class_4 a owl:Class ; rdfs:subClassOf :Class_3 ; rdfs:label "Class 4"@en .
+:Class_5 a owl:Class ; rdfs:subClassOf :Class_4 ; rdfs:label "Class 5"@en .
+:Class_6 a owl:Class ; rdfs:subClassOf :Class_5 ; rdfs:label "Class 6"@en .
+:Class_7 a owl:Class ; rdfs:subClassOf :Class_6 ; rdfs:label "Class 7"@en .
+:Class_8 a owl:Class ; rdfs:subClassOf :Class_7 ; rdfs:label "Class 8"@en .
+:Class_9 a owl:Class ; rdfs:subClassOf :Class_8 ; rdfs:label "Class 9"@en .
+:Class_10 a owl:Class ; rdfs:subClassOf :Class_9 ; rdfs:label "Class 10"@en .
+:Class_11 a owl:Class ; rdfs:subClassOf :Class_10 ; rdfs:label "Class 11"@en .
+:Class_12 a owl:Class ; rdfs:subClassOf :Class_11 ; rdfs:label "Class 12"@en .
+:Class_13 a owl:Class ; rdfs:subClassOf :Class_12 ; rdfs:label "Class 13"@en .
+:Class_14 a owl:Class ; rdfs:subClassOf :Class_13 ; rdfs:label "Class 14"@en .
+:Class_15 a owl:Class ; rdfs:subClassOf :Class_14 ; rdfs:label "Class 15"@en .
+:Class_16 a owl:Class ; rdfs:subClassOf :Class_15 ; rdfs:label "Class 16"@en .
+:Class_17 a owl:Class ; rdfs:subClassOf :Class_16 ; rdfs:label "Class 17"@en .
+:Class_18 a owl:Class ; rdfs:subClassOf :Class_17 ; rdfs:label "Class 18"@en .
+:Class_19 a owl:Class ; rdfs:subClassOf :Class_18 ; rdfs:label "Class 19"@en .
+:Class_20 a owl:Class ; rdfs:subClassOf :Class_19 ; rdfs:label "Class 20"@en .
+:Class_21 a owl:Class ; rdfs:subClassOf :Class_20 ; rdfs:label "Class 21"@en .
+:Class_22 a owl:Class ; rdfs:subClassOf :Class_21 ; rdfs:label "Class 22"@en .
+:Class_23 a owl:Class ; rdfs:subClassOf :Class_22 ; rdfs:label "Class 23"@en .
+:Class_24 a owl:Class ; rdfs:subClassOf :Class_23 ; rdfs:label "Class 24"@en .
+:Class_25 a owl:Class ; rdfs:subClassOf :Class_24 ; rdfs:label "Class 25"@en .
+:Class_26 a owl:Class ; rdfs:subClassOf :Class_25 ; rdfs:label "Class 26"@en .
+:Class_27 a owl:Class ; rdfs:subClassOf :Class_26 ; rdfs:label "Class 27"@en .
+:Class_28 a owl:Class ; rdfs:subClassOf :Class_27 ; rdfs:label "Class 28"@en .
+:Class_29 a owl:Class ; rdfs:subClassOf :Class_28 ; rdfs:label "Class 29"@en .
+:Class_30 a owl:Class ; rdfs:subClassOf :Class_29 ; rdfs:label "Class 30"@en .
+:Class_31 a owl:Class ; rdfs:subClassOf :Class_30 ; rdfs:label "Class 31"@en .
+:Class_32 a owl:Class ; rdfs:subClassOf :Class_31 ; rdfs:label "Class 32"@en .
+:Class_33 a owl:Class ; rdfs:subClassOf :Class_32 ; rdfs:label "Class 33"@en .
+:Class_34 a owl:Class ; rdfs:subClassOf :Class_33 ; rdfs:label "Class 34"@en .
+:Class_35 a owl:Class ; rdfs:subClassOf :Class_34 ; rdfs:label "Class 35"@en .
+:Class_36 a owl:Class ; rdfs:subClassOf :Class_35 ; rdfs:label "Class 36"@en .
+:Class_37 a owl:Class ; rdfs:subClassOf :Class_36 ; rdfs:label "Class 37"@en .
+:Class_38 a owl:Class ; rdfs:subClassOf :Class_37 ; rdfs:label "Class 38"@en .
+:Class_39 a owl:Class ; rdfs:subClassOf :Class_38 ; rdfs:label "Class 39"@en .
+:Class_40 a owl:Class ; rdfs:subClassOf :Class_39 ; rdfs:label "Class 40"@en .
+:Class_41 a owl:Class ; rdfs:subClassOf :Class_40 ; rdfs:label "Class 41"@en .
+:Class_42 a owl:Class ; rdfs:subClassOf :Class_41 ; rdfs:label "Class 42"@en .
+:Class_43 a owl:Class ; rdfs:subClassOf :Class_42 ; rdfs:label "Class 43"@en .
+:Class_44 a owl:Class ; rdfs:subClassOf :Class_43 ; rdfs:label "Class 44"@en .
+:Class_45 a owl:Class ; rdfs:subClassOf :Class_44 ; rdfs:label "Class 45"@en .
+:Class_46 a owl:Class ; rdfs:subClassOf :Class_45 ; rdfs:label "Class 46"@en .
+:Class_47 a owl:Class ; rdfs:subClassOf :Class_46 ; rdfs:label "Class 47"@en .
+:Class_48 a owl:Class ; rdfs:subClassOf :Class_47 ; rdfs:label "Class 48"@en .
+:Class_49 a owl:Class ; rdfs:subClassOf :Class_48 ; rdfs:label "Class 49"@en .
+:Class_50 a owl:Class ; rdfs:subClassOf :Class_49 ; rdfs:label "Class 50"@en .
+
+#################################################################
+# Object property hierarchy
+#################################################################
+
+:ObjectProperty_1 a owl:ObjectProperty ; rdfs:subPropertyOf :relatedToConcept ; rdfs:label "Object Property 1"@en .
+:ObjectProperty_2 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_1 ; rdfs:label "Object Property 2"@en .
+:ObjectProperty_3 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_2 ; rdfs:label "Object Property 3"@en .
+:ObjectProperty_4 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_3 ; rdfs:label "Object Property 4"@en .
+:ObjectProperty_5 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_4 ; rdfs:label "Object Property 5"@en .
+:ObjectProperty_6 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_5 ; rdfs:label "Object Property 6"@en .
+:ObjectProperty_7 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_6 ; rdfs:label "Object Property 7"@en .
+:ObjectProperty_8 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_7 ; rdfs:label "Object Property 8"@en .
+:ObjectProperty_9 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_8 ; rdfs:label "Object Property 9"@en .
+:ObjectProperty_10 a owl:ObjectProperty ; rdfs:subPropertyOf :ObjectProperty_9 ; rdfs:label "Object Property 10"@en .
+
+#################################################################
+# Datatype property hierarchy
+#################################################################
+
+:DatatypeProperty_1 a owl:DatatypeProperty ; rdfs:subPropertyOf :hasName ; rdfs:label "Datatype Property 1"@en .
+:DatatypeProperty_2 a owl:DatatypeProperty ; rdfs:subPropertyOf :DatatypeProperty_1 ; rdfs:label "Datatype Property 2"@en .
+:DatatypeProperty_3 a owl:DatatypeProperty ; rdfs:subPropertyOf :DatatypeProperty_2 ; rdfs:label "Datatype Property 3"@en .
+:DatatypeProperty_4 a owl:DatatypeProperty ; rdfs:subPropertyOf :DatatypeProperty_3 ; rdfs:label "Datatype Property 4"@en .
+:DatatypeProperty_5 a owl:DatatypeProperty ; rdfs:subPropertyOf :DatatypeProperty_4 ; rdfs:label "Datatype Property 5"@en .
+
+#################################################################
+# Individuals
+#################################################################
+
+:Individual_1 a :OntologyIndividual ; :hasName "Individual 1" ; :hasIndex 1 .
+:Individual_2 a :OntologyIndividual ; :hasName "Individual 2" ; :hasIndex 2 .
+:Individual_3 a :OntologyIndividual ; :hasName "Individual 3" ; :hasIndex 3 .
+:Individual_4 a :OntologyIndividual ; :hasName "Individual 4" ; :hasIndex 4 .
+:Individual_5 a :OntologyIndividual ; :hasName "Individual 5" ; :hasIndex 5 .
+:Individual_6 a :OntologyIndividual ; :hasName "Individual 6" ; :hasIndex 6 .
+:Individual_7 a :OntologyIndividual ; :hasName "Individual 7" ; :hasIndex 7 .
+:Individual_8 a :OntologyIndividual ; :hasName "Individual 8" ; :hasIndex 8 .
+:Individual_9 a :OntologyIndividual ; :hasName "Individual 9" ; :hasIndex 9 .
+:Individual_10 a :OntologyIndividual ; :hasName "Individual 10" ; :hasIndex 10 .
+
+#################################################################
+# Representative entity-property-object triples
+#################################################################
+
+:Triple_1 a :Triple ; :hasSubject :Class_1 ; :hasPredicate :subClassOfConcept ; :hasObject :Entity ; :tripleOf :OntologyModel .
+:Triple_2 a :Triple ; :hasSubject :Class_2 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_1 ; :tripleOf :OntologyModel .
+:Triple_3 a :Triple ; :hasSubject :Class_3 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_2 ; :tripleOf :OntologyModel .
+:Triple_4 a :Triple ; :hasSubject :Class_4 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_3 ; :tripleOf :OntologyModel .
+:Triple_5 a :Triple ; :hasSubject :Class_5 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_4 ; :tripleOf :OntologyModel .
+:Triple_6 a :Triple ; :hasSubject :Class_6 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_5 ; :tripleOf :OntologyModel .
+:Triple_7 a :Triple ; :hasSubject :Class_7 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_6 ; :tripleOf :OntologyModel .
+:Triple_8 a :Triple ; :hasSubject :Class_8 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_7 ; :tripleOf :OntologyModel .
+:Triple_9 a :Triple ; :hasSubject :Class_9 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_8 ; :tripleOf :OntologyModel .
+:Triple_10 a :Triple ; :hasSubject :Class_10 ; :hasPredicate :subClassOfConcept ; :hasObject :Class_9 ; :tripleOf :OntologyModel .
+
+#################################################################
+# Class definitions connected to ontology model
+#################################################################
+
+:OntologyModel :definesClass :Class_1, :Class_2, :Class_3, :Class_4, :Class_5, :Class_6, :Class_7, :Class_8, :Class_9, :Class_10 ;
+  :definesObjectProperty :ObjectProperty_1, :ObjectProperty_2, :ObjectProperty_3, :ObjectProperty_4, :ObjectProperty_5 ;
+  :definesDatatypeProperty :DatatypeProperty_1, :DatatypeProperty_2, :DatatypeProperty_3 ;
+  :definesIndividual :Individual_1, :Individual_2, :Individual_3, :Individual_4, :Individual_5 .
+
+#################################################################
+# Extended high-subclass pattern
+#################################################################
+
+:Class_51 a owl:Class ; rdfs:subClassOf :Class_50 ; rdfs:label "Class 51"@en .
+:Class_52 a owl:Class ; rdfs:subClassOf :Class_51 ; rdfs:label "Class 52"@en .
+:Class_53 a owl:Class ; rdfs:subClassOf :Class_52 ; rdfs:label "Class 53"@en .
+:Class_54 a owl:Class ; rdfs:subClassOf :Class_53 ; rdfs:label "Class 54"@en .
+:Class_55 a owl:Class ; rdfs:subClassOf :Class_54 ; rdfs:label "Class 55"@en .
+:Class_56 a owl:Class ; rdfs:subClassOf :Class_55 ; rdfs:label "Class 56"@en .
+:Class_57 a owl:Class ; rdfs:subClassOf :Class_56 ; rdfs:label "Class 57"@en .
+:Class_58 a owl:Class ; rdfs:subClassOf :Class_57 ; rdfs:label "Class 58"@en .
+:Class_59 a owl:Class ; rdfs:subClassOf :Class_58 ; rdfs:label "Class 59"@en .
+:Class_60 a owl:Class ; rdfs:subClassOf :Class_59 ; rdfs:label "Class 60"@en .

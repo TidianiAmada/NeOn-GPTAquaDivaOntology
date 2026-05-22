@@ -1,9 +1,12 @@
-# Reflexive object properties added where meaningful across the ontology.
-# New triples only are provided below, in valid Turtle syntax.
-
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+# New reflexive object property triples added where meaningful, without altering existing ontology content.
+# These additions declare self-related variants for common symmetric/identity-style relations.
 @prefix : <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-:isSimilarTo a owl:ReflexiveProperty .
-:isEquivalentTo a owl:ReflexiveProperty .
-:isRelatedTo a owl:ReflexiveProperty .
+:isSimilarTo a owl:ObjectProperty, owl:ReflexiveProperty .
+
+:isEquivalentTo a owl:ObjectProperty, owl:ReflexiveProperty .
+
+:isIdenticalTo a owl:ObjectProperty, owl:ReflexiveProperty .
+
+:isSelfRelatedTo a owl:ObjectProperty, owl:ReflexiveProperty .

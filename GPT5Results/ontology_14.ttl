@@ -1,0 +1,212 @@
+@prefix : <http://example.org/ontology#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:ECSO_00001739 a owl:NamedIndividual .
+
+:ECSO_00001955 a owl:NamedIndividual .
+
+:IAO_0000002 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "example to be eventually removed"@en .
+
+:IAO_0000103 a :IAO_0000225,
+        owl:NamedIndividual ;
+    rdfs:label "failed exploratory term"@en ;
+    obo:IAO_0000111 "failed exploratory term"@en ;
+    obo:IAO_0000115 "The term was used in an attempt to structure part of the ontology but in retrospect failed to do a good job"@en .
+
+:IAO_0000120 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "metadata complete"@en .
+
+:IAO_0000121 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "organizational term"@en .
+
+:IAO_0000122 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "ready for release"@en .
+
+:IAO_0000123 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "metadata incomplete"@en .
+
+:IAO_0000124 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "uncurated"@en .
+
+:IAO_0000125 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "pending final vetting"@en .
+
+:IAO_0000227 a :IAO_0000225,
+        owl:NamedIndividual ;
+    rdfs:label "terms merged"@en .
+
+:IAO_0000228 a :IAO_0000225,
+        owl:NamedIndividual ;
+    rdfs:label "term imported"@en .
+
+:IAO_0000229 a :IAO_0000225,
+        owl:NamedIndividual ;
+    rdfs:label "term split"@en .
+
+:IAO_0000230 a :IAO_0000225,
+        owl:NamedIndividual ;
+    rdfs:label "other"@en ;
+    owl:deprecated true .
+
+:IAO_0000410 a :IAO_0000409,
+        owl:NamedIndividual ;
+    rdfs:label "universal"@en .
+
+:IAO_0000420 a :IAO_0000409,
+        owl:NamedIndividual ;
+    rdfs:label "defined class"@en .
+
+:IAO_0000421 a :IAO_0000409,
+        owl:NamedIndividual ;
+    rdfs:label "named class expression"@en .
+
+:IAO_0000423 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "to be replaced with external ontology term"@en .
+
+:IAO_0000428 a :IAO_0000078,
+        owl:NamedIndividual ;
+    rdfs:label "requires discussion"@en .
+
+:ID_200906005580795747 a owl:NamedIndividual .
+
+:ID_200906007040120700 a owl:NamedIndividual .
+
+:ID_200906029951027400 a owl:NamedIndividual .
+
+:ID_200906035358539682 a owl:NamedIndividual .
+
+:ID_200906045420318324 a owl:NamedIndividual .
+
+:ID_200906062432384499 a owl:NamedIndividual .
+
+:ID_200906070912326734 a owl:NamedIndividual .
+
+:ID_200906075025112691 a owl:NamedIndividual .
+
+:ID_201206044053997618 a owl:NamedIndividual .
+
+:ID_201406098427281805 a owl:NamedIndividual .
+
+:InformationArtifactOntology a owl:NamedIndividual .
+
+:LS_ur_c_OWLClass_00000000000000000563 a owl:NamedIndividual ;
+    rdfs:label "Non-biological phenomenon, process, and state related to life science"@en ;
+    rdfs:altLabel "Non-biological phenomenon, process, and state (Life science)"@en .
+
+:LS_ur_c_OWLClass_00000000000000000689 a owl:NamedIndividual .
+
+:OBI_0000462 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Affymetrix"@en .
+
+:OBI_0000752 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Thermo"@en .
+
+:OBI_0000753 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Waters"@en .
+
+:OBI_0000754 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "BIO-RAD"@en .
+
+:OBI_0000757 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Helicos"@en .
+
+:OBI_0000758 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Roche"@en .
+
+:OBI_0000759 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Illumina"@en .
+
+:OBI_0000762 a :OBI_0000727,
+        owl:NamedIndividual ;
+    rdfs:label "GenePattern k-nearest neighbors"@en .
+
+:OBI_0000769 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Li-Cor"@en .
+
+:OBI_0000771 a :OBI_0000713,
+        owl:NamedIndividual ;
+    rdfs:label "GenePattern module KNNXValidation"@en .
+
+:OBI_0000772 a :OBI_0000713,
+        owl:NamedIndividual ;
+    rdfs:label "GenePattern module PeakMatch"@en .
+
+:OBI_0000773 a :OBI_0000713,
+        owl:NamedIndividual ;
+    rdfs:label "GenePattern module KNN"@en .
+
+:OBI_0000775 a :OBI_0000700,
+        owl:NamedIndividual ;
+    rdfs:label "GenePattern SVM"@en .
+
+:OBI_0000776 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Applied Biosystems"@en .
+
+:OBI_0000778 a :OBI_0000726,
+        owl:NamedIndividual ;
+    rdfs:label "GenePattern peak matching"@en .
+
+:OBI_0000829 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Sysmex Corporation, Kobe, Japan"@en .
+
+:OBI_0000958 a :OBI_0000963,
+        owl:NamedIndividual ;
+    rdfs:label "right handed"@en .
+
+:OBI_0000979 a :OBI_0000963,
+        owl:NamedIndividual ;
+    rdfs:label "ambidexterous"@en .
+
+:OBI_0000998 a :OBI_0000963,
+        owl:NamedIndividual ;
+    rdfs:label "left handed"@en .
+
+:OBI_0001004 a :OBI_0001000,
+        owl:NamedIndividual ;
+    rdfs:label "Edingburgh handedness inventory"@en .
+
+:OBI_0001213 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "eBioscience"@en .
+
+:OBI_0001287 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Exalpha Biological"@en .
+
+:OBI_0001312 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Apogee Flow Systems"@en .
+
+:OBI_0001320 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Exbio Antibodies"@en .
+
+:OBI_0001321 a :OBI_0000245,
+        owl:NamedIndividual ;
+    rdfs:label "Becton Dickinson (BD Biosciences)"@en .
+
+:stemflow a owl:NamedIndividual ;
+    rdfs:label "stemflow"@en .
+

@@ -1,443 +1,285 @@
-@prefix : <http://example.org/aquadiva#> .
+@prefix aad: <http://example.org/aquadiva/aad/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-:Acceptor a owl:Class ;
-    rdfs:label "Acceptor"@en ;
-    rdfs:subClassOf :Entity .
+<http://example.org/aquadiva> a owl:Ontology ;
+    rdfs:comment "AquaDiva ontology fragment with reusable observation, measurement, characteristic, qualifier, and unit patterns."@en .
 
-:Acid a owl:Class ;
-    rdfs:label "Acid"@en ;
-    rdfs:subClassOf :Substance .
+aad:Acceptor a owl:Class ;
+    rdfs:label "acceptor"@en ;
+    rdfs:subClassOf aad:ChemicalRole .
 
-:AmmoniaOxidation a owl:Class ;
-    rdfs:label "Ammonia Oxidation"@en ;
-    rdfs:subClassOf :MicrobialProcess .
+aad:BaseUnit a owl:Class ;
+    rdfs:label "base unit"@en ;
+    rdfs:subClassOf aad:Unit .
 
-:AmmoniaOxidiser a owl:Class ;
-    rdfs:label "Ammonia Oxidiser"@en ;
-    rdfs:subClassOf :Microorganism .
+aad:CompositeUnit a owl:Class ;
+    rdfs:label "composite unit"@en ;
+    rdfs:subClassOf aad:Unit .
 
-:AnammoxBacterium a owl:Class ;
-    rdfs:label "Anammox Bacterium"@en ;
-    rdfs:subClassOf :Bacteria .
+aad:DerivedUnit a owl:Class ;
+    rdfs:label "derived unit"@en ;
+    rdfs:subClassOf aad:Unit .
 
-:AnoxicAquifer a owl:Class ;
-    rdfs:label "Anoxic Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
+aad:GeochemicalFeature a owl:Class ;
+    rdfs:label "geochemical feature"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:AquaticColloid a owl:Class ;
-    rdfs:label "Aquatic Colloid"@en ;
-    rdfs:subClassOf :Colloid .
+aad:GroundwaterEcosystem a owl:Class ;
+    rdfs:label "groundwater ecosystem"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:AquaticFungus a owl:Class ;
-    rdfs:label "Aquatic Fungus"@en ;
-    rdfs:subClassOf :Fungi .
+aad:KarstSystem a owl:Class ;
+    rdfs:label "karst system"@en ;
+    rdfs:subClassOf aad:HydrogeologicalFeature .
 
-:AquaticMicrobe a owl:Class ;
-    rdfs:label "Aquatic Microbe"@en ;
-    rdfs:subClassOf :Microbe .
+aad:MicrobialCommunity a owl:Class ;
+    rdfs:label "microbial community"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:BaseUnit a owl:Class ;
-    rdfs:label "Base Unit"@en ;
-    rdfs:subClassOf :Entity .
+aad:PrefixedUnit a owl:Class ;
+    rdfs:label "prefixed unit"@en ;
+    rdfs:subClassOf aad:Unit .
 
-:BiologicalSample a owl:Class ;
-    rdfs:label "Biological Sample"@en ;
-    rdfs:subClassOf :Sample .
-
-:Biomarker a owl:Class ;
-    rdfs:label "Biomarker"@en ;
-    rdfs:subClassOf :ChemicalData .
-
-:CarbonateAquifer a owl:Class ;
-    rdfs:label "Carbonate Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
-
-:ChemicalParameter a owl:Class ;
-    rdfs:label "Chemical Parameter"@en ;
-    rdfs:subClassOf :Characteristic .
-
-:ClimaticParameter a owl:Class ;
-    rdfs:label "Climatic Parameter"@en ;
-    rdfs:subClassOf :Characteristic .
-
-:ColloidalTransport a owl:Class ;
-    rdfs:label "Colloidal Transport"@en ;
-    rdfs:subClassOf :TransportProcess .
-
-:CompositeUnit a owl:Class ;
-    rdfs:label "Composite Unit"@en ;
-    rdfs:subClassOf :Entity .
-
-:Compound a owl:Class ;
-    rdfs:label "Compound"@en ;
-    rdfs:subClassOf :Substance .
-
-:DNAConcentration a owl:Class ;
-    rdfs:label "DNA Concentration"@en ;
-    rdfs:subClassOf :ChemicalData .
-
-:DerivedUnit a owl:Class ;
-    rdfs:label "Derived Unit"@en ;
-    rdfs:subClassOf :Entity .
-
-:FracturedFlow a owl:Class ;
-    rdfs:label "Fractured Flow"@en ;
-    rdfs:subClassOf :FlowProcess .
-
-:FracturedRock a owl:Class ;
-    rdfs:label "Fractured Rock"@en ;
-    rdfs:subClassOf :AquiferRock .
-
-:FracturedRockAquifer a owl:Class ;
-    rdfs:label "Fractured Rock Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
-
-:GroundwaterPhysiochemicalParameter a owl:Class ;
-    rdfs:label "Groundwater Physiochemical Parameter"@en ;
-    rdfs:subClassOf :PhysiochemicalParameter .
-
-:GroundwaterTransport a owl:Class ;
-    rdfs:label "Groundwater Transport"@en ;
-    rdfs:subClassOf :TransportProcess .
-
-:HainichAquifer a owl:Class ;
-    rdfs:label "Hainich Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
-
-:KarstAquifer a owl:Class ;
-    rdfs:label "Karst Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
-
-:KarstRock a owl:Class ;
-    rdfs:label "Karst Rock"@en ;
-    rdfs:subClassOf :NaturalEntity .
-
-:LateralFlow a owl:Class ;
-    rdfs:label "Lateral Flow"@en ;
-    rdfs:subClassOf :FlowProcess .
-
-:Limestone a owl:Class ;
-    rdfs:label "Limestone"@en ;
-    rdfs:subClassOf :CarbonateMineral .
-
-:LowerAquifer a owl:Class ;
-    rdfs:label "Lower Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
-
-:Marlstone a owl:Class ;
-    rdfs:label "Marlstone"@en ;
-    rdfs:subClassOf :AquiferRock .
-
-:Metabolite a owl:Class ;
-    rdfs:label "Metabolite"@en ;
-    rdfs:subClassOf :Molecule .
-
-:Muschelkalk a owl:Class ;
-    rdfs:label "Muschelkalk"@en ;
-    rdfs:subClassOf :TriassicRock .
-
-:Ontology a owl:Ontology ;
-    rdfs:label "AquaDiva Merged New Ontology"@en .
-
-:OxicAquifer a owl:Class ;
-    rdfs:label "Oxic Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
-
-:PreferentialFlow a owl:Class ;
-    rdfs:label "Preferential Flow"@en ;
-    rdfs:subClassOf :FlowProcess .
-
-:PrefixedUnit a owl:Class ;
-    rdfs:label "Prefixed Unit"@en ;
-    rdfs:subClassOf :Entity .
-
-:PristineAquifer a owl:Class ;
-    rdfs:label "Pristine Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
-
-:Protein a owl:Class ;
-    rdfs:label "Protein"@en ;
-    rdfs:subClassOf :Molecule .
-
-:SoilHydraulicParameter a owl:Class ;
-    rdfs:label "Soil Hydraulic Parameter"@en ;
-    rdfs:subClassOf :HydraulicProperty .
-
-:UpperAquifer a owl:Class ;
-    rdfs:label "Upper Aquifer"@en ;
-    rdfs:subClassOf :Aquifer .
-
-:VerticalFlow a owl:Class ;
-    rdfs:label "Vertical Flow"@en ;
-    rdfs:subClassOf :FlowProcess .
-
-:characteristicFor a owl:ObjectProperty ;
+aad:characteristicFor a owl:ObjectProperty ;
     rdfs:label "characteristic for"@en ;
-    rdfs:domain :Characteristic ;
-    rdfs:range :Entity .
+    rdfs:domain aad:Characteristic ;
+    rdfs:range aad:Entity .
 
-:entityRelated a owl:ObjectProperty ;
+aad:entityRelated a owl:ObjectProperty ;
     rdfs:label "entity related"@en ;
-    rdfs:domain :Observation ;
-    rdfs:range :Observation .
+    rdfs:domain aad:Observation ;
+    rdfs:range aad:Observation .
 
-:hasBaseQualifier a owl:ObjectProperty ;
-    rdfs:label "has base qualifier"@en ;
-    rdfs:domain :CompositeCharacteristicQualifier ;
-    rdfs:range :BaseCharacteristicQualifier .
-
-:hasContext a owl:ObjectProperty ;
+aad:hasContext a owl:ObjectProperty ;
     rdfs:label "has context"@en ;
-    rdfs:domain :Observation ;
-    rdfs:range :Observation .
+    rdfs:domain aad:Observation ;
+    rdfs:range aad:Observation .
 
-:hasMeasurement a owl:ObjectProperty ;
-    rdfs:label "has measurement"@en ;
-    rdfs:domain :Observation ;
-    rdfs:range :Measurement .
+aad:hasObservation a owl:ObjectProperty ;
+    rdfs:label "has observation"@en ;
+    rdfs:domain aad:ObservationCollection ;
+    rdfs:range aad:Observation ;
+    owl:equivalentProperty aad:hasMember .
 
-:hasMember a owl:ObjectProperty ;
-    rdfs:label "has member"@en ;
-    rdfs:domain :ObservationCollection ;
-    rdfs:range :Observation .
+aad:hasObservedMeasurement a owl:ObjectProperty ;
+    rdfs:label "has observed measurement"@en ;
+    rdfs:domain aad:Observation ;
+    rdfs:range aad:Measurement ;
+    owl:equivalentProperty aad:hasMeasurement .
 
-:hasNextQualifier a owl:ObjectProperty ;
-    rdfs:label "has next qualifier"@en ;
-    rdfs:domain :CompositeCharacteristicQualifier ;
-    rdfs:range :CharacteristicQualifier .
-
-:hasObservedRelation a owl:ObjectProperty ;
+aad:hasObservedRelation a owl:ObjectProperty ;
     rdfs:label "has observed relation"@en ;
-    rdfs:domain :Observation ;
-    rdfs:range :Entity .
+    rdfs:domain aad:Observation ;
+    rdfs:range aad:ObservedRelation .
 
-:hasQualifier a owl:ObjectProperty ;
-    rdfs:label "has qualifier"@en ;
-    rdfs:domain :MeasuredCharacteristic ;
-    rdfs:range :CharacteristicQualifier .
-
-:hasSourceUnit a owl:ObjectProperty ;
-    rdfs:label "has source unit"@en ;
-    rdfs:domain :UnitConversion ;
-    rdfs:range :Unit .
-
-:hasTargetUnit a owl:ObjectProperty ;
-    rdfs:label "has target unit"@en ;
-    rdfs:domain :UnitConversion ;
-    rdfs:range :Unit .
-
-:hasUnit a owl:ObjectProperty ;
+aad:hasUnit a owl:ObjectProperty ;
     rdfs:label "has unit"@en ;
-    rdfs:domain :Entity ;
-    rdfs:range :Unit .
+    rdfs:domain aad:Unit ;
+    rdfs:range aad:Unit .
 
-:measurementFor a owl:ObjectProperty ;
+aad:measurementFor a owl:ObjectProperty ;
     rdfs:label "measurement for"@en ;
-    rdfs:domain :Measurement ;
-    rdfs:range :Observation .
+    rdfs:domain aad:Measurement ;
+    rdfs:range aad:Observation .
 
-:measuresCharacteristic a owl:ObjectProperty ;
-    rdfs:label "measures characteristic"@en ;
-    rdfs:domain :MeasurementType ;
-    rdfs:range :Characteristic .
+aad:measurementTypeFor a owl:ObjectProperty ;
+    rdfs:label "measurement type for"@en ;
+    rdfs:domain aad:MeasurementType ;
+    rdfs:range aad:Entity .
 
-:measuresEntity a owl:ObjectProperty ;
+aad:measuresEntity a owl:ObjectProperty ;
     rdfs:label "measures entity"@en ;
-    rdfs:domain :MeasurementType ;
-    rdfs:range :Entity .
+    rdfs:domain aad:MeasurementType ;
+    rdfs:range aad:Entity .
 
-:measuresUsingProtocol a owl:ObjectProperty ;
+aad:measuresUsingProtocol a owl:ObjectProperty ;
     rdfs:label "measures using protocol"@en ;
-    rdfs:domain :MeasurementType ;
-    rdfs:range :Protocol .
+    rdfs:domain aad:MeasurementType ;
+    rdfs:range aad:Protocol .
 
-:measuresUsingStandard a owl:ObjectProperty ;
+aad:measuresUsingStandard a owl:ObjectProperty ;
     rdfs:label "measures using standard"@en ;
-    rdfs:domain :MeasurementType ;
-    rdfs:range :Standard .
+    rdfs:domain aad:MeasurementType ;
+    rdfs:range aad:Standard .
 
-:ofCharacteristic a owl:ObjectProperty ;
-    rdfs:label "of characteristic"@en ;
-    rdfs:domain :Measurement ;
-    rdfs:range :Characteristic .
+aad:observes a owl:ObjectProperty ;
+    rdfs:label "observes"@en ;
+    rdfs:domain aad:Observation ;
+    rdfs:range aad:Entity ;
+    owl:equivalentProperty aad:ofEntity .
 
-:ofEntity a owl:ObjectProperty ;
-    rdfs:label "of entity"@en ;
-    rdfs:domain :Observation ;
-    rdfs:range :Entity .
-
-:usesProtocol a owl:ObjectProperty ;
+aad:usesProtocol a owl:ObjectProperty ;
     rdfs:label "uses protocol"@en ;
-    rdfs:domain :Measurement ;
-    rdfs:range :Protocol .
+    rdfs:domain aad:Measurement ;
+    rdfs:range aad:Protocol .
 
-:usesStandard a owl:ObjectProperty ;
+aad:usesStandard a owl:ObjectProperty ;
     rdfs:label "uses standard"@en ;
-    rdfs:domain :Measurement ;
-    rdfs:range :Standard .
+    rdfs:domain aad:Measurement ;
+    rdfs:range aad:Standard .
 
-:Bacteria a owl:Class ;
-    rdfs:label "Bacteria"@en ;
-    rdfs:subClassOf :Microorganism .
+aad:ChemicalRole a owl:Class ;
+    rdfs:label "chemical role"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:BaseCharacteristicQualifier a owl:Class ;
-    rdfs:label "Base Characteristic Qualifier"@en ;
-    rdfs:subClassOf :CharacteristicQualifier .
+aad:HydrogeologicalFeature a owl:Class ;
+    rdfs:label "hydrogeological feature"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:BiogeochemicalProcess a owl:Class ;
-    rdfs:label "Biogeochemical Process"@en ;
-    rdfs:subClassOf :Process .
+aad:MeasuredCharacteristic a owl:Class ;
+    rdfs:label "measured characteristic"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty aad:hasQualifier ;
+            owl:someValuesFrom aad:CharacteristicQualifier ],
+        aad:Characteristic .
 
-:BiologicalEntity a owl:Class ;
-    rdfs:label "Biological Entity"@en ;
-    rdfs:subClassOf :Entity .
+aad:ObservedRelation a owl:Class ;
+    rdfs:label "observed relation"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:CarbonateMineral a owl:Class ;
-    rdfs:label "Carbonate Mineral"@en ;
-    rdfs:subClassOf :Mineral .
+aad:hasBaseQualifier a owl:ObjectProperty ;
+    rdfs:label "has base qualifier"@en ;
+    rdfs:domain aad:CompositeCharacteristicQualifier ;
+    rdfs:range aad:BaseCharacteristicQualifier .
 
-:Colloid a owl:Class ;
-    rdfs:label "Colloid"@en ;
-    rdfs:subClassOf :MaterialEntity .
+aad:hasMember a owl:ObjectProperty ;
+    rdfs:label "has member"@en ;
+    rdfs:domain aad:ObservationCollection ;
+    rdfs:range aad:Observation .
 
-:Feature a owl:Class ;
-    rdfs:label "Feature"@en ;
-    rdfs:subClassOf :NaturalEntity .
+aad:hasNextQualifier a owl:ObjectProperty ;
+    rdfs:label "has next qualifier"@en ;
+    rdfs:domain aad:CompositeCharacteristicQualifier ;
+    rdfs:range aad:CharacteristicQualifier .
 
-:Fungi a owl:Class ;
-    rdfs:label "Fungi"@en ;
-    rdfs:subClassOf :Microorganism .
+aad:hasQualifier a owl:ObjectProperty ;
+    rdfs:label "has qualifier"@en ;
+    rdfs:domain aad:MeasuredCharacteristic ;
+    rdfs:range aad:CharacteristicQualifier .
 
-:Habitat a owl:Class ;
-    rdfs:label "Habitat"@en ;
-    rdfs:subClassOf :Feature .
+aad:hasSourceUnit a owl:ObjectProperty ;
+    rdfs:label "has source unit"@en ;
+    rdfs:domain aad:UnitConversion ;
+    rdfs:range aad:Unit .
 
-:HydraulicProperty a owl:Class ;
-    rdfs:label "Hydraulic Property"@en ;
-    rdfs:subClassOf :Characteristic .
+aad:hasTargetUnit a owl:ObjectProperty ;
+    rdfs:label "has target unit"@en ;
+    rdfs:domain aad:UnitConversion ;
+    rdfs:range aad:Unit .
 
-:Material a owl:Class ;
-    rdfs:label "Material"@en ;
-    rdfs:subClassOf :MaterialEntity .
+aad:hasValue a owl:ObjectProperty ;
+    rdfs:label "has value"@en ;
+    rdfs:domain aad:Measurement ;
+    rdfs:range aad:MeasuredValue .
 
-:MeasuredCharacteristic a owl:Class ;
-    rdfs:label "Measured Characteristic"@en ;
-    rdfs:subClassOf :Characteristic .
+aad:measuresCharacteristic a owl:ObjectProperty ;
+    rdfs:label "measures characteristic"@en ;
+    rdfs:domain aad:MeasurementType ;
+    rdfs:range aad:Characteristic .
 
-:Microbe a owl:Class ;
-    rdfs:label "Microbe"@en ;
-    rdfs:subClassOf :Microorganism .
+aad:ofCharacteristic a owl:ObjectProperty ;
+    rdfs:label "of characteristic"@en ;
+    rdfs:domain aad:Measurement ;
+    rdfs:range aad:Characteristic .
 
-:MicrobialProcess a owl:Class ;
-    rdfs:label "Microbial Process"@en ;
-    rdfs:subClassOf :BiogeochemicalProcess .
+aad:usesUnit a owl:ObjectProperty ;
+    rdfs:label "uses unit"@en ;
+    rdfs:domain aad:Measurement ;
+    rdfs:range aad:Unit .
 
-:Mineral a owl:Class ;
-    rdfs:label "Mineral"@en ;
-    rdfs:subClassOf :MaterialEntity .
+aad:BaseCharacteristicQualifier a owl:Class ;
+    rdfs:label "base characteristic qualifier"@en ;
+    rdfs:subClassOf aad:CharacteristicQualifier .
 
-:ObservationCollection a owl:Class ;
-    rdfs:label "Observation Collection"@en ;
-    rdfs:subClassOf :Observation .
+aad:CompositeCharacteristicQualifier a owl:Class ;
+    rdfs:label "composite characteristic qualifier"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty aad:hasBaseQualifier ;
+            owl:someValuesFrom aad:BaseCharacteristicQualifier ],
+        [ a owl:Restriction ;
+            owl:onProperty aad:hasNextQualifier ;
+            owl:someValuesFrom aad:CharacteristicQualifier ],
+        aad:CharacteristicQualifier .
 
-:PhysiochemicalParameter a owl:Class ;
-    rdfs:label "Physiochemical Parameter"@en ;
-    rdfs:subClassOf :Characteristic .
+aad:MeasuredValue a owl:Class ;
+    rdfs:label "measured value"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:Sample a owl:Class ;
-    rdfs:label "Sample"@en ;
-    rdfs:subClassOf :Entity .
+aad:ObservationCollection a owl:Class ;
+    rdfs:label "observation collection"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:TriassicRock a owl:Class ;
-    rdfs:label "Triassic Rock"@en ;
-    rdfs:subClassOf :AquiferRock .
+aad:Protocol a owl:Class ;
+    rdfs:label "protocol"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:ChemicalData a owl:Class ;
-    rdfs:label "Chemical Data"@en ;
-    rdfs:subClassOf :MaterialEntity .
+aad:Standard a owl:Class ;
+    rdfs:label "standard"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:CompositeCharacteristicQualifier a owl:Class ;
-    rdfs:label "Composite Characteristic Qualifier"@en ;
-    rdfs:subClassOf :CharacteristicQualifier .
+aad:UnitConversion a owl:Class ;
+    rdfs:label "unit conversion"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty aad:hasSourceUnit ;
+            owl:someValuesFrom aad:Unit ],
+        [ a owl:Restriction ;
+            owl:onProperty aad:hasTargetUnit ;
+            owl:someValuesFrom aad:Unit ],
+        aad:Entity .
 
-:Molecule a owl:Class ;
-    rdfs:label "Molecule"@en ;
-    rdfs:subClassOf :Substance .
+aad:hasMeasurement a owl:ObjectProperty ;
+    rdfs:label "has measurement"@en ;
+    rdfs:domain aad:Observation ;
+    rdfs:range aad:Measurement .
 
-:Process a owl:Class ;
-    rdfs:label "Process"@en ;
-    rdfs:subClassOf :Entity .
+aad:ofEntity a owl:ObjectProperty ;
+    rdfs:label "of entity"@en ;
+    rdfs:domain aad:Observation ;
+    rdfs:range aad:Entity .
 
-:Protocol a owl:Class ;
-    rdfs:label "Protocol"@en ;
-    rdfs:subClassOf :Entity .
+aad:MeasurementType a owl:Class ;
+    rdfs:label "measurement type"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty aad:measuresCharacteristic ;
+            owl:someValuesFrom aad:Characteristic ],
+        aad:Entity .
 
-:Standard a owl:Class ;
-    rdfs:label "Standard"@en ;
-    rdfs:subClassOf :Entity .
+aad:Characteristic a owl:Class ;
+    rdfs:label "characteristic"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:UnitConversion a owl:Class ;
-    rdfs:label "Unit Conversion"@en ;
-    rdfs:subClassOf :Entity .
+aad:CharacteristicQualifier a owl:Class ;
+    rdfs:label "characteristic qualifier"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:AquiferRock a owl:Class ;
-    rdfs:label "Aquifer Rock"@en ;
-    rdfs:subClassOf :NaturalEntity .
+aad:Measurement a owl:Class ;
+    rdfs:label "measurement"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty aad:hasValue ;
+            owl:someValuesFrom aad:MeasuredValue ],
+        [ a owl:Restriction ;
+            owl:onProperty aad:ofCharacteristic ;
+            owl:someValuesFrom aad:Characteristic ],
+        [ a owl:Restriction ;
+            owl:onProperty aad:usesUnit ;
+            owl:someValuesFrom aad:Unit ],
+        aad:Entity .
 
-:NaturalEntity a owl:Class ;
-    rdfs:label "Natural Entity"@en ;
-    rdfs:subClassOf :MaterialEntity .
+aad:Observation a owl:Class ;
+    rdfs:label "observation"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty aad:hasMeasurement ;
+            owl:someValuesFrom aad:Measurement ],
+        [ a owl:Restriction ;
+            owl:onProperty aad:ofEntity ;
+            owl:someValuesFrom aad:Entity ],
+        aad:Entity .
 
-:Substance a owl:Class ;
-    rdfs:label "Substance"@en ;
-    rdfs:subClassOf :Material .
+aad:Unit a owl:Class ;
+    rdfs:label "unit"@en ;
+    rdfs:subClassOf aad:Entity .
 
-:TransportProcess a owl:Class ;
-    rdfs:label "Transport Process"@en ;
-    rdfs:subClassOf :Process .
-
-:Unit a owl:Class ;
-    rdfs:label "Unit"@en ;
-    rdfs:subClassOf :Entity .
-
-:CharacteristicQualifier a owl:Class ;
-    rdfs:label "Characteristic Qualifier"@en ;
-    rdfs:subClassOf :Entity .
-
-:FlowProcess a owl:Class ;
-    rdfs:label "Flow Process"@en ;
-    rdfs:subClassOf :TransportProcess .
-
-:MeasurementType a owl:Class ;
-    rdfs:label "Measurement Type"@en ;
-    rdfs:subClassOf :Entity .
-
-:Microorganism a owl:Class ;
-    rdfs:label "Microorganism"@en ;
-    rdfs:subClassOf :BiologicalEntity .
-
-:MaterialEntity a owl:Class ;
-    rdfs:label "Material Entity"@en ;
-    rdfs:subClassOf :Entity .
-
-:Measurement a owl:Class ;
-    rdfs:label "Measurement"@en ;
-    rdfs:subClassOf :Observation .
-
-:Characteristic a owl:Class ;
-    rdfs:label "Characteristic"@en ;
-    rdfs:subClassOf :Entity .
-
-:Aquifer a owl:Class ;
-    rdfs:label "Aquifer"@en ;
-    rdfs:subClassOf :Habitat .
-
-:Observation a owl:Class ;
-    rdfs:label "Observation"@en ;
-    rdfs:subClassOf :Entity .
-
-:Entity a owl:Class ;
-    rdfs:label "Entity"@en .
+aad:Entity a owl:Class ;
+    rdfs:label "entity"@en .
 

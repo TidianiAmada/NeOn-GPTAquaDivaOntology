@@ -1,6 +1,947 @@
+✔ Turtle syntax is correct.
+✔ Saved Turtle:   /app/GPT5Results/ontology_4.ttl
+✔ Saved RDF/XML:  /app/GPT5Results/ontology_4.rdf
 
---- STDERR ---
-Traceback (most recent call last):
-  File "D:\MSDA S3\KG LLMs\NeOn-GPTAquaDivaOntology\code\ontology_validation_syntax_consistency_pitfall_no_pellet_no_hermit.py", line 7, in <module>
-    from pyshacl import validate
-ModuleNotFoundError: No module named 'pyshacl'
+--- SHACL Validation ---
+Validation Report
+Conforms: False
+Results (155):
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:AbovegroundHabitat
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:AbovegroundHabitat->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:AbovegroundMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:AbovegroundMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ActiveMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ActiveMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:AgriculturalActivity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:AgriculturalActivity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:AgriculturalRunoff
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:AgriculturalRunoff->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:AgriculturalSoil
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:AgriculturalSoil->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:AnoxicZoneMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:AnoxicZoneMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:AquaticColloid
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:AquaticColloid->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:AquaticFungus
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:AquaticFungus->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Aquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Aquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ArchaeanMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ArchaeanMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Autotroph
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Autotroph->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Bacterium
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Bacterium->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Biocolloid
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Biocolloid->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:BiogeochemicalProcess
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:BiogeochemicalProcess->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:CO2FixationPathway
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:CO2FixationPathway->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Calcium
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Calcium->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:CalvinCycle
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:CalvinCycle->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:CarbonDioxide
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:CarbonDioxide->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:CarbonFixationProcess
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:CarbonFixationProcess->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:CarbonateDissolution
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:CarbonateDissolution->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:CarbonateDissolutionProcess
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:CarbonateDissolutionProcess->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:CarbonateMineral
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:CarbonateMineral->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ChemicalEntity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ChemicalEntity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ChemicalSignal
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ChemicalSignal->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Chemolithoautotroph
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Chemolithoautotroph->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ClimateParameter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ClimateParameter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Colloid
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Colloid->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ColloidTransport
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ColloidTransport->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:CommunityAnalysisMethod
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:CommunityAnalysisMethod->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Conductivity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Conductivity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ContaminantTransport
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ContaminantTransport->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ContaminatedAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ContaminatedAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ContaminationSource
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ContaminationSource->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Decomposer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Decomposer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Denitrification
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Denitrification->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Denitrifier
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Denitrifier->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:DissolvedOrganicCarbon
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:DissolvedOrganicCarbon->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:DissolvedOrganicMatter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:DissolvedOrganicMatter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Entity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Entity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:EnvironmentalIndicator
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:EnvironmentalIndicator->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Eukaryote
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Eukaryote->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:EukaryoticMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:EukaryoticMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Fermenter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Fermenter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Filtration
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Filtration->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ForestSoil
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ForestSoil->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Fracture
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Fracture->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:FracturedRockAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:FracturedRockAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:FunctionalGuild
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:FunctionalGuild->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Fungus
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Fungus->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:GeochemicalAnalysisMethod
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:GeochemicalAnalysisMethod->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:GeochemicalProcess
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:GeochemicalProcess->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:GeologicalSetting
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:GeologicalSetting->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:GroundwaterBody
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:GroundwaterBody->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:GroundwaterHealthIndicator
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:GroundwaterHealthIndicator->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:GroundwaterMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:GroundwaterMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:GroundwaterQualityChange
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:GroundwaterQualityChange->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Habitat
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Habitat->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Heterotroph
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Heterotroph->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:HydrochemicalParameter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:HydrochemicalParameter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:HydrochemicalShift
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:HydrochemicalShift->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:HydrologicalProcess
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:HydrologicalProcess->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:InactiveMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:InactiveMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Indicator
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Indicator->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Infiltration
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Infiltration->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:InfiltrationArea
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:InfiltrationArea->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:IronOxidation
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:IronOxidation->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:IronOxidizer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:IronOxidizer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:KarstAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:KarstAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Karstification
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Karstification->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Lithology
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Lithology->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:LivingEntity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:LivingEntity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:LowerAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:LowerAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MarineEnvironment
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MarineEnvironment->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Metagenomics
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Metagenomics->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Metatranscriptomics
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Metatranscriptomics->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Methanogen
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Methanogen->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Methanogenesis
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Methanogenesis->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Microbe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Microbe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MicrobialCommunityMember
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MicrobialCommunityMember->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MicrobialFungus
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MicrobialFungus->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MicrobialGuild
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MicrobialGuild->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MicrobialIndicator
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MicrobialIndicator->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MicrobialProcess
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MicrobialProcess->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MicrobialTransport
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MicrobialTransport->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Microscopy
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Microscopy->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MineralComposition
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MineralComposition->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MineralOrganicInteraction
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MineralOrganicInteraction->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MineralSubstrate
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MineralSubstrate->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MobileOrganicMatter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MobileOrganicMatter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MolecularMethod
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MolecularMethod->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:MuschelkalkAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:MuschelkalkAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:NaturalEntity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:NaturalEntity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Nitrate
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Nitrate->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Nitrification
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Nitrification->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Nitrifier
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Nitrifier->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:NonLivingEntity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:NonLivingEntity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:OrganicMatter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:OrganicMatter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:OrganicMatterDecomposition
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:OrganicMatterDecomposition->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:OrganicSubstrate
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:OrganicSubstrate->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Organism
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Organism->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:OxicZoneMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:OxicZoneMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:OxygenContent
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:OxygenContent->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:PedologicalSetting
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:PedologicalSetting->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Peptide
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Peptide->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Permeability
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Permeability->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Photoautotroph
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Photoautotroph->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:PhysicochemicalParameter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:PhysicochemicalParameter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:PoreStructure
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:PoreStructure->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Porosity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Porosity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:PorousAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:PorousAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Precipitation
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Precipitation->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:PrecipitationEvent
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:PrecipitationEvent->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:PristineAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:PristineAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Process
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Process->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ProtectionMeasure
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ProtectionMeasure->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Protist
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Protist->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:RechargeArea
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:RechargeArea->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:RechargeProcess
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:RechargeProcess->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:RechargeVariation
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:RechargeVariation->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ReverseTCA
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ReverseTCA->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SamplingMethod
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SamplingMethod->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SequencingMethod
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SequencingMethod->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Snowmelt
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Snowmelt->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SnowmeltEvent
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SnowmeltEvent->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Soil
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Soil->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SoilMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SoilMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Study
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Study->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Subsoil
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Subsoil->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Substrate
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Substrate->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SubsurfaceChemicalSignal
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SubsurfaceChemicalSignal->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SubsurfaceHabitat
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SubsurfaceHabitat->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SubsurfaceMicrobe
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SubsurfaceMicrobe->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Sulfate
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Sulfate->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SulfateReducer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SulfateReducer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SulfateReduction
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SulfateReduction->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SulfurOxidizer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SulfurOxidizer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SurfaceChemicalSignal
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SurfaceChemicalSignal->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:SurfaceWater
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:SurfaceWater->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Temperature
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Temperature->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:TemperatureParameter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:TemperatureParameter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Throughfall
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Throughfall->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:ThroughfallZone
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:ThroughfallZone->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Thunderstorm
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Thunderstorm->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:TransportProcess
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:TransportProcess->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:TriassicLimestoneAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:TriassicLimestoneAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:TrochitenkalkAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:TrochitenkalkAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:UpperAquifer
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:UpperAquifer->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:VegetationHeterogeneity
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:VegetationHeterogeneity->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:VulnerabilityAssessment
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:VulnerabilityAssessment->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:WaterQualityParameter
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:WaterQualityParameter->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:WaterSampling
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:WaterSampling->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:Weathering
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:Weathering->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:WoodLjungdahlPathway
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:WoodLjungdahlPathway->rdfs:label
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: aq:pH
+	Result Path: rdfs:label
+	Message: Less than 1 values on aq:pH->rdfs:label
+
+❌ SHACL validation failed.
+
+--- Custom Pitfall Detection ---
+Total pitfalls: 0
+
+--- OOPS! Pitfall Scanner ---
+  Using Docker instance: https://oops.linkeddata.es/rest
+  ❌ OOPS request to https://oops.linkeddata.es/rest failed: 500 Server Error:  for url: https://oops.linkeddata.es/rest

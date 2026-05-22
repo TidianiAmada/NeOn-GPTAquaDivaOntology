@@ -5,904 +5,49 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="http://example.org/ontology#InstallationGuide">
+  <rdf:Description rdf:about="http://example.org/ontology#Agent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#UserGuide"/>
-    <rdfs:label xml:lang="en">Installation Guide</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#PolicyClass">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Policy Class</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Workflow">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Process"/>
-    <rdfs:label xml:lang="en">Workflow</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Region">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#SpatialLocation"/>
-    <rdfs:label xml:lang="en">Region</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#NonProfitOrganization">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:label xml:lang="en">Non-Profit Organization</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Location">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Location</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#month1">
-    <rdf:type rdf:resource="http://example.org/ontology#Month"/>
-    <rdfs:label xml:lang="en">Month 1</rdfs:label>
-    <identifier>MON-001</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#person4">
-    <rdf:type rdf:resource="http://example.org/ontology#Student"/>
-    <rdfs:label xml:lang="en">David Student</rdfs:label>
-    <identifier>P-004</identifier>
-    <name>David</name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#task2">
-    <rdf:type rdf:resource="http://example.org/ontology#Task"/>
-    <rdfs:label xml:lang="en">Task Two</rdfs:label>
-    <identifier>TSK-002</identifier>
-    <priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</priority>
-    <dependsOn rdf:resource="http://example.org/ontology#task1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#measures">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Measure"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">measures</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#decision1">
-    <rdf:type rdf:resource="http://example.org/ontology#DecisionRecord"/>
-    <rdfs:label xml:lang="en">Decision Record 1</rdfs:label>
-    <identifier>DEC-001</identifier>
-    <relatedTo rdf:resource="http://example.org/ontology#proj1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasMetric">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Metric"/>
-    <rdfs:label xml:lang="en">has metric</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#RestrictedResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Restricted Resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#SecurityAttribute">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#PerformanceAttribute"/>
-    <rdfs:label xml:lang="en">Security Attribute</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#org4">
-    <rdf:type rdf:resource="http://example.org/ontology#NonProfitOrganization"/>
-    <rdfs:label xml:lang="en">Example Non-Profit Organization</rdfs:label>
-    <identifier>ORG-004</identifier>
-    <status>active</status>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#person1">
-    <rdf:type rdf:resource="http://example.org/ontology#Employee"/>
-    <rdfs:label xml:lang="en">Alice Employee</rdfs:label>
-    <identifier>P-001</identifier>
-    <name>Alice</name>
-    <hasRole rdf:resource="http://example.org/ontology#role1"/>
-    <hasLocation rdf:resource="http://example.org/ontology#loc1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#dependsOn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">depends on</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Researcher">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Person"/>
-    <rdfs:label xml:lang="en">Researcher</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#role3">
-    <rdf:type rdf:resource="http://example.org/ontology#InterpersonalRole"/>
-    <rdfs:label xml:lang="en">Interpersonal Role</rdfs:label>
-    <identifier>ROL-003</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#appliesTo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Rule"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">applies to</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Metric">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Measure"/>
-    <rdfs:label xml:lang="en">Metric</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#person3">
-    <rdf:type rdf:resource="http://example.org/ontology#Researcher"/>
-    <rdfs:label xml:lang="en">Carol Researcher</rdfs:label>
-    <identifier>P-003</identifier>
-    <name>Carol</name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#FinalDocument">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Final Document</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#loc2">
-    <rdf:type rdf:resource="http://example.org/ontology#Region"/>
-    <rdfs:label xml:lang="en">EMEA Region</rdfs:label>
-    <identifier>LOC-002</identifier>
-    <timezone>UTC+1</timezone>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Report">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Report</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#version">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">version</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#event2">
-    <rdf:type rdf:resource="http://example.org/ontology#ApprovalEvent"/>
-    <rdfs:label xml:lang="en">Approval Event 1</rdfs:label>
-    <identifier>EVT-002</identifier>
-    <dateCreated rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-02T10:00:00</dateCreated>
-    <occursIn rdf:resource="http://example.org/ontology#day1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#LifecycleEvent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Event"/>
-    <rdfs:label xml:lang="en">Lifecycle Event</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Year">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#CalendarPeriod"/>
-    <rdfs:label xml:lang="en">Year</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#OperationalMetric">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Metric"/>
-    <rdfs:label xml:lang="en">Operational Metric</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasParticipant">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Process"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Agent"/>
-    <rdfs:label xml:lang="en">has participant</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#LicensedResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Licensed Resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#proj1">
-    <rdf:type rdf:resource="http://example.org/ontology#Project"/>
-    <rdfs:label xml:lang="en">Project Alpha</rdfs:label>
-    <identifier>PRJ-001</identifier>
-    <budget rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100000.00</budget>
-    <hasTask rdf:resource="http://example.org/ontology#task1"/>
-    <hasDocument rdf:resource="http://example.org/ontology#doc1"/>
-    <hasMetric rdf:resource="http://example.org/ontology#metric1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#PublicResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Public Resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#CorporateOrganization">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:label xml:lang="en">Corporate Organization</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Specification">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Specification</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#person2">
-    <rdf:type rdf:resource="http://example.org/ontology#Customer"/>
-    <rdfs:label xml:lang="en">Bob Customer</rdfs:label>
-    <identifier>P-002</identifier>
-    <name>Bob</name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#res1">
-    <rdf:type rdf:resource="http://example.org/ontology#SoftwareResource"/>
-    <rdfs:label xml:lang="en">Workflow Engine</rdfs:label>
-    <identifier>RES-001</identifier>
-    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1200.50</cost>
-    <managedBy rdf:resource="http://example.org/ontology#person1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasLocation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Location"/>
-    <rdfs:label xml:lang="en">has location</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#usesResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://example.org/ontology#hasResource"/>
-    <rdfs:label xml:lang="en">uses resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#approvedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Agent"/>
-    <rdfs:label xml:lang="en">approved by</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Director">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#LeadershipRole"/>
-    <rdfs:label xml:lang="en">Director</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ProjectPhase">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Project Phase</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#GovernmentOrganization">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:label xml:lang="en">Government Organization</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#cost">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:label xml:lang="en">cost</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#workflow1">
-    <rdf:type rdf:resource="http://example.org/ontology#Workflow"/>
-    <rdfs:label xml:lang="en">Sample Workflow</rdfs:label>
-    <identifier>WF-001</identifier>
-    <hasStep rdf:resource="http://example.org/ontology#task1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#AcademicOrganization">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:label xml:lang="en">Academic Organization</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#policy1">
-    <rdf:type rdf:resource="http://example.org/ontology#SecurityPolicy"/>
-    <rdfs:label xml:lang="en">Default Security Policy</rdfs:label>
-    <identifier>POL-001</identifier>
-    <enforces rdf:resource="http://example.org/ontology#rule1"/>
-    <enforces rdf:resource="http://example.org/ontology#rule2"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#event1">
-    <rdf:type rdf:resource="http://example.org/ontology#CreationEvent"/>
-    <rdfs:label xml:lang="en">Creation Event 1</rdfs:label>
-    <identifier>EVT-001</identifier>
-    <dateCreated rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T10:00:00</dateCreated>
-    <occursIn rdf:resource="http://example.org/ontology#day1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#valueNumber">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Value"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:label xml:lang="en">value number</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#component1">
-    <rdf:type rdf:resource="http://example.org/ontology#Component"/>
-    <rdfs:label xml:lang="en">Core Component</rdfs:label>
-    <identifier>CMP-001</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#org1">
-    <rdf:type rdf:resource="http://example.org/ontology#AcademicOrganization"/>
-    <rdfs:label xml:lang="en">Example Academic Organization</rdfs:label>
-    <identifier>ORG-001</identifier>
-    <status>active</status>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Constraint">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Constraint</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#CalendarPeriod">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Calendar Period</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Role">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Role</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#valueString">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Value"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">value string</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#status">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">status</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Process">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#BusinessProcess"/>
-    <rdfs:label xml:lang="en">Process</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#title">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">title</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#OperationalProcess">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Process"/>
-    <rdfs:label xml:lang="en">Operational Process</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#proj2">
-    <rdf:type rdf:resource="http://example.org/ontology#Project"/>
-    <rdfs:label xml:lang="en">Project Beta</rdfs:label>
-    <identifier>PRJ-002</identifier>
-    <budget rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">250000.00</budget>
-    <hasPart rdf:resource="http://example.org/ontology#task2"/>
-    <hasDocument rdf:resource="http://example.org/ontology#doc3"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#TimePeriod">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#CalendarPeriod"/>
-    <rdfs:label xml:lang="en">Time Period</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#HardwareResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Hardware Resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#System">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">System</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#PublicationEvent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#LifecycleEvent"/>
-    <rdfs:label xml:lang="en">Publication Event</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Employee">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Person"/>
-    <rdfs:label xml:lang="en">Employee</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#year1">
-    <rdf:type rdf:resource="http://example.org/ontology#Year"/>
-    <rdfs:label xml:lang="en">Year 1</rdfs:label>
-    <identifier>Y-001</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#OperationalRule">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Rule"/>
-    <rdfs:label xml:lang="en">Operational Rule</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#metric1">
-    <rdf:type rdf:resource="http://example.org/ontology#KPI"/>
-    <rdfs:label xml:lang="en">On-time Delivery</rdfs:label>
-    <identifier>MET-001</identifier>
-    <amount rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">95.5</amount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#subwf1">
-    <rdf:type rdf:resource="http://example.org/ontology#SubWorkflow"/>
-    <rdfs:label xml:lang="en">Subworkflow A</rdfs:label>
-    <identifier>SWF-001</identifier>
-    <subWorkflowOf rdf:resource="http://example.org/ontology#workflow1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ModificationEvent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#LifecycleEvent"/>
-    <rdfs:label xml:lang="en">Modification Event</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasPart">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has part</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#numericIdentifier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://example.org/ontology#identifier"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:label xml:lang="en">numeric identifier</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#SecurityPolicy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Policy"/>
-    <rdfs:label xml:lang="en">Security Policy</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Person">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Agent"/>
-    <rdfs:label xml:lang="en">Person</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#dateCreated">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    <rdfs:label xml:lang="en">date created</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#codeIdentifier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://example.org/ontology#identifier"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">code identifier</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Organization">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Agent"/>
-    <rdfs:label xml:lang="en">Organization</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Manager">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#LeadershipRole"/>
-    <rdfs:label xml:lang="en">Manager</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Site">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#SpatialLocation"/>
-    <rdfs:label xml:lang="en">Site</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#doc1">
-    <rdf:type rdf:resource="http://example.org/ontology#DraftDocument"/>
-    <rdfs:label xml:lang="en">Draft Requirements</rdfs:label>
-    <title>Draft Requirements</title>
-    <version>0.1</version>
-    <identifier>DOC-001</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Service">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Service</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#QualityAttribute">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#PerformanceAttribute"/>
-    <rdfs:label xml:lang="en">Quality Attribute</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasTask">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Process"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Task"/>
-    <rdfs:label xml:lang="en">has task</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#priority">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Task"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:label xml:lang="en">priority</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#AdministrativeEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:label xml:lang="en">Administrative Entity</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#PrivateOrganization">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:label xml:lang="en">Private Organization</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#dateModified">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    <rdfs:label xml:lang="en">date modified</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Student">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Person"/>
-    <rdfs:label xml:lang="en">Student</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Rule">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Rule</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#managedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Agent"/>
-    <rdfs:label xml:lang="en">managed by</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ComplianceMeasure">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Compliance Measure</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Address">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Location"/>
-    <rdfs:label xml:lang="en">Address</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#TechnicalDocument">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Technical Document</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#rule1">
-    <rdf:type rdf:resource="http://example.org/ontology#AccessRule"/>
-    <rdfs:label xml:lang="en">Access Rule A</rdfs:label>
-    <identifier>RUL-001</identifier>
-    <appliesTo rdf:resource="http://example.org/ontology#doc1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasStep">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Workflow"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Process"/>
-    <rdfs:label xml:lang="en">has step</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#TemporalMeasure">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Measure"/>
-    <rdfs:label xml:lang="en">Temporal Measure</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#enforces">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Policy"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Rule"/>
-    <rdfs:label xml:lang="en">enforces</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#SpatialLocation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Location"/>
-    <rdfs:label xml:lang="en">Spatial Location</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#DeletionEvent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#LifecycleEvent"/>
-    <rdfs:label xml:lang="en">Deletion Event</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#locatedIn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://example.org/ontology#hasLocation"/>
-    <rdfs:label xml:lang="en">located in</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#org3">
-    <rdf:type rdf:resource="http://example.org/ontology#GovernmentOrganization"/>
-    <rdfs:label xml:lang="en">Example Government Organization</rdfs:label>
-    <identifier>ORG-003</identifier>
-    <status>active</status>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#role1">
-    <rdf:type rdf:resource="http://example.org/ontology#Manager"/>
-    <rdfs:label xml:lang="en">Manager Role</rdfs:label>
-    <identifier>ROL-001</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Supplier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:label xml:lang="en">Supplier</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#performs">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Agent"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Process"/>
-    <rdfs:label xml:lang="en">performs</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#org2">
-    <rdf:type rdf:resource="http://example.org/ontology#CorporateOrganization"/>
-    <rdfs:label xml:lang="en">Example Corporate Organization</rdfs:label>
-    <identifier>ORG-002</identifier>
-    <status>active</status>
-    <hasPolicy rdf:resource="http://example.org/ontology#policy1"/>
-    <hasPart rdf:resource="http://example.org/ontology#system1"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#PhysicalEntity"/>
+    <rdfs:label xml:lang="en">Agent</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/ontology#hasDocument">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Agent"/>
     <rdfs:range rdf:resource="http://example.org/ontology#Document"/>
     <rdfs:label xml:lang="en">has document</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#InterpersonalRole">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Role"/>
-    <rdfs:label xml:lang="en">Interpersonal Role</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#occursIn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://example.org/ontology#hasPeriod"/>
-    <rdfs:label xml:lang="en">occurs in</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#MaintenanceGuide">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#UserGuide"/>
-    <rdfs:label xml:lang="en">Maintenance Guide</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#MeetingRecord">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Meeting Record</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#doc3">
-    <rdf:type rdf:resource="http://example.org/ontology#TechnicalDocument"/>
-    <rdfs:label xml:lang="en">Technical Specification</rdfs:label>
-    <title>Technical Specification</title>
-    <version>1.0</version>
-    <identifier>DOC-003</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ClosurePhase">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#ProjectPhase"/>
-    <rdfs:label xml:lang="en">Closure Phase</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasPolicy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Policy"/>
-    <rdfs:label xml:lang="en">has policy</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#AccessRule">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Rule"/>
-    <rdfs:label xml:lang="en">Access Rule</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#relatedTo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">related to</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Guideline">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Guideline</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#collection1">
-    <rdf:type rdf:resource="http://example.org/ontology#Collection"/>
-    <rdfs:label xml:lang="en">Primary Collection</rdfs:label>
-    <identifier>COL-001</identifier>
-    <hasPart rdf:resource="http://example.org/ontology#doc1"/>
-    <hasPart rdf:resource="http://example.org/ontology#doc2"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#TextDocument">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Text Document</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#DraftDocument">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Draft Document</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#loc1">
-    <rdf:type rdf:resource="http://example.org/ontology#Site"/>
-    <rdfs:label xml:lang="en">Main Campus</rdfs:label>
-    <identifier>LOC-001</identifier>
-    <timezone>UTC</timezone>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Plan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Plan</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Agent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Agent</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#budget">
+  <rdf:Description rdf:about="http://example.org/ontology#endDate">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Project"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:label xml:lang="en">budget</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#PerformanceAttribute">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Performance Attribute</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Collection">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Collection</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Project">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Project</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ReviewEvent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#LifecycleEvent"/>
-    <rdfs:label xml:lang="en">Review Event</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#timezone">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Location"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">timezone</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#DataArtifact">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Data Artifact</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#subWorkflowOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#SubWorkflow"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Workflow"/>
-    <rdfs:label xml:lang="en">subworkflow of</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasPeriod">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://example.org/ontology#Event"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#CalendarPeriod"/>
-    <rdfs:label xml:lang="en">has period</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label xml:lang="en">end date</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#UserGuide">
+  <rdf:Description rdf:about="http://example.org/ontology#Entity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">User Guide</rdfs:label>
+    <rdfs:label xml:lang="en">Entity</rdfs:label>
+    <rdfs:subClassOf rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b5"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ExecutionPhase">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#ProjectPhase"/>
-    <rdfs:label xml:lang="en">Execution Phase</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#DigitalResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Digital Resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#system1">
-    <rdf:type rdf:resource="http://example.org/ontology#System"/>
-    <rdfs:label xml:lang="en">Enterprise System</rdfs:label>
-    <identifier>SYS-001</identifier>
-    <hasPart rdf:resource="http://example.org/ontology#component1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#role2">
-    <rdf:type rdf:resource="http://example.org/ontology#TechnicalRole"/>
-    <rdfs:label xml:lang="en">Technical Role</rdfs:label>
-    <identifier>ROL-002</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ApprovalEvent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#LifecycleEvent"/>
-    <rdfs:label xml:lang="en">Approval Event</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <rdfs:label xml:lang="en">Conceptual Enterprise Ontology</rdfs:label>
-    <owl:versionInfo xml:lang="en">1.0</owl:versionInfo>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#OperationalDocument">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Operational Document</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#partOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://example.org/ontology#hasPart"/>
-    <rdfs:label xml:lang="en">part of</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Resource">
+  <rdf:Description rdf:about="http://example.org/ontology#NamedEntity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Resource</rdfs:label>
+    <rdfs:label xml:lang="en">Named Entity</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#day1">
-    <rdf:type rdf:resource="http://example.org/ontology#Day"/>
-    <rdfs:label xml:lang="en">Day 1</rdfs:label>
-    <identifier>DAY-001</identifier>
+  <rdf:Description rdf:about="http://example.org/ontology#Process">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Event"/>
+    <rdfs:label xml:lang="en">Process</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Process"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">has resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#name">
+  <rdf:Description rdf:about="http://example.org/ontology#label">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#NamedEntity"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">name</rdfs:label>
+    <rdfs:label xml:lang="en">label</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#DecisionRecord">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Decision Record</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#InitiationPhase">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#ProjectPhase"/>
-    <rdfs:label xml:lang="en">Initiation Phase</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#LeadershipRole">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Role"/>
-    <rdfs:label xml:lang="en">Leadership Role</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#amount">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://example.org/ontology#FinancialMeasure"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:label xml:lang="en">amount</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ManagedResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Managed Resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#doc2">
-    <rdf:type rdf:resource="http://example.org/ontology#FinalDocument"/>
-    <rdfs:label xml:lang="en">Final Requirements</rdfs:label>
-    <title>Final Requirements</title>
-    <version>1.0</version>
-    <identifier>DOC-002</identifier>
-    <approvedBy rdf:resource="http://example.org/ontology#person1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Month">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#CalendarPeriod"/>
-    <rdfs:label xml:lang="en">Month</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#identifier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  <rdf:Description rdf:about="http://example.org/ontology#hasPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:label xml:lang="en">identifier</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Attribute">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Attribute</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ValidationRule">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Rule"/>
-    <rdfs:label xml:lang="en">Validation Rule</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#res2">
-    <rdf:type rdf:resource="http://example.org/ontology#HardwareResource"/>
-    <rdfs:label xml:lang="en">Server Cluster</rdfs:label>
-    <identifier>RES-002</identifier>
-    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50000.00</cost>
-    <managedBy rdf:resource="http://example.org/ontology#org2"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Task">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Task</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#rule2">
-    <rdf:type rdf:resource="http://example.org/ontology#ValidationRule"/>
-    <rdfs:label xml:lang="en">Validation Rule B</rdfs:label>
-    <identifier>RUL-002</identifier>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Policy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Policy</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#AccessPolicy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Policy"/>
-    <rdfs:label xml:lang="en">Access Policy</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Minutes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Minutes</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#RiskMeasure">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Measure"/>
-    <rdfs:label xml:lang="en">Risk Measure</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Day">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#CalendarPeriod"/>
-    <rdfs:label xml:lang="en">Day</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Partner">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Organization"/>
-    <rdfs:label xml:lang="en">Partner</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:label xml:lang="en">has part</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/ontology#description">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
@@ -910,111 +55,222 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:label xml:lang="en">description</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Value">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Value</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#UsagePolicy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Policy"/>
-    <rdfs:label xml:lang="en">Usage Policy</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasRole">
+  <rdf:Description rdf:about="http://example.org/ontology#participatesIn">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology#hasParticipant"/>
     <rdfs:domain rdf:resource="http://example.org/ontology#Agent"/>
-    <rdfs:range rdf:resource="http://example.org/ontology#Role"/>
-    <rdfs:label xml:lang="en">has role</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/ontology#Event"/>
+    <rdfs:label xml:lang="en">participates in</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#SubWorkflow">
+  <rdf:Description rdf:about="http://example.org/ontology#organization1">
+    <rdf:type rdf:resource="http://example.org/ontology#Organization"/>
+    <label>Organization 1</label>
+    <foundingDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2000-01-01</foundingDate>
+    <status>active</status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#isPartOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology#hasPart"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:label xml:lang="en">is part of</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#version">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#InformationObject"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">version</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#locatedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#PhysicalEntity"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Place"/>
+    <rdfs:label xml:lang="en">located in</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasParticipant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Event"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Agent"/>
+    <rdfs:label xml:lang="en">has participant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#identifies">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology#hasIdentifier"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Identifier"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:label xml:lang="en">identifies</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Place">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Workflow"/>
-    <rdfs:label xml:lang="en">Subworkflow</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#PhysicalEntity"/>
+    <rdfs:label xml:lang="en">Place</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#KPI">
+  <rdf:Description rdf:about="http://example.org/ontology#Organization">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Metric"/>
-    <rdfs:label xml:lang="en">KPI</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Agent"/>
+    <rdfs:subClassOf rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b2"/>
+    <rdfs:label xml:lang="en">Organization</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#ApprovedDocument">
+  <rdf:Description rdf:about="http://example.org/ontology#identifier1">
+    <rdf:type rdf:resource="http://example.org/ontology#Identifier"/>
+    <code>ID-001</code>
+    <label>Identifier 1</label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Person">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Document"/>
-    <rdfs:label xml:lang="en">Approved Document</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Agent"/>
+    <rdfs:subClassOf rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b1"/>
+    <rdfs:label xml:lang="en">Person</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#BusinessProcess">
+  <rdf:Description rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/ontology#status"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#code">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Identifier"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">code</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#InformationObject"/>
+    <rdfs:label xml:lang="en">Identifier</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/ontology#hasDocument"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/ontology#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">status</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/ontology#hasParticipant"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/ontology#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#place1">
+    <rdf:type rdf:resource="http://example.org/ontology#Place"/>
+    <label>Place 1</label>
+    <description>Example place.</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#foundingDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label xml:lang="en">founding date</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#refersTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#InformationObject"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:label xml:lang="en">refers to</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#InformationObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#AbstractEntity"/>
+    <rdfs:label xml:lang="en">Information Object</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://example.org/ontology#locatedIn"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Place"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#PhysicalEntity"/>
+    <rdfs:label xml:lang="en">has location</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#startDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label xml:lang="en">start date</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#person1">
+    <rdf:type rdf:resource="http://example.org/ontology#Person"/>
+    <label>Person 1</label>
+    <birthDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1990-01-01</birthDate>
+    <status>active</status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#entity1">
+    <rdf:type rdf:resource="http://example.org/ontology#Entity"/>
+    <label>Entity 1</label>
+    <description>Example individual of Entity.</description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/ontology#describes"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/ontology#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#PhysicalEntity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Business Process</rdfs:label>
+    <rdfs:label xml:lang="en">Physical Entity</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#PhysicalResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Physical Resource</rdfs:label>
+  <rdf:Description rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/ontology#hasIdentifier"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/ontology#Identifier"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#CreationEvent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#LifecycleEvent"/>
-    <rdfs:label xml:lang="en">Creation Event</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/ontology#describes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#InformationObject"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:label xml:lang="en">describes</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Entity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Entity</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Customer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Person"/>
-    <rdfs:label xml:lang="en">Customer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#TechnicalRole">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Role"/>
-    <rdfs:label xml:lang="en">Technical Role</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Measure">
+  <rdf:Description rdf:about="http://example.org/ontology#AbstractEntity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Measure</rdfs:label>
+    <rdfs:label xml:lang="en">Abstract Entity</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Document">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Document</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/ontology#document1">
+    <rdf:type rdf:resource="http://example.org/ontology#Document"/>
+    <label>Document 1</label>
+    <createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T12:00:00+00:00</createdAt>
+    <version>1.0</version>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/ontology#Event">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#AbstractEntity"/>
+    <rdfs:subClassOf rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b4"/>
     <rdfs:label xml:lang="en">Event</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#documents">
+  <rdf:Description rdf:about="http://example.org/ontology#birthDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label xml:lang="en">birth date</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/ontology#InformationObject"/>
+    <rdfs:subClassOf rdf:nodeID="n6bb9339e59844a86a3a35adb098e35a1b3"/>
+    <rdfs:label xml:lang="en">Document</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#hasIdentifier">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://example.org/ontology#hasDocument"/>
-    <rdfs:label xml:lang="en">documents</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/ontology#Entity"/>
+    <rdfs:range rdf:resource="http://example.org/ontology#Identifier"/>
+    <rdfs:label xml:lang="en">has identifier</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Component">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Component</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/ontology#createdAt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/ontology#InformationObject"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">created at</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#Product">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Entity"/>
-    <rdfs:label xml:lang="en">Product</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/ontology#event1">
+    <rdf:type rdf:resource="http://example.org/ontology#Event"/>
+    <label>Event 1</label>
+    <startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-01</startDate>
+    <endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-31</endDate>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#task1">
-    <rdf:type rdf:resource="http://example.org/ontology#Task"/>
-    <rdfs:label xml:lang="en">Task One</rdfs:label>
-    <identifier>TSK-001</identifier>
-    <priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</priority>
-    <dependsOn rdf:resource="http://example.org/ontology#res1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#SoftwareResource">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Resource"/>
-    <rdfs:label xml:lang="en">Software Resource</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#FinancialMeasure">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/ontology#Measure"/>
-    <rdfs:label xml:lang="en">Financial Measure</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">Conceptual Model Ontology</rdfs:label>
+    <rdfs:comment xml:lang="en">A clean ontology skeleton serialized in Turtle.</rdfs:comment>
   </rdf:Description>
 </rdf:RDF>

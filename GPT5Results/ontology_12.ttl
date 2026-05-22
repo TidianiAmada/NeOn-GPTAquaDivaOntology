@@ -1,27 +1,42 @@
 @prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-:connectedTo a owl:ObjectProperty,
+:broaderThan a owl:ObjectProperty,
         owl:TransitiveProperty .
 
-:contains a owl:ObjectProperty,
+:causes a owl:ObjectProperty,
         owl:TransitiveProperty .
 
-:dependsOn a owl:ObjectProperty,
+:containsPart a owl:ObjectProperty,
         owl:TransitiveProperty .
 
-:hasSubunit a owl:ObjectProperty,
+:hasAncestor a owl:ObjectProperty,
+        owl:TransitiveProperty .
+
+:hasLocation a owl:ObjectProperty,
+        owl:TransitiveProperty .
+
+:hasMember a owl:ObjectProperty,
         owl:TransitiveProperty .
 
 :isAncestorOf a owl:ObjectProperty,
         owl:TransitiveProperty .
 
-:isLocatedIn a owl:ObjectProperty,
+:isCausedBy a owl:ObjectProperty,
         owl:TransitiveProperty .
 
-:isPartOf a owl:ObjectProperty,
+:isMemberOf a owl:ObjectProperty,
         owl:TransitiveProperty .
 
-:memberOf a owl:ObjectProperty,
+:locatedIn a owl:ObjectProperty,
+        owl:TransitiveProperty .
+
+:narrowerThan a owl:ObjectProperty,
+        owl:TransitiveProperty .
+
+:partOf a owl:ObjectProperty,
+        owl:TransitiveProperty .
+
+:subClassOfRelation a owl:ObjectProperty,
         owl:TransitiveProperty .
 

@@ -3,710 +3,547 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/ontology> a owl:Ontology ;
-    rdfs:comment "Conceptual ontology model with a large class hierarchy, object properties, datatype properties, and individuals."@en .
-
-:AcademicOrganization a owl:Class ;
-    rdfs:subClassOf :Organization .
-
-:AccessPolicy a owl:Class ;
-    rdfs:subClassOf :SecurityPolicy .
-
-:AccessRule a owl:Class ;
-    rdfs:subClassOf :OperationalRule .
-
-:AdministrativeEntity a owl:Class ;
-    rdfs:subClassOf :Organization .
-
-:ApprovalEvent a owl:Class ;
-    rdfs:subClassOf :ReviewEvent .
-
-:BusinessProcess a owl:Class ;
-    rdfs:subClassOf :OperationalProcess .
-
-:CodeIdentifier a owl:Class ;
-    rdfs:subClassOf :Identifier .
-
-:ComplianceMeasure a owl:Class ;
-    rdfs:subClassOf :QualityMeasure .
-
-:Contract a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:CorporateOrganization a owl:Class ;
-    rdfs:subClassOf :Organization .
-
-:CreationEvent a owl:Class ;
-    rdfs:subClassOf :LifecycleEvent .
-
-:Customer a owl:Class ;
-    rdfs:subClassOf :Person .
-
-:Day a owl:Class ;
-    rdfs:subClassOf :CalendarPeriod .
-
-:DecisionRecord a owl:Class ;
-    rdfs:subClassOf :OperationalDocument .
-
-:DeletionEvent a owl:Class ;
-    rdfs:subClassOf :LifecycleEvent .
-
-:Director a owl:Class ;
-    rdfs:subClassOf :Manager .
-
-:DraftDocument a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:FinalDocument a owl:Class ;
-    rdfs:subClassOf :ApprovedDocument .
-
-:FinancialMeasure a owl:Class ;
-    rdfs:subClassOf :Measure .
-
-:GovernmentOrganization a owl:Class ;
-    rdfs:subClassOf :Organization .
-
-:Guideline a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:HardwareResource a owl:Class ;
-    rdfs:subClassOf :PhysicalResource .
-
-:InstallationGuide a owl:Class ;
-    rdfs:subClassOf :UserGuide .
-
-:LeadershipRole a owl:Class ;
-    rdfs:subClassOf :InterpersonalRole .
-
-:License a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:MaintenanceGuide a owl:Class ;
-    rdfs:subClassOf :UserGuide .
-
-:Minutes a owl:Class ;
-    rdfs:subClassOf :MeetingRecord .
-
-:ModificationEvent a owl:Class ;
-    rdfs:subClassOf :LifecycleEvent .
-
-:Month a owl:Class ;
-    rdfs:subClassOf :CalendarPeriod .
-
-:NonProfitOrganization a owl:Class ;
-    rdfs:subClassOf :Organization .
-
-:NumericIdentifier a owl:Class ;
-    rdfs:subClassOf :Identifier .
-
-:Partner a owl:Class ;
-    rdfs:subClassOf :Agent .
-
-:PerformanceAttribute a owl:Class ;
-    rdfs:subClassOf :QualityAttribute .
-
-:PrivateOrganization a owl:Class ;
-    rdfs:subClassOf :Organization .
-
-:Product a owl:Class ;
-    rdfs:subClassOf :Resource .
-
-:PublicResource a owl:Class ;
-    rdfs:subClassOf :ManagedResource .
-
-:PublicationEvent a owl:Class ;
-    rdfs:subClassOf :Event .
-
-:Region a owl:Class ;
-    rdfs:subClassOf :SpatialLocation .
-
-:Researcher a owl:Class ;
-    rdfs:subClassOf :Employee .
-
-:RestrictedResource a owl:Class ;
-    rdfs:subClassOf :LicensedResource .
-
-:RiskMeasure a owl:Class ;
-    rdfs:subClassOf :Measure .
-
-:SecurityAttribute a owl:Class ;
-    rdfs:subClassOf :QualityAttribute .
-
-:Service a owl:Class ;
-    rdfs:subClassOf :Resource .
-
-:Site a owl:Class ;
-    rdfs:subClassOf :SpatialLocation .
-
-:SoftwareResource a owl:Class ;
-    rdfs:subClassOf :DigitalResource .
-
-:Student a owl:Class ;
-    rdfs:subClassOf :Person .
-
-:SubWorkflow a owl:Class ;
-    rdfs:subClassOf :Workflow .
-
-:Supplier a owl:Class ;
-    rdfs:subClassOf :Agent .
-
-:TechnicalRole a owl:Class ;
-    rdfs:subClassOf :Role .
-
-:TemporalMeasure a owl:Class ;
-    rdfs:subClassOf :Measure .
-
-:UsagePolicy a owl:Class ;
-    rdfs:subClassOf :Policy .
-
-:ValidationRule a owl:Class ;
-    rdfs:subClassOf :Rule .
-
-:Year a owl:Class ;
-    rdfs:subClassOf :CalendarPeriod .
-
-:actualEffort a owl:DatatypeProperty ;
-    rdfs:domain :Task ;
-    rdfs:range xsd:decimal .
-
-:addressLine a owl:DatatypeProperty ;
-    rdfs:domain :Address ;
-    rdfs:range xsd:string .
-
-:appliesTo a owl:ObjectProperty ;
-    rdfs:domain :Rule ;
-    rdfs:range :Entity .
-
-:approvedBy a owl:ObjectProperty ;
-    rdfs:domain :Document ;
-    rdfs:range :Person .
-
-:belongsToProject a owl:ObjectProperty ;
-    rdfs:domain :Project ;
-    rdfs:range :Organization ;
-    owl:inverseOf :hasProject .
-
-:budget a owl:DatatypeProperty ;
-    rdfs:domain :Project ;
-    rdfs:range xsd:decimal .
-
-:capacity a owl:DatatypeProperty ;
-    rdfs:domain :Resource ;
-    rdfs:range xsd:decimal .
-
-:city a owl:DatatypeProperty ;
-    rdfs:domain :Address ;
-    rdfs:range xsd:string .
-
-:code a owl:DatatypeProperty ;
-    rdfs:domain :Identifier ;
-    rdfs:range xsd:string .
-
-:constrains a owl:ObjectProperty ;
-    rdfs:domain :Constraint ;
-    rdfs:range :Entity .
-
-:consumes a owl:ObjectProperty ;
-    rdfs:domain :Process ;
-    rdfs:range :Resource .
-
-:contains a owl:ObjectProperty ;
-    rdfs:domain :Collection ;
-    rdfs:range :Entity .
-
-:cost a owl:DatatypeProperty ;
-    rdfs:domain :Resource ;
-    rdfs:range xsd:decimal .
-
-:country a owl:DatatypeProperty ;
-    rdfs:domain :Address ;
-    rdfs:range xsd:string .
-
-:createdAt a owl:DatatypeProperty ;
+: a owl:Ontology ;
+    rdfs:label "Conceptual Ontology Model"@en .
+
+:AbstractEntity a owl:Class ;
+    rdfs:label "Abstract Entity"@en ;
+    rdfs:subClassOf :RootEntity .
+
+:Class_60 a owl:Class ;
+    rdfs:label "Class 60"@en ;
+    rdfs:subClassOf :Class_59 .
+
+:ConcreteEntity a owl:Class ;
+    rdfs:label "Concrete Entity"@en ;
+    rdfs:subClassOf :DomainEntity .
+
+:DatatypeProperty_5 a owl:DatatypeProperty ;
+    rdfs:label "Datatype Property 5"@en ;
+    rdfs:subPropertyOf :DatatypeProperty_4 .
+
+:Individual_10 a :OntologyIndividual ;
+    :hasIndex 10 ;
+    :hasName "Individual 10" .
+
+:Individual_6 a :OntologyIndividual ;
+    :hasIndex 6 ;
+    :hasName "Individual 6" .
+
+:Individual_7 a :OntologyIndividual ;
+    :hasIndex 7 ;
+    :hasName "Individual 7" .
+
+:Individual_8 a :OntologyIndividual ;
+    :hasIndex 8 ;
+    :hasName "Individual 8" .
+
+:Individual_9 a :OntologyIndividual ;
+    :hasIndex 9 ;
+    :hasName "Individual 9" .
+
+:ObjectProperty_10 a owl:ObjectProperty ;
+    rdfs:label "Object Property 10"@en ;
+    rdfs:subPropertyOf :ObjectProperty_9 .
+
+:Triple_1 a :Triple ;
+    :hasObject :Entity ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_1 ;
+    :tripleOf :OntologyModel .
+
+:Triple_10 a :Triple ;
+    :hasObject :Class_9 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_10 ;
+    :tripleOf :OntologyModel .
+
+:Triple_2 a :Triple ;
+    :hasObject :Class_1 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_2 ;
+    :tripleOf :OntologyModel .
+
+:Triple_3 a :Triple ;
+    :hasObject :Class_2 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_3 ;
+    :tripleOf :OntologyModel .
+
+:Triple_4 a :Triple ;
+    :hasObject :Class_3 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_4 ;
+    :tripleOf :OntologyModel .
+
+:Triple_5 a :Triple ;
+    :hasObject :Class_4 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_5 ;
+    :tripleOf :OntologyModel .
+
+:Triple_6 a :Triple ;
+    :hasObject :Class_5 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_6 ;
+    :tripleOf :OntologyModel .
+
+:Triple_7 a :Triple ;
+    :hasObject :Class_6 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_7 ;
+    :tripleOf :OntologyModel .
+
+:Triple_8 a :Triple ;
+    :hasObject :Class_7 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_8 ;
+    :tripleOf :OntologyModel .
+
+:Triple_9 a :Triple ;
+    :hasObject :Class_8 ;
+    :hasPredicate :subClassOfConcept ;
+    :hasSubject :Class_9 ;
+    :tripleOf :OntologyModel .
+
+:definesClass a owl:ObjectProperty ;
+    rdfs:label "defines class"@en ;
+    rdfs:domain :Ontology ;
+    rdfs:range :OntologyClass .
+
+:definesDatatypeProperty a owl:ObjectProperty ;
+    rdfs:label "defines datatype property"@en ;
+    rdfs:domain :Ontology ;
+    rdfs:range :OntologyDatatypeProperty .
+
+:definesIndividual a owl:ObjectProperty ;
+    rdfs:label "defines individual"@en ;
+    rdfs:domain :Ontology ;
+    rdfs:range :OntologyIndividual .
+
+:definesObjectProperty a owl:ObjectProperty ;
+    rdfs:label "defines object property"@en ;
+    rdfs:domain :Ontology ;
+    rdfs:range :OntologyObjectProperty .
+
+:hasIndex a owl:DatatypeProperty ;
+    rdfs:label "has index"@en ;
     rdfs:domain :Entity ;
-    rdfs:range xsd:dateTime .
-
-:createdBy a owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Agent .
-
-:dependsOn a owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Entity .
-
-:description a owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string .
-
-:documents a owl:ObjectProperty ;
-    rdfs:domain :Document ;
-    rdfs:range :Entity ;
-    owl:inverseOf :hasDocument .
-
-:email a owl:DatatypeProperty ;
-    rdfs:domain :Person ;
-    rdfs:range xsd:string .
-
-:endDate a owl:DatatypeProperty ;
-    rdfs:domain :TimePeriod ;
-    rdfs:range xsd:dateTime .
-
-:estimatedEffort a owl:DatatypeProperty ;
-    rdfs:domain :Task ;
-    rdfs:range xsd:decimal .
-
-:followedBy a owl:ObjectProperty ;
-    rdfs:domain :ProjectPhase ;
-    rdfs:range :ProjectPhase ;
-    owl:inverseOf :precededBy .
-
-:hasComponent a owl:ObjectProperty ;
-    rdfs:domain :System ;
-    rdfs:range :Component .
-
-:hasDataset a owl:ObjectProperty ;
-    rdfs:domain :Collection ;
-    rdfs:range :Dataset .
-
-:hasLocation a owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Location ;
-    owl:inverseOf :locatedIn .
-
-:hasRequirement a owl:ObjectProperty ;
-    rdfs:domain :Plan ;
-    rdfs:range :Requirement .
-
-:hasRole a owl:ObjectProperty ;
-    rdfs:domain :Agent ;
-    rdfs:range :Role .
-
-:hasTask a owl:ObjectProperty ;
-    rdfs:domain :Workflow ;
-    rdfs:range :Task .
-
-:hasValue a owl:ObjectProperty ;
-    rdfs:domain :Measure ;
-    rdfs:range :Value .
-
-:identifier a owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string .
-
-:implements a owl:ObjectProperty ;
-    rdfs:domain :Component ;
-    rdfs:range :Specification .
-
-:isDescribedBy a owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Document ;
-    owl:inverseOf :describes .
-
-:label a owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string .
-
-:measures a owl:ObjectProperty ;
-    rdfs:domain :Metric ;
-    rdfs:range :Entity .
-
-:metric1 a :KPI ;
-    :hasValue :value1 ;
-    :identifier "MET-001" ;
-    :label "On-time delivery" ;
-    :measures :project1 .
-
-:partOf a owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Entity ;
-    owl:inverseOf :hasPart .
-
-:participatesIn a owl:ObjectProperty ;
-    rdfs:domain :Agent ;
-    rdfs:range :Event .
-
-:phone a owl:DatatypeProperty ;
-    rdfs:domain :Person ;
-    rdfs:range xsd:string .
-
-:priority a owl:DatatypeProperty ;
-    rdfs:domain :Task ;
     rdfs:range xsd:integer .
 
-:produces a owl:ObjectProperty ;
-    rdfs:domain :Process ;
-    rdfs:range :Resource .
-
-:quantity a owl:DatatypeProperty ;
-    rdfs:domain :Resource ;
-    rdfs:range xsd:decimal .
-
-:reviewedBy a owl:ObjectProperty ;
-    rdfs:domain :Document ;
-    rdfs:range :Person .
-
-:startDate a owl:DatatypeProperty ;
-    rdfs:domain :TimePeriod ;
-    rdfs:range xsd:dateTime .
-
-:status a owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string .
-
-:updatedAt a owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:dateTime .
-
-:updatedBy a owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Agent .
-
-:uses a owl:ObjectProperty ;
-    rdfs:domain :Activity ;
-    rdfs:range :Resource .
-
-:valueDate a owl:DatatypeProperty ;
-    rdfs:domain :Value ;
-    rdfs:range xsd:dateTime .
-
-:valueNumber a owl:DatatypeProperty ;
-    rdfs:domain :Value ;
-    rdfs:range xsd:decimal .
-
-:valueString a owl:DatatypeProperty ;
-    rdfs:domain :Value ;
-    rdfs:range xsd:string .
-
-:version a owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string .
-
-:ApprovedDocument a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:Attribute a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:ClosurePhase a owl:Class ;
-    rdfs:subClassOf :ProjectPhase .
-
-:Constraint a owl:Class ;
-    rdfs:subClassOf :Rule .
-
-:DataArtifact a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:DigitalResource a owl:Class ;
-    rdfs:subClassOf :Resource .
-
-:ExecutionPhase a owl:Class ;
-    rdfs:subClassOf :ProjectPhase .
-
-:InitiationPhase a owl:Class ;
-    rdfs:subClassOf :ProjectPhase .
-
-:InterpersonalRole a owl:Class ;
-    rdfs:subClassOf :Role .
-
-:KPI a owl:Class ;
-    rdfs:subClassOf :OperationalMetric .
-
-:LicensedResource a owl:Class ;
-    rdfs:subClassOf :ManagedResource .
-
-:Manager a owl:Class ;
-    rdfs:subClassOf :Employee .
-
-:MeetingRecord a owl:Class ;
-    rdfs:subClassOf :OperationalDocument .
-
-:OperationalMetric a owl:Class ;
-    rdfs:subClassOf :Metric .
-
-:OperationalProcess a owl:Class ;
-    rdfs:subClassOf :Process .
-
-:OperationalRule a owl:Class ;
-    rdfs:subClassOf :Rule .
-
-:PhysicalResource a owl:Class ;
-    rdfs:subClassOf :Resource .
-
-:Plan a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:QualityMeasure a owl:Class ;
-    rdfs:subClassOf :Measure .
-
-:Report a owl:Class ;
-    rdfs:subClassOf :TextDocument .
-
-:Requirement a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:ReviewEvent a owl:Class ;
-    rdfs:subClassOf :Event .
-
-:SecurityPolicy a owl:Class ;
-    rdfs:subClassOf :Policy .
-
-:Specification a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:System a owl:Class ;
-    rdfs:subClassOf :Resource .
-
-:TechnicalDocument a owl:Class ;
-    rdfs:subClassOf :TextDocument .
-
-:address1 a :Address ;
-    :addressLine "1 Example Street" ;
-    :city "Example City" ;
-    :country "Example Country" ;
-    :identifier "ADR-001" ;
-    :label "Main Office" .
-
-:assignedTo a owl:ObjectProperty ;
-    rdfs:domain :Task ;
-    rdfs:range :Person .
-
-:dataset1 a :Dataset ;
-    :createdBy :person1 ;
-    :identifier "DS-001" ;
-    :label "Project Dataset" ;
-    :partOf :project1 .
-
-:describes a owl:ObjectProperty ;
-    rdfs:domain :Document ;
+:hasObject a owl:ObjectProperty ;
+    rdfs:label "has object"@en ;
+    rdfs:domain :Triple ;
     rdfs:range :Entity .
 
-:doc1 a :Report ;
-    :describes :project1 ;
-    :identifier "DOC-001" ;
-    :isDescribedBy :project1 ;
-    :label "Status Report" ;
-    :reviewedBy :person1 .
+:hasPredicate a owl:ObjectProperty ;
+    rdfs:label "has predicate"@en ;
+    rdfs:domain :Triple ;
+    rdfs:range :PropertyConcept .
 
-:hasDocument a owl:ObjectProperty ;
+:hasSubject a owl:ObjectProperty ;
+    rdfs:label "has subject"@en ;
+    rdfs:domain :Triple ;
+    rdfs:range :Entity .
+
+:tripleOf a owl:ObjectProperty ;
+    rdfs:label "triple of"@en ;
+    rdfs:domain :Triple ;
+    rdfs:range :Ontology .
+
+:ClassConcept a owl:Class ;
+    rdfs:label "Class Concept"@en .
+
+:Class_11 a owl:Class ;
+    rdfs:label "Class 11"@en ;
+    rdfs:subClassOf :Class_10 .
+
+:Class_12 a owl:Class ;
+    rdfs:label "Class 12"@en ;
+    rdfs:subClassOf :Class_11 .
+
+:Class_13 a owl:Class ;
+    rdfs:label "Class 13"@en ;
+    rdfs:subClassOf :Class_12 .
+
+:Class_14 a owl:Class ;
+    rdfs:label "Class 14"@en ;
+    rdfs:subClassOf :Class_13 .
+
+:Class_15 a owl:Class ;
+    rdfs:label "Class 15"@en ;
+    rdfs:subClassOf :Class_14 .
+
+:Class_16 a owl:Class ;
+    rdfs:label "Class 16"@en ;
+    rdfs:subClassOf :Class_15 .
+
+:Class_17 a owl:Class ;
+    rdfs:label "Class 17"@en ;
+    rdfs:subClassOf :Class_16 .
+
+:Class_18 a owl:Class ;
+    rdfs:label "Class 18"@en ;
+    rdfs:subClassOf :Class_17 .
+
+:Class_19 a owl:Class ;
+    rdfs:label "Class 19"@en ;
+    rdfs:subClassOf :Class_18 .
+
+:Class_20 a owl:Class ;
+    rdfs:label "Class 20"@en ;
+    rdfs:subClassOf :Class_19 .
+
+:Class_21 a owl:Class ;
+    rdfs:label "Class 21"@en ;
+    rdfs:subClassOf :Class_20 .
+
+:Class_22 a owl:Class ;
+    rdfs:label "Class 22"@en ;
+    rdfs:subClassOf :Class_21 .
+
+:Class_23 a owl:Class ;
+    rdfs:label "Class 23"@en ;
+    rdfs:subClassOf :Class_22 .
+
+:Class_24 a owl:Class ;
+    rdfs:label "Class 24"@en ;
+    rdfs:subClassOf :Class_23 .
+
+:Class_25 a owl:Class ;
+    rdfs:label "Class 25"@en ;
+    rdfs:subClassOf :Class_24 .
+
+:Class_26 a owl:Class ;
+    rdfs:label "Class 26"@en ;
+    rdfs:subClassOf :Class_25 .
+
+:Class_27 a owl:Class ;
+    rdfs:label "Class 27"@en ;
+    rdfs:subClassOf :Class_26 .
+
+:Class_28 a owl:Class ;
+    rdfs:label "Class 28"@en ;
+    rdfs:subClassOf :Class_27 .
+
+:Class_29 a owl:Class ;
+    rdfs:label "Class 29"@en ;
+    rdfs:subClassOf :Class_28 .
+
+:Class_30 a owl:Class ;
+    rdfs:label "Class 30"@en ;
+    rdfs:subClassOf :Class_29 .
+
+:Class_31 a owl:Class ;
+    rdfs:label "Class 31"@en ;
+    rdfs:subClassOf :Class_30 .
+
+:Class_32 a owl:Class ;
+    rdfs:label "Class 32"@en ;
+    rdfs:subClassOf :Class_31 .
+
+:Class_33 a owl:Class ;
+    rdfs:label "Class 33"@en ;
+    rdfs:subClassOf :Class_32 .
+
+:Class_34 a owl:Class ;
+    rdfs:label "Class 34"@en ;
+    rdfs:subClassOf :Class_33 .
+
+:Class_35 a owl:Class ;
+    rdfs:label "Class 35"@en ;
+    rdfs:subClassOf :Class_34 .
+
+:Class_36 a owl:Class ;
+    rdfs:label "Class 36"@en ;
+    rdfs:subClassOf :Class_35 .
+
+:Class_37 a owl:Class ;
+    rdfs:label "Class 37"@en ;
+    rdfs:subClassOf :Class_36 .
+
+:Class_38 a owl:Class ;
+    rdfs:label "Class 38"@en ;
+    rdfs:subClassOf :Class_37 .
+
+:Class_39 a owl:Class ;
+    rdfs:label "Class 39"@en ;
+    rdfs:subClassOf :Class_38 .
+
+:Class_40 a owl:Class ;
+    rdfs:label "Class 40"@en ;
+    rdfs:subClassOf :Class_39 .
+
+:Class_41 a owl:Class ;
+    rdfs:label "Class 41"@en ;
+    rdfs:subClassOf :Class_40 .
+
+:Class_42 a owl:Class ;
+    rdfs:label "Class 42"@en ;
+    rdfs:subClassOf :Class_41 .
+
+:Class_43 a owl:Class ;
+    rdfs:label "Class 43"@en ;
+    rdfs:subClassOf :Class_42 .
+
+:Class_44 a owl:Class ;
+    rdfs:label "Class 44"@en ;
+    rdfs:subClassOf :Class_43 .
+
+:Class_45 a owl:Class ;
+    rdfs:label "Class 45"@en ;
+    rdfs:subClassOf :Class_44 .
+
+:Class_46 a owl:Class ;
+    rdfs:label "Class 46"@en ;
+    rdfs:subClassOf :Class_45 .
+
+:Class_47 a owl:Class ;
+    rdfs:label "Class 47"@en ;
+    rdfs:subClassOf :Class_46 .
+
+:Class_48 a owl:Class ;
+    rdfs:label "Class 48"@en ;
+    rdfs:subClassOf :Class_47 .
+
+:Class_49 a owl:Class ;
+    rdfs:label "Class 49"@en ;
+    rdfs:subClassOf :Class_48 .
+
+:Class_50 a owl:Class ;
+    rdfs:label "Class 50"@en ;
+    rdfs:subClassOf :Class_49 .
+
+:Class_51 a owl:Class ;
+    rdfs:label "Class 51"@en ;
+    rdfs:subClassOf :Class_50 .
+
+:Class_52 a owl:Class ;
+    rdfs:label "Class 52"@en ;
+    rdfs:subClassOf :Class_51 .
+
+:Class_53 a owl:Class ;
+    rdfs:label "Class 53"@en ;
+    rdfs:subClassOf :Class_52 .
+
+:Class_54 a owl:Class ;
+    rdfs:label "Class 54"@en ;
+    rdfs:subClassOf :Class_53 .
+
+:Class_55 a owl:Class ;
+    rdfs:label "Class 55"@en ;
+    rdfs:subClassOf :Class_54 .
+
+:Class_56 a owl:Class ;
+    rdfs:label "Class 56"@en ;
+    rdfs:subClassOf :Class_55 .
+
+:Class_57 a owl:Class ;
+    rdfs:label "Class 57"@en ;
+    rdfs:subClassOf :Class_56 .
+
+:Class_58 a owl:Class ;
+    rdfs:label "Class 58"@en ;
+    rdfs:subClassOf :Class_57 .
+
+:Class_59 a owl:Class ;
+    rdfs:label "Class 59"@en ;
+    rdfs:subClassOf :Class_58 .
+
+:DatatypePropertyConcept a owl:Class ;
+    rdfs:label "Datatype Property Concept"@en ;
+    rdfs:subClassOf :PropertyConcept .
+
+:DatatypeProperty_4 a owl:DatatypeProperty ;
+    rdfs:label "Datatype Property 4"@en ;
+    rdfs:subPropertyOf :DatatypeProperty_3 .
+
+:DomainEntity a owl:Class ;
+    rdfs:label "Domain Entity"@en ;
+    rdfs:subClassOf :RootEntity .
+
+:IndividualConcept a owl:Class ;
+    rdfs:label "Individual Concept"@en .
+
+:Individual_1 a :OntologyIndividual ;
+    :hasIndex 1 ;
+    :hasName "Individual 1" .
+
+:Individual_2 a :OntologyIndividual ;
+    :hasIndex 2 ;
+    :hasName "Individual 2" .
+
+:Individual_3 a :OntologyIndividual ;
+    :hasIndex 3 ;
+    :hasName "Individual 3" .
+
+:Individual_4 a :OntologyIndividual ;
+    :hasIndex 4 ;
+    :hasName "Individual 4" .
+
+:Individual_5 a :OntologyIndividual ;
+    :hasIndex 5 ;
+    :hasName "Individual 5" .
+
+:ObjectPropertyConcept a owl:Class ;
+    rdfs:label "Object Property Concept"@en ;
+    rdfs:subClassOf :PropertyConcept .
+
+:ObjectProperty_6 a owl:ObjectProperty ;
+    rdfs:label "Object Property 6"@en ;
+    rdfs:subPropertyOf :ObjectProperty_5 .
+
+:ObjectProperty_7 a owl:ObjectProperty ;
+    rdfs:label "Object Property 7"@en ;
+    rdfs:subPropertyOf :ObjectProperty_6 .
+
+:ObjectProperty_8 a owl:ObjectProperty ;
+    rdfs:label "Object Property 8"@en ;
+    rdfs:subPropertyOf :ObjectProperty_7 .
+
+:ObjectProperty_9 a owl:ObjectProperty ;
+    rdfs:label "Object Property 9"@en ;
+    rdfs:subPropertyOf :ObjectProperty_8 .
+
+:OntologyDatatypeProperty a owl:Class ;
+    rdfs:label "Ontology Datatype Property"@en ;
+    rdfs:subClassOf :DatatypePropertyConcept .
+
+:OntologyObjectProperty a owl:Class ;
+    rdfs:label "Ontology Object Property"@en ;
+    rdfs:subClassOf :ObjectPropertyConcept .
+
+:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name"@en ;
     rdfs:domain :Entity ;
-    rdfs:range :Document .
+    rdfs:range xsd:string .
 
-:hasMember a owl:ObjectProperty ;
-    rdfs:domain :Organization ;
-    rdfs:range :Person .
-
-:hasPart a owl:ObjectProperty ;
+:relatedToConcept a owl:ObjectProperty ;
+    rdfs:label "related to concept"@en ;
     rdfs:domain :Entity ;
     rdfs:range :Entity .
 
-:hasPhase a owl:ObjectProperty ;
-    rdfs:domain :Project ;
-    rdfs:range :ProjectPhase .
+:DatatypeProperty_1 a owl:DatatypeProperty ;
+    rdfs:label "Datatype Property 1"@en ;
+    rdfs:subPropertyOf :hasName .
 
-:hasProject a owl:ObjectProperty ;
-    rdfs:domain :Organization ;
-    rdfs:range :Project .
+:DatatypeProperty_2 a owl:DatatypeProperty ;
+    rdfs:label "Datatype Property 2"@en ;
+    rdfs:subPropertyOf :DatatypeProperty_1 .
 
-:locatedIn a owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Location .
+:DatatypeProperty_3 a owl:DatatypeProperty ;
+    rdfs:label "Datatype Property 3"@en ;
+    rdfs:subPropertyOf :DatatypeProperty_2 .
 
-:phase3 a :ClosurePhase ;
-    :identifier "PH-003" ;
-    :label "Closure" ;
-    :precededBy :phase2 .
+:ObjectProperty_1 a owl:ObjectProperty ;
+    rdfs:label "Object Property 1"@en ;
+    rdfs:subPropertyOf :relatedToConcept .
 
-:precededBy a owl:ObjectProperty ;
-    rdfs:domain :ProjectPhase ;
-    rdfs:range :ProjectPhase .
+:ObjectProperty_2 a owl:ObjectProperty ;
+    rdfs:label "Object Property 2"@en ;
+    rdfs:subPropertyOf :ObjectProperty_1 .
 
-:task1 a :Task ;
-    :assignedTo :person1 ;
-    :estimatedEffort 8.0 ;
-    :identifier "TSK-001" ;
-    :label "Define scope" ;
-    :partOf :workflow1 ;
-    :priority 1 .
+:ObjectProperty_3 a owl:ObjectProperty ;
+    rdfs:label "Object Property 3"@en ;
+    rdfs:subPropertyOf :ObjectProperty_2 .
 
-:task2 a :Task ;
-    :assignedTo :person2 ;
-    :estimatedEffort 40.0 ;
-    :identifier "TSK-002" ;
-    :label "Implement core module" ;
-    :partOf :workflow1 ;
-    :priority 2 .
+:ObjectProperty_4 a owl:ObjectProperty ;
+    rdfs:label "Object Property 4"@en ;
+    rdfs:subPropertyOf :ObjectProperty_3 .
 
-:value1 a :Value ;
-    :valueNumber 0.95 ;
-    :valueString "95 percent" .
+:ObjectProperty_5 a owl:ObjectProperty ;
+    rdfs:label "Object Property 5"@en ;
+    rdfs:subPropertyOf :ObjectProperty_4 .
 
-:worksFor a owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Organization .
+:OntologyClass a owl:Class ;
+    rdfs:label "Ontology Class"@en ;
+    rdfs:subClassOf :ClassConcept .
 
-:Activity a owl:Class ;
-    rdfs:subClassOf :Process .
-
-:Collection a owl:Class ;
-    rdfs:subClassOf :Resource .
-
-:Component a owl:Class ;
+:RootEntity a owl:Class ;
+    rdfs:label "Root Entity"@en ;
     rdfs:subClassOf :Entity .
 
-:Dataset a owl:Class ;
-    rdfs:subClassOf :DataArtifact .
+:Class_10 a owl:Class ;
+    rdfs:label "Class 10"@en ;
+    rdfs:subClassOf :Class_9 .
 
-:Employee a owl:Class ;
-    rdfs:subClassOf :Person .
+:PropertyConcept a owl:Class ;
+    rdfs:label "Property Concept"@en .
 
-:ManagedResource a owl:Class ;
-    rdfs:subClassOf :Resource .
+:Class_1 a owl:Class ;
+    rdfs:label "Class 1"@en ;
+    rdfs:subClassOf :OntologyClass .
 
-:Metric a owl:Class ;
-    rdfs:subClassOf :Measure .
+:Class_2 a owl:Class ;
+    rdfs:label "Class 2"@en ;
+    rdfs:subClassOf :Class_1 .
 
-:OperationalDocument a owl:Class ;
-    rdfs:subClassOf :Document .
+:Class_3 a owl:Class ;
+    rdfs:label "Class 3"@en ;
+    rdfs:subClassOf :Class_2 .
 
-:Policy a owl:Class ;
-    rdfs:subClassOf :Document .
+:Class_4 a owl:Class ;
+    rdfs:label "Class 4"@en ;
+    rdfs:subClassOf :Class_3 .
 
-:QualityAttribute a owl:Class ;
-    rdfs:subClassOf :Attribute .
+:Class_5 a owl:Class ;
+    rdfs:label "Class 5"@en ;
+    rdfs:subClassOf :Class_4 .
 
-:TextDocument a owl:Class ;
-    rdfs:subClassOf :Document .
+:Class_6 a owl:Class ;
+    rdfs:label "Class 6"@en ;
+    rdfs:subClassOf :Class_5 .
 
-:UserGuide a owl:Class ;
-    rdfs:subClassOf :TechnicalDocument .
+:Class_7 a owl:Class ;
+    rdfs:label "Class 7"@en ;
+    rdfs:subClassOf :Class_6 .
 
-:phase1 a :InitiationPhase ;
-    :identifier "PH-001" ;
-    :label "Initiation" .
+:Class_8 a owl:Class ;
+    rdfs:label "Class 8"@en ;
+    rdfs:subClassOf :Class_7 .
 
-:phase2 a :ExecutionPhase ;
-    :identifier "PH-002" ;
-    :label "Execution" ;
-    :precededBy :phase1 .
+:Class_9 a owl:Class ;
+    rdfs:label "Class 9"@en ;
+    rdfs:subClassOf :Class_8 .
 
-:CalendarPeriod a owl:Class ;
-    rdfs:subClassOf :TimePeriod .
+:Entity a owl:Class ;
+    rdfs:label "Entity"@en .
 
-:Identifier a owl:Class ;
+:OntologyModel a :Ontology ;
+    rdfs:label "Ontology Model"@en ;
+    :definesClass :Class_1,
+        :Class_10,
+        :Class_2,
+        :Class_3,
+        :Class_4,
+        :Class_5,
+        :Class_6,
+        :Class_7,
+        :Class_8,
+        :Class_9 ;
+    :definesDatatypeProperty :DatatypeProperty_1,
+        :DatatypeProperty_2,
+        :DatatypeProperty_3 ;
+    :definesIndividual :Individual_1,
+        :Individual_2,
+        :Individual_3,
+        :Individual_4,
+        :Individual_5 ;
+    :definesObjectProperty :ObjectProperty_1,
+        :ObjectProperty_2,
+        :ObjectProperty_3,
+        :ObjectProperty_4,
+        :ObjectProperty_5 .
+
+:subClassOfConcept a owl:ObjectProperty ;
+    rdfs:label "subclass of concept"@en ;
+    rdfs:subPropertyOf rdfs:subClassOf .
+
+:OntologyIndividual a owl:Class ;
+    rdfs:label "Ontology Individual"@en ;
+    rdfs:subClassOf :IndividualConcept .
+
+:Triple a owl:Class ;
+    rdfs:label "Triple"@en ;
     rdfs:subClassOf :Entity .
-
-:LifecycleEvent a owl:Class ;
-    rdfs:subClassOf :Event .
-
-:Location a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:Role a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:SpatialLocation a owl:Class ;
-    rdfs:subClassOf :Location .
-
-:TimePeriod a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:Workflow a owl:Class ;
-    rdfs:subClassOf :Process .
-
-:org1 a :Organization ;
-    :hasMember :person1,
-        :person2 ;
-    :hasProject :project1 ;
-    :identifier "ORG-001" ;
-    :label "Acme Organization" ;
-    :locatedIn :address1 ;
-    :status "active" .
-
-:person2 a :Person ;
-    :email "bob@example.org" ;
-    :identifier "PER-002" ;
-    :label "Bob Jones" ;
-    :worksFor :org1 .
-
-:workflow1 a :Workflow ;
-    :hasTask :task1,
-        :task2 ;
-    :identifier "WF-001" ;
-    :label "Delivery workflow" .
-
-:Address a owl:Class ;
-    rdfs:subClassOf :SpatialLocation .
-
-:Rule a owl:Class ;
-    rdfs:subClassOf :Document .
-
-:Event a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:Process a owl:Class ;
-    rdfs:subClassOf :Event .
-
-:Project a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasPhase ;
-            owl:someValuesFrom :ProjectPhase ],
-        :Entity .
-
-:Value a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:person1 a :Person ;
-    :email "alice@example.org" ;
-    :identifier "PER-001" ;
-    :label "Alice Smith" ;
-    :worksFor :org1 .
-
-:project1 a :Project ;
-    :belongsToProject :org1 ;
-    :budget 1000000.00 ;
-    :createdBy :person1 ;
-    :dependsOn :dataset1 ;
-    :hasDocument :doc1 ;
-    :hasPart :workflow1 ;
-    :hasPhase :phase1,
-        :phase2,
-        :phase3 ;
-    :identifier "PRJ-001" ;
-    :label "Project Alpha" ;
-    :updatedBy :person2 .
-
-:Measure a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:Task a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :assignedTo ;
-            owl:someValuesFrom :Person ],
-        :Activity .
-
-:Agent a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:ProjectPhase a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:Organization a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasMember ;
-            owl:someValuesFrom :Person ],
-        :Agent .
-
-:Person a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :worksFor ;
-            owl:someValuesFrom :Organization ],
-        :Agent .
-
-:Resource a owl:Class ;
-    rdfs:subClassOf :Entity .
-
-:Document a owl:Class ;
-    rdfs:subClassOf :Resource .
-
-:Entity a owl:Class .
 

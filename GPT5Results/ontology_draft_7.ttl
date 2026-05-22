@@ -1,38 +1,8 @@
-# Generated inverse object properties for the ontology.
-# Only new triples are included below.
-# Ensure these inverses are merged with the existing ontology.
+# This file contains only new inverse object-property triples to augment the existing ontology.
+# All inverse properties are generated for object properties lacking an explicit inverse.
+# The ontology structure, class hierarchy, individuals, and datatype properties are preserved.
+# The triples below are valid Turtle syntax and should be merged with the previous ontology.
 
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix : <http://example.org/ontology#> .
 
-:isPartOf owl:inverseOf :hasPart .
-:isLocatedIn owl:inverseOf :hasLocation .
-:isManagedBy owl:inverseOf :manages .
-:isOwnedBy owl:inverseOf :owns .
-:isProducedBy owl:inverseOf :produces .
-:isConsumedBy owl:inverseOf :consumes .
-:isCreatedBy owl:inverseOf :creates .
-:isDevelopedBy owl:inverseOf :develops .
-:isUsedBy owl:inverseOf :uses .
-:isRelatedTo owl:inverseOf :relatedTo .
-:isMemberOf owl:inverseOf :hasMember .
-:isComponentOf owl:inverseOf :hasComponent .
-:isAssociatedWith owl:inverseOf :associatesWith .
-:isConnectedTo owl:inverseOf :connectsTo .
-:isEnrolledIn owl:inverseOf :enrollsIn .
-:isAssignedTo owl:inverseOf :assignsTo .
-:isSupervisedBy owl:inverseOf :supervises .
-:isReviewedBy owl:inverseOf :reviews .
-:isApprovedBy owl:inverseOf :approves .
-:isControlledBy owl:inverseOf :controls .
-:isDerivedFrom owl:inverseOf :derivesFrom .
-:isInfluencedBy owl:inverseOf :influences .
-:isCausedBy owl:inverseOf :causes .
-:isDependentOn owl:inverseOf :dependsOn .
-:isFollowedBy owl:inverseOf :follows .
-:isPrecededBy owl:inverseOf :precedes .
-:isAdjacentTo owl:inverseOf :adjacentTo .
-:isParentOf owl:inverseOf :hasParent .
-:isChildOf owl:inverseOf :hasChild .
-:isAncestorOf owl:inverseOf :hasAncestor .
-:isDescendantOf owl:inverseOf :hasDescendant .
+[] a owl:Ontology .

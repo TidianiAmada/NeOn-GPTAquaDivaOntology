@@ -1,62 +1,46 @@
-# New individuals populated for ontology extension.
-# Added meaningful named individuals for common ontology classes and existing placeholder identifiers.
-# The syntax below is valid Turtle and should be appended to the ontology graph.
-
+# New triples added to populate the ontology with meaningful individuals.
+# Prefixes are included to ensure valid Turtle syntax.
 @prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 
-:InformationArtifactOntology rdf:type owl:NamedIndividual ;
-    rdfs:label "Information Artifact Ontology"@en .
+:InformationArtifactOntology rdf:type owl:NamedIndividual .
 
-:ECSO_00001739 rdf:type owl:NamedIndividual ;
-    rdfs:label "environmental sample"@en .
+:ECSO_00001739 rdf:type owl:NamedIndividual .
 
-:ECSO_00001955 rdf:type owl:NamedIndividual ;
-    rdfs:label "aquatic environment"@en .
+:ECSO_00001955 rdf:type owl:NamedIndividual .
 
-:ID_200906005580795747 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 200906005580795747"@en .
+:ID_200906005580795747 rdf:type owl:NamedIndividual .
 
-:ID_200906007040120700 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 200906007040120700"@en .
+:ID_200906007040120700 rdf:type owl:NamedIndividual .
 
-:ID_200906029951027400 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 200906029951027400"@en .
+:ID_200906029951027400 rdf:type owl:NamedIndividual .
 
-:ID_200906035358539682 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 200906035358539682"@en .
+:ID_200906035358539682 rdf:type owl:NamedIndividual .
 
-:ID_200906045420318324 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 200906045420318324"@en .
+:ID_200906045420318324 rdf:type owl:NamedIndividual .
 
-:ID_200906062432384499 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 200906062432384499"@en .
+:ID_200906062432384499 rdf:type owl:NamedIndividual .
 
-:ID_200906070912326734 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 200906070912326734"@en .
+:ID_200906070912326734 rdf:type owl:NamedIndividual .
 
-:ID_200906075025112691 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 200906075025112691"@en .
+:ID_200906075025112691 rdf:type owl:NamedIndividual .
 
 :stemflow rdf:type owl:NamedIndividual ;
-    rdfs:label "stemflow"@en ;
-    rdfs:comment "Precipitation that runs down the surface of plant stems and trunks."@en .
+    rdfs:label "stemflow"@en .
 
-:ID_201206044053997618 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 201206044053997618"@en .
+:ID_201206044053997618 rdf:type owl:NamedIndividual .
 
-:ID_201406098427281805 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample identifier 201406098427281805"@en .
+:ID_201406098427281805 rdf:type owl:NamedIndividual .
 
 :LS_ur_c_OWLClass_00000000000000000563 rdf:type owl:NamedIndividual ;
     rdfs:label "Non-biological phenomenon, process, and state related to life science"@en ;
     rdfs:altLabel "Non-biological phenomenon, process, and state (Life science)"@en .
 
-:LS_ur_c_OWLClass_00000000000000000689 rdf:type owl:NamedIndividual ;
-    rdfs:label "biological phenomenon, process, and state related to life science"@en .
+:LS_ur_c_OWLClass_00000000000000000689 rdf:type owl:NamedIndividual .
 
 :IAO_0000002 rdf:type :IAO_0000078 , owl:NamedIndividual ;
     rdfs:label "example to be eventually removed"@en .
@@ -164,13 +148,13 @@
     rdfs:label "right handed"@en .
 
 :OBI_0000979 rdf:type :OBI_0000963 , owl:NamedIndividual ;
-    rdfs:label "ambidextrous"@en .
+    rdfs:label "ambidexterous"@en .
 
 :OBI_0000998 rdf:type :OBI_0000963 , owl:NamedIndividual ;
     rdfs:label "left handed"@en .
 
 :OBI_0001004 rdf:type :OBI_0001000 , owl:NamedIndividual ;
-    rdfs:label "Edinburgh handedness inventory"@en .
+    rdfs:label "Edingburgh handedness inventory"@en .
 
 :OBI_0001213 rdf:type :OBI_0000245 , owl:NamedIndividual ;
     rdfs:label "eBioscience"@en .
@@ -186,27 +170,3 @@
 
 :OBI_0001321 rdf:type :OBI_0000245 , owl:NamedIndividual ;
     rdfs:label "Becton Dickinson (BD Biosciences)"@en .
-
-:OBI_0001322 rdf:type owl:NamedIndividual ;
-    rdfs:label "sample preparation kit"@en .
-
-:OBI_0001323 rdf:type owl:NamedIndividual ;
-    rdfs:label "flow cytometry reagent"@en .
-
-:OBI_0001324 rdf:type owl:NamedIndividual ;
-    rdfs:label "microarray assay"@en .
-
-:OBI_0001325 rdf:type owl:NamedIndividual ;
-    rdfs:label "mass spectrometry instrument"@en .
-
-:OBI_0001326 rdf:type owl:NamedIndividual ;
-    rdfs:label "bioinformatics analysis software"@en .
-
-:OBI_0001327 rdf:type owl:NamedIndividual ;
-    rdfs:label "clinical specimen"@en .
-
-:OBI_0001328 rdf:type owl:NamedIndividual ;
-    rdfs:label "environmental specimen"@en .
-
-:OBI_0001329 rdf:type owl:NamedIndividual ;
-    rdfs:label "quality control procedure"@en .

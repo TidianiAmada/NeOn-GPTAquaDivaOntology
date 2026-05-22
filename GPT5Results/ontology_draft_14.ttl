@@ -1,8 +1,9 @@
+# Added standard ontology metadata triples for ontology IRI, label, version, and natural-language description.
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://example.org/ontology>
+<http://example.org/ontology_14>
     a owl:Ontology ;
-    rdfs:label "Ontology"@en ;
-    owl:versionInfo "1.0.0"@en ;
-    rdfs:comment "An ontology."@en .
+    rdfs:label "ontology 14"@en ;
+    owl:versionInfo "1.0" ;
+    rdfs:comment "An ontology for ontology 14."@en .

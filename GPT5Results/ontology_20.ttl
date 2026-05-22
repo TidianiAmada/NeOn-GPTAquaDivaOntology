@@ -1,4 +1,5 @@
+@prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-<http://example.org/ontology> a owl:Ontology .
+:Ontology a owl:Ontology .
 

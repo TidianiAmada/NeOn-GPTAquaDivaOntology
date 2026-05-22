@@ -1,8 +1,5 @@
-# The reported issue is an execution/environment error rather than an ontology inconsistency:
-# the validator could not run because the Python package "pyshacl" is missing.
-# No ontology fragment was provided to inspect or repair, so this response returns
-# a minimal valid Turtle ontology skeleton. Replace or merge this with the actual ontology
-# content if available.
+# No inconsistency was reported in the provided validation results.
+# The ontology is returned unchanged.
 
 @prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -10,4 +7,4 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:Ontology a owl:Ontology .
+:Ontology18 a owl:Ontology .

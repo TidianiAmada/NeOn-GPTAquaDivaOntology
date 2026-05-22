@@ -20,7 +20,7 @@ _DOMAIN_DESC_FILE      = os.path.join(_BASE, "OntologyDescription", "AquaDiva.tx
 _KEYWORDS_FILE         = os.path.join(_BASE, "AquaDivakeywords.json")
 _EXAMPLES_FILE         = os.path.join(_BASE, "Few-shotExamplesExtractedFromAquaDiva", "AquaDivaExamples.txt")
 _CQ_FILE               = os.path.join(_BASE, "CompetencyQuestions", "Competency Questions for the AquaDiva Ontology (Version 1).txt")
-_GOLD_ONTOLOGY_FILE    = os.path.join(_BASE, "VersionOne", "AquaDivaMergedNew.ttl")
+_GOLD_ONTOLOGY_FILE    = os.path.join(_BASE, "gold_standard", "ad-ontology-merged-updated.owl")
 
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")

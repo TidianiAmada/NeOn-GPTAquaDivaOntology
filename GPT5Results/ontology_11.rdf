@@ -2,103 +2,124 @@
 <rdf:RDF
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 >
-  <rdf:Description rdf:about="http://example.org/ontology#hasDeathDate">
+  <rdf:Description rdf:about="http://example.org/ontology/hasEventDate">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#partOf">
+  <rdf:Description rdf:about="http://example.org/ontology/hasDescription">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasLongitude">
+  <rdf:Description rdf:about="http://example.org/ontology/hasLongitude">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#createdBy">
+  <rdf:Description rdf:about="http://example.org/ontology/hasStatus">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasPrimaryContact">
+  <rdf:Description rdf:about="http://example.org/ontology/hasType">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#managedBy">
+  <rdf:Description rdf:about="http://example.org/ontology/hasNumber">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasStatus">
+  <rdf:Description rdf:about="http://example.org/ontology/hasStartDate">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#isEquivalentTo">
+  <rdf:Description rdf:about="http://example.org/ontology/hasBudget">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasCurrency">
+  <rdf:Description rdf:about="http://example.org/ontology/hasEmail">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#isSimilarTo">
+  <rdf:Description rdf:about="http://example.org/ontology/hasAddress">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasIdentifier">
+  <rdf:Description rdf:about="http://example.org/ontology/hasLocation">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasOwner">
+  <rdf:Description rdf:about="http://example.org/ontology/hasParent">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasParent">
+  <rdf:Description rdf:about="http://example.org/ontology/hasCity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasCity">
+  <rdf:Description rdf:about="http://example.org/ontology/isPartOf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasEmail">
+  <rdf:Description rdf:about="http://example.org/ontology/hasFirstName">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasBirthDate">
+  <rdf:Description rdf:about="http://example.org/ontology/hasCurrency">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#usesResource">
+  <rdf:Description rdf:about="http://example.org/ontology/hasURL">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasAddress">
+  <rdf:Description rdf:about="http://example.org/ontology/hasLastName">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasPhoneNumber">
+  <rdf:Description rdf:about="http://example.org/ontology/hasGender">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#belongsTo">
+  <rdf:Description rdf:about="http://example.org/ontology/hasIssueDate">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasBirthPlace">
+  <rdf:Description rdf:about="http://example.org/ontology/hasCategory">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasCEO">
+  <rdf:Description rdf:about="http://example.org/ontology/hasCountry">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasVersion">
+  <rdf:Description rdf:about="http://example.org/ontology/hasPhone">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasLatitude">
+  <rdf:Description rdf:about="http://example.org/ontology/hasName">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasSpouse">
+  <rdf:Description rdf:about="http://example.org/ontology/hasRegion">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasCountry">
+  <rdf:Description rdf:about="http://example.org/ontology/hasIdentifier">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasSupervisor">
+  <rdf:Description rdf:about="http://example.org/ontology/hasAuthor">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#locatedIn">
+  <rdf:Description rdf:about="http://example.org/ontology/hasFacility">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#memberOf">
+  <rdf:Description rdf:about="http://example.org/ontology/hasPostalCode">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasManager">
+  <rdf:Description rdf:about="http://example.org/ontology/hasPriority">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasCategory">
+  <rdf:Description rdf:about="http://example.org/ontology/hasEndDate">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasHeadquarters">
+  <rdf:Description rdf:about="http://example.org/ontology/hasStreet">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/ontology#hasPresident">
+  <rdf:Description rdf:about="http://example.org/ontology/locatedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/relatedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/hasLatitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/hasBirthPlace">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/isActive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/hasDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/hasDepartment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology/isMemberOf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </rdf:Description>
 </rdf:RDF>

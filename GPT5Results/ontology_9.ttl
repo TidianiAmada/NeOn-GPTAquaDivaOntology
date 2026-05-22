@@ -1,0 +1,15 @@
+@prefix : <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+:isEquivalentTo a owl:ObjectProperty,
+        owl:ReflexiveProperty .
+
+:isIdenticalTo a owl:ObjectProperty,
+        owl:ReflexiveProperty .
+
+:isSelfRelatedTo a owl:ObjectProperty,
+        owl:ReflexiveProperty .
+
+:isSimilarTo a owl:ObjectProperty,
+        owl:ReflexiveProperty .
+

@@ -1,550 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="http://example.org/aquadiva#Habitat">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/CompositeUnit">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Feature"/>
-    <rdfs:label xml:lang="en">Habitat</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+    <rdfs:label xml:lang="en">composite unit</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasMeasurement">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has measurement</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Observation"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Measurement"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasQualifier">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasQualifier">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="en">has qualifier</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#MeasuredCharacteristic"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#CharacteristicQualifier"/>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/MeasuredCharacteristic"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/CharacteristicQualifier"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#MeasurementType">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/MeasuredValue">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Measurement Type</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">measured value</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#SoilHydraulicParameter">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#HydraulicProperty"/>
-    <rdfs:label xml:lang="en">Soil Hydraulic Parameter</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#VerticalFlow">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#FlowProcess"/>
-    <rdfs:label xml:lang="en">Vertical Flow</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#ObservationCollection">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Observation"/>
-    <rdfs:label xml:lang="en">Observation Collection</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#FracturedFlow">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#FlowProcess"/>
-    <rdfs:label xml:lang="en">Fractured Flow</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#AquaticFungus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Fungi"/>
-    <rdfs:label xml:lang="en">Aquatic Fungus</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Microbe">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Microorganism"/>
-    <rdfs:label xml:lang="en">Microbe</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#AquiferRock">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#NaturalEntity"/>
-    <rdfs:label xml:lang="en">Aquifer Rock</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#AmmoniaOxidiser">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Microorganism"/>
-    <rdfs:label xml:lang="en">Ammonia Oxidiser</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#measuresEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">measures entity</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#MeasurementType"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Entity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Substance">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Material"/>
-    <rdfs:label xml:lang="en">Substance</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#NaturalEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#MaterialEntity"/>
-    <rdfs:label xml:lang="en">Natural Entity</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Sample">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Sample</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Marlstone">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#AquiferRock"/>
-    <rdfs:label xml:lang="en">Marlstone</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#MaterialEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Material Entity</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#measurementFor">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">measurement for</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Measurement"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Observation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#CarbonateMineral">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Mineral"/>
-    <rdfs:label xml:lang="en">Carbonate Mineral</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#ChemicalParameter">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Characteristic"/>
-    <rdfs:label xml:lang="en">Chemical Parameter</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#PreferentialFlow">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#FlowProcess"/>
-    <rdfs:label xml:lang="en">Preferential Flow</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Observation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Observation</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#MicrobialProcess">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#BiogeochemicalProcess"/>
-    <rdfs:label xml:lang="en">Microbial Process</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#measuresUsingStandard">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">measures using standard</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#MeasurementType"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Standard"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#AnoxicAquifer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Anoxic Aquifer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#DNAConcentration">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#ChemicalData"/>
-    <rdfs:label xml:lang="en">DNA Concentration</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Colloid">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#MaterialEntity"/>
-    <rdfs:label xml:lang="en">Colloid</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#LateralFlow">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#FlowProcess"/>
-    <rdfs:label xml:lang="en">Lateral Flow</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#FlowProcess">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#TransportProcess"/>
-    <rdfs:label xml:lang="en">Flow Process</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Biomarker">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#ChemicalData"/>
-    <rdfs:label xml:lang="en">Biomarker</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#CarbonateAquifer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Carbonate Aquifer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#ClimaticParameter">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Characteristic"/>
-    <rdfs:label xml:lang="en">Climatic Parameter</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#ColloidalTransport">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#TransportProcess"/>
-    <rdfs:label xml:lang="en">Colloidal Transport</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Process">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Process</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasContext">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has context</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Observation"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Observation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Microorganism">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#BiologicalEntity"/>
-    <rdfs:label xml:lang="en">Microorganism</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Metabolite">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Molecule"/>
-    <rdfs:label xml:lang="en">Metabolite</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#usesProtocol">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">uses protocol</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Measurement"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Protocol"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#ChemicalData">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#MaterialEntity"/>
-    <rdfs:label xml:lang="en">Chemical Data</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Aquifer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Habitat"/>
-    <rdfs:label xml:lang="en">Aquifer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#characteristicFor">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">characteristic for</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Characteristic"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Entity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#usesStandard">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">uses standard</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Measurement"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Standard"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Limestone">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#CarbonateMineral"/>
-    <rdfs:label xml:lang="en">Limestone</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Feature">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#NaturalEntity"/>
-    <rdfs:label xml:lang="en">Feature</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#AnammoxBacterium">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Bacteria"/>
-    <rdfs:label xml:lang="en">Anammox Bacterium</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#HainichAquifer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Hainich Aquifer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#AmmoniaOxidation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#MicrobialProcess"/>
-    <rdfs:label xml:lang="en">Ammonia Oxidation</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#CompositeUnit">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Composite Unit</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Entity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Entity</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Material">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#MaterialEntity"/>
-    <rdfs:label xml:lang="en">Material</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#MeasuredCharacteristic">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Characteristic"/>
-    <rdfs:label xml:lang="en">Measured Characteristic</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Measurement">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Observation"/>
-    <rdfs:label xml:lang="en">Measurement</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#measuresCharacteristic">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">measures characteristic</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#MeasurementType"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Characteristic"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#PristineAquifer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Pristine Aquifer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasUnit">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has unit</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Unit"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#CharacteristicQualifier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Characteristic Qualifier</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#BiogeochemicalProcess">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Process"/>
-    <rdfs:label xml:lang="en">Biogeochemical Process</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#entityRelated">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">entity related</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Observation"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Observation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasMember">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has member</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#ObservationCollection"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Observation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Unit">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Unit</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#TriassicRock">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#AquiferRock"/>
-    <rdfs:label xml:lang="en">Triassic Rock</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasBaseQualifier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has base qualifier</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#CompositeCharacteristicQualifier"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#BaseCharacteristicQualifier"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#GroundwaterPhysiochemicalParameter">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#PhysiochemicalParameter"/>
-    <rdfs:label xml:lang="en">Groundwater Physiochemical Parameter</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#PrefixedUnit">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Prefixed Unit</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#TransportProcess">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Process"/>
-    <rdfs:label xml:lang="en">Transport Process</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Protein">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Molecule"/>
-    <rdfs:label xml:lang="en">Protein</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#KarstAquifer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Karst Aquifer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Characteristic">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Characteristic</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Acceptor">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Acceptor</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#UnitConversion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Unit Conversion</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Fungi">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Microorganism"/>
-    <rdfs:label xml:lang="en">Fungi</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#OxicAquifer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Oxic Aquifer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#ofCharacteristic">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">of characteristic</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Measurement"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Characteristic"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Ontology">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <rdfs:label xml:lang="en">AquaDiva Merged New Ontology</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#HydraulicProperty">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Characteristic"/>
-    <rdfs:label xml:lang="en">Hydraulic Property</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Standard">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Standard</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#FracturedRockAquifer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Fractured Rock Aquifer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#AquaticColloid">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Colloid"/>
-    <rdfs:label xml:lang="en">Aquatic Colloid</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#measuresUsingProtocol">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">measures using protocol</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#MeasurementType"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Protocol"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasObservedRelation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has observed relation</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Observation"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Entity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasSourceUnit">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has source unit</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#UnitConversion"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Unit"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Compound">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Substance"/>
-    <rdfs:label xml:lang="en">Compound</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#CompositeCharacteristicQualifier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#CharacteristicQualifier"/>
-    <rdfs:label xml:lang="en">Composite Characteristic Qualifier</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#ofEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">of entity</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#Observation"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Entity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#FracturedRock">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#AquiferRock"/>
-    <rdfs:label xml:lang="en">Fractured Rock</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasNextQualifier">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has next qualifier</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#CompositeCharacteristicQualifier"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#CharacteristicQualifier"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#PhysiochemicalParameter">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Characteristic"/>
-    <rdfs:label xml:lang="en">Physiochemical Parameter</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#BaseUnit">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Base Unit</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Bacteria">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Microorganism"/>
-    <rdfs:label xml:lang="en">Bacteria</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#hasTargetUnit">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasTargetUnit">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="en">has target unit</rdfs:label>
-    <rdfs:domain rdf:resource="http://example.org/aquadiva#UnitConversion"/>
-    <rdfs:range rdf:resource="http://example.org/aquadiva#Unit"/>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/UnitConversion"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Unit"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#LowerAquifer">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/MicrobialCommunity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Lower Aquifer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">microbial community</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#BaseCharacteristicQualifier">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/DerivedUnit">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#CharacteristicQualifier"/>
-    <rdfs:label xml:lang="en">Base Characteristic Qualifier</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+    <rdfs:label xml:lang="en">derived unit</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#BiologicalSample">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/PrefixedUnit">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Sample"/>
-    <rdfs:label xml:lang="en">Biological Sample</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+    <rdfs:label xml:lang="en">prefixed unit</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Mineral">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#MaterialEntity"/>
-    <rdfs:label xml:lang="en">Mineral</rdfs:label>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/hasMeasurement"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#UpperAquifer">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/GeochemicalFeature">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Aquifer"/>
-    <rdfs:label xml:lang="en">Upper Aquifer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">geochemical feature</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#BiologicalEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Biological Entity</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/entityRelated">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">entity related</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Observation"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Protocol">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/MeasurementType">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Protocol</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb9"/>
+    <rdfs:label xml:lang="en">measurement type</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Acid">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/Acceptor">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Substance"/>
-    <rdfs:label xml:lang="en">Acid</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/ChemicalRole"/>
+    <rdfs:label xml:lang="en">acceptor</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#KarstRock">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/Entity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#NaturalEntity"/>
-    <rdfs:label xml:lang="en">Karst Rock</rdfs:label>
+    <rdfs:label xml:lang="en">entity</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#AquaticMicrobe">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Microbe"/>
-    <rdfs:label xml:lang="en">Aquatic Microbe</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/measurementTypeFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">measurement type for</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/MeasurementType"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Entity"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#DerivedUnit">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Entity"/>
-    <rdfs:label xml:lang="en">Derived Unit</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has value</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/MeasuredValue"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Muschelkalk">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#TriassicRock"/>
-    <rdfs:label xml:lang="en">Muschelkalk</rdfs:label>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/characteristicFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">characteristic for</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Characteristic"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Entity"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#Molecule">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/BaseCharacteristicQualifier">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#Substance"/>
-    <rdfs:label xml:lang="en">Molecule</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/CharacteristicQualifier"/>
+    <rdfs:label xml:lang="en">base characteristic qualifier</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/aquadiva#GroundwaterTransport">
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasMeasurement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has measurement</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/hasBaseQualifier"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/BaseCharacteristicQualifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/BaseUnit">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva#TransportProcess"/>
-    <rdfs:label xml:lang="en">Groundwater Transport</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+    <rdfs:label xml:lang="en">base unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/Unit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/measuresUsingProtocol">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">measures using protocol</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/MeasurementType"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Protocol"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/usesStandard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">uses standard</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Standard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has unit</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/usesUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">uses unit</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/ofEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">of entity</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/ofCharacteristic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">of characteristic</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Characteristic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/Protocol">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">protocol</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/hasNextQualifier"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/CharacteristicQualifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/measuresCharacteristic"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/Characteristic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/measuresUsingStandard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">measures using standard</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/MeasurementType"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Standard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/usesProtocol">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">uses protocol</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Protocol"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/measuresEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">measures entity</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/MeasurementType"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/Measurement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb6"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb7"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb8"/>
+    <rdfs:label xml:lang="en">measurement</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/GroundwaterEcosystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">groundwater ecosystem</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasMember">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has member</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/ObservationCollection"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/ObservationCollection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">observation collection</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/KarstSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/HydrogeologicalFeature"/>
+    <rdfs:label xml:lang="en">karst system</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/UnitConversion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb10"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb11"/>
+    <rdfs:label xml:lang="en">unit conversion</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:comment xml:lang="en">AquaDiva ontology fragment with reusable observation, measurement, characteristic, qualifier, and unit patterns.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/observes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">observes</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <owl:equivalentProperty rdf:resource="http://example.org/aquadiva/aad/ofEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasObservedRelation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has observed relation</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/ObservedRelation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/Standard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">standard</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/ChemicalRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">chemical role</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasObservedMeasurement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has observed measurement</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
+    <owl:equivalentProperty rdf:resource="http://example.org/aquadiva/aad/hasMeasurement"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/hasSourceUnit"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/Observation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb4"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb5"/>
+    <rdfs:label xml:lang="en">observation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/hasQualifier"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/CharacteristicQualifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/measuresCharacteristic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">measures characteristic</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/MeasurementType"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Characteristic"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/hasValue"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/MeasuredValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/ofCharacteristic"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/Characteristic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/CompositeCharacteristicQualifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/CharacteristicQualifier"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb1"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb2"/>
+    <rdfs:label xml:lang="en">composite characteristic qualifier</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/hasTargetUnit"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/ObservedRelation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">observed relation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/usesUnit"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/CharacteristicQualifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">characteristic qualifier</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/Characteristic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">characteristic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has context</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/aquadiva/aad/ofEntity"/>
+    <owl:someValuesFrom rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/measurementFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">measurement for</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/Measurement"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasNextQualifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has next qualifier</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/CompositeCharacteristicQualifier"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/CharacteristicQualifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasBaseQualifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has base qualifier</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/CompositeCharacteristicQualifier"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/BaseCharacteristicQualifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasSourceUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has source unit</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/UnitConversion"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/MeasuredCharacteristic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Characteristic"/>
+    <rdfs:subClassOf rdf:nodeID="nc0e6faeb07e1456496bef13d071dcf0fb3"/>
+    <rdfs:label xml:lang="en">measured characteristic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/hasObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has observation</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/aquadiva/aad/ObservationCollection"/>
+    <rdfs:range rdf:resource="http://example.org/aquadiva/aad/Observation"/>
+    <owl:equivalentProperty rdf:resource="http://example.org/aquadiva/aad/hasMember"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/aquadiva/aad/HydrogeologicalFeature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/aquadiva/aad/Entity"/>
+    <rdfs:label xml:lang="en">hydrogeological feature</rdfs:label>
   </rdf:Description>
 </rdf:RDF>

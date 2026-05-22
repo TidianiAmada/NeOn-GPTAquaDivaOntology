@@ -70,8 +70,14 @@ class SemanticOntology:
     def load(self):
         try:
             self.graph.parse(self.path)
+            return
         except Exception:
+            pass
+        try:
             self.graph.parse(self.path, format="ttl")
+        except Exception as exc:
+            print(f"[{self.name}] WARNING: Could not parse '{os.path.basename(self.path)}': {exc}")
+            # Leave graph empty; caller must check len(self.entities) == 0 and skip
 
     @staticmethod
     def _local_name(uri_like):
@@ -421,11 +427,12 @@ class SemanticComparator:
 # Configuration
 # ---------------------------------------------------------------------------
 
-GOLD_PATH   = "VersionOne/AquaDivaMergedNew.ttl"
-GPT5_DIR    = "GPT5Results"
-GOLD_PREFIX = "GPT5Results/gold_embeddings"
-OUT_JSON    = "GPT5Results/evaluation_results.json"
-OUT_CSV     = "GPT5Results/evaluation_results.csv"
+_BASE       = os.path.dirname(os.path.abspath(__file__))
+GOLD_PATH   = os.path.join(_BASE, "gold_standard", "ad-ontology-merged-updated.owl")
+GPT5_DIR    = os.path.join(_BASE, "GPT5Results")
+GOLD_PREFIX = os.path.join(_BASE, "GPT5Results", "gold_embeddings")
+OUT_JSON    = os.path.join(_BASE, "GPT5Results", "evaluation_results.json")
+OUT_CSV     = os.path.join(_BASE, "GPT5Results", "evaluation_results.csv")
 BUCKETS     = ["<50", "50-60", "60-70", "70-80", "80-90", "90-100"]
 
 
@@ -465,13 +472,25 @@ def plot_stacked_bars(names, matrix, title, out_path):
 # ---------------------------------------------------------------------------
 
 def main():
-    # 1. Discover final ontologies (exclude drafts)
-    files = sorted(
+    # 1. Discover ontologies — prefer final (non-draft) files; fall back to drafts
+    final_files = sorted(
         f for f in glob.glob(os.path.join(GPT5_DIR, "ontology_*.ttl"))
         if "draft" not in os.path.basename(f)
     )
-    if not files:
-        raise FileNotFoundError(f"No ontology_*.ttl files found in {GPT5_DIR}/")
+    draft_files = sorted(
+        f for f in glob.glob(os.path.join(GPT5_DIR, "ontology_draft_*.ttl"))
+    )
+
+    if final_files:
+        files = final_files
+        print(f"Using {len(files)} final (non-draft) ontologies.")
+    elif draft_files:
+        files = draft_files
+        print(f"No final ontologies found — falling back to {len(files)} draft ontologies.")
+    else:
+        raise FileNotFoundError(
+            f"No ontology_*.ttl or ontology_draft_*.ttl files found in {GPT5_DIR}"
+        )
     print(f"Found {len(files)} ontologies to evaluate:\n  " + "\n  ".join(files))
 
     # 2. Load gold standard
@@ -495,6 +514,9 @@ def main():
         print(f"\n{'='*60}\nEvaluating: {name}\n{'='*60}")
 
         llm = SemanticOntology(fpath, name=name)
+        if not llm.entities:
+            print(f"  SKIPPED: no entities could be extracted (parse error or empty file).")
+            continue
 
         comp = SemanticComparator(gold, llm)
         comp.model = model  # reuse the already-loaded model
@@ -522,6 +544,12 @@ def main():
         json.dump(all_results, f, indent=2, ensure_ascii=False)
     print(f"\nSaved JSON: {OUT_JSON}")
 
+    if not all_results:
+        print("\nWARNING: No ontologies were successfully parsed and evaluated.")
+        print("All draft files appear to contain API error messages (e.g. HTTP 429 rate-limit).")
+        print("Re-run run_pipeline_for_prompts.py once your OpenAI quota is restored, then re-run this script.")
+        return
+
     # 6. Save CSV  (columns: ontology, level, bucket, count, percent)
     with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
@@ -539,11 +567,11 @@ def main():
     entity_matrix = np.array([
         [next(b["percent_llm_entities"] for b in r["entity_bins"] if b["bucket"] == bk) for bk in BUCKETS]
         for r in all_results
-    ])
+    ]).reshape(len(all_results), len(BUCKETS))
     triple_matrix = np.array([
         [next(b["percent_llm_triples"] for b in r["triple_bins"] if b["bucket"] == bk) for bk in BUCKETS]
         for r in all_results
-    ])
+    ]).reshape(len(all_results), len(BUCKETS))
 
     # 8. Generate and save plots
     plot_stacked_bars(names, entity_matrix, "GPT-5 AquaDiva: Entity-Level Semantic Alignment vs Gold Standard", f"{GPT5_DIR}/entity_alignment.pdf")

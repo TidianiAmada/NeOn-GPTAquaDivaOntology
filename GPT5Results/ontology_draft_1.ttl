@@ -1,1521 +1,1213 @@
-# AquaDiva groundwater ecosystem ontology
-# Generated following a NeOn-style modular ontology engineering approach.
-# Scope: hydrogeology, karst, fractured rock aquifers, groundwater chemistry,
-# microbial ecology, fungi, archaea, bacteria, geochemistry, soil-aquifer links,
-# transport, tracers, isotope tools, and environmental drivers.
-# Note: This Turtle file intentionally includes a rich class hierarchy with many
-# subclasses to approximate the structure and complexity of the source domain.
-# All required keywords were incorporated as class names, properties, or instances
-# where semantically appropriate. Some noisy source terms were normalized into
-# ontology-safe labels while preserving meaning.
-# Prefixes used:
-#   ad:   AquaDiva ontology
-#   rdf:  RDF syntax
-#   rdfs: RDFS schema
-#   owl:  OWL vocabulary
-#   xsd:  XML Schema datatypes
-#   skos: SKOS for labels/notes
+# AquaDiva ontology (lightweight seed model, NeOn-inspired)
+# This Turtle document provides a coherent ontology scaffold for the AquaDiva domain:
+# groundwater ecosystems, hydrogeology, microbiology, geochemistry, karst systems,
+# soil–aquifer interactions, and related environmental/management concepts.
+#
+# Notes:
+# - The user request referenced very large legacy metrics (e.g., >11k classes).
+#   It is not feasible to emit that full-sized ontology in a single response here.
+#   Instead, this file provides a valid, extensible ontology core with rich
+#   subclass structure, representative object/datatype properties, and individuals.
+# - All requested keywords are covered either as explicit classes, properties,
+#   individuals, annotations, or controlled vocabulary terms in the ontology.
+# - The ontology is intentionally designed for reuse and expansion.
+#
+# Namespace conventions:
+# - aad: AquaDiva core ontology terms
+# - skos, rdfs, rdf, owl, xsd, dcterms are standard vocabulary namespaces
 
-@prefix ad:   <http://example.org/aquadiva#> .
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://example.org/aquadiva#> .
+@prefix aad: <http://example.org/aquadiva#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:  <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-
-ad:AquaDivaOntology a owl:Ontology ;
-  rdfs:label "AquaDiva Ontology"@en ;
-  rdfs:comment "Ontology for groundwater ecosystem research integrating hydrogeology, geochemistry, microbial ecology, karst, fractured rock aquifers, and environmental drivers."@en .
-
-##########
-# Object Properties
-##########
-
-ad:hasPart a owl:ObjectProperty ;
-  rdfs:label "has part"@en ;
-  rdfs:domain ad:Entity ;
-  rdfs:range ad:Entity .
-
-ad:partOf a owl:ObjectProperty ;
-  owl:inverseOf ad:hasPart ;
-  rdfs:label "part of"@en .
-
-ad:hasMeasuredParameter a owl:ObjectProperty ;
-  rdfs:label "has measured parameter"@en ;
-  rdfs:domain ad:Sample ;
-  rdfs:range ad:MeasuredParameter .
-
-ad:hasObservation a owl:ObjectProperty ;
-  rdfs:label "has observation"@en ;
-  rdfs:domain ad:SamplingEvent ;
-  rdfs:range ad:Observation .
-
-ad:observedIn a owl:ObjectProperty ;
-  owl:inverseOf ad:hasObservation ;
-  rdfs:label "observed in"@en .
-
-ad:hasHabitat a owl:ObjectProperty ;
-  rdfs:label "has habitat"@en ;
-  rdfs:domain ad:Organism ;
-  rdfs:range ad:Habitat .
-
-ad:hasRole a owl:ObjectProperty ;
-  rdfs:label "has role"@en ;
-  rdfs:domain ad:Organism ;
-  rdfs:range ad:Role .
-
-ad:hasProcess a owl:ObjectProperty ;
-  rdfs:label "has process"@en ;
-  rdfs:domain ad:System ;
-  rdfs:range ad:Process .
-
-ad:occursIn a owl:ObjectProperty ;
-  rdfs:label "occurs in"@en ;
-  rdfs:domain ad:Process ;
-  rdfs:range ad:Habitat .
-
-ad:hasMaterialInput a owl:ObjectProperty ;
-  rdfs:label "has material input"@en ;
-  rdfs:domain ad:Process ;
-  rdfs:range ad:Material .
-
-ad:hasMaterialOutput a owl:ObjectProperty ;
-  rdfs:label "has material output"@en ;
-  rdfs:domain ad:Process ;
-  rdfs:range ad:Material .
-
-ad:hasQuality a owl:ObjectProperty ;
-  rdfs:label "has quality"@en ;
-  rdfs:domain ad:Entity ;
-  rdfs:range ad:Quality .
-
-ad:relatedTo a owl:ObjectProperty ;
-  rdfs:label "related to"@en ;
-  rdfs:domain ad:Entity ;
-  rdfs:range ad:Entity .
-
-ad:hasSite a owl:ObjectProperty ;
-  rdfs:label "has site"@en ;
-  rdfs:domain ad:System ;
-  rdfs:range ad:Site .
-
-ad:hasTime a owl:ObjectProperty ;
-  rdfs:label "has time"@en ;
-  rdfs:domain ad:Observation ;
-  rdfs:range ad:TemporalEntity .
-
-ad:hasDepthProfile a owl:ObjectProperty ;
-  rdfs:label "has depth profile"@en ;
-  rdfs:domain ad:Site ;
-  rdfs:range ad:DepthProfile .
-
-ad:hasTracer a owl:ObjectProperty ;
-  rdfs:label "has tracer"@en ;
-  rdfs:domain ad:TransportProcess ;
-  rdfs:range ad:Tracer .
-
-ad:hasSensor a owl:ObjectProperty ;
-  rdfs:label "has sensor"@en ;
-  rdfs:domain ad:Observation ;
-  rdfs:range ad:Sensor .
-
-ad:hasSequenceData a owl:ObjectProperty ;
-  rdfs:label "has sequence data"@en ;
-  rdfs:domain ad:Sample ;
-  rdfs:range ad:SequenceData .
-
-ad:influences a owl:ObjectProperty ;
-  rdfs:label "influences"@en ;
-  rdfs:domain ad:Entity ;
-  rdfs:range ad:Entity .
-
-ad:hasChemicalRole a owl:ObjectProperty ;
-  rdfs:label "has chemical role"@en ;
-  rdfs:domain ad:Compound ;
-  rdfs:range ad:ChemicalRole .
-
-ad:hasBiologicalRole a owl:ObjectProperty ;
-  rdfs:label "has biological role"@en ;
-  rdfs:domain ad:Organism ;
-  rdfs:range ad:BiologicalRole .
-
-ad:hasIdentifier a owl:ObjectProperty ;
-  rdfs:label "has identifier"@en ;
-  rdfs:domain ad:Entity ;
-  rdfs:range ad:Identifier .
-
-##########
-# Datatype Properties
-##########
-
-ad:hasValue a owl:DatatypeProperty ;
-  rdfs:label "has value"@en ;
-  rdfs:domain ad:Measurement ;
-  rdfs:range xsd:double .
-
-ad:hasUnit a owl:DatatypeProperty ;
-  rdfs:label "has unit"@en ;
-  rdfs:domain ad:Measurement ;
-  rdfs:range xsd:string .
-
-ad:hasLabelText a owl:DatatypeProperty ;
-  rdfs:label "has label text"@en ;
-  rdfs:domain ad:Entity ;
-  rdfs:range xsd:string .
-
-ad:hasDate a owl:DatatypeProperty ;
-  rdfs:label "has date"@en ;
-  rdfs:domain ad:TemporalEntity ;
-  rdfs:range xsd:date .
-
-ad:hasStartTime a owl:DatatypeProperty ;
-  rdfs:label "has start time"@en ;
-  rdfs:domain ad:TemporalEntity ;
-  rdfs:range xsd:dateTime .
-
-ad:hasEndTime a owl:DatatypeProperty ;
-  rdfs:label "has end time"@en ;
-  rdfs:domain ad:TemporalEntity ;
-  rdfs:range xsd:dateTime .
-
-ad:hasLatitude a owl:DatatypeProperty ;
-  rdfs:label "has latitude"@en ;
-  rdfs:domain ad:Site ;
-  rdfs:range xsd:double .
-
-ad:hasLongitude a owl:DatatypeProperty ;
-  rdfs:label "has longitude"@en ;
-  rdfs:domain ad:Site ;
-  rdfs:range xsd:double .
-
-ad:hasDepth a owl:DatatypeProperty ;
-  rdfs:label "has depth"@en ;
-  rdfs:domain ad:DepthProfile ;
-  rdfs:range xsd:double .
-
-ad:hasDescription a owl:DatatypeProperty ;
-  rdfs:label "has description"@en ;
-  rdfs:domain ad:Entity ;
-  rdfs:range xsd:string .
-
-ad:hasCount a owl:DatatypeProperty ;
-  rdfs:label "has count"@en ;
-  rdfs:domain ad:AbundanceMeasurement ;
-  rdfs:range xsd:integer .
-
-ad:hasAbundance a owl:DatatypeProperty ;
-  rdfs:label "has abundance"@en ;
-  rdfs:domain ad:Community ;
-  rdfs:range xsd:double .
-
-ad:haspH a owl:DatatypeProperty ;
-  rdfs:label "has pH"@en ;
-  rdfs:domain ad:WaterChemistry ;
-  rdfs:range xsd:double .
-
-ad:hasTemperature a owl:DatatypeProperty ;
-  rdfs:label "has temperature"@en ;
-  rdfs:domain ad:EnvironmentalCondition ;
-  rdfs:range xsd:double .
-
-ad:hasConductivity a owl:DatatypeProperty ;
-  rdfs:label "has electric conductivity"@en ;
-  rdfs:domain ad:WaterChemistry ;
-  rdfs:range xsd:double .
-
-ad:hasOxygenContent a owl:DatatypeProperty ;
-  rdfs:label "has oxygen content"@en ;
-  rdfs:domain ad:WaterChemistry ;
-  rdfs:range xsd:double .
-
-ad:hasDOC a owl:DatatypeProperty ;
-  rdfs:label "has DOC"@en ;
-  rdfs:domain ad:CarbonPool ;
-  rdfs:range xsd:double .
-
-ad:hasDIC a owl:DatatypeProperty ;
-  rdfs:label "has DIC"@en ;
-  rdfs:domain ad:CarbonPool ;
-  rdfs:range xsd:double .
-
-ad:hasDOCComposition a owl:DatatypeProperty ;
-  rdfs:label "has DOC composition"@en ;
-  rdfs:domain ad:CarbonPool ;
-  rdfs:range xsd:string .
-
-ad:hasMolecularFormula a owl:DatatypeProperty ;
-  rdfs:label "has molecular formula"@en ;
-  rdfs:domain ad:Compound ;
-  rdfs:range xsd:string .
-
-ad:hasIsotopeSignature a owl:DatatypeProperty ;
-  rdfs:label "has isotope signature"@en ;
-  rdfs:domain ad:IsotopeMeasurement ;
-  rdfs:range xsd:string .
-
-ad:hasRadiocarbonAge a owl:DatatypeProperty ;
-  rdfs:label "has radiocarbon age"@en ;
-  rdfs:domain ad:IsotopeMeasurement ;
-  rdfs:range xsd:double .
-
-ad:hasSequencingMethod a owl:DatatypeProperty ;
-  rdfs:label "has sequencing method"@en ;
-  rdfs:domain ad:SequenceData ;
-  rdfs:range xsd:string .
-
-ad:hasComment a owl:DatatypeProperty ;
-  rdfs:label "has comment"@en ;
-  rdfs:domain ad:Entity ;
-  rdfs:range xsd:string .
-
-##########
-# Core Classes
-##########
-
-ad:Entity a owl:Class ;
-  rdfs:label "entity"@en .
-
-ad:System a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "system"@en .
-
-ad:Habitat a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "habitat"@en .
-
-ad:Site a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "site"@en .
-
-ad:Sample a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "sample"@en .
-
-ad:Measurement a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "measurement"@en .
-
-ad:Observation a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "observation"@en .
-
-ad:TemporalEntity a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "temporal entity"@en .
-
-ad:Material a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "material"@en .
-
-ad:Quality a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "quality"@en .
-
-ad:Process a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "process"@en .
-
-ad:Organism a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "organism"@en .
-
-ad:Community a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "community"@en .
-
-ad:Role a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "role"@en .
-
-ad:ChemicalRole a owl:Class ;
-  rdfs:subClassOf ad:Role ;
-  rdfs:label "chemical role"@en .
-
-ad:BiologicalRole a owl:Class ;
-  rdfs:subClassOf ad:Role ;
-  rdfs:label "biological role"@en .
-
-ad:Identifier a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "identifier"@en .
-
-ad:MeasuredParameter a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "measured parameter"@en .
-
-ad:EnvironmentalCondition a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "environmental condition"@en .
-
-ad:WaterChemistry a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "water chemistry"@en .
-
-ad:Hydrochemistry a owl:Class ;
-  rdfs:subClassOf ad:WaterChemistry ;
-  rdfs:label "hydrochemistry"@en .
-
-ad:Geochemistry a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "geochemistry"@en .
-
-ad:Hydrology a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "hydrology"@en .
-
-ad:HydrogeologicalStructure a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "hydrogeological structure"@en .
-
-ad:Aquifer a owl:Class ;
-  rdfs:subClassOf ad:HydrogeologicalStructure ;
-  rdfs:label "aquifer"@en .
-
-ad:FracturedRockAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "fractured rock aquifer"@en .
-
-ad:KarstAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "karst aquifer"@en .
-
-ad:Groundwater a owl:Class ;
-  rdfs:subClassOf ad:Habitat ;
-  rdfs:label "groundwater"@en .
-
-ad:GroundwaterQualityAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "groundwater quality aquifer"@en .
-
-ad:GroundwaterChemistry a owl:Class ;
-  rdfs:subClassOf ad:WaterChemistry ;
-  rdfs:label "groundwater chemistry"@en .
-
-ad:GroundwaterPhysiochemicalParameters a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "groundwater physiochemical parameters"@en .
-
-ad:GroundwaterVulnerability a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "groundwater vulnerability"@en .
-
-ad:GroundwaterProtection a owl:Class ;
-  rdfs:subClassOf ad:ManagementAction ;
-  rdfs:label "groundwater protection"@en .
-
-ad:GroundwaterContamination a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "groundwater contamination"@en .
-
-ad:GroundwaterComparison a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "groundwater comparison"@en .
-
-ad:AquiferMicrobiome a owl:Class ;
-  rdfs:subClassOf ad:Community ;
-  rdfs:label "aquifer microbiome"@en .
-
-ad:SoilMicrobiome a owl:Class ;
-  rdfs:subClassOf ad:Community ;
-  rdfs:label "soil microbiome"@en .
-
-ad:MicrobialCommunity a owl:Class ;
-  rdfs:subClassOf ad:Community ;
-  rdfs:label "microbial community"@en .
-
-ad:MicrobialGuild a owl:Class ;
-  rdfs:subClassOf ad:Community ;
-  rdfs:label "microbial guild"@en .
-
-ad:MicrobialFunctionalGuild a owl:Class ;
-  rdfs:subClassOf ad:MicrobialGuild ;
-  rdfs:label "microbial functional guild"@en .
-
-ad:MicrobialDynamics a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "microbial dynamics"@en .
-
-ad:MicrobialProcess a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "microbial process"@en .
-
-ad:BiogeochemicalProcess a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "biogeochemical process"@en .
-
-ad:NitrogenTransformation a owl:Class ;
-  rdfs:subClassOf ad:BiogeochemicalProcess ;
-  rdfs:label "nitrogen transformation"@en .
-
-ad:NitrogenCycling a owl:Class ;
-  rdfs:subClassOf ad:BiogeochemicalProcess ;
-  rdfs:label "nitrogen cycling"@en .
-
-ad:Denitrification a owl:Class ;
-  rdfs:subClassOf ad:NitrogenCycling ;
-  rdfs:label "denitrification"@en .
-
-ad:Anammox a owl:Class ;
-  rdfs:subClassOf ad:NitrogenCycling ;
-  rdfs:label "anammox"@en .
-
-ad:AmmoniaOxidation a owl:Class ;
-  rdfs:subClassOf ad:NitrogenCycling ;
-  rdfs:label "ammonia oxidation"@en .
-
-ad:CarbonFixation a owl:Class ;
-  rdfs:subClassOf ad:BiogeochemicalProcess ;
-  rdfs:label "CO2 fixation"@en .
-
-ad:Autotrophy a owl:Class ;
-  rdfs:subClassOf ad:BiologicalProcess ;
-  rdfs:label "autotrophy"@en .
-
-ad:Heterotrophy a owl:Class ;
-  rdfs:subClassOf ad:BiologicalProcess ;
-  rdfs:label "heterotrophy"@en .
-
-ad:BiologicalProcess a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "biological process"@en .
-
-ad:TransportProcess a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "transport process"@en .
-
-ad:VerticalTransport a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "rapid vertical transport"@en .
-
-ad:LateralFlow a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "lateral flow"@en .
-
-ad:PreferentialFlow a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "preferential flow"@en .
-
-ad:BypassFlow a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "bypass flow"@en .
-
-ad:FracturedFlow a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "fractured flow"@en .
-
-ad:ColloidalTransport a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "colloidal transport"@en .
-
-ad:SeepageWater a owl:Class ;
-  rdfs:subClassOf ad:WaterBody ;
-  rdfs:label "seepage water"@en .
-
-ad:WaterBody a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "water body"@en .
-
-ad:Precipitation a owl:Class ;
-  rdfs:subClassOf ad:EnvironmentalCondition ;
-  rdfs:label "precipitation"@en .
-
-ad:Rainfall a owl:Class ;
-  rdfs:subClassOf ad:Precipitation ;
-  rdfs:label "rainfall"@en .
-
-ad:Throughfall a owl:Class ;
-  rdfs:subClassOf ad:Precipitation ;
-  rdfs:label "throughfall"@en .
-
-ad:Stemflow a owl:Class ;
-  rdfs:subClassOf ad:Precipitation ;
-  rdfs:label "stemflow"@en .
-
-ad:NetPrecipitation a owl:Class ;
-  rdfs:subClassOf ad:Precipitation ;
-  rdfs:label "net precipitation"@en .
-
-ad:Deposition a owl:Class ;
-  rdfs:subClassOf ad:EnvironmentalCondition ;
-  rdfs:label "deposition"@en .
-
-ad:WetDeposition a owl:Class ;
-  rdfs:subClassOf ad:Deposition ;
-  rdfs:label "wet deposition"@en .
-
-ad:DryDeposition a owl:Class ;
-  rdfs:subClassOf ad:Deposition ;
-  rdfs:label "dry deposition"@en .
-
-ad:Evapotranspiration a owl:Class ;
-  rdfs:subClassOf ad:EnvironmentalCondition ;
-  rdfs:label "evapotranspiration"@en .
-
-ad:WaterBalance a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "water balance"@en .
-
-ad:Infiltration a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "infiltration"@en .
-
-ad:Percolation a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "percolation"@en .
-
-ad:Discharge a owl:Class ;
-  rdfs:subClassOf ad:HydrologicalProcess ;
-  rdfs:label "discharge"@en .
-
-ad:HydrologicalProcess a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "hydrological process"@en .
-
-ad:ResidenceTime a owl:Class ;
-  rdfs:subClassOf ad:TemporalEntity ;
-  rdfs:label "residence time"@en .
-
-ad:TransitTime a owl:Class ;
-  rdfs:subClassOf ad:TemporalEntity ;
-  rdfs:label "transit time"@en .
-
-ad:Tracer a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "tracer"@en .
-
-ad:SoilTracer a owl:Class ;
-  rdfs:subClassOf ad:Tracer ;
-  rdfs:label "soil tracer"@en .
-
-ad:IsotopeTracer a owl:Class ;
-  rdfs:subClassOf ad:Tracer ;
-  rdfs:label "isotope tracer"@en .
-
-ad:CO2Isotope a owl:Class ;
-  rdfs:subClassOf ad:IsotopeTracer ;
-  rdfs:label "CO2 isotopes"@en .
-
-ad:Gas a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "gas"@en .
-
-ad:TraceGas a owl:Class ;
-  rdfs:subClassOf ad:Gas ;
-  rdfs:label "trace gas"@en .
-
-ad:GreenhouseGas a owl:Class ;
-  rdfs:subClassOf ad:TraceGas ;
-  rdfs:label "greenhouse gas"@en .
-
-ad:VOC a owl:Class ;
-  rdfs:subClassOf ad:Gas ;
-  rdfs:label "volatile organic compound"@en .
-
-ad:DOM a owl:Class ;
-  rdfs:subClassOf ad:OrganicMatter ;
-  rdfs:label "DOM"@en .
-
-ad:NOM a owl:Class ;
-  rdfs:subClassOf ad:OrganicMatter ;
-  rdfs:label "NOM"@en .
-
-ad:OrganicMatter a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "organic matter"@en .
-
-ad:MobileOrganicMatter a owl:Class ;
-  rdfs:subClassOf ad:OrganicMatter ;
-  rdfs:label "mobile organic matter"@en .
-
-ad:AquaticColloids a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "aquatic colloids"@en .
-
-ad:Compound a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "compound"@en .
-
-ad:Metabolite a owl:Class ;
-  rdfs:subClassOf ad:Compound ;
-  rdfs:label "metabolite"@en .
-
-ad:Proteome a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "proteome"@en .
-
-ad:DNA a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "DNA"@en .
-
-ad:RNA a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "RNA"@en .
-
-ad:SequenceData a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "sequence data"@en .
-
-ad:MolecularMarker a owl:Class ;
-  rdfs:subClassOf ad:SequenceData ;
-  rdfs:label "molecular marker"@en .
-
-ad:FunctionalGene a owl:Class ;
-  rdfs:subClassOf ad:MolecularMarker ;
-  rdfs:label "functional gene"@en .
-
-ad:16SRRNAGene a owl:Class ;
-  rdfs:subClassOf ad:MolecularMarker ;
-  rdfs:label "16S rRNA gene"@en .
-
-ad:EnvironmentalSample a owl:Class ;
-  rdfs:subClassOf ad:Sample ;
-  rdfs:label "environmental sample"@en .
-
-ad:WaterSample a owl:Class ;
-  rdfs:subClassOf ad:EnvironmentalSample ;
-  rdfs:label "water sample"@en .
-
-ad:SoilSample a owl:Class ;
-  rdfs:subClassOf ad:EnvironmentalSample ;
-  rdfs:label "soil sample"@en .
-
-ad:GroundwaterSample a owl:Class ;
-  rdfs:subClassOf ad:WaterSample ;
-  rdfs:label "groundwater sample"@en .
-
-ad:WellSample a owl:Class ;
-  rdfs:subClassOf ad:GroundwaterSample ;
-  rdfs:label "well sample"@en .
-
-ad:DepthProfile a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "depth profile"@en .
-
-ad:SoilProfile a owl:Class ;
-  rdfs:subClassOf ad:DepthProfile ;
-  rdfs:label "soil profile"@en .
-
-ad:SoilHorizon a owl:Class ;
-  rdfs:subClassOf ad:SoilProfile ;
-  rdfs:label "soil horizon"@en .
-
-ad:BHorizon a owl:Class ;
-  rdfs:subClassOf ad:SoilHorizon ;
-  rdfs:label "B horizon"@en .
-
-ad:MineralSoil a owl:Class ;
-  rdfs:subClassOf ad:SoilMaterial ;
-  rdfs:label "mineral soil"@en .
-
-ad:OrganicLayer a owl:Class ;
-  rdfs:subClassOf ad:SoilMaterial ;
-  rdfs:label "organic layer"@en .
-
-ad:SoilMaterial a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "soil material"@en .
-
-ad:Soil a owl:Class ;
-  rdfs:subClassOf ad:Habitat ;
-  rdfs:label "soil"@en .
-
-ad:ForestSoil a owl:Class ;
-  rdfs:subClassOf ad:Soil ;
-  rdfs:label "forest soil"@en .
-
-ad:GrasslandSoil a owl:Class ;
-  rdfs:subClassOf ad:Soil ;
-  rdfs:label "grassland soil"@en .
-
-ad:Forest a owl:Class ;
-  rdfs:subClassOf ad:Habitat ;
-  rdfs:label "forest"@en .
-
-ad:Grassland a owl:Class ;
-  rdfs:subClassOf ad:Habitat ;
-  rdfs:label "grassland"@en .
-
-ad:BeechForest a owl:Class ;
-  rdfs:subClassOf ad:Forest ;
-  rdfs:label "forest (beech)"@en .
-
-ad:Pasture a owl:Class ;
-  rdfs:subClassOf ad:Grassland ;
-  rdfs:label "grassland (pasture)"@en .
-
-ad:Vegetation a owl:Class ;
-  rdfs:subClassOf ad:Habitat ;
-  rdfs:label "vegetation"@en .
-
-ad:VegetationType a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "vegetation type"@en .
-
-ad:TreeSpecies a owl:Class ;
-  rdfs:subClassOf ad:Organism ;
-  rdfs:label "tree species"@en .
-
-ad:VegetationCover a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "vegetation cover"@en .
-
-ad:LeafAreaIndex a owl:Class ;
-  rdfs:subClassOf ad:VegetationCover ;
-  rdfs:label "leaf area index"@en .
-
-ad:CanopyStructure a owl:Class ;
-  rdfs:subClassOf ad:VegetationCover ;
-  rdfs:label "canopy structure"@en .
-
-ad:Architecture a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "architecture"@en .
-
-ad:Terrain a owl:Class ;
-  rdfs:subClassOf ad:Habitat ;
-  rdfs:label "terrain"@en .
-
-ad:Topography a owl:Class ;
-  rdfs:subClassOf ad:Terrain ;
-  rdfs:label "topography"@en .
-
-ad:ManagementAction a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "management action"@en .
-
-ad:GroundwaterManagement a owl:Class ;
-  rdfs:subClassOf ad:ManagementAction ;
-  rdfs:label "management"@en .
-
-ad:GroundwaterLegacy a owl:Class ;
-  rdfs:subClassOf ad:HistoricalContext ;
-  rdfs:label "legacy"@en .
-
-ad:HistoricalContext a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "historical context"@en .
-
-ad:ClimateParameter a owl:Class ;
-  rdfs:subClassOf ad:EnvironmentalCondition ;
-  rdfs:label "climatic parameter"@en .
-
-ad:RainEvent a owl:Class ;
-  rdfs:subClassOf ad:Precipitation ;
-  rdfs:label "rain events"@en .
-
-ad:WinterCondition a owl:Class ;
-  rdfs:subClassOf ad:ClimateParameter ;
-  rdfs:label "winter"@en .
-
-ad:SummerCondition a owl:Class ;
-  rdfs:subClassOf ad:ClimateParameter ;
-  rdfs:label "summer"@en .
-
-ad:LowTemperature a owl:Class ;
-  rdfs:subClassOf ad:ClimateParameter ;
-  rdfs:label "low temperature"@en .
-
-ad:SoilWater a owl:Class ;
-  rdfs:subClassOf ad:WaterBody ;
-  rdfs:label "soil water"@en .
-
-ad:SoilWaterContent a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "soil water content"@en .
-
-ad:SoilHydraulicParameters a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "soil hydraulic parameters"@en .
-
-ad:SoilTexture a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "soil texture"@en .
-
-ad:SoilPorosity a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "soil porosity"@en .
-
-ad:BulkDensity a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "bulk density"@en .
-
-ad:PoreSpace a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "pore space"@en .
-
-ad:PedophysicalProperty a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "pedrophysical properties/relationships"@en .
-
-ad:Georadar a owl:Class ;
-  rdfs:subClassOf ad:Sensor ;
-  rdfs:label "georadar/GPR"@en .
-
-ad:ElectricalResistivityTomography a owl:Class ;
-  rdfs:subClassOf ad:Sensor ;
-  rdfs:label "electrical resistivity/ERT"@en .
-
-ad:DielectricConstant a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "dielectric constant"@en .
-
-ad:SeismicRefraction a owl:Class ;
-  rdfs:subClassOf ad:Sensor ;
-  rdfs:label "seismic retraction"@en .
-
-ad:GasAnalysis a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "gas analysis"@en .
-
-ad:FlowCytometry a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "flow cytometry"@en .
-
-ad:CellCount a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "cell count"@en .
-
-ad:DNAConcentration a owl:Class ;
-  rdfs:subClassOf ad:Measurement ;
-  rdfs:label "DNA concentration/amount"@en .
-
-ad:AbundanceMeasurement a owl:Class ;
-  rdfs:subClassOf ad:Measurement ;
-  rdfs:label "abundance measurement"@en .
-
-ad:MeanValue a owl:Class ;
-  rdfs:subClassOf ad:Measurement ;
-  rdfs:label "mean value"@en .
-
-ad:Concentration a owl:Class ;
-  rdfs:subClassOf ad:Measurement ;
-  rdfs:label "concentration"@en .
-
-ad:TimeSeries a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "time series"@en .
-
-ad:SpatialPattern a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "spatial redistribution"@en .
-
-ad:TemporalPattern a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "temporal changes"@en .
-
-ad:RangeCorrelationLength a owl:Class ;
-  rdfs:subClassOf ad:SpatialPattern ;
-  rdfs:label "range/correlation length"@en .
-
-ad:BreakthroughCurve a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "breakthrough curves"@en .
-
-ad:CommunityComposition a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "community composition"@en .
-
-ad:CommunityStructure a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "community structure"@en .
-
-ad:Microbe a owl:Class ;
-  rdfs:subClassOf ad:Organism ;
-  rdfs:label "microbe"@en .
-
-ad:Microorganism a owl:Class ;
-  rdfs:subClassOf ad:Microbe ;
-  rdfs:label "microorganism"@en .
-
-ad:Bacteria a owl:Class ;
-  rdfs:subClassOf ad:Microorganism ;
-  rdfs:label "bacteria"@en .
-
-ad:Archaea a owl:Class ;
-  rdfs:subClassOf ad:Microorganism ;
-  rdfs:label "Archaea"@en .
-
-ad:Fungi a owl:Class ;
-  rdfs:subClassOf ad:Microorganism ;
-  rdfs:label "Fungi"@en .
-
-ad:AquiferMicrobe a owl:Class ;
-  rdfs:subClassOf ad:Microorganism ;
-  rdfs:label "aquifer microbes"@en .
-
-ad:AquiferFungus a owl:Class ;
-  rdfs:subClassOf ad:Fungi ;
-  rdfs:label "aquifer fungi"@en .
-
-ad:AquaticMicrobe a owl:Class ;
-  rdfs:subClassOf ad:Microorganism ;
-  rdfs:label "aquatic microbes"@en .
-
-ad:AquaticFungus a owl:Class ;
-  rdfs:subClassOf ad:Fungi ;
-  rdfs:label "aquatic fungi"@en .
-
-ad:SoilMicroorganism a owl:Class ;
-  rdfs:subClassOf ad:Microorganism ;
-  rdfs:label "soil microorganisms"@en .
-
-ad:CrossKingdomMicrobialCommunity a owl:Class ;
-  rdfs:subClassOf ad:MicrobialCommunity ;
-  rdfs:label "cross kingdom microbial communities in the aquifer"@en .
-
-ad:CrossKingdomSoilCommunity a owl:Class ;
-  rdfs:subClassOf ad:MicrobialCommunity ;
-  rdfs:label "idem in soil"@en .
-
-ad:PristineAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "pristine aquifers"@en .
-
-ad:AnoxicAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "anoxic aquifers"@en .
-
-ad:OxicAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "oxic"@en .
-
-ad:UpperAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "upper aquifer"@en .
-
-ad:LowerAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "lower aquifer"@en .
-
-ad:Limestone a owl:Class ;
-  rdfs:subClassOf ad:RockType ;
-  rdfs:label "limestone"@en .
-
-ad:TriassicRock a owl:Class ;
-  rdfs:subClassOf ad:RockType ;
-  rdfs:label "triassic"@en .
-
-ad:FracturedRock a owl:Class ;
-  rdfs:subClassOf ad:RockType ;
-  rdfs:label "fractured rock"@en .
-
-ad:Karst a owl:Class ;
-  rdfs:subClassOf ad:HydrogeologicalStructure ;
-  rdfs:label "karst"@en .
-
-ad:Karstification a owl:Class ;
-  rdfs:subClassOf ad:GeologicalProcess ;
-  rdfs:label "karstification"@en .
-
-ad:CarbonateDissolution a owl:Class ;
-  rdfs:subClassOf ad:GeologicalProcess ;
-  rdfs:label "carbonate dissortation"@en .
-
-ad:RockType a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "rock type"@en .
-
-ad:GeologicalProcess a owl:Class ;
-  rdfs:subClassOf ad:Process ;
-  rdfs:label "geological process"@en .
-
-ad:Geology a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "Geology"@en .
-
-ad:ContinuityOfStrata a owl:Class ;
-  rdfs:subClassOf ad:GeologicalStructure ;
-  rdfs:label "continuity of strata"@en .
-
-ad:GeologicalStructure a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "geological structure"@en .
-
-ad:Heterogeneity a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "heterogenity"@en .
-
-ad:Fracture a owl:Class ;
-  rdfs:subClassOf ad:GeologicalStructure ;
-  rdfs:label "fractures"@en .
-
-ad:SecondaryMineral a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "secondary minerals"@en .
-
-ad:LimestoneAquifer a owl:Class ;
-  rdfs:subClassOf ad:KarstAquifer ;
-  rdfs:label "limestone aquifer"@en .
-
-ad:Muschelkalk a owl:Class ;
-  rdfs:subClassOf ad:TriassicRock ;
-  rdfs:label "Muschelkalk"@en .
-
-ad:Marlstone a owl:Class ;
-  rdfs:subClassOf ad:RockType ;
-  rdfs:label "marlstone/Mergel"@en .
-
-ad:AquiferRock a owl:Class ;
-  rdfs:subClassOf ad:RockType ;
-  rdfs:label "aquifer rocks"@en .
-
-ad:Subsurface a owl:Class ;
-  rdfs:subClassOf ad:Habitat ;
-  rdfs:label "subsurface"@en .
-
-ad:GroundwaterSystem a owl:Class ;
-  rdfs:subClassOf ad:System ;
-  rdfs:label "groundwater ecosystem"@en .
-
-ad:SourceCatchmentInfiltrationArea a owl:Class ;
-  rdfs:subClassOf ad:Site ;
-  rdfs:label "source / catchment / infiltration areas"@en .
-
-ad:HainichSite a owl:Class ;
-  rdfs:subClassOf ad:Site ;
-  rdfs:label "Hainich site"@en .
-
-ad:HainichAquifer a owl:Class ;
-  rdfs:subClassOf ad:Aquifer ;
-  rdfs:label "Hainich aquifers"@en .
-
-ad:HainichCZE a owl:Class ;
-  rdfs:subClassOf ad:HainichSite ;
-  rdfs:label "Hainich CZE"@en .
-
-ad:Kammerforst a owl:Class ;
-  rdfs:subClassOf ad:Site ;
-  rdfs:label "kammerforst"@en .
-
-ad:Rueckschau a owl:Class ;
-  rdfs:subClassOf ad:TemporalEntity ;
-  rdfs:label "rückschau"@en .
-
-ad:FourteenDayPeriod a owl:Class ;
-  rdfs:subClassOf ad:TemporalEntity ;
-  rdfs:label "14 Tage"@en .
-
-ad:Niederschlag a owl:Class ;
-  rdfs:subClassOf ad:Precipitation ;
-  rdfs:label "Niederschlag"@en .
-
-ad:WaterInput a owl:Class ;
-  rdfs:subClassOf ad:HydrologicalProcess ;
-  rdfs:label "water input"@en .
-
-ad:SoilWaterFlow a owl:Class ;
-  rdfs:subClassOf ad:TransportProcess ;
-  rdfs:label "soil water flow"@en .
-
-ad:Drainage a owl:Class ;
-  rdfs:subClassOf ad:HydrologicalProcess ;
-  rdfs:label "drainage"@en .
-
-ad:GroundwaterChemistryData a owl:Class ;
-  rdfs:subClassOf ad:Measurement ;
-  rdfs:label "aquifer chemical data"@en .
-
-ad:HydrogeochemicalData a owl:Class ;
-  rdfs:subClassOf ad:Measurement ;
-  rdfs:label "hydrogeochemical data"@en .
-
-ad:HydrogeochemicalCharacterization a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "Hydrogeochemical characterization"@en .
-
-ad:TraceableVolume a owl:Class ;
-  rdfs:subClassOf ad:Measurement ;
-  rdfs:label "filtrated volume"@en .
-
-ad:ProductionConsumptionOfTraceGases a owl:Class ;
-  rdfs:subClassOf ad:BiogeochemicalProcess ;
-  rdfs:label "production & consumption of trace gases"@en .
-
-ad:CompensationMixingRatio a owl:Class ;
-  rdfs:subClassOf ad:Measurement ;
-  rdfs:label "compensation mixing ratio"@en .
-
-ad:ProteomeAnalysis a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "proteome"@en .
-
-ad:GutMicrobiome a owl:Class ;
-  rdfs:subClassOf ad:MicrobialCommunity ;
-  rdfs:label "gut microbiome"@en .
-
-ad:IntestinalHabitat a owl:Class ;
-  rdfs:subClassOf ad:Habitat ;
-  rdfs:label "intestinal hact"@en .
-
-ad:Grasshopper a owl:Class ;
-  rdfs:subClassOf ad:Organism ;
-  rdfs:label "Grasshoppers"@en .
-
-ad:Feces a owl:Class ;
-  rdfs:subClassOf ad:Material ;
-  rdfs:label "feces"@en .
-
-ad:MonoCulture a owl:Class ;
-  rdfs:subClassOf ad:Community ;
-  rdfs:label "mono-culture"@en .
-
-ad:LegacyEffect a owl:Class ;
-  rdfs:subClassOf ad:HistoricalContext ;
-  rdfs:label "long term effect"@en .
-
-ad:GroundwaterVulnerabilityAssessment a owl:Class ;
-  rdfs:subClassOf ad:GroundwaterVulnerability ;
-  rdfs:label "groundwater vulnerability assessment"@en .
-
-ad:GroundwaterContaminationRisk a owl:Class ;
-  rdfs:subClassOf ad:GroundwaterContamination ;
-  rdfs:label "groundwater contamination risk"@en .
-
-ad:PristineCondition a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "pristine"@en .
-
-ad:RareSpecies a owl:Class ;
-  rdfs:subClassOf ad:Organism ;
-  rdfs:label "rare species"@en .
-
-ad:Species a owl:Class ;
-  rdfs:subClassOf ad:Organism ;
-  rdfs:label "species"@en .
-
-ad:Biodiversity a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "biodiversity"@en .
-
-ad:Diversity a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "diversity"@en .
-
-ad:CommunityLinks a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "links"@en .
-
-ad:SurfaceSignal a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "surface signals"@en .
-
-ad:BiologicalSignal a owl:Class ;
-  rdfs:subClassOf ad:Observation ;
-  rdfs:label "biological signals"@en .
-
-ad:KeyWand a owl:Class ;
-  rdfs:subClassOf ad:Tool ;
-  rdfs:label "Key Wand"@en .
-
-ad:Tool a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "tool"@en .
-
-##########
-# Additional subclass enrichment to support high subclass count
-##########
-
-ad:MicrobialTaxon a owl:Class ;
-  rdfs:subClassOf ad:Organism ;
-  rdfs:label "microbial taxon"@en .
-
-ad:Denitrifier a owl:Class ;
-  rdfs:subClassOf ad:MicrobialTaxon ;
-  rdfs:label "denitrifiers"@en .
-
-ad:AmmoniaOxidiser a owl:Class ;
-  rdfs:subClassOf ad:MicrobialTaxon ;
-  rdfs:label "ammonia-oxidisers"@en .
-
-ad:Nitrosphira a owl:Class ;
-  rdfs:subClassOf ad:AmmoniaOxidiser ;
-  rdfs:label "nitrosphira"@en .
-
-ad:IronReducer a owl:Class ;
-  rdfs:subClassOf ad:MicrobialTaxon ;
-  rdfs:label "iron reducer"@en .
-
-ad:Heterotroph a owl:Class ;
-  rdfs:subClassOf ad:MicrobialTaxon ;
-  rdfs:label "heterotrophs"@en .
-
-ad:Autolithoautotroph a owl:Class ;
-  rdfs:subClassOf ad:MicrobialTaxon ;
-  rdfs:label "autolithoantatrophy"@en .
-
-ad:Phage a owl:Class ;
-  rdfs:subClassOf ad:Microorganism ;
-  rdfs:label "phage"@en .
-
-ad:MarinePhage a owl:Class ;
-  rdfs:subClassOf ad:Phage ;
-  rdfs:label "Marine phage"@en .
-
-ad:MarinePhages a owl:Class ;
-  rdfs:subClassOf ad:Phage ;
-  rdfs:label "Marine phages"@en .
-
-ad:MicrobialCommunityDynamics a owl:Class ;
-  rdfs:subClassOf ad:MicrobialDynamics ;
-  rdfs:label "microbial community dynamics"@en .
-
-ad:AttachedCommunity a owl:Class ;
-  rdfs:subClassOf ad:MicrobialCommunity ;
-  rdfs:label "attached"@en .
-
-ad:WaterQuality a owl:Class ;
-  rdfs:subClassOf ad:MeasuredParameter ;
-  rdfs:label "groundwater quality"@en .
-
-ad:GroundwaterQualityParameter a owl:Class ;
-  rdfs:subClassOf ad:WaterQuality ;
-  rdfs:label "groundwater quality parameter"@en .
-
-ad:RedoxCondition a owl:Class ;
-  rdfs:subClassOf ad:EnvironmentalCondition ;
-  rdfs:label "redox"@en .
-
-ad:OxygenStatus a owl:Class ;
-  rdfs:subClassOf ad:EnvironmentalCondition ;
-  rdfs:label "oxic/anoxic status"@en .
-
-ad:FlowPath a owl:Class ;
-  rdfs:subClassOf ad:HydrologicalStructure ;
-  rdfs:label "flow path"@en .
-
-ad:HydrologicalStructure a owl:Class ;
-  rdfs:subClassOf ad:Entity ;
-  rdfs:label "hydrological structure"@en .
-
-ad:GroundwaterVulnerabilityModel a owl:Class ;
-  rdfs:subClassOf ad:ManagementAction ;
-  rdfs:label "groundwater vulnerability model"@en .
-
-ad:EnvironmentalContainment a owl:Class ;
-  rdfs:subClassOf ad:Quality ;
-  rdfs:label "environmental containment"@en .
-
-ad:Poison a owl:Class ;
-  rdfs:subClassOf ad:ChemicalRole ;
-  rdfs:label "poison"@en .
-
-ad:Inhibitor a owl:Class ;
-  rdfs:subClassOf ad:ChemicalRole ;
-  rdfs:label "inhibitor"@en .
-
-ad:Acceptor a owl:Class ;
-  rdfs:subClassOf ad:ChemicalRole ;
-  rdfs:label "acceptor"@en .
-
-ad:Acid a owl:Class ;
-  rdfs:subClassOf ad:ChemicalRole ;
-  rdfs:label "acid"@en .
-
-ad:RoleTerm a owl:Class ;
-  rdfs:subClassOf ad:Role ;
-  rdfs:label "role"@en .
-
-ad:BiologicalRoleTerm a owl:Class ;
-  rdfs:subClassOf ad:BiologicalRole ;
-  rdfs:label "biological role"@en .
-
-ad:ChemicalRoleTerm a owl:Class ;
-  rdfs:subClassOf ad:ChemicalRole ;
-  rdfs:label "chemical role"@en .
-
-##########
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://example.org/aquadiva>
+    a owl:Ontology ;
+    dcterms:title "AquaDiva Ontology"@en ;
+    dcterms:description "Ontology for groundwater ecosystems integrating hydrogeology, microbial ecology, geochemistry, karst, soil-water interactions, and environmental management."@en ;
+    owl:versionInfo "0.1.0" ;
+    rdfs:comment "Seed ontology generated from user-provided AquaDiva terminology and domain knowledge; extensible under NeOn-inspired modular design."@en .
+
+#################################################################
+# Annotation properties
+#################################################################
+
+aad:acronym a owl:AnnotationProperty .
+aad:definition a owl:AnnotationProperty .
+aad:example a owl:AnnotationProperty .
+aad:sourceNote a owl:AnnotationProperty .
+
+#################################################################
+# Core classes
+#################################################################
+
+aad:Entity a owl:Class ;
+    rdfs:label "entity"@en .
+
+aad:NaturalEntity a owl:Class ;
+    rdfs:subClassOf aad:Entity ;
+    rdfs:label "natural entity"@en .
+
+aad:SpatialEntity a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "spatial entity"@en .
+
+aad:Process a owl:Class ;
+    rdfs:subClassOf aad:Entity ;
+    rdfs:label "process"@en .
+
+aad:Quality a owl:Class ;
+    rdfs:subClassOf aad:Entity ;
+    rdfs:label "quality"@en .
+
+aad:InvestigationEntity a owl:Class ;
+    rdfs:subClassOf aad:Entity ;
+    rdfs:label "investigation entity"@en .
+
+aad:HydrogeologicalEntity a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "hydrogeological entity"@en .
+
+aad:GeologicalEntity a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "geological entity"@en .
+
+aad:HydrologicalEntity a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "hydrological entity"@en .
+
+aad:ChemicalEntity a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "chemical entity"@en .
+
+aad:BiologicalEntity a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "biological entity"@en .
+
+aad:MicrobialEntity a owl:Class ;
+    rdfs:subClassOf aad:BiologicalEntity ;
+    rdfs:label "microbial entity"@en .
+
+aad:Sample a owl:Class ;
+    rdfs:subClassOf aad:InvestigationEntity ;
+    rdfs:label "sample"@en .
+
+aad:Measurement a owl:Class ;
+    rdfs:subClassOf aad:InvestigationEntity ;
+    rdfs:label "measurement"@en .
+
+aad:Dataset a owl:Class ;
+    rdfs:subClassOf aad:InvestigationEntity ;
+    rdfs:label "dataset"@en .
+
+aad:Site a owl:Class ;
+    rdfs:subClassOf aad:SpatialEntity ;
+    rdfs:label "site"@en .
+
+aad:Habitat a owl:Class ;
+    rdfs:subClassOf aad:SpatialEntity ;
+    rdfs:label "habitat"@en .
+
+aad:Aquifer a owl:Class ;
+    rdfs:subClassOf aad:HydrogeologicalEntity , aad:Habitat ;
+    rdfs:label "aquifer"@en ;
+    aad:definition "A permeable geologic formation that stores and transmits groundwater."@en .
+
+aad:FracturedRockAquifer a owl:Class ;
+    rdfs:subClassOf aad:Aquifer ;
+    rdfs:label "fractured rock aquifer"@en .
+
+aad:KarstAquifer a owl:Class ;
+    rdfs:subClassOf aad:Aquifer ;
+    rdfs:label "karst aquifer"@en .
+
+aad:UpperAquifer a owl:Class ;
+    rdfs:subClassOf aad:Aquifer ;
+    rdfs:label "upper aquifer"@en .
+
+aad:LowerAquifer a owl:Class ;
+    rdfs:subClassOf aad:Aquifer ;
+    rdfs:label "lower aquifer"@en .
+
+aad:Groundwater a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalEntity ;
+    rdfs:label "groundwater"@en .
+
+aad:GroundwaterBody a owl:Class ;
+    rdfs:subClassOf aad:Groundwater ;
+    rdfs:label "groundwater body"@en .
+
+aad:GroundwaterQuality a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "groundwater quality"@en .
+
+aad:GroundwaterVulnerability a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "groundwater vulnerability"@en .
+
+aad:GroundwaterContamination a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "groundwater contamination"@en .
+
+aad:GroundwaterProtection a owl:Class ;
+    rdfs:subClassOf aad:ManagementMeasure ;
+    rdfs:label "groundwater protection"@en .
+
+aad:GroundwaterChemistry a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "groundwater chemistry"@en .
+
+aad:GroundwaterPhysicochemicalParameter a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "groundwater physiochemical parameter"@en .
+
+aad:Hydrochemistry a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "hydrochemistry"@en .
+
+aad:HydrogeochemicalData a owl:Class ;
+    rdfs:subClassOf aad:Dataset ;
+    rdfs:label "hydrogeochemical data"@en .
+
+aad:HydrogeochemicalCharacterization a owl:Class ;
+    rdfs:subClassOf aad:InvestigationProcess ;
+    rdfs:label "hydrogeochemical characterization"@en .
+
+aad:Geology a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "geology"@en .
+
+aad:Hydrology a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "hydrology"@en .
+
+aad:Geochemistry a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "geochemistry"@en .
+
+aad:Karst a owl:Class ;
+    rdfs:subClassOf aad:GeologicalEntity ;
+    rdfs:label "karst"@en .
+
+aad:Karstification a owl:Class ;
+    rdfs:subClassOf aad:GeologicalProcess ;
+    rdfs:label "karstification"@en .
+
+aad:ContinuityOfStrata a owl:Class ;
+    rdfs:subClassOf aad:GeologicalProperty ;
+    rdfs:label "continuity of strata"@en .
+
+aad:Heterogeneity a owl:Class ;
+    rdfs:subClassOf aad:GeologicalProperty ;
+    rdfs:label "heterogeneity"@en .
+
+aad:Terrain a owl:Class ;
+    rdfs:subClassOf aad:SpatialEntity ;
+    rdfs:label "terrain"@en .
+
+aad:Vegetation a owl:Class ;
+    rdfs:subClassOf aad:BiologicalEntity ;
+    rdfs:label "vegetation"@en .
+
+aad:Biodiversity a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "biodiversity"@en .
+
+aad:Microbe a owl:Class ;
+    rdfs:subClassOf aad:MicrobialEntity ;
+    rdfs:label "microbe"@en .
+
+aad:Bacterium a owl:Class ;
+    rdfs:subClassOf aad:Microbe ;
+    rdfs:label "bacterium"@en .
+
+aad:Archaea a owl:Class ;
+    rdfs:subClassOf aad:Microbe ;
+    rdfs:label "archaea"@en .
+
+aad:Fungus a owl:Class ;
+    rdfs:subClassOf aad:Microbe ;
+    rdfs:label "fungus"@en .
+
+aad:AquiferMicrobe a owl:Class ;
+    rdfs:subClassOf aad:Microbe ;
+    rdfs:label "aquifer microbe"@en .
+
+aad:AquiferFungus a owl:Class ;
+    rdfs:subClassOf aad:Fungus ;
+    rdfs:label "aquifer fungus"@en .
+
+aad:AquaticMicrobe a owl:Class ;
+    rdfs:subClassOf aad:Microbe ;
+    rdfs:label "aquatic microbe"@en .
+
+aad:AquaticFungus a owl:Class ;
+    rdfs:subClassOf aad:Fungus ;
+    rdfs:label "aquatic fungus"@en .
+
+aad:SoilMicrobe a owl:Class ;
+    rdfs:subClassOf aad:Microbe ;
+    rdfs:label "soil microbe"@en .
+
+aad:SoilMicrobiome a owl:Class ;
+    rdfs:subClassOf aad:MicrobialCommunity ;
+    rdfs:label "soil microbiome"@en .
+
+aad:AquiferMicrobiome a owl:Class ;
+    rdfs:subClassOf aad:MicrobialCommunity ;
+    rdfs:label "aquifer microbiome"@en .
+
+aad:MicrobialCommunity a owl:Class ;
+    rdfs:subClassOf aad:BiologicalEntity ;
+    rdfs:label "microbial community"@en .
+
+aad:CrossKingdomMicrobialCommunity a owl:Class ;
+    rdfs:subClassOf aad:MicrobialCommunity ;
+    rdfs:label "cross kingdom microbial community"@en .
+
+aad:MicrobialFunctionalGuild a owl:Class ;
+    rdfs:subClassOf aad:MicrobialRole ;
+    rdfs:label "microbial functional guild"@en .
+
+aad:MicrobialRole a owl:Class ;
+    rdfs:subClassOf aad:BiologicalRole ;
+    rdfs:label "microbial role"@en .
+
+aad:BiologicalRole a owl:Class ;
+    rdfs:subClassOf aad:Role ;
+    rdfs:label "biological role"@en .
+
+aad:ChemicalRole a owl:Class ;
+    rdfs:subClassOf aad:Role ;
+    rdfs:label "chemical role"@en .
+
+aad:Role a owl:Class ;
+    rdfs:subClassOf aad:Entity ;
+    rdfs:label "role"@en .
+
+aad:Accept or a owl:Class ;
+    rdfs:subClassOf aad:ChemicalRole ;
+    rdfs:label "acceptor"@en .
+
+aad:Acid a owl:Class ;
+    rdfs:subClassOf aad:ChemicalRole ;
+    rdfs:label "acid"@en .
+
+aad:Poison a owl:Class ;
+    rdfs:subClassOf aad:ChemicalRole ;
+    rdfs:label "poison"@en .
+
+aad:Inhibitor a owl:Class ;
+    rdfs:subClassOf aad:ChemicalRole ;
+    rdfs:label "inhibitor"@en .
+
+aad:EnvironmentalContainment a owl:Class ;
+    rdfs:subClassOf aad:Role ;
+    rdfs:label "environmental containment"@en .
+
+aad:BiogeochemicalProcess a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "biogeochemical process"@en .
+
+aad:GeologicalProcess a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "geological process"@en .
+
+aad:HydrologicalProcess a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "hydrological process"@en .
+
+aad:MicrobialProcess a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "microbial process"@en .
+
+aad:NitrogenTransformation a owl:Class ;
+    rdfs:subClassOf aad:BiogeochemicalProcess ;
+    rdfs:label "nitrogen transformation"@en .
+
+aad:NitrogenCycle a owl:Class ;
+    rdfs:subClassOf aad:BiogeochemicalProcess ;
+    rdfs:label "nitrogen cycle"@en .
+
+aad:Denitrification a owl:Class ;
+    rdfs:subClassOf aad:NitrogenTransformation ;
+    rdfs:label "denitrification"@en .
+
+aad:NitrogenCycling a owl:Class ;
+    rdfs:subClassOf aad:NitrogenCycle ;
+    rdfs:label "nitrogen-cycling"@en .
+
+aad:AmmoniaOxidation a owl:Class ;
+    rdfs:subClassOf aad:NitrogenTransformation ;
+    rdfs:label "ammonia oxidation"@en .
+
+aad:Anammox a owl:Class ;
+    rdfs:subClassOf aad:NitrogenTransformation ;
+    rdfs:label "anammox"@en .
+
+aad:CarbonFixation a owl:Class ;
+    rdfs:subClassOf aad:BiogeochemicalProcess ;
+    rdfs:label "CO2 fixation"@en .
+
+aad:Autotrophy a owl:Class ;
+    rdfs:subClassOf aad:MicrobialProcess ;
+    rdfs:label "autotrophy"@en .
+
+aad:Heterotrophy a owl:Class ;
+    rdfs:subClassOf aad:MicrobialProcess ;
+    rdfs:label "heterotrophy"@en .
+
+aad:Metabolism a owl:Class ;
+    rdfs:subClassOf aad:BiologicalProcess ;
+    rdfs:label "metabolism"@en .
+
+aad:BiologicalProcess a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "biological process"@en .
+
+aad:MicrobialDynamics a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "microbial dynamics"@en .
+
+aad:TemporalChange a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "temporal change"@en .
+
+aad:SpatialRedistribution a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "spatial redistribution"@en .
+
+aad:Transport a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "transport"@en .
+
+aad:PreferentialFlow a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "preferential flow"@en .
+
+aad:RapidVerticalTransport a owl:Class ;
+    rdfs:subClassOf aad:Transport ;
+    rdfs:label "rapid vertical transport"@en .
+
+aad:LateralFlow a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "lateral flow"@en .
+
+aad:BypassFlow a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "bypass flow"@en .
+
+aad:Recharge a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "recharge"@en .
+
+aad:Discharge a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "discharge"@en .
+
+aad:Infiltration a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "infiltration"@en .
+
+aad:Percolation a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "percolation"@en .
+
+aad:Evapotranspiration a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "evapotranspiration"@en .
+
+aad:Rainfall a owl:Class ;
+    rdfs:subClassOf aad:ClimaticProcess ;
+    rdfs:label "rainfall"@en .
+
+aad:ClimaticProcess a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "climatic process"@en .
+
+aad:Precipitation a owl:Class ;
+    rdfs:subClassOf aad:ClimaticProcess ;
+    rdfs:label "precipitation"@en .
+
+aad:Throughfall a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "throughfall"@en .
+
+aad:Stemflow a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "stemflow"@en .
+
+aad:WetDeposition a owl:Class ;
+    rdfs:subClassOf aad:Deposition ;
+    rdfs:label "wet deposition"@en .
+
+aad:DryDeposition a owl:Class ;
+    rdfs:subClassOf aad:Deposition ;
+    rdfs:label "dry deposition"@en .
+
+aad:Deposition a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "deposition"@en .
+
+aad:GroundwaterChemistryMeasurement a owl:Class ;
+    rdfs:subClassOf aad:Measurement ;
+    rdfs:label "groundwater chemistry measurement"@en .
+
+aad:PHMeasurement a owl:Class ;
+    rdfs:subClassOf aad:Measurement ;
+    rdfs:label "pH measurement"@en .
+
+aad:OxygenMeasurement a owl:Class ;
+    rdfs:subClassOf aad:Measurement ;
+    rdfs:label "oxygen content measurement"@en .
+
+aad:ElectricalConductivityMeasurement a owl:Class ;
+    rdfs:subClassOf aad:Measurement ;
+    rdfs:label "electric conductivity measurement"@en .
+
+aad:TraceGasAnalysis a owl:Class ;
+    rdfs:subClassOf aad:Measurement ;
+    rdfs:label "gas analysis"@en .
+
+aad:SequencingAssay a owl:Class ;
+    rdfs:subClassOf aad:Measurement ;
+    rdfs:label "sequencing assay"@en .
+
+aad:FunctionalGene a owl:Class ;
+    rdfs:subClassOf aad:BiomolecularEntity ;
+    rdfs:label "functional gene"@en .
+
+aad:BiomolecularEntity a owl:Class ;
+    rdfs:subClassOf aad:BiologicalEntity ;
+    rdfs:label "biomolecular entity"@en .
+
+aad:MolecularMarker a owl:Class ;
+    rdfs:subClassOf aad:BiomolecularEntity ;
+    rdfs:label "molecular marker"@en .
+
+aad:Proteome a owl:Class ;
+    rdfs:subClassOf aad:BiomolecularEntity ;
+    rdfs:label "proteome"@en .
+
+aad:Metabolite a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "metabolite"@en .
+
+aad:Compound a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "compound"@en .
+
+aad:Substance a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "substance"@en .
+
+aad:DOM a owl:Class ;
+    rdfs:subClassOf aad:OrganicMatter ;
+    rdfs:label "dissolved organic matter"@en .
+
+aad:NOM a owl:Class ;
+    rdfs:subClassOf aad:OrganicMatter ;
+    rdfs:label "natural organic matter"@en .
+
+aad:DOC a owl:Class ;
+    rdfs:subClassOf aad:OrganicCarbon ;
+    rdfs:label "dissolved organic carbon"@en .
+
+aad:OrganicMatter a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "organic matter"@en .
+
+aad:OrganicCarbon a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "organic carbon"@en .
+
+aad:SoilOrganicMatter a owl:Class ;
+    rdfs:subClassOf aad:OrganicMatter ;
+    rdfs:label "soil organic matter"@en .
+
+aad:SoilOrganicCarbon a owl:Class ;
+    rdfs:subClassOf aad:OrganicCarbon ;
+    rdfs:label "soil organic carbon"@en .
+
+aad:SoilNitrogen a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "soil nitrogen"@en .
+
+aad:CarbonDioxideFixationPathway a owl:Class ;
+    rdfs:subClassOf aad:BiogeochemicalProcess ;
+    rdfs:label "CO2 fixation pathway"@en .
+
+aad:Rubisco a owl:Class ;
+    rdfs:subClassOf aad:Enzyme ;
+    rdfs:label "rubisco"@en .
+
+aad:Enzyme a owl:Class ;
+    rdfs:subClassOf aad:BiomolecularEntity ;
+    rdfs:label "enzyme"@en .
+
+aad:TraceGas a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "trace gas"@en .
+
+aad:GreenhouseGas a owl:Class ;
+    rdfs:subClassOf aad:TraceGas ;
+    rdfs:label "greenhouse gas"@en .
+
+aad:VOC a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "volatile organic compound"@en .
+
+aad:Colloid a owl:Class ;
+    rdfs:subClassOf aad:Particle ;
+    rdfs:label "colloid"@en .
+
+aad:AquaticColloid a owl:Class ;
+    rdfs:subClassOf aad:Colloid ;
+    rdfs:label "aquatic colloid"@en .
+
+aad:Particle a owl:Class ;
+    rdfs:subClassOf aad:NaturalEntity ;
+    rdfs:label "particle"@en .
+
+aad:MobileOrganicMatter a owl:Class ;
+    rdfs:subClassOf aad:OrganicMatter ;
+    rdfs:label "mobile organic matter"@en .
+
+aad:LegacyEffect a owl:Class ;
+    rdfs:subClassOf aad:EnvironmentalEffect ;
+    rdfs:label "legacy effect"@en .
+
+aad:EnvironmentalEffect a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "environmental effect"@en .
+
+aad:ManagementMeasure a owl:Class ;
+    rdfs:subClassOf aad:Entity ;
+    rdfs:label "management measure"@en .
+
+aad:GroundwaterUse a owl:Class ;
+    rdfs:subClassOf aad:ManagementMeasure ;
+    rdfs:label "groundwater use"@en .
+
+aad:GroundwaterComparison a owl:Class ;
+    rdfs:subClassOf aad:InvestigationProcess ;
+    rdfs:label "groundwater comparison"@en .
+
+aad:InvestigationProcess a owl:Class ;
+    rdfs:subClassOf aad:Process ;
+    rdfs:label "investigation process"@en .
+
+aad:TemporalScale a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "temporal scale"@en .
+
+aad:SpatialScale a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "spatial scale"@en .
+
+aad:RedoxCondition a owl:Class ;
+    rdfs:subClassOf aad:ChemicalQuality ;
+    rdfs:label "redox condition"@en .
+
+aad:ChemicalQuality a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "chemical quality"@en .
+
+aad:OxicCondition a owl:Class ;
+    rdfs:subClassOf aad:RedoxCondition ;
+    rdfs:label "oxic condition"@en .
+
+aad:AnoxicCondition a owl:Class ;
+    rdfs:subClassOf aad:RedoxCondition ;
+    rdfs:label "anoxic condition"@en .
+
+aad:Soil a owl:Class ;
+    rdfs:subClassOf aad:GeologicalEntity , aad:Habitat ;
+    rdfs:label "soil"@en .
+
+aad:SoilProfile a owl:Class ;
+    rdfs:subClassOf aad:SpatialEntity ;
+    rdfs:label "soil profile"@en .
+
+aad:SoilHorizon a owl:Class ;
+    rdfs:subClassOf aad:SpatialEntity ;
+    rdfs:label "soil horizon"@en .
+
+aad:BHorizon a owl:Class ;
+    rdfs:subClassOf aad:SoilHorizon ;
+    rdfs:label "B horizon"@en .
+
+aad:OrganicLayer a owl:Class ;
+    rdfs:subClassOf aad:SoilHorizon ;
+    rdfs:label "organic layer"@en .
+
+aad:MineralSoil a owl:Class ;
+    rdfs:subClassOf aad:Soil ;
+    rdfs:label "mineral soil"@en .
+
+aad:SoilWater a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalEntity ;
+    rdfs:label "soil water"@en .
+
+aad:SoilSolution a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalEntity ;
+    rdfs:label "soil solution"@en .
+
+aad:SoilWaterContent a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "soil water content"@en .
+
+aad:MeasurementProperty a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "measurement property"@en .
+
+aad:SoilPorosity a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "soil porosity"@en .
+
+aad:BulkDensity a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "bulk density"@en .
+
+aad:HydraulicProperty a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "hydraulic property"@en .
+
+aad:PedophysicalProperty a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "pedophysical property"@en .
+
+aad:DielectricConstant a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "dielectric constant"@en .
+
+aad:ElectricalResistivity a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "electrical resistivity"@en .
+
+aad:SeismicRefraction a owl:Class ;
+    rdfs:subClassOf aad:MeasurementProperty ;
+    rdfs:label "seismic refraction"@en .
+
+aad:Georadar a owl:Class ;
+    rdfs:subClassOf aad:MeasurementMethod ;
+    rdfs:label "georadar/GPR"@en .
+
+aad:ElectricalResistivityTomography a owl:Class ;
+    rdfs:subClassOf aad:MeasurementMethod ;
+    rdfs:label "ERT"@en .
+
+aad:MeasurementMethod a owl:Class ;
+    rdfs:subClassOf aad:InvestigationEntity ;
+    rdfs:label "measurement method"@en .
+
+aad:Tracer a owl:Class ;
+    rdfs:subClassOf aad:ChemicalEntity ;
+    rdfs:label "tracer"@en .
+
+aad:SoilTracer a owl:Class ;
+    rdfs:subClassOf aad:Tracer ;
+    rdfs:label "soil tracer"@en .
+
+aad:IsotopeSignature a owl:Class ;
+    rdfs:subClassOf aad:ChemicalQuality ;
+    rdfs:label "isotope signature"@en .
+
+aad:RadiocarbonAge a owl:Class ;
+    rdfs:subClassOf aad:TemporalQuality ;
+    rdfs:label "radiocarbon age"@en .
+
+aad:TemporalQuality a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "temporal quality"@en .
+
+aad:Flow a owl:Class ;
+    rdfs:subClassOf aad:HydrologicalProcess ;
+    rdfs:label "flow"@en .
+
+aad:VerticalTransport a owl:Class ;
+    rdfs:subClassOf aad:Transport ;
+    rdfs:label "vertical transport"@en .
+
+aad:BreakthroughCurve a owl:Class ;
+    rdfs:subClassOf aad:Dataset ;
+    rdfs:label "breakthrough curve"@en .
+
+aad:MultilevelSystem a owl:Class ;
+    rdfs:subClassOf aad:HydrogeologicalEntity ;
+    rdfs:label "multilevel system"@en .
+
+aad:Connectivity a owl:Class ;
+    rdfs:subClassOf aad:Quality ;
+    rdfs:label "connectivity"@en .
+
+aad:SourceCatchmentInfiltrationArea a owl:Class ;
+    rdfs:subClassOf aad:SpatialEntity ;
+    rdfs:label "source / catchment / infiltration area"@en .
+
+#################################################################
+# Object properties
+#################################################################
+
+aad:occursIn a owl:ObjectProperty ;
+    rdfs:label "occurs in"@en ;
+    rdfs:domain aad:Process ;
+    rdfs:range aad:SpatialEntity .
+
+aad:hasParticipant a owl:ObjectProperty ;
+    rdfs:label "has participant"@en ;
+    rdfs:domain aad:Process ;
+    rdfs:range aad:Entity .
+
+aad:hasMeasurement a owl:ObjectProperty ;
+    rdfs:label "has measurement"@en ;
+    rdfs:domain aad:Dataset ;
+    rdfs:range aad:Measurement .
+
+aad:hasSample a owl:ObjectProperty ;
+    rdfs:label "has sample"@en ;
+    rdfs:domain aad:Dataset ;
+    rdfs:range aad:Sample .
+
+aad:derivedFrom a owl:ObjectProperty ;
+    rdfs:label "derived from"@en ;
+    rdfs:domain aad:Entity ;
+    rdfs:range aad:Entity .
+
+aad:hasQuality a owl:ObjectProperty ;
+    rdfs:label "has quality"@en ;
+    rdfs:domain aad:Entity ;
+    rdfs:range aad:Quality .
+
+aad:hasLocation a owl:ObjectProperty ;
+    rdfs:label "has location"@en ;
+    rdfs:domain aad:Entity ;
+    rdfs:range aad:SpatialEntity .
+
+aad:hasHydrogeologicalSetting a owl:ObjectProperty ;
+    rdfs:label "has hydrogeological setting"@en ;
+    rdfs:domain aad:Aquifer ;
+    rdfs:range aad:GeologicalEntity .
+
+aad:hasHost a owl:ObjectProperty ;
+    rdfs:label "has host"@en ;
+    rdfs:domain aad:MicrobialEntity ;
+    rdfs:range aad:Entity .
+
+aad:hasMicrobialCommunity a owl:ObjectProperty ;
+    rdfs:label "has microbial community"@en ;
+    rdfs:domain aad:Habitat ;
+    rdfs:range aad:MicrobialCommunity .
+
+aad:hasMicrobialGuild a owl:ObjectProperty ;
+    rdfs:label "has microbial guild"@en ;
+    rdfs:domain aad:MicrobialCommunity ;
+    rdfs:range aad:MicrobialFunctionalGuild .
+
+aad:hasProcess a owl:ObjectProperty ;
+    rdfs:label "has process"@en ;
+    rdfs:domain aad:Entity ;
+    rdfs:range aad:Process .
+
+aad:influences a owl:ObjectProperty ;
+    rdfs:label "influences"@en ;
+    rdfs:domain aad:Entity ;
+    rdfs:range aad:Entity .
+
+aad:hasRedoxCondition a owl:ObjectProperty ;
+    rdfs:label "has redox condition"@en ;
+    rdfs:domain aad:Groundwater ;
+    rdfs:range aad:RedoxCondition .
+
+aad:hasTracer a owl:ObjectProperty ;
+    rdfs:label "has tracer"@en ;
+    rdfs:domain aad:InvestigationProcess ;
+    rdfs:range aad:Tracer .
+
+aad:hasChemicalRole a owl:ObjectProperty ;
+    rdfs:label "has chemical role"@en ;
+    rdfs:domain aad:ChemicalEntity ;
+    rdfs:range aad:ChemicalRole .
+
+aad:hasBiologicalRole a owl:ObjectProperty ;
+    rdfs:label "has biological role"@en ;
+    rdfs:domain aad:BiologicalEntity ;
+    rdfs:range aad:BiologicalRole .
+
+aad:hasSubstrate a owl:ObjectProperty ;
+    rdfs:label "has substrate"@en ;
+    rdfs:domain aad:Process ;
+    rdfs:range aad:ChemicalEntity .
+
+aad:hasProduct a owl:ObjectProperty ;
+    rdfs:label "has product"@en ;
+    rdfs:domain aad:Process ;
+    rdfs:range aad:ChemicalEntity .
+
+aad:hasPathway a owl:ObjectProperty ;
+    rdfs:label "has pathway"@en ;
+    rdfs:domain aad:Process ;
+    rdfs:range aad:BiogeochemicalProcess .
+
+aad:hasSeason a owl:ObjectProperty ;
+    rdfs:label "has season"@en ;
+    rdfs:domain aad:Observation ;
+    rdfs:range aad:TemporalQuality .
+
+aad:Observation a owl:Class ;
+    rdfs:subClassOf aad:InvestigationEntity ;
+    rdfs:label "observation"@en .
+
+#################################################################
+# Datatype properties
+#################################################################
+
+aad:hasValue a owl:DatatypeProperty ;
+    rdfs:label "has value"@en ;
+    rdfs:domain aad:Measurement ;
+    rdfs:range xsd:decimal .
+
+aad:hasUnit a owl:DatatypeProperty ;
+    rdfs:label "has unit"@en ;
+    rdfs:domain aad:Measurement ;
+    rdfs:range xsd:string .
+
+aad:hasTime a owl:DatatypeProperty ;
+    rdfs:label "has time"@en ;
+    rdfs:domain aad:Measurement ;
+    rdfs:range xsd:dateTime .
+
+aad:hasDepth a owl:DatatypeProperty ;
+    rdfs:label "has depth"@en ;
+    rdfs:domain aad:Sample ;
+    rdfs:range xsd:decimal .
+
+aad:hasLatitude a owl:DatatypeProperty ;
+    rdfs:label "has latitude"@en ;
+    rdfs:domain aad:SpatialEntity ;
+    rdfs:range xsd:decimal .
+
+aad:hasLongitude a owl:DatatypeProperty ;
+    rdfs:label "has longitude"@en ;
+    rdfs:domain aad:SpatialEntity ;
+    rdfs:range xsd:decimal .
+
+aad:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name"@en ;
+    rdfs:domain aad:Entity ;
+    rdfs:range xsd:string .
+
+aad:hasTextValue a owl:DatatypeProperty ;
+    rdfs:label "has text value"@en ;
+    rdfs:domain aad:Entity ;
+    rdfs:range xsd:string .
+
+aad:hasAbundance a owl:DatatypeProperty ;
+    rdfs:label "has abundance"@en ;
+    rdfs:domain aad:MicrobialCommunity ;
+    rdfs:range xsd:decimal .
+
+aad:hasSequenceCount a owl:DatatypeProperty ;
+    rdfs:label "has sequence count"@en ;
+    rdfs:domain aad:SequencingAssay ;
+    rdfs:range xsd:integer .
+
+aad:hasConcentration a owl:DatatypeProperty ;
+    rdfs:label "has concentration"@en ;
+    rdfs:domain aad:Measurement ;
+    rdfs:range xsd:decimal .
+
+#################################################################
 # Individuals
-##########
+#################################################################
 
-ad:HainichAquifer1 a ad:FracturedRockAquifer ;
-  rdfs:label "Hainich aquifer 1"@en .
+aad:HainichCZE a aad:Site ;
+    rdfs:label "Hainich CZE"@en ;
+    aad:hasName "Hainich CZE" .
 
-ad:HainichAquifer2 a ad:KarstAquifer ;
-  rdfs:label "Hainich aquifer 2"@en .
+aad:HainichAquifers a aad:Site ;
+    rdfs:label "Hainich aquifers"@en ;
+    aad:hasName "Hainich aquifers" .
 
-ad:Sample001 a ad:GroundwaterSample ;
-  ad:hasLabelText "Sample001" ;
-  rdfs:label "sample 001"@en .
+aad:Kammerforst a aad:Site ;
+    rdfs:label "Kammerforst"@de ;
+    aad:hasName "Kammerforst" .
 
-ad:Sample002 a ad:SoilSample ;
-  ad:hasLabelText "Sample002" ;
-  rdfs:label "sample 002"@en .
+aad:Muschelkalk a aad:GeologicalEntity ;
+    rdfs:label "Muschelkalk"@de .
 
-ad:Event001 a ad:SamplingEvent ;
-  rdfs:label "sampling event 001"@en .
+aad:Triassic a aad:GeologicalEntity ;
+    rdfs:label "Triassic"@en .
 
-ad:SamplingEvent a owl:Class ;
-  rdfs:subClassOf ad:TemporalEntity ;
-  rdfs:label "sampling event"@en .
+aad:Limestone a aad:GeologicalEntity ;
+    rdfs:label "limestone"@en .
 
-ad:Observation001 a ad:Observation ;
-  rdfs:label "observation 001"@en .
+aad:Marlstone a aad:GeologicalEntity ;
+    rdfs:label "marlstone / Mergel"@en .
 
-ad:Tracer001 a ad:SoilTracer ;
-  rdfs:label "tracer 001"@en .
+aad:FracturedRock a aad:GeologicalEntity ;
+    rdfs:label "fractured rock"@en .
 
-ad:Sensor001 a ad:Georadar ;
-  rdfs:label "sensor 001"@en .
+aad:KarstifiedRock a aad:KarstAquifer ;
+    rdfs:label "karstified rock"@en .
 
-ad:Measurement001 a ad:Measurement ;
-  ad:hasValue "7.2"^^xsd:double ;
-  ad:hasUnit "pH" ;
-  rdfs:label "measurement 001"@en .
+aad:PristineAquifer a aad:Aquifer ;
+    rdfs:label "pristine aquifer"@en .
 
-ad:Measurement002 a ad:Measurement ;
-  ad:hasValue "250.0"^^xsd:double ;
-  ad:hasUnit "µS/cm" ;
-  rdfs:label "measurement 002"@en .
+aad:AnoxicAquifer a aad:Aquifer ;
+    rdfs:label "anoxic aquifer"@en .
 
-ad:Community001 a ad:AquiferMicrobiome ;
-  rdfs:label "aquifer microbiome 001"@en .
+aad:OxicAquifer a aad:Aquifer ;
+    rdfs:label "oxic aquifer"@en .
 
-ad:Microbe001 a ad:AmmoniaOxidiser ;
-  rdfs:label "microbe 001"@en .
+aad:DenitrifierGuild a aad:MicrobialFunctionalGuild ;
+    rdfs:label "denitrifiers"@en .
 
-ad:Microbe002 a ad:Denitrifier ;
-  rdfs:label "microbe 002"@en .
+aad:AmmoniaOxidiserGuild a aad:MicrobialFunctionalGuild ;
+    rdfs:label "ammonia-oxidisers"@en .
 
-ad:Microbe003 a ad:AquiferFungus ;
-  rdfs:label "microbe 003"@en .
+aad:IronReducerGuild a aad:MicrobialFunctionalGuild ;
+    rdfs:label "iron reducer"@en .
 
-ad:Microbe004 a ad:Archaea ;
-  rdfs:label "microbe 004"@en .
+aad:HeterotrophGuild a aad:MicrobialFunctionalGuild ;
+    rdfs:label "heterotrophs"@en .
 
-ad:Site001 a ad:HainichSite ;
-  ad:hasLatitude "51.0"^^xsd:double ;
-  ad:hasLongitude "10.0"^^xsd:double ;
-  rdfs:label "site 001"@en .
+aad:CO2FixerGuild a aad:MicrobialFunctionalGuild ;
+    rdfs:label "CO2 fixation guild"@en .
 
-ad:Site002 a ad:Kammerforst ;
-  rdfs:label "site 002"@en .
+aad:AnammoxGuild a aad:MicrobialFunctionalGuild ;
+    rdfs:label "anammox guild"@en .
 
-ad:Process001 a ad:Karstification ;
-  rdfs:label "process 001"@en .
+aad:Nitrosphira a aad:Archaea ;
+    rdfs:label "Nitrosphira"@en .
 
-ad:Process002 a ad:Denitrification ;
-  rdfs:label "process 002"@en .
+aad:RubiscoProtein a aad:Rubisco ;
+    rdfs:label "rubisco protein"@en .
 
-ad:Process003 a ad:CarbonFixation ;
-  rdfs:label "process 003"@en .
+aad:GroundwaterSample1 a aad:Sample ;
+    rdfs:label "groundwater sample 1"@en ;
+    aad:hasDepth "12.5"^^xsd:decimal .
 
-ad:Role001 a ad:Acceptor ;
-  rdfs:label "role 001"@en .
+aad:PH_7_2 a aad:PHMeasurement ;
+    rdfs:label "pH of water sample"@en ;
+    aad:hasValue "7.2"^^xsd:decimal ;
+    aad:hasUnit "pH" .
 
-ad:Role002 a ad:Inhibitor ;
-  rdfs:label "role 002"@en .
+aad:EC_450 a aad:ElectricalConductivityMeasurement ;
+    rdfs:label "electric conductivity"@en ;
+    aad:hasValue "450"^^xsd:decimal ;
+    aad:hasUnit "uS/cm" .
 
-ad:Role003 a ad:Poison ;
-  rdfs:label "role 003"@en .
+aad:O2_3_1 a aad:OxygenMeasurement ;
+    rdfs:label "oxygen content"@en ;
+    aad:hasValue "3.1"^^xsd:decimal ;
+    aad:hasUnit "mg/L" .
 
-##########
-# Class axioms and semantic links
-##########
+aad:RainEvent1 a aad:Observation ;
+    rdfs:label "rain event 1"@en .
 
-ad:GroundwaterSystem rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasPart ;
-  owl:someValuesFrom ad:Aquifer
-] .
+aad:LegacyNutrientInput a aad:LegacyEffect ;
+    rdfs:label "legacy nutrient input"@en .
 
-ad:Aquifer rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasQuality ;
-  owl:someValuesFrom ad:WaterChemistry
-] .
+aad:GroundwaterProtectionZone a aad:ManagementMeasure ;
+    rdfs:label "groundwater protection zone"@en .
 
-ad:MicrobialCommunity rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasPart ;
-  owl:someValuesFrom ad:Microorganism
-] .
+aad:SeepageWater a aad:HydrologicalEntity ;
+    rdfs:label "seepage water"@en .
 
-ad:MicrobialCommunity rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasHabitat ;
-  owl:someValuesFrom ad:Subsurface
-] .
+aad:ThroughfallWater a aad:HydrologicalEntity ;
+    rdfs:label "throughfall water"@en .
 
-ad:GroundwaterSample rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:observedIn ;
-  owl:someValuesFrom ad:GroundwaterSystem
-] .
+aad:StemflowWater a aad:HydrologicalEntity ;
+    rdfs:label "stemflow water"@en .
 
-ad:Hydrochemistry rdfs:subClassOf ad:GroundwaterChemistry .
-ad:GroundwaterChemistry rdfs:subClassOf ad:WaterChemistry .
-ad:GroundwaterPhysiochemicalParameters rdfs:subClassOf ad:WaterChemistry .
-ad:AquiferMicrobe rdfs:subClassOf ad:Microorganism .
-ad:AquiferFungus rdfs:subClassOf ad:Fungi .
-ad:AquaticMicrobe rdfs:subClassOf ad:Microorganism .
-ad:AquaticFungus rdfs:subClassOf ad:Fungi .
-ad:GroundwaterContamination rdfs:subClassOf ad:GroundwaterQualityAquifer .
-ad:GroundwaterProtection rdfs:subClassOf ad:GroundwaterManagement .
-ad:GroundwaterManagement a owl:Class ; rdfs:subClassOf ad:ManagementAction ; rdfs:label "groundwater management"@en .
+aad:ForestSoil a aad:Soil ;
+    rdfs:label "forest soil"@en .
 
-ad:MicrobialFunctionalGuild rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasRole ;
-  owl:someValuesFrom ad:BiologicalRole
-] .
+aad:GrasslandSoil a aad:Soil ;
+    rdfs:label "grassland soil"@en .
 
-ad:Denitrifier rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasRole ;
-  owl:someValuesFrom ad:BiologicalRole
-] .
+aad:BeechForest a aad:Vegetation ;
+    rdfs:label "forest (beech)"@en .
 
-ad:AmmoniaOxidiser rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasProcess ;
-  owl:someValuesFrom ad:NitrogenCycling
-] .
+aad:Grassland a aad:Vegetation ;
+    rdfs:label "grasland / grassland"@en .
 
-ad:GroundwaterSystem rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasSite ;
-  owl:someValuesFrom ad:Site
-] .
+aad:Earthworms a aad:BiologicalEntity ;
+    rdfs:label "Earthworms"@en .
 
-ad:Site rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasDepthProfile ;
-  owl:someValuesFrom ad:DepthProfile
-] .
+aad:Grasshoppers a aad:BiologicalEntity ;
+    rdfs:label "Grasshoppers"@en .
 
-ad:WaterChemistry rdfs:subClassOf [
-  a owl:Restriction ;
-  owl:onProperty ad:hasMeasuredParameter ;
-  owl:someValuesFrom ad:MeasuredParameter
-] .
+#################################################################
+# Controlled vocab / keyword coverage as labels
+#################################################################
 
-ad:Soil a owl:Class ; rdfs:subClassOf ad:Habitat .
-ad:Groundwater a owl:Class ; rdfs:subClassOf ad:Habitat .
-ad:Subsurface rdfs:subClassOf ad:Habitat .
+aad:KeywordsCoverage a skos:ConceptScheme ;
+    skos:prefLabel "AquaDiva keyword coverage"@en .
 
-ad:MicrobialCommunity rdfs:subClassOf ad:Community .
-ad:AquiferMicrobiome rdfs:subClassOf ad:MicrobialCommunity .
-ad:SoilMicrobiome rdfs:subClassOf ad:MicrobialCommunity .
-ad:CrossKingdomMicrobialCommunity rdfs:subClassOf ad:MicrobialCommunity .
-ad:CrossKingdomSoilCommunity rdfs:subClassOf ad:MicrobialCommunity .
+aad:kwAquiferMicrobes a skos:Concept ;
+    skos:prefLabel "aquifer microbes"@en ;
+    skos:inScheme aad:KeywordsCoverage .
 
-ad:Aquifer rdfs:subClassOf ad:HydrogeologicalStructure .
-ad:FracturedRockAquifer rdfs:subClassOf ad:Aquifer .
-ad:KarstAquifer rdfs:subClassOf ad:Aquifer .
-ad:LimestoneAquifer rdfs:subClassOf ad:KarstAquifer .
+aad:kwAquiferFungi a skos:Concept ;
+    skos:prefLabel "aquifer fungi"@en ;
+    skos:inScheme aad:KeywordsCoverage .
 
-ad:Karst rdfs:subClassOf ad:HydrogeologicalStructure .
-ad:Karstification rdfs:subClassOf ad:GeologicalProcess .
-ad:CarbonateDissolution rdfs:subClassOf ad:GeologicalProcess .
+aad:kwAquaticFungi a skos:Concept ;
+    skos:prefLabel "aquatic fungi"@en ;
+    skos:inScheme aad:KeywordsCoverage .
 
-ad:GroundwaterChemistryData rdfs:subClassOf ad:Measurement .
-ad:HydrogeochemicalData rdfs:subClassOf ad:Measurement .
+aad:kwAquaticMicrobes a skos:Concept ;
+    skos:prefLabel "aquatic microbes"@en ;
+    skos:inScheme aad:KeywordsCoverage .
 
-ad:SourceCatchmentInfiltrationArea rdfs:subClassOf ad:Site .
-ad:GroundwaterVulnerability rdfs:subClassOf ad:Quality .
-ad:GroundwaterProtection rdfs:subClassOf ad:ManagementAction .
-ad:GroundwaterContamination rdfs:subClassOf ad:Process .
+aad:kwHydrochemistry a skos:Concept ;
+    skos:prefLabel "Hydrochemistry"@en ;
+    skos:inScheme aad:KeywordsCoverage .
 
-ad:KeyWand rdfs:subClassOf ad:Tool .
+aad:kwKarstification a skos:Concept ;
+    skos:prefLabel "karstification"@en ;
+    skos:inScheme aad:KeywordsCoverage .
 
+aad:kwGroundwaterQuality a skos:Concept ;
+    skos:prefLabel "groundwater quality aquifer"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwAquaticColloids a skos:Concept ;
+    skos:prefLabel "aquatic colloids"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwMobileOrganicMatter a skos:Concept ;
+    skos:prefLabel "Mobile organic matter"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwGroundwaterPhysicochemicalParameters a skos:Concept ;
+    skos:prefLabel "groundwater physiochemical parameters"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwAgriculture a skos:Concept ;
+    skos:prefLabel "agriculture"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwVegetation a skos:Concept ;
+    skos:prefLabel "vegetation"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwBiodiversity a skos:Concept ;
+    skos:prefLabel "biodiversity"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwHydrology a skos:Concept ;
+    skos:prefLabel "hydrology"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwManagement a skos:Concept ;
+    skos:prefLabel "management"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwLegacy a skos:Concept ;
+    skos:prefLabel "legacy"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwArchaea a skos:Concept ;
+    skos:prefLabel "Archaea"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwBacteria a skos:Concept ;
+    skos:prefLabel "bacteria"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwFungi a skos:Concept ;
+    skos:prefLabel "Fungi"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwMicrobialGuilds a skos:Concept ;
+    skos:prefLabel "microbial guilds"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwCO2Fixation a skos:Concept ;
+    skos:prefLabel "CO2 fixation"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwDenitrification a skos:Concept ;
+    skos:prefLabel "desnitrification / denitrification"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwAnammox a skos:Concept ;
+    skos:prefLabel "anammox"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwMarinePhages a skos:Concept ;
+    skos:prefLabel "Marine phage(s)"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwPhage a skos:Concept ;
+    skos:prefLabel "phage"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwSequencingError a skos:Concept ;
+    skos:prefLabel "sequencing error"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwHainichCZE a skos:Concept ;
+    skos:prefLabel "Hainich CZE"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwKammerforst a skos:Concept ;
+    skos:prefLabel "Kammerforst"@de ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwRuckschau a skos:Concept ;
+    skos:prefLabel "rückschau"@de ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwNiederschlag a skos:Concept ;
+    skos:prefLabel "Niederschlag"@de ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwBauoxic a skos:Concept ;
+    skos:prefLabel "Bauoxic"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwHZY a skos:Concept ;
+    skos:prefLabel "H.Z.Y"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwAlyla a skos:Concept ;
+    skos:prefLabel "Alyla"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwMiz a skos:Concept ;
+    skos:prefLabel "miz"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+aad:kwNan a skos:Concept ;
+    skos:prefLabel "nan"@en ;
+    skos:inScheme aad:KeywordsCoverage .
+
+#################################################################
+# Basic axioms to support subclass depth
+#################################################################
+
+aad:Aquifer rdfs:subClassOf aad:HydrogeologicalEntity .
+aad:FracturedRockAquifer rdfs:subClassOf aad:GroundwaterBody .
+aad:KarstAquifer rdfs:subClassOf aad:GroundwaterBody .
+aad:AquiferMicrobiome rdfs:subClassOf aad:MicrobialCommunity .
+aad:SoilMicrobiome rdfs:subClassOf aad:MicrobialCommunity .
+aad:CrossKingdomMicrobialCommunity rdfs:subClassOf aad:MicrobialCommunity .
+aad:GroundwaterChemistry rdfs:subClassOf aad:ChemicalEntity .
+aad:Hydrochemistry rdfs:subClassOf aad:GroundwaterChemistry .
+aad:GroundwaterPhysicochemicalParameter rdfs:subClassOf aad:MeasurementProperty .
+aad:HydrogeochemicalCharacterization rdfs:subClassOf aad:InvestigationProcess .
+aad:HydrogeochemicalData rdfs:subClassOf aad:Dataset .
+aad:GroundwaterProtection rdfs:subClassOf aad:ManagementMeasure .
+aad:GroundwaterVulnerability rdfs:subClassOf aad:Quality .
+
+#################################################################
 # End of ontology
+#################################################################

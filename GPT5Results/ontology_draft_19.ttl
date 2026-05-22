@@ -1,7 +1,8 @@
-# Fix applied: the validation script failed because the Python package "pyshacl" is missing,
-# which is an environment/tooling issue rather than an ontology syntax issue.
-# No ontology triples were provided in the prompt to edit, so this response contains a
-# minimal valid Turtle document that preserves syntactic validity.
+# No ontology pitfall could be identified from the provided validation output.
+# The ontology passed Turtle syntax validation and SHACL validation, and the OOPS service
+# failed with an internal server error (HTTP 500), so no specific ontology fix can be derived.
+# Returning the ontology unchanged is therefore the only safe action based on the available evidence.
+
 @prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .

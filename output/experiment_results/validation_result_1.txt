@@ -1,6 +1,3 @@
-
---- STDERR ---
-Traceback (most recent call last):
-  File "D:\MSDA S3\KG LLMs\NeOn-GPTAquaDivaOntology\code\ontology_validation_syntax_consistency_pitfall_no_pellet_no_hermit.py", line 7, in <module>
-    from pyshacl import validate
-ModuleNotFoundError: No module named 'pyshacl'
+❌ Syntax error: at line 292 of <>:
+Bad syntax (expected '.' or '}' or ']' at end of statement) at ^ in:
+"...b'ubClassOf aad:Entity ;\n    rdfs:label "role"@en .\n\naad:Accep'^b't or a owl:Class ;\n    rdfs:subClassOf aad:ChemicalRole ;\n  '..."

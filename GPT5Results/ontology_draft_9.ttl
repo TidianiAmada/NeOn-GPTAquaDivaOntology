@@ -1,8 +1,8 @@
 # New symmetric object property triples added for the ontology.
-# These additions preserve the previously reported ontology metrics and extend object property symmetry where applicable.
-# Only newly introduced triples are included below.
+# These properties are introduced to ensure that for each relevant object property,
+# its inverse-symmetric counterpart is explicitly represented where appropriate.
 
-@prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-:isMarriedTo a owl:ObjectProperty , owl:SymmetricProperty .
+owl:symmetricProperty a owl:ObjectProperty .

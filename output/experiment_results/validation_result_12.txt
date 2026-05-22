@@ -1,6 +1,3 @@
-
---- STDERR ---
-Traceback (most recent call last):
-  File "D:\MSDA S3\KG LLMs\NeOn-GPTAquaDivaOntology\code\ontology_validation_syntax_consistency_pitfall_no_pellet_no_hermit.py", line 7, in <module>
-    from pyshacl import validate
-ModuleNotFoundError: No module named 'pyshacl'
+❌ Syntax error: at line 4 of <>:
+Bad syntax (Prefix ":" not bound) at ^ in:
+"...b' newly introduced or corrected triples are included below.\n\n'^b':hasCode rdf:type owl:DatatypeProperty , owl:FunctionalPrope'..."

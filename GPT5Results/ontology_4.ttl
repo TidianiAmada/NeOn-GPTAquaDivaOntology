@@ -1,711 +1,725 @@
-@prefix aqua: <http://example.org/aquadiva/core#> .
+@prefix aq: <http://example.org/aquadiva/core#> .
+@prefix ex: <http://example.org/aquadiva/resource/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/aquadiva/core> a owl:Ontology ;
-    rdfs:label "AquaDiva Core Ontology"@en ;
-    rdfs:comment "Core ontology for describing aquifer ecosystems, hydrochemistry, microbial communities, and groundwater processes."@en .
+    rdfs:label "AquaDiva Core Module Ontology"@en ;
+    rdfs:comment "Core module for aquifer hydrochemistry, microbial ecology, geology, and environmental drivers."@en .
 
-aqua:AbovegroundHabitat a owl:Class ;
-    rdfs:subClassOf aqua:Habitat .
+aq:AbovegroundHabitat a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:Adsorption a owl:Class ;
-    rdfs:subClassOf aqua:GeochemicalProcess .
+aq:AbovegroundMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:AgriculturalActivity a owl:Class ;
-    rdfs:subClassOf aqua:LandUse .
+aq:ActiveMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:AgriculturalPractice a owl:Class ;
-    rdfs:subClassOf aqua:LandUse .
+aq:AgriculturalActivity a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:AnoxicZone a owl:Class ;
-    rdfs:subClassOf aqua:Habitat .
+aq:AgriculturalRunoff a owl:Class ;
+    rdfs:subClassOf aq:ContaminationSource .
 
-aqua:AquaticColloid a owl:Class ;
-    rdfs:subClassOf aqua:Colloid .
+aq:AgriculturalSoil a owl:Class ;
+    rdfs:subClassOf aq:Soil .
 
-aqua:AquiferPermeability a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:AnoxicZoneMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:Archaea a owl:Class ;
-    rdfs:subClassOf aqua:MicrobialSpecies .
+aq:ArchaeanMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:Bacterium1 a aqua:Bacterium ;
-    aqua:hasAbundance 0.42 ;
-    aqua:hasTaxonName "Bacterium sp. 1" .
+aq:Biocolloid a owl:Class ;
+    rdfs:subClassOf aq:Colloid .
 
-aqua:Biocolloid a owl:Class ;
-    rdfs:subClassOf aqua:Colloid .
+aq:Calcium a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:Biomineralization a owl:Class ;
-    rdfs:subClassOf aqua:GeochemicalProcess .
+aq:CalvinCycle a owl:Class ;
+    rdfs:subClassOf aq:CO2FixationPathway .
 
-aqua:CarbonCycle a owl:Class ;
-    rdfs:subClassOf aqua:BiogeochemicalCycle .
+aq:CarbonDioxide a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:CarbonateDissolution a owl:Class ;
-    rdfs:subClassOf aqua:MineralDissolution .
+aq:CarbonFixationProcess a owl:Class ;
+    rdfs:subClassOf aq:MicrobialProcess .
 
-aqua:CarbonateDissortation a owl:Class ;
-    rdfs:subClassOf aqua:MineralDissolution .
+aq:CarbonateDissolutionProcess a owl:Class ;
+    rdfs:subClassOf aq:CarbonateDissolution .
 
-aqua:Conductivity a owl:Class ;
-    rdfs:subClassOf aqua:PhysicochemicalParameter .
+aq:CarbonateMineral a owl:Class ;
+    rdfs:subClassOf aq:MineralSubstrate .
 
-aqua:Contaminant1 a aqua:Contaminant ;
-    aqua:hasContaminationLevel 0.8 ;
-    aqua:hasContaminationSource "agricultural runoff" .
+aq:ColloidTransport a owl:Class ;
+    rdfs:subClassOf aq:TransportProcess .
 
-aqua:ContaminantTransport a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:CommunityAnalysisMethod a owl:Class ;
+    rdfs:subClassOf aq:SamplingMethod .
 
-aqua:ContaminatedAquifer a owl:Class ;
-    rdfs:subClassOf aqua:Aquifer .
+aq:Conductivity a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:DOC1 a aqua:DOC ;
-    aqua:hasChemicalComposition "humic-rich dissolved organic carbon" ;
-    aqua:hasDOCValue 2.4 .
+aq:ContaminatedAquifer a owl:Class ;
+    rdfs:subClassOf aq:Aquifer .
 
-aqua:DeepAquifer a owl:Class ;
-    rdfs:subClassOf aqua:Aquifer .
+aq:Decomposer a owl:Class ;
+    rdfs:subClassOf aq:Heterotroph .
 
-aqua:Desorption a owl:Class ;
-    rdfs:subClassOf aqua:GeochemicalProcess .
+aq:Denitrification a owl:Class ;
+    rdfs:subClassOf aq:BiogeochemicalProcess .
 
-aqua:Discharge a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:DissolvedOrganicMatter a owl:Class ;
+    rdfs:subClassOf aq:OrganicMatter .
 
-aqua:Dolomite a owl:Class ;
-    rdfs:subClassOf aqua:CarbonateRock .
+aq:EukaryoticMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Eukaryote .
 
-aqua:FlowRegime a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:Fermenter a owl:Class ;
+    rdfs:subClassOf aq:Heterotroph .
 
-aqua:Forest a owl:Class ;
-    rdfs:subClassOf aqua:Vegetation .
+aq:Filtration a owl:Class ;
+    rdfs:subClassOf aq:SamplingMethod .
 
-aqua:FractureNetwork a owl:Class ;
-    rdfs:subClassOf aqua:SpatialEntity .
+aq:ForestSoil a owl:Class ;
+    rdfs:subClassOf aq:Soil .
 
-aqua:FractureZone a owl:Class ;
-    rdfs:subClassOf aqua:Habitat .
+aq:GeochemicalAnalysisMethod a owl:Class ;
+    rdfs:subClassOf aq:SamplingMethod .
 
-aqua:FracturedRockSystem1 a aqua:FracturedRockAquifer ;
-    aqua:hasName "Fractured Rock System 1" ;
-    aqua:hasRiskLevel "moderate" ;
-    aqua:hasVulnerabilityLevel "moderate" .
+aq:GroundwaterBody a owl:Class ;
+    rdfs:subClassOf aq:Aquifer .
 
-aqua:Fungus1 a aqua:AquaticFungus ;
-    aqua:hasTaxonName "Aquatic fungus sp. 1" .
+aq:GroundwaterHealthIndicator a owl:Class ;
+    rdfs:subClassOf aq:EnvironmentalIndicator .
 
-aqua:Groundwater a owl:Class ;
-    rdfs:subClassOf aqua:Water .
+aq:GroundwaterMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:GroundwaterSupply a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:GroundwaterQualityChange a owl:Class ;
+    rdfs:subClassOf aq:Process .
 
-aqua:Guild1 a aqua:Heterotroph ;
-    aqua:hasFunctionalRole "organic matter degradation" .
+aq:HydrochemicalShift a owl:Class ;
+    rdfs:subClassOf aq:Process .
 
-aqua:Guild2 a aqua:Chemolithoautotroph ;
-    aqua:hasFunctionalRole "inorganic energy acquisition" .
+aq:InactiveMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:HydraulicProperty a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:Infiltration a owl:Class ;
+    rdfs:subClassOf aq:HydrologicalProcess .
 
-aqua:Infiltration a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:InfiltrationArea a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:KarstConduit a owl:Class ;
-    rdfs:subClassOf aqua:Habitat .
+aq:IronOxidation a owl:Class ;
+    rdfs:subClassOf aq:BiogeochemicalProcess .
 
-aqua:KarstSystem1 a aqua:KarstAquifer ;
-    aqua:hasName "Karst System 1" ;
-    aqua:hasRiskLevel "high" ;
-    aqua:hasVulnerabilityLevel "high" .
+aq:IronOxidizer a owl:Class ;
+    rdfs:subClassOf aq:Chemolithoautotroph .
 
-aqua:Karstification a owl:Class ;
-    rdfs:subClassOf aqua:GeologicalProcess .
+aq:Karstification a owl:Class ;
+    rdfs:subClassOf aq:GeochemicalProcess .
 
-aqua:LowerAquifer a owl:Class ;
-    rdfs:subClassOf aqua:Aquifer .
+aq:LowerAquifer a owl:Class ;
+    rdfs:subClassOf aq:Aquifer .
 
-aqua:MicrobialTransport a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:MarineEnvironment a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:MineralSubstrate a owl:Class ;
-    rdfs:subClassOf aqua:Substrate .
+aq:Metatranscriptomics a owl:Class ;
+    rdfs:subClassOf aq:SequencingMethod .
 
-aqua:MobileOrganicMatter a owl:Class ;
-    rdfs:subClassOf aqua:OrganicMatter .
+aq:Methanogen a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:Muschelkalk a owl:Class ;
-    rdfs:subClassOf aqua:Limestone .
+aq:Methanogenesis a owl:Class ;
+    rdfs:subClassOf aq:BiogeochemicalProcess .
 
-aqua:NitrogenCycle a owl:Class ;
-    rdfs:subClassOf aqua:BiogeochemicalCycle .
+aq:MicrobialFungus a owl:Class ;
+    rdfs:subClassOf aq:AquaticFungus .
 
-aqua:Observation1 a aqua:Observation ;
-    aqua:hasDate "2024-06-15"^^xsd:date ;
-    aqua:hasMeasuredEntity aqua:MicrobialCommunity1 ;
-    aqua:hasSampleID "AD-001" ;
-    aqua:hasSamplingMethod aqua:OxicSampleMethod .
+aq:MicrobialGuild a owl:Class ;
+    rdfs:subClassOf aq:FunctionalGuild .
 
-aqua:OrganicSubstrate a owl:Class ;
-    rdfs:subClassOf aqua:Substrate .
+aq:MicrobialIndicator a owl:Class ;
+    rdfs:subClassOf aq:EnvironmentalIndicator .
 
-aqua:OxicZone a owl:Class ;
-    rdfs:subClassOf aqua:Habitat .
+aq:Microscopy a owl:Class ;
+    rdfs:subClassOf aq:SamplingMethod .
 
-aqua:OxygenParam1 a aqua:OxygenContent ;
-    aqua:hasOxygenLevel 5.3 ;
-    aqua:hasParameterName "oxygen content" .
+aq:MineralComposition a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:PedologicalSetting a owl:Class ;
-    rdfs:subClassOf aqua:EnvironmentalEntity .
+aq:MineralOrganicInteraction a owl:Class ;
+    rdfs:subClassOf aq:GeochemicalProcess .
 
-aqua:Peptide a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+aq:MobileOrganicMatter a owl:Class ;
+    rdfs:subClassOf aq:OrganicMatter .
 
-aqua:Photoautotroph a owl:Class ;
-    rdfs:subClassOf aqua:Autotroph .
+aq:MuschelkalkAquifer a owl:Class ;
+    rdfs:subClassOf aq:KarstAquifer .
 
-aqua:PoreNetwork a owl:Class ;
-    rdfs:subClassOf aqua:SpatialEntity .
+aq:Nitrate a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:PoreSpace a owl:Class ;
-    rdfs:subClassOf aqua:Habitat .
+aq:Nitrification a owl:Class ;
+    rdfs:subClassOf aq:BiogeochemicalProcess .
 
-aqua:PrecipitationEvent1 a aqua:Precipitation ;
-    aqua:hasPrecipitationAmount 25.8 .
+aq:Nitrifier a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:PristineAquifer a owl:Class ;
-    rdfs:subClassOf aqua:Aquifer .
+aq:OrganicMatterDecomposition a owl:Class ;
+    rdfs:subClassOf aq:BiogeochemicalProcess .
 
-aqua:Protist a owl:Class ;
-    rdfs:subClassOf aqua:Eukaryote .
+aq:OxicZoneMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:Recharge a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:Permeability a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:RechargeWater a owl:Class ;
-    rdfs:subClassOf aqua:Water .
+aq:Photoautotroph a owl:Class ;
+    rdfs:subClassOf aq:Autotroph .
 
-aqua:RedoxPotential a owl:Class ;
-    rdfs:subClassOf aqua:PhysicochemicalParameter .
+aq:PhysicochemicalParameter a owl:Class ;
+    rdfs:subClassOf aq:WaterQualityParameter .
 
-aqua:Runoff a owl:Class ;
-    rdfs:subClassOf aqua:Water .
+aq:PoreStructure a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:ShallowAquifer a owl:Class ;
-    rdfs:subClassOf aqua:Aquifer .
+aq:Porosity a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:SiliciclasticRock a owl:Class ;
-    rdfs:subClassOf aqua:Mineral .
+aq:PorousAquifer a owl:Class ;
+    rdfs:subClassOf aq:Aquifer .
 
-aqua:SnowmeltEvent1 a aqua:Snowmelt ;
-    aqua:hasSnowmeltAmount 13.4 .
+aq:Precipitation a owl:Class ;
+    rdfs:subClassOf aq:ClimateParameter .
 
-aqua:Subsoil a owl:Class ;
-    rdfs:subClassOf aqua:Soil .
+aq:PristineAquifer a owl:Class ;
+    rdfs:subClassOf aq:Aquifer .
 
-aqua:SubsurfaceChemicalSignal a owl:Class ;
-    rdfs:subClassOf aqua:ChemicalSignal .
+aq:ProtectionMeasure a owl:Class ;
+    rdfs:subClassOf aq:Entity .
 
-aqua:SubsurfaceHabitat a owl:Class ;
-    rdfs:subClassOf aqua:Habitat .
+aq:Protist a owl:Class ;
+    rdfs:subClassOf aq:Organism .
 
-aqua:SulfurCycle a owl:Class ;
-    rdfs:subClassOf aqua:BiogeochemicalCycle .
+aq:RechargeArea a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:SurfaceChemicalSignal a owl:Class ;
-    rdfs:subClassOf aqua:ChemicalSignal .
+aq:RechargeVariation a owl:Class ;
+    rdfs:subClassOf aq:HydrologicalProcess .
 
-aqua:SurfaceWater a owl:Class ;
-    rdfs:subClassOf aqua:Water .
+aq:ReverseTCA a owl:Class ;
+    rdfs:subClassOf aq:CO2FixationPathway .
 
-aqua:Temperature a owl:Class ;
-    rdfs:subClassOf aqua:PhysicochemicalParameter .
+aq:Snowmelt a owl:Class ;
+    rdfs:subClassOf aq:HydrologicalProcess .
 
-aqua:ThroughfallEvent1 a aqua:Throughfall ;
-    aqua:hasThroughfallAmount 8.1 .
+aq:SoilMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:TriassicLimestoneSystem1 a aqua:TriassicLimestoneAquifer ;
-    aqua:hasName "Triassic Limestone System 1" .
+aq:Subsoil a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:Trochitenkalk a owl:Class ;
-    rdfs:subClassOf aqua:Limestone .
+aq:SubsurfaceChemicalSignal a owl:Class ;
+    rdfs:subClassOf aq:ChemicalSignal .
 
-aqua:UpperAquifer a owl:Class ;
-    rdfs:subClassOf aqua:Aquifer .
+aq:SubsurfaceHabitat a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:VegetationHeterogeneity a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:SubsurfaceMicrobe a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:connectedTo a owl:ObjectProperty ;
-    rdfs:domain aqua:SpatialEntity ;
-    rdfs:range aqua:SpatialEntity .
+aq:Sulfate a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:drives a owl:ObjectProperty ;
-    rdfs:domain aqua:MicrobialGuild ;
-    rdfs:range aqua:GeochemicalProcess .
+aq:SulfateReducer a owl:Class ;
+    rdfs:subClassOf aq:Heterotroph .
 
-aqua:hasAbundance a owl:DatatypeProperty ;
-    rdfs:domain aqua:Microorganism ;
-    rdfs:range xsd:double .
+aq:SulfateReduction a owl:Class ;
+    rdfs:subClassOf aq:BiogeochemicalProcess .
 
-aqua:hasAquiferType a owl:ObjectProperty ;
-    rdfs:domain aqua:Aquifer ;
-    rdfs:range aqua:Aquifer .
+aq:SulfurOxidizer a owl:Class ;
+    rdfs:subClassOf aq:Chemolithoautotroph .
 
-aqua:hasBiodiversityValue a owl:DatatypeProperty ;
-    rdfs:domain aqua:EnvironmentalEntity ;
-    rdfs:range xsd:double .
+aq:SurfaceChemicalSignal a owl:Class ;
+    rdfs:subClassOf aq:ChemicalSignal .
 
-aqua:hasCarbonFixationRate a owl:DatatypeProperty ;
-    rdfs:domain aqua:CO2FixationPathway ;
-    rdfs:range xsd:double .
+aq:SurfaceWater a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:hasChemicalComposition a owl:DatatypeProperty ;
-    rdfs:domain aqua:MaterialEntity ;
-    rdfs:range xsd:string .
+aq:TemperatureParameter a owl:Class ;
+    rdfs:subClassOf aq:ClimateParameter .
 
-aqua:hasChemicalSignal a owl:ObjectProperty ;
-    rdfs:domain aqua:EnvironmentalEntity ;
-    rdfs:range aqua:ChemicalSignal .
+aq:Throughfall a owl:Class ;
+    rdfs:subClassOf aq:HydrologicalProcess .
 
-aqua:hasCommunityType a owl:DatatypeProperty ;
-    rdfs:domain aqua:MicrobialCommunity ;
-    rdfs:range xsd:string .
+aq:ThroughfallZone a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:hasConductivityValue a owl:DatatypeProperty ;
-    rdfs:domain aqua:HydrochemicalParameter ;
-    rdfs:range xsd:double .
+aq:Thunderstorm a owl:Class ;
+    rdfs:subClassOf aq:ClimateParameter .
 
-aqua:hasContaminant a owl:ObjectProperty ;
-    rdfs:domain aqua:EnvironmentalEntity ;
-    rdfs:range aqua:Contaminant .
+aq:TriassicLimestoneAquifer a owl:Class ;
+    rdfs:subClassOf aq:KarstAquifer .
 
-aqua:hasContaminationLevel a owl:DatatypeProperty ;
-    rdfs:domain aqua:Contaminant ;
-    rdfs:range xsd:double .
+aq:TrochitenkalkAquifer a owl:Class ;
+    rdfs:subClassOf aq:KarstAquifer .
 
-aqua:hasContaminationSource a owl:DatatypeProperty ;
-    rdfs:domain aqua:Contaminant ;
-    rdfs:range xsd:string .
+aq:UpperAquifer a owl:Class ;
+    rdfs:subClassOf aq:Aquifer .
 
-aqua:hasDOCValue a owl:DatatypeProperty ;
-    rdfs:domain aqua:DOC ;
-    rdfs:range xsd:double .
+aq:VegetationHeterogeneity a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:hasDate a owl:DatatypeProperty ;
-    rdfs:domain aqua:Observation ;
-    rdfs:range xsd:date .
+aq:VulnerabilityAssessment a owl:Class ;
+    rdfs:subClassOf aq:Indicator .
 
-aqua:hasDepth a owl:DatatypeProperty ;
-    rdfs:domain aqua:Entity ;
-    rdfs:range xsd:double .
+aq:Weathering a owl:Class ;
+    rdfs:subClassOf aq:GeochemicalProcess .
 
-aqua:hasDiversityIndex a owl:DatatypeProperty ;
-    rdfs:domain aqua:MicrobialCommunity ;
-    rdfs:range xsd:double .
+aq:WoodLjungdahlPathway a owl:Class ;
+    rdfs:subClassOf aq:CO2FixationPathway .
 
-aqua:hasEndTime a owl:DatatypeProperty ;
-    rdfs:domain aqua:TemporalEntity ;
+aq:affects a owl:ObjectProperty ;
+    rdfs:domain aq:Process ;
+    rdfs:range aq:Entity .
+
+aq:comparesWith a owl:ObjectProperty ;
+    rdfs:domain aq:Habitat ;
+    rdfs:range aq:Habitat .
+
+aq:connectedTo a owl:ObjectProperty ;
+    rdfs:domain aq:Aquifer ;
+    rdfs:range aq:Aquifer .
+
+aq:consumes a owl:ObjectProperty ;
+    rdfs:domain aq:Organism ;
+    rdfs:range aq:ChemicalEntity .
+
+aq:drivesProcess a owl:ObjectProperty ;
+    rdfs:domain aq:FunctionalGuild ;
+    rdfs:range aq:BiogeochemicalProcess .
+
+aq:hasAbundance a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+aq:hasBiogeochemicalProcess a owl:ObjectProperty ;
+    rdfs:domain aq:Aquifer ;
+    rdfs:range aq:BiogeochemicalProcess .
+
+aq:hasChemicalSignal a owl:ObjectProperty ;
+    rdfs:domain aq:Habitat ;
+    rdfs:range aq:ChemicalSignal .
+
+aq:hasClimateDriver a owl:ObjectProperty ;
+    rdfs:domain aq:Aquifer ;
+    rdfs:range aq:ClimateParameter .
+
+aq:hasColloid a owl:ObjectProperty ;
+    rdfs:domain aq:Habitat ;
+    rdfs:range aq:Colloid .
+
+aq:hasContaminantTransportPathway a owl:ObjectProperty ;
+    rdfs:domain aq:Aquifer ;
+    rdfs:range aq:ContaminantTransport .
+
+aq:hasDOCValue a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+aq:hasDate a owl:DatatypeProperty ;
     rdfs:range xsd:dateTime .
 
-aqua:hasFlowRate a owl:DatatypeProperty ;
-    rdfs:domain aqua:GroundwaterFlow ;
-    rdfs:range xsd:double .
+aq:hasDepth a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
 
-aqua:hasFunctionalRole a owl:DatatypeProperty ;
-    rdfs:domain aqua:MicrobialGuild ;
+aq:hasDiversityIndex a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+aq:hasGeologicalSetting a owl:ObjectProperty ;
+    rdfs:domain aq:Aquifer ;
+    rdfs:range aq:GeologicalSetting ;
+    rdfs:subPropertyOf aq:hasGeology .
+
+aq:hasGuild a owl:ObjectProperty ;
+    rdfs:domain aq:Microbe ;
+    rdfs:range aq:FunctionalGuild .
+
+aq:hasHabitat a owl:ObjectProperty ;
+    rdfs:domain aq:Organism ;
+    rdfs:range aq:Habitat .
+
+aq:hasHydrochemicalParameter a owl:ObjectProperty ;
+    rdfs:domain aq:Aquifer ;
+    rdfs:range aq:HydrochemicalParameter ;
+    rdfs:subPropertyOf aq:hasParameter .
+
+aq:hasIdentifier a owl:DatatypeProperty ;
     rdfs:range xsd:string .
 
-aqua:hasGeoSetting a owl:DatatypeProperty ;
-    rdfs:domain aqua:EnvironmentalEntity ;
+aq:hasIndicator a owl:ObjectProperty ;
+    rdfs:domain aq:Habitat ;
+    rdfs:range aq:Indicator .
+
+aq:hasMember a owl:ObjectProperty ;
+    rdfs:domain aq:Habitat ;
+    rdfs:range aq:Organism .
+
+aq:hasName a owl:DatatypeProperty ;
     rdfs:range xsd:string .
 
-aqua:hasGeology a owl:ObjectProperty ;
-    rdfs:domain aqua:Aquifer ;
-    rdfs:range aqua:GeologicalFormation .
-
-aqua:hasHabitat a owl:ObjectProperty ;
-    rdfs:domain aqua:Microorganism ;
-    rdfs:range aqua:Habitat .
-
-aqua:hasHydrochemicalTrend a owl:DatatypeProperty ;
-    rdfs:domain aqua:Observation ;
+aq:hasNotes a owl:DatatypeProperty ;
     rdfs:range xsd:string .
 
-aqua:hasIndicator a owl:ObjectProperty ;
-    rdfs:domain aqua:GroundwaterQuality ;
-    rdfs:range aqua:MicrobialIndicator .
+aq:hasOxygenValue a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
 
-aqua:hasLabel a owl:DatatypeProperty ;
-    rdfs:domain aqua:Entity ;
+aq:hasRechargeProcess a owl:ObjectProperty ;
+    rdfs:domain aq:Aquifer ;
+    rdfs:range aq:RechargeProcess .
+
+aq:hasRelativeAbundance a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+aq:hasSamplingMethod a owl:ObjectProperty ;
+    rdfs:domain aq:Study ;
+    rdfs:range aq:SamplingMethod .
+
+aq:hasTemperatureValue a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+aq:hasTemporalChange a owl:ObjectProperty ;
+    rdfs:domain aq:Entity ;
+    rdfs:range aq:Process .
+
+aq:hasUnit a owl:DatatypeProperty ;
     rdfs:range xsd:string .
 
-aqua:hasLandUse a owl:ObjectProperty ;
-    rdfs:domain aqua:EnvironmentalEntity ;
-    rdfs:range aqua:LandUse .
-
-aqua:hasLatitude a owl:DatatypeProperty ;
-    rdfs:domain aqua:SpatialEntity ;
-    rdfs:range xsd:double .
-
-aqua:hasLithology a owl:ObjectProperty ;
-    rdfs:domain aqua:GeologicalFormation ;
-    rdfs:range aqua:Lithology .
-
-aqua:hasLongitude a owl:DatatypeProperty ;
-    rdfs:domain aqua:SpatialEntity ;
-    rdfs:range xsd:double .
-
-aqua:hasMeasuredEntity a owl:ObjectProperty ;
-    rdfs:domain aqua:Observation ;
-    rdfs:range aqua:Entity .
-
-aqua:hasMethodName a owl:DatatypeProperty ;
-    rdfs:domain aqua:SamplingMethod ;
-    rdfs:range xsd:string .
-
-aqua:hasMicrobialCommunity a owl:ObjectProperty ;
-    rdfs:domain aqua:Aquifer ;
-    rdfs:range aqua:MicrobialCommunity .
-
-aqua:hasMicrobialSpecies a owl:ObjectProperty ;
-    rdfs:domain aqua:MicrobialCommunity ;
-    rdfs:range aqua:MicrobialSpecies .
-
-aqua:hasName a owl:DatatypeProperty ;
-    rdfs:domain aqua:Entity ;
-    rdfs:range xsd:string .
-
-aqua:hasObservationValue a owl:DatatypeProperty ;
-    rdfs:domain aqua:Observation ;
-    rdfs:range xsd:string .
-
-aqua:hasOrganicMatter a owl:ObjectProperty ;
-    rdfs:domain aqua:EnvironmentalEntity ;
-    rdfs:range aqua:OrganicMatter .
-
-aqua:hasOxygenLevel a owl:DatatypeProperty ;
-    rdfs:domain aqua:HydrochemicalParameter ;
-    rdfs:range xsd:double .
-
-aqua:hasParameter a owl:ObjectProperty ;
-    rdfs:domain aqua:EnvironmentalEntity ;
-    rdfs:range aqua:HydrochemicalParameter .
-
-aqua:hasParameterName a owl:DatatypeProperty ;
-    rdfs:domain aqua:HydrochemicalParameter ;
-    rdfs:range xsd:string .
-
-aqua:hasPermeability a owl:DatatypeProperty ;
-    rdfs:domain aqua:Aquifer ;
-    rdfs:range xsd:double .
-
-aqua:hasPorosity a owl:DatatypeProperty ;
-    rdfs:domain aqua:Aquifer ;
-    rdfs:range xsd:double .
-
-aqua:hasPrecipitationAmount a owl:DatatypeProperty ;
-    rdfs:domain aqua:Precipitation ;
-    rdfs:range xsd:double .
-
-aqua:hasRechargeRateValue a owl:DatatypeProperty ;
-    rdfs:domain aqua:GroundwaterRechargeRate ;
-    rdfs:range xsd:double .
-
-aqua:hasRelativeAbundance a owl:DatatypeProperty ;
-    rdfs:domain aqua:MicrobialCommunity ;
-    rdfs:range xsd:double .
+aq:hasValue a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
 
-aqua:hasRiskLevel a owl:DatatypeProperty ;
-    rdfs:domain aqua:Aquifer ;
-    rdfs:range xsd:string .
+aq:haspHValue a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
 
-aqua:hasSampleID a owl:DatatypeProperty ;
-    rdfs:domain aqua:Observation ;
-    rdfs:range xsd:string .
+aq:influences a owl:ObjectProperty ;
+    rdfs:domain aq:Entity ;
+    rdfs:range aq:Entity .
 
-aqua:hasSamplingDepth a owl:DatatypeProperty ;
-    rdfs:domain aqua:SamplingMethod ;
-    rdfs:range xsd:double .
+aq:isMeasuredBy a owl:ObjectProperty ;
+    rdfs:domain aq:Entity ;
+    rdfs:range aq:SamplingMethod .
 
-aqua:hasSamplingMethod a owl:ObjectProperty ;
-    rdfs:domain aqua:Observation ;
-    rdfs:range aqua:SamplingMethod .
+aq:locatedIn a owl:ObjectProperty ;
+    rdfs:domain aq:Entity ;
+    rdfs:range aq:Habitat .
 
-aqua:hasSnowmeltAmount a owl:DatatypeProperty ;
-    rdfs:domain aqua:Snowmelt ;
-    rdfs:range xsd:double .
+aq:occursIn a owl:ObjectProperty ;
+    rdfs:domain aq:Organism ;
+    rdfs:range aq:Habitat .
 
-aqua:hasStartTime a owl:DatatypeProperty ;
-    rdfs:domain aqua:TemporalEntity ;
-    rdfs:range xsd:dateTime .
+aq:participatesIn a owl:ObjectProperty ;
+    rdfs:domain aq:Organism ;
+    rdfs:range aq:Process .
 
-aqua:hasSubstrate a owl:ObjectProperty ;
-    rdfs:domain aqua:MicrobialCommunity ;
-    rdfs:range aqua:Substrate .
+aq:produces a owl:ObjectProperty ;
+    rdfs:domain aq:Organism ;
+    rdfs:range aq:ChemicalEntity .
 
-aqua:hasTaxonName a owl:DatatypeProperty ;
-    rdfs:domain aqua:MicrobialSpecies ;
-    rdfs:range xsd:string .
+aq:utilizesSubstrate a owl:ObjectProperty ;
+    rdfs:domain aq:Microbe ;
+    rdfs:range aq:Substrate .
 
-aqua:hasTemperatureValue a owl:DatatypeProperty ;
-    rdfs:domain aqua:HydrochemicalParameter ;
-    rdfs:range xsd:double .
+ex:bacterium_1 a aq:Bacterium ;
+    aq:consumes ex:param_doc ;
+    aq:hasGuild ex:guild_denitrifier ;
+    aq:hasName "Bacterium A" ;
+    aq:occursIn ex:fractured_aquifer_1 ;
+    aq:participatesIn ex:process_denitrification ;
+    aq:utilizesSubstrate ex:substrate_organic_1 .
 
-aqua:hasTemporalPattern a owl:ObjectProperty ;
-    rdfs:domain aqua:Process ;
-    rdfs:range aqua:TemporalEntity .
+ex:fungus_1 a aq:AquaticFungus ;
+    aq:hasHabitat ex:karst_aquifer_1 ;
+    aq:hasName "Aquatic fungus A" ;
+    aq:occursIn ex:karst_aquifer_1 ;
+    aq:produces ex:peptide_1 .
 
-aqua:hasThroughfallAmount a owl:DatatypeProperty ;
-    rdfs:domain aqua:Throughfall ;
-    rdfs:range xsd:double .
+ex:guild_autotroph a aq:Chemolithoautotroph ;
+    aq:drivesProcess ex:process_carbon_fixation ;
+    aq:hasName "Chemolithoautotroph guild" .
 
-aqua:hasUnit a owl:DatatypeProperty ;
-    rdfs:domain aqua:Quality ;
-    rdfs:range xsd:string .
+ex:param_temperature a aq:Temperature ;
+    aq:hasUnit "degC" ;
+    aq:hasValue 11.0 .
 
-aqua:hasValue a owl:DatatypeProperty ;
-    rdfs:domain aqua:Quality ;
-    rdfs:range xsd:double .
+ex:pedo_setting_1 a aq:PedologicalSetting ;
+    aq:hasName "Agricultural pedological setting" .
 
-aqua:hasVelocityValue a owl:DatatypeProperty ;
-    rdfs:domain aqua:GroundwaterVelocity ;
-    rdfs:range xsd:double .
+ex:snowmelt_event_1 a aq:SnowmeltEvent ;
+    aq:hasName "Snowmelt event" .
 
-aqua:hasVulnerabilityLevel a owl:DatatypeProperty ;
-    rdfs:domain aqua:Aquifer ;
-    rdfs:range xsd:string .
+aq:AquaticColloid a owl:Class ;
+    rdfs:subClassOf aq:Colloid .
 
-aqua:hasWaterInput a owl:ObjectProperty ;
-    rdfs:domain aqua:Aquifer ;
-    rdfs:range aqua:Water .
+aq:Bacterium a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:haspH a owl:DatatypeProperty ;
-    rdfs:domain aqua:HydrochemicalParameter ;
-    rdfs:range xsd:double .
+aq:CarbonateDissolution a owl:Class ;
+    rdfs:subClassOf aq:GeochemicalProcess .
 
-aqua:influences a owl:ObjectProperty ;
-    rdfs:domain aqua:EnvironmentalEntity ;
-    rdfs:range aqua:EnvironmentalEntity .
+aq:ContaminationSource a owl:Class ;
+    rdfs:subClassOf aq:Entity .
 
-aqua:interactsWith a owl:ObjectProperty ;
-    rdfs:domain aqua:Entity ;
-    rdfs:range aqua:Entity .
+aq:Denitrifier a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:locatedIn a owl:ObjectProperty ;
-    rdfs:domain aqua:Entity ;
-    rdfs:range aqua:SpatialEntity .
+aq:DissolvedOrganicCarbon a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:occursIn a owl:ObjectProperty ;
-    rdfs:domain aqua:Entity ;
-    rdfs:range aqua:EnvironmentalEntity .
+aq:Eukaryote a owl:Class ;
+    rdfs:subClassOf aq:Organism .
 
-aqua:pHParam1 a aqua:pH ;
-    aqua:hasParameterName "pH" ;
-    aqua:haspH 7.1 .
+aq:Fracture a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:participatesIn a owl:ObjectProperty ;
-    rdfs:domain aqua:Agent ;
-    rdfs:range aqua:Process .
+aq:FracturedRockAquifer a owl:Class ;
+    rdfs:subClassOf aq:Aquifer .
 
-aqua:transports a owl:ObjectProperty ;
-    rdfs:domain aqua:Process ;
-    rdfs:range aqua:Entity .
+aq:Fungus a owl:Class ;
+    rdfs:subClassOf aq:Organism .
 
-aqua:AquaticFungus a owl:Class ;
-    rdfs:subClassOf aqua:Fungus .
+aq:Lithology a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:Bacterium a owl:Class ;
-    rdfs:subClassOf aqua:MicrobialSpecies .
+aq:LivingEntity a owl:Class ;
+    rdfs:subClassOf aq:NaturalEntity .
 
-aqua:CO2FixationPathway a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:Metagenomics a owl:Class ;
+    rdfs:subClassOf aq:SequencingMethod .
 
-aqua:Chemolithoautotroph a owl:Class ;
-    rdfs:subClassOf aqua:Autotroph .
+aq:MicrobialCommunityMember a owl:Class ;
+    rdfs:subClassOf aq:Organism .
 
-aqua:Eukaryote a owl:Class ;
-    rdfs:subClassOf aqua:Microorganism .
+aq:MicrobialProcess a owl:Class ;
+    rdfs:subClassOf aq:BiogeochemicalProcess .
 
-aqua:FracturedRockAquifer a owl:Class ;
-    rdfs:subClassOf aqua:Aquifer .
+aq:MicrobialTransport a owl:Class ;
+    rdfs:subClassOf aq:ContaminantTransport .
 
-aqua:Fungus a owl:Class ;
-    rdfs:subClassOf aqua:Microorganism .
+aq:MineralSubstrate a owl:Class ;
+    rdfs:subClassOf aq:Substrate .
 
-aqua:GeologicalProcess a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:MolecularMethod a owl:Class ;
+    rdfs:subClassOf aq:SamplingMethod .
 
-aqua:GroundwaterFlow a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:OrganicSubstrate a owl:Class ;
+    rdfs:subClassOf aq:Substrate .
 
-aqua:GroundwaterQuality a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:OxygenContent a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:GroundwaterRechargeRate a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:PedologicalSetting a owl:Class ;
+    rdfs:subClassOf aq:GeologicalSetting .
 
-aqua:GroundwaterVelocity a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:Peptide a owl:Class ;
+    rdfs:subClassOf aq:ChemicalEntity .
 
-aqua:Heterotroph a owl:Class ;
-    rdfs:subClassOf aqua:FunctionalGuild .
+aq:PrecipitationEvent a owl:Class ;
+    rdfs:subClassOf aq:HydrologicalProcess .
 
-aqua:Lithology a owl:Class ;
-    rdfs:subClassOf aqua:EnvironmentalEntity .
+aq:SnowmeltEvent a owl:Class ;
+    rdfs:subClassOf aq:ClimateParameter .
 
-aqua:MicrobialCommunity1 a aqua:MicrobialCommunity ;
-    aqua:hasCommunityType "subsurface groundwater community" ;
-    aqua:hasDiversityIndex 3.2 .
+aq:Study a owl:Class ;
+    rdfs:subClassOf aq:Entity .
 
-aqua:MicrobialIndicator a owl:Class ;
-    rdfs:subClassOf aqua:Observation .
+aq:Temperature a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:ObservationMethod a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:TransportProcess a owl:Class ;
+    rdfs:subClassOf aq:Process .
 
-aqua:OxicSampleMethod a aqua:SamplingMethod ;
-    aqua:hasMethodName "oxic groundwater sampling" ;
-    aqua:hasSamplingDepth 12.5 .
+aq:WaterSampling a owl:Class ;
+    rdfs:subClassOf aq:SamplingMethod .
 
-aqua:OxygenContent a owl:Class ;
-    rdfs:subClassOf aqua:PhysicochemicalParameter .
+aq:hasGeology a owl:ObjectProperty ;
+    rdfs:domain aq:Habitat ;
+    rdfs:range aq:GeologicalSetting .
 
-aqua:Soil a owl:Class ;
-    rdfs:subClassOf aqua:EnvironmentalEntity .
+aq:hasParameter a owl:ObjectProperty ;
+    rdfs:domain aq:Habitat ;
+    rdfs:range aq:WaterQualityParameter .
 
-aqua:TriassicLimestoneAquifer a owl:Class ;
-    rdfs:subClassOf aqua:KarstAquifer .
+aq:pH a owl:Class ;
+    rdfs:subClassOf aq:HydrochemicalParameter .
 
-aqua:Vegetation a owl:Class ;
-    rdfs:subClassOf aqua:EnvironmentalEntity .
+ex:aquatic_colloid_1 a aq:AquaticColloid ;
+    aq:hasName "Aquatic colloid 1" .
 
-aqua:pH a owl:Class ;
-    rdfs:subClassOf aqua:PhysicochemicalParameter .
+ex:fracture_zone a aq:Fracture ;
+    aq:hasName "Fracture zone" .
 
-aqua:Autotroph a owl:Class ;
-    rdfs:subClassOf aqua:FunctionalGuild .
+ex:fractured_aquifer_1 a aq:FracturedRockAquifer ;
+    aq:hasColloid ex:aquatic_colloid_1 ;
+    aq:hasContaminantTransportPathway ex:transport_microbial ;
+    aq:hasGeologicalSetting ex:fracture_zone ;
+    aq:hasHydrochemicalParameter ex:param_oxygen,
+        ex:param_ph ;
+    aq:hasName "Fractured rock aquifer 1" ;
+    aq:hasSamplingMethod ex:method_water_sampling .
 
-aqua:CarbonateRock a owl:Class ;
-    rdfs:subClassOf aqua:Mineral .
+ex:guild_denitrifier a aq:Denitrifier ;
+    aq:drivesProcess ex:process_denitrification ;
+    aq:hasName "Denitrifier guild" .
 
-aqua:Colloid a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+ex:method_metagenomics a aq:Metagenomics ;
+    aq:hasName "Metagenomics" .
 
-aqua:DOC a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+ex:method_water_sampling a aq:WaterSampling ;
+    aq:hasName "Water sampling" .
 
-aqua:FunctionalGuild a owl:Class ;
-    rdfs:subClassOf aqua:MicrobialGuild .
+ex:peptide_1 a aq:Peptide ;
+    aq:hasName "Subsurface peptide marker" .
 
-aqua:GeologicalFormation a owl:Class ;
-    rdfs:subClassOf aqua:EnvironmentalEntity,
-        aqua:SpatialEntity .
+ex:precipitation_event_1 a aq:PrecipitationEvent ;
+    aq:hasName "Rain event" .
 
-aqua:KarstAquifer a owl:Class ;
-    rdfs:subClassOf aqua:Aquifer .
+ex:recharge_1 a aq:RechargeProcess ;
+    aq:hasName "Recharge pulse" .
 
-aqua:Limestone a owl:Class ;
-    rdfs:subClassOf aqua:CarbonateRock .
+ex:substrate_organic_1 a aq:OrganicSubstrate ;
+    aq:hasName "Organic substrate 1" .
 
-aqua:Mineral a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+ex:transport_microbial a aq:MicrobialTransport ;
+    aq:hasName "Microbial transport pathway" .
 
-aqua:MineralDissolution a owl:Class ;
-    rdfs:subClassOf aqua:GeochemicalProcess .
+ex:triassic_limestone a aq:Lithology ;
+    aq:hasName "Triassic limestone" .
 
-aqua:OrganicMatter a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+aq:AquaticFungus a owl:Class ;
+    rdfs:subClassOf aq:Fungus .
 
-aqua:Precipitation a owl:Class ;
-    rdfs:subClassOf aqua:Water .
+aq:Autotroph a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:Snowmelt a owl:Class ;
-    rdfs:subClassOf aqua:Water .
+aq:ContaminantTransport a owl:Class ;
+    rdfs:subClassOf aq:Process .
 
-aqua:Throughfall a owl:Class ;
-    rdfs:subClassOf aqua:Water .
+aq:EnvironmentalIndicator a owl:Class ;
+    rdfs:subClassOf aq:Indicator .
 
-aqua:BiogeochemicalCycle a owl:Class ;
-    rdfs:subClassOf aqua:GeochemicalProcess .
+aq:OrganicMatter a owl:Class ;
+    rdfs:subClassOf aq:ChemicalEntity .
 
-aqua:ChemicalSignal a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+aq:RechargeProcess a owl:Class ;
+    rdfs:subClassOf aq:HydrologicalProcess .
 
-aqua:LandUse a owl:Class ;
-    rdfs:subClassOf aqua:EnvironmentalEntity .
+aq:SequencingMethod a owl:Class ;
+    rdfs:subClassOf aq:MolecularMethod .
 
-aqua:MicrobialGuild a owl:Class ;
-    rdfs:subClassOf aqua:MicrobialCommunity .
+aq:Soil a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
 
-aqua:Substrate a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+ex:karst_aquifer_1 a aq:KarstAquifer ;
+    aq:hasBiogeochemicalProcess ex:process_carbon_fixation,
+        ex:process_denitrification ;
+    aq:hasClimateDriver ex:precipitation_event_1 ;
+    aq:hasGeologicalSetting ex:triassic_limestone ;
+    aq:hasHydrochemicalParameter ex:param_doc,
+        ex:param_oxygen,
+        ex:param_ph ;
+    aq:hasName "Karst aquifer 1" ;
+    aq:hasRechargeProcess ex:recharge_1 ;
+    aq:hasSamplingMethod ex:method_metagenomics .
 
-aqua:TemporalEntity a owl:Class ;
-    rdfs:subClassOf aqua:Entity .
+ex:param_doc a aq:DissolvedOrganicCarbon ;
+    aq:hasUnit "mg/L" ;
+    aq:hasValue 2.3 .
 
-aqua:Agent a owl:Class ;
-    rdfs:subClassOf aqua:Entity .
+ex:param_oxygen a aq:OxygenContent ;
+    aq:hasUnit "mg/L" ;
+    aq:hasValue 1.5 .
 
-aqua:Contaminant a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+ex:param_ph a aq:pH ;
+    aq:hasUnit "pH" ;
+    aq:hasValue 7.2 .
 
-aqua:MicrobialSpecies a owl:Class ;
-    rdfs:subClassOf aqua:Agent,
-        aqua:Microorganism .
+aq:CO2FixationPathway a owl:Class ;
+    rdfs:subClassOf aq:Process .
 
-aqua:SamplingMethod a owl:Class ;
-    rdfs:subClassOf aqua:ObservationMethod,
-        aqua:Process .
+aq:ChemicalSignal a owl:Class ;
+    rdfs:subClassOf aq:ChemicalEntity .
 
-aqua:Microorganism a owl:Class ;
-    rdfs:subClassOf aqua:Agent .
+aq:Chemolithoautotroph a owl:Class ;
+    rdfs:subClassOf aq:Autotroph .
 
-aqua:PhysicochemicalParameter a owl:Class ;
-    rdfs:subClassOf aqua:HydrochemicalParameter .
+aq:Colloid a owl:Class ;
+    rdfs:subClassOf aq:ChemicalEntity .
 
-aqua:GeochemicalProcess a owl:Class ;
-    rdfs:subClassOf aqua:Process .
+aq:FunctionalGuild a owl:Class ;
+    rdfs:subClassOf aq:MicrobialCommunityMember .
 
-aqua:HydrochemicalParameter a owl:Class ;
-    rdfs:subClassOf aqua:Quality .
+aq:Heterotroph a owl:Class ;
+    rdfs:subClassOf aq:Microbe .
 
-aqua:Habitat a owl:Class ;
-    rdfs:subClassOf aqua:EnvironmentalEntity .
+aq:Indicator a owl:Class ;
+    rdfs:subClassOf aq:Entity .
 
-aqua:MicrobialCommunity a owl:Class ;
-    rdfs:subClassOf aqua:Agent .
+aq:NaturalEntity a owl:Class ;
+    rdfs:subClassOf aq:Entity .
 
-aqua:Observation a owl:Class ;
-    rdfs:subClassOf aqua:Entity .
+aq:NonLivingEntity a owl:Class ;
+    rdfs:subClassOf aq:NaturalEntity .
 
-aqua:SpatialEntity a owl:Class ;
-    rdfs:subClassOf aqua:Entity .
+aq:Substrate a owl:Class ;
+    rdfs:subClassOf aq:ChemicalEntity .
 
-aqua:Water a owl:Class ;
-    rdfs:subClassOf aqua:MaterialEntity .
+aq:WaterQualityParameter a owl:Class ;
+    rdfs:subClassOf aq:ChemicalEntity .
 
-aqua:MaterialEntity a owl:Class ;
-    rdfs:subClassOf aqua:Entity .
+aq:GeochemicalProcess a owl:Class ;
+    rdfs:subClassOf aq:Process .
 
-aqua:Quality a owl:Class ;
-    rdfs:subClassOf aqua:Entity .
+aq:KarstAquifer a owl:Class ;
+    rdfs:subClassOf aq:Aquifer .
 
-aqua:Process a owl:Class ;
-    rdfs:subClassOf aqua:Entity .
+aq:ClimateParameter a owl:Class ;
+    rdfs:subClassOf aq:NonLivingEntity .
 
-aqua:Aquifer a owl:Class ;
-    rdfs:subClassOf aqua:EnvironmentalEntity .
+aq:HydrologicalProcess a owl:Class ;
+    rdfs:subClassOf aq:Process .
 
-aqua:Entity a owl:Class .
+aq:ChemicalEntity a owl:Class ;
+    rdfs:subClassOf aq:NonLivingEntity .
 
-aqua:EnvironmentalEntity a owl:Class ;
-    rdfs:subClassOf aqua:Entity .
+aq:SamplingMethod a owl:Class ;
+    rdfs:subClassOf aq:Entity .
+
+aq:BiogeochemicalProcess a owl:Class ;
+    rdfs:subClassOf aq:Process .
+
+aq:HydrochemicalParameter a owl:Class ;
+    rdfs:subClassOf aq:WaterQualityParameter .
+
+aq:GeologicalSetting a owl:Class ;
+    rdfs:subClassOf aq:NonLivingEntity .
+
+aq:Organism a owl:Class ;
+    rdfs:subClassOf aq:LivingEntity .
+
+aq:Process a owl:Class ;
+    rdfs:subClassOf aq:Entity .
+
+aq:Entity a owl:Class .
+
+aq:Aquifer a owl:Class ;
+    rdfs:subClassOf aq:Habitat .
+
+aq:Microbe a owl:Class ;
+    rdfs:subClassOf aq:Organism .
+
+aq:Habitat a owl:Class ;
+    rdfs:subClassOf aq:NaturalEntity .
 

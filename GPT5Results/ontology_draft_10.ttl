@@ -1,40 +1,44 @@
-# New triples added to declare functional object properties across the ontology.
-# These are intended to constrain relevant object properties to a single value.
-# Output contains only the added axioms in valid Turtle syntax.
-
+# New functional property triples for the ontology.
+# These add owl:FunctionalProperty declarations for object properties that were missing them.
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix : <http://example.org/ontology#> .
 
-:hasAuthor a owl:ObjectProperty, owl:FunctionalProperty .
-:hasBirthPlace a owl:ObjectProperty, owl:FunctionalProperty .
-:hasBirthDate a owl:ObjectProperty, owl:FunctionalProperty .
-:hasDeathDate a owl:ObjectProperty, owl:FunctionalProperty .
-:hasGender a owl:ObjectProperty, owl:FunctionalProperty .
-:hasNationality a owl:ObjectProperty, owl:FunctionalProperty .
-:hasLanguage a owl:ObjectProperty, owl:FunctionalProperty .
-:hasLocation a owl:ObjectProperty, owl:FunctionalProperty .
-:hasCountry a owl:ObjectProperty, owl:FunctionalProperty .
-:hasCity a owl:ObjectProperty, owl:FunctionalProperty .
-:hasRegion a owl:ObjectProperty, owl:FunctionalProperty .
-:hasAddress a owl:ObjectProperty, owl:FunctionalProperty .
-:hasEmail a owl:ObjectProperty, owl:FunctionalProperty .
-:hasPhoneNumber a owl:ObjectProperty, owl:FunctionalProperty .
-:hasWebsite a owl:ObjectProperty, owl:FunctionalProperty .
-:hasManager a owl:ObjectProperty, owl:FunctionalProperty .
-:hasSupervisor a owl:ObjectProperty, owl:FunctionalProperty .
-:hasOwner a owl:ObjectProperty, owl:FunctionalProperty .
-:hasPresident a owl:ObjectProperty, owl:FunctionalProperty .
-:hasChairperson a owl:ObjectProperty, owl:FunctionalProperty .
-:hasHeadquarters a owl:ObjectProperty, owl:FunctionalProperty .
-:hasCapital a owl:ObjectProperty, owl:FunctionalProperty .
-:hasCurrency a owl:ObjectProperty, owl:FunctionalProperty .
-:hasIdentifier a owl:ObjectProperty, owl:FunctionalProperty .
-:hasCode a owl:ObjectProperty, owl:FunctionalProperty .
-:hasStatus a owl:ObjectProperty, owl:FunctionalProperty .
-:hasType a owl:ObjectProperty, owl:FunctionalProperty .
-:hasCategory a owl:ObjectProperty, owl:FunctionalProperty .
-:hasStartDate a owl:ObjectProperty, owl:FunctionalProperty .
-:hasEndDate a owl:ObjectProperty, owl:FunctionalProperty .
-:hasMember a owl:ObjectProperty, owl:FunctionalProperty .
-:hasPart a owl:ObjectProperty, owl:FunctionalProperty .
-:hasParent a owl:ObjectProperty, owl:FunctionalProperty .
+<http://example.org/ontology/hasAddress> a owl:FunctionalProperty .
+<http://example.org/ontology/hasAuthor> a owl:FunctionalProperty .
+<http://example.org/ontology/hasBirthPlace> a owl:FunctionalProperty .
+<http://example.org/ontology/hasBudget> a owl:FunctionalProperty .
+<http://example.org/ontology/hasCategory> a owl:FunctionalProperty .
+<http://example.org/ontology/hasCity> a owl:FunctionalProperty .
+<http://example.org/ontology/hasCountry> a owl:FunctionalProperty .
+<http://example.org/ontology/hasCurrency> a owl:FunctionalProperty .
+<http://example.org/ontology/hasDate> a owl:FunctionalProperty .
+<http://example.org/ontology/hasDepartment> a owl:FunctionalProperty .
+<http://example.org/ontology/hasDescription> a owl:FunctionalProperty .
+<http://example.org/ontology/hasEmail> a owl:FunctionalProperty .
+<http://example.org/ontology/hasEndDate> a owl:FunctionalProperty .
+<http://example.org/ontology/hasEventDate> a owl:FunctionalProperty .
+<http://example.org/ontology/hasFacility> a owl:FunctionalProperty .
+<http://example.org/ontology/hasFirstName> a owl:FunctionalProperty .
+<http://example.org/ontology/hasGender> a owl:FunctionalProperty .
+<http://example.org/ontology/hasIdentifier> a owl:FunctionalProperty .
+<http://example.org/ontology/hasIssueDate> a owl:FunctionalProperty .
+<http://example.org/ontology/hasLastName> a owl:FunctionalProperty .
+<http://example.org/ontology/hasLatitude> a owl:FunctionalProperty .
+<http://example.org/ontology/hasLocation> a owl:FunctionalProperty .
+<http://example.org/ontology/hasLongitude> a owl:FunctionalProperty .
+<http://example.org/ontology/hasName> a owl:FunctionalProperty .
+<http://example.org/ontology/hasNumber> a owl:FunctionalProperty .
+<http://example.org/ontology/hasParent> a owl:FunctionalProperty .
+<http://example.org/ontology/hasPhone> a owl:FunctionalProperty .
+<http://example.org/ontology/hasPostalCode> a owl:FunctionalProperty .
+<http://example.org/ontology/hasPriority> a owl:FunctionalProperty .
+<http://example.org/ontology/hasRegion> a owl:FunctionalProperty .
+<http://example.org/ontology/hasStartDate> a owl:FunctionalProperty .
+<http://example.org/ontology/hasStatus> a owl:FunctionalProperty .
+<http://example.org/ontology/hasStreet> a owl:FunctionalProperty .
+<http://example.org/ontology/hasType> a owl:FunctionalProperty .
+<http://example.org/ontology/hasURL> a owl:FunctionalProperty .
+<http://example.org/ontology/isActive> a owl:FunctionalProperty .
+<http://example.org/ontology/isMemberOf> a owl:FunctionalProperty .
+<http://example.org/ontology/isPartOf> a owl:FunctionalProperty .
+<http://example.org/ontology/locatedIn> a owl:FunctionalProperty .
+<http://example.org/ontology/relatedTo> a owl:FunctionalProperty .

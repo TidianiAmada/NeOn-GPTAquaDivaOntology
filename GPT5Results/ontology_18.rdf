@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="http://example.org/ontology_17">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  <rdf:Description rdf:nodeID="n0361971c4432422d9c3372eb2eac84a1b1">
+    <rdf:first rdf:resource="http://example.org/ontology#CompositeUnit"/>
+    <rdf:rest rdf:nodeID="n0361971c4432422d9c3372eb2eac84a1b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#DerivedUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Derived Unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0361971c4432422d9c3372eb2eac84a1b2">
+    <rdf:first rdf:resource="http://example.org/ontology#DerivedUnit"/>
+    <rdf:rest rdf:nodeID="n0361971c4432422d9c3372eb2eac84a1b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0361971c4432422d9c3372eb2eac84a1b3">
+    <rdf:first rdf:resource="http://example.org/ontology#PrefixedUnit"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#UnitUnionClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n0361971c4432422d9c3372eb2eac84a1b1"/>
+    <rdfs:label>Composite, Derived, or Prefixed Unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#Unit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#CompositeUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Composite Unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ontology#PrefixedUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Prefixed Unit</rdfs:label>
   </rdf:Description>
 </rdf:RDF>

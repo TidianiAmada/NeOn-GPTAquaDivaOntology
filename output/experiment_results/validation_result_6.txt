@@ -1,6 +1,16 @@
+✔ Turtle syntax is correct.
+✔ Saved Turtle:   /app/GPT5Results/ontology_7.ttl
+✔ Saved RDF/XML:  /app/GPT5Results/ontology_7.rdf
 
---- STDERR ---
-Traceback (most recent call last):
-  File "D:\MSDA S3\KG LLMs\NeOn-GPTAquaDivaOntology\code\ontology_validation_syntax_consistency_pitfall_no_pellet_no_hermit.py", line 7, in <module>
-    from pyshacl import validate
-ModuleNotFoundError: No module named 'pyshacl'
+--- SHACL Validation ---
+Validation Report
+Conforms: True
+
+✔ SHACL validation passed.
+
+--- Custom Pitfall Detection ---
+Total pitfalls: 0
+
+--- OOPS! Pitfall Scanner ---
+  Using Docker instance: https://oops.linkeddata.es/rest
+  ❌ OOPS request to https://oops.linkeddata.es/rest failed: 500 Server Error:  for url: https://oops.linkeddata.es/rest

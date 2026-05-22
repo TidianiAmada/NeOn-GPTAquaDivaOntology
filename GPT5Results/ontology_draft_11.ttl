@@ -1,17 +1,20 @@
-# Transitive object properties added for the ontology.
-# New transitive property axioms only; intended to be merged with the existing ontology.
-# All listed properties are declared as owl:TransitiveProperty where appropriate.
+# New transitive object property declarations added for the ontology.
+# These triples are intended to be merged with the existing ontology.
+# Only new triples are included, in valid Turtle syntax.
 
-@prefix : <http://example.org/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <http://example.org/ontology#> .
 
-:hasAncestor a owl:TransitiveProperty .
-:isPartOf a owl:TransitiveProperty .
-:contains a owl:TransitiveProperty .
-:hasSubEvent a owl:TransitiveProperty .
-:hasSubProcess a owl:TransitiveProperty .
-:hasBroaderTerm a owl:TransitiveProperty .
-:hasMember a owl:TransitiveProperty .
-:hasComponent a owl:TransitiveProperty .
-:hasParent a owl:TransitiveProperty .
-:hasPredecessor a owl:TransitiveProperty .
+:hasAncestor a owl:ObjectProperty, owl:TransitiveProperty .
+:isAncestorOf a owl:ObjectProperty, owl:TransitiveProperty .
+:partOf a owl:ObjectProperty, owl:TransitiveProperty .
+:containsPart a owl:ObjectProperty, owl:TransitiveProperty .
+:subClassOfRelation a owl:ObjectProperty, owl:TransitiveProperty .
+:broaderThan a owl:ObjectProperty, owl:TransitiveProperty .
+:narrowerThan a owl:ObjectProperty, owl:TransitiveProperty .
+:locatedIn a owl:ObjectProperty, owl:TransitiveProperty .
+:hasLocation a owl:ObjectProperty, owl:TransitiveProperty .
+:hasMember a owl:ObjectProperty, owl:TransitiveProperty .
+:isMemberOf a owl:ObjectProperty, owl:TransitiveProperty .
+:causes a owl:ObjectProperty, owl:TransitiveProperty .
+:isCausedBy a owl:ObjectProperty, owl:TransitiveProperty .
